@@ -47,5 +47,7 @@ class BuildCommand extends Command
             file_put_contents($output, $content);
         }
 
+        shell_exec("cp -r './assets' './dist'");
+
     }
 }
