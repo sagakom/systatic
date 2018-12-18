@@ -47,6 +47,7 @@ class BuildCommand extends Command
             file_put_contents($output, $content);
         }
 
+        // Copy assets to dist directory
         shell_exec("cp -r './assets' './dist'");
 
     }
