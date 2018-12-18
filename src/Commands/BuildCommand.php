@@ -43,7 +43,7 @@ class BuildCommand extends Command
             $content = $parsedown->text($markdownContent);
 
             // Output the HTML content into files
-            $output = './dist/' . 'index' . '.html';
+            $output = './dist/' . $slug . '.html';
             file_put_contents($output, $content);
         }
 
