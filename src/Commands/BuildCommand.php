@@ -24,6 +24,10 @@ class BuildCommand extends Command
         // Message
         $output->writeln('Building site...');
 
+        // Get the layout
+        $layout = './template/layout.html';
+        $layoutContent = file_get_contents($layout);
+
         // Generate html files from markdown content
         $parsedown = new Parsedown();
 
@@ -31,7 +35,7 @@ class BuildCommand extends Command
         $files = glob('./content/*.md', GLOB_BRACE);
 
         // Loop through all of the markdown files
-        foreach($files as $file) { 
+        foreach($files as $file) {
 
             // Generate a slug
             $slug = basename($file, '.md');
@@ -40,7 +44,10 @@ class BuildCommand extends Command
             $markdownContent = file_get_contents($file);
 
             // Parse the markdown content into HTML
-            $content = $parsedown->text($markdownContent);
+            $html = $parsedown->text($markdownContent);
+
+            // Templating
+            $content = str_replace('{{ content }}', $html, $layoutContent);
 
             // Output the HTML content into files
             $output = './dist/' . $slug . '.html';
