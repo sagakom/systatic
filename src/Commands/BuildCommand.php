@@ -24,14 +24,28 @@ class BuildCommand extends Command
         // Message
         $output->writeln('Building site...');
 
-        // Convert markdown into html
+        // Generate html files from markdown content
         $parsedown = new Parsedown();
 
-        $file = file_get_contents('./content/markdown-sample.md');
+        // Get all files in the content directory with a markdown extention
+        $files = glob('./content/*.md', GLOB_BRACE);
 
-        $html = $parsedown->text($file);
+        // Loop through all of the markdown files
+        foreach($files as $file) { 
 
-        file_put_contents('./dist/index.html', $html);
+            // Generate a slug
+            $slug = basename($file, '.md');
+
+            // Get contents of content file
+            $markdownContent = file_get_contents($file);
+
+            // Parse the markdown content into HTML
+            $content = $parsedown->text($markdownContent);
+
+            // Output the HTML content into files
+            $output = './dist/' . 'index' . '.html';
+            file_put_contents($output, $content);
+        }
 
     }
 }
