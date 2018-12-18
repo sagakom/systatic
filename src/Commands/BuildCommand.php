@@ -31,7 +31,7 @@ class BuildCommand extends Command
 
         $html = $parsedown->text($file);
 
-        file_put_contents('./dist/index.php', $html);
+        file_put_contents('./dist/index.html', $html);
 
     }
 }
