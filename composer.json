@@ -1,0 +1,21 @@
+{
+    "name": "damcclean/thunderbird",
+    "description": "Static site generator",
+    "authors": [
+        {
+            "name": "Duncan McClean",
+            "email": "duncan@mcclean.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Thunderbird\\": "src"
+        }
+    },
+    "require": {
+        "php": "^7.2",
+        "symfony/console": "^4.2",
+        "erusev/parsedown": "^1.7",
+        "symfony/web-server-bundle": "^4.2"
+    }
+}

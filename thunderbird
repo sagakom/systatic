@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+
+<?php
+
+// Load composer dependencies
+require __DIR__ . '/vendor/autoload.php';
+
+// Use stuff
+use Symfony\Component\Console\Application;
+use Thunderbird\Commands\HelloWorldCommand;
+use Thunderbird\Commands\BuildCommand;
+
+// Register synforny application
+$application = new Application('Thunderbird');
+
+// Load commands
+$application->add(new HelloWorldCommand());
+$application->add(new BuildCommand());
+
+// Run the application
+$application->run();
