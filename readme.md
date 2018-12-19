@@ -10,7 +10,8 @@ Thunderbird is a fast and lightweight Static Site Generator (SSG) built in PHP.
 2. Next, clone thunderbird from Git `git clone https://github.com/damccclean/Thunderbird.git your-site`
 3. Change into your site directory `cd your-site`
 4. Install composer dependencies `composer install`
-5. Build the site `php thunderbird build`
+5. Copy `sample.env` to `.env`. Change any settings which you need to change
+6. Build the site `php thunderbird build`
 
 *Currently, you'll need to use your own web server, like Laravel Valet in order to see your site.*
 
@@ -31,13 +32,24 @@ If you find something in Thunderbird you want to change, feel free to fork the p
 
 If you find a bug within Thunderbird or something that's not best practice, feel free to create an issue. We'll hopefully get round to adding it.
 
+## Enviroment Variables
+
+We allow you to set enviroment variables on your site. This helps you set settings which change enviroment to enviroment. At the moment, these files also act as your settings file.
+
+At installation, you will be required to copy the `sample.env` file to `.env`. Then you can change your site settings. Thunderbird currently has the below enviroment variables.
+
+* `SITE_NAME` => your chosen site name
+* `SITE_URL` => your chosen site url, we recommend just using `/`.
+* `OUTPUT_DIR` => The directory where you wish for your build site files to go, we recommend the `dist` directory. (If you change this from `dist`, you'll need to change your publish directory - step 5)
+* `CONTENT_DIR` => The directory where your content lives. Basically, your markdown files. We recommend using the `content` directory.
+
 ## Commands
 
 ### Build
 
 In order to build your site, you need to run `php thunderbird build`. The command usually takes a few seconds on a small site.
 
-Your site will be built to the `dist` directory.
+By default, your site will be built to the `dist` directory. You can change this in your enviroment variables.
 
 ## Deploying
 
@@ -55,7 +67,12 @@ However, if you've deleted that file, here are the settings you'll want to confi
 4. Set your build command as `composer install | php thunderbird build`
 5. Set your publish directory as `dist`
 6. Once you've done that, you'll want to go Build and Deployment settings.
-7. Now, setup an enviroment variable, `PHP_VERSION` => `7.2`.
+7. Now, setup enviroment variables, for Thunderbird to work you'll need the following: `PHP_VERSION` => `7.2`.
+    * `PHP_VERSION` => `7.2`
+    * `SITE_NAME` => your chosen site name
+    * `SITE_URL` => your chosen site url, we recommend just using `/`.
+    * `OUTPUT_DIR` => The directory where you wish for your build site files to go, we recommend the `dist` directory. (If you change this from `dist`, you'll need to change your publish directory - step 5)
+    * `CONTENT_DIR` => The directory where your content lives. Basically, your markdown files. We recommend using the `content` directory.
 8. Deploy your site again, and you should be good!
 
 **Even if you're using our provided `netlify.toml` file, you may still need to follow Steps 7 and 8 to set the version of PHP used by Netlify.**
