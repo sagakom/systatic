@@ -5,6 +5,7 @@ namespace Thunderbird\Commands;
 use Symfony\Component\Console\Command\Command as Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Dotenv\Dotenv;
 use Parsedown;
 
 class BuildCommand extends Command
@@ -31,8 +32,18 @@ class BuildCommand extends Command
         // Generate html files from markdown content
         $parsedown = new Parsedown();
 
+        // Load stuff for enviroment variables
+        $dotenv = new Dotenv();
+        $dotenv->load('./.env');
+
+        // Env variables
+        $site_name = getenv('SITE_NAME');
+        $site_url = getenv('SITE_URL');
+        $outputDir = getenv('OUTPUT_DIR');
+        $contentDir = getenv('CONTENT_DIR');
+
         // Get all files in the content directory with a markdown extention
-        $files = glob('./content/*.md', GLOB_BRACE);
+        $files = glob($contentDir . '/*.md', GLOB_BRACE);
 
         // Loop through all of the markdown files
         foreach($files as $file) {
@@ -50,7 +61,7 @@ class BuildCommand extends Command
             $content = str_replace('{{ content }}', $html, $layoutContent);
 
             // Output the HTML content into files
-            $output = './dist/' . $slug . '.html';
+            $output = $outputDir . '/' . $slug . '.html';
             file_put_contents($output, $content);
         }
 
