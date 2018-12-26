@@ -27,7 +27,7 @@ class BuildCommand extends Command
 
         // Get the layout
         $layout = './template/layout.html';
-        $layoutContent = file_get_contents($layout);
+        $layout = file_get_contents($layout);
 
         // Generate html files from markdown content
         $parsedown = new Parsedown();
@@ -52,17 +52,28 @@ class BuildCommand extends Command
             $slug = basename($file, '.md');
 
             // Get contents of content file
-            $markdownContent = file_get_contents($file);
+            $content = file_get_contents($file);
 
             // Parse the markdown content into HTML
-            $html = $parsedown->text($markdownContent);
+            $content = $parsedown->text($content);
 
             // Templating
-            $content = str_replace('{{ content }}', $html, $layoutContent);
+
+                // Setup page from layout
+                $page = $layout;
+
+                // Page content
+                $page = str_replace('{{ content }}', $content, $page);
+
+                // Site name
+                $page = str_replace('{{ site_name }}', $site_name, $page);
+
+                // Site url
+                $page = str_replace('{{ site_url }}', $site_url, $page);
 
             // Output the HTML content into files
             $output = $outputDir . '/' . $slug . '.html';
-            file_put_contents($output, $content);
+            file_put_contents($output, $page);
         }
 
         // Copy assets to dist directory
