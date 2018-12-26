@@ -51,6 +51,14 @@ In order to build your site, you need to run `php thunderbird build`. The comman
 
 By default, your site will be built to the `dist` directory. You can change this in your enviroment variables.
 
+## Local Dev Servers
+
+We currently recommend using a Local Web Server like Laravel Valet, for Mac. Although, Valet also has unofficial ports for Windows and Linux too.
+
+### Laravel Valet
+
+Once you've completed the installation instructions, head into your site directory and go into the `dist` directory in a Terminal. Run the following command `valet link [subdomain]`. This will allow you to visit your Thunderbird site at `[subdomain].test`.
+
 ## Deploying
 
 We recommend using Netlify for hosting your Thunderbird site.
