@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Dotenv\Dotenv;
 use Parsedown;
+use Jenssegers\Blade\Blade;
 
 class BuildCommand extends Command
 {
@@ -25,10 +26,6 @@ class BuildCommand extends Command
         // Message
         $output->writeln('Building site...');
 
-        // Get the layout
-        $layout = './template/layout.html';
-        $layout = file_get_contents($layout);
-
         // Generate html files from markdown content
         $parsedown = new Parsedown();
 
@@ -41,6 +38,9 @@ class BuildCommand extends Command
         $site_url = getenv('SITE_URL');
         $outputDir = getenv('OUTPUT_DIR');
         $contentDir = getenv('CONTENT_DIR');
+
+        // Load stuff for Blade templating engine
+        $blade = new Blade('./template/views', './cache');
 
         // Get all files in the content directory with a markdown extention
         $files = glob($contentDir . '/*.md', GLOB_BRACE);
@@ -59,17 +59,13 @@ class BuildCommand extends Command
 
             // Templating
 
-                // Setup page from layout
-                $page = $layout;
+                // Echo the stuff to Blade template
+                $blade->make('page');
 
-                // Page content
-                $page = str_replace('{{ content }}', $content, $page);
-
-                // Site name
-                $page = str_replace('{{ site_name }}', $site_name, $page);
-
-                // Site url
-                $page = str_replace('{{ site_url }}', $site_url, $page);
+                    // Content
+                    $blade->compiler()->directive('content', function () use ($content) {
+                        return $content;
+                    });
 
             // Output the HTML content into files
             $output = $outputDir . '/' . $slug . '.html';

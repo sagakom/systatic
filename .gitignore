@@ -5,3 +5,5 @@ composer.lock
 dist/*.html
 dist/assets
 .env
+cache/*
+!cache/.gitkeep
