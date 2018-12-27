@@ -73,7 +73,7 @@ class BuildCommand extends Command
         }
 
         // Copy assets to dist directory
-        shell_exec("cp -r './assets' './dist'");
+        shell_exec("cp -r './assets' '" + $outputDir + "'");
 
     }
 }
