@@ -60,7 +60,7 @@ class BuildCommand extends Command
             // Templating
 
                 // Echo the stuff to Blade template
-                $blade->make('page');
+                $page = $blade->make('page');
 
                     // Content
                     $blade->compiler()->directive('content', function () use ($content) {
