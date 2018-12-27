@@ -20,7 +20,7 @@
     </header>
 
     <div class="container mx-auto">
-        @content
+        @content()
     </div>
 
     <div class="footer bg-grey-lighter p-4 mt-6">
