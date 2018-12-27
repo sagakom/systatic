@@ -48,9 +48,6 @@ class BuildCommand extends Command
             // Generate a slug
             $slug = basename($file, '.md');
 
-            // Load stuff for Blade templating engine
-            $blade = new Blade('./template/views', './cache');
-
             // Get contents of content file
             $content = file_get_contents($file);
 
@@ -58,6 +55,9 @@ class BuildCommand extends Command
             $content = $parsedown->text($content);
 
             // Templating
+
+                // Setup blade instance
+                $blade = new Blade('./template/views', './cache');
 
                 // Echo the stuff to Blade template
                 $page = $blade->make('page');
