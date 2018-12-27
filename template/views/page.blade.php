@@ -20,7 +20,9 @@
     </header>
 
     <div class="container mx-auto">
-        @content()
+        <div class="content p-6 leading-normal tracking-normal">
+            @content()
+        </div>
     </div>
 
     <div class="footer bg-grey-lighter p-4 mt-6">
