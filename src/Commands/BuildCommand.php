@@ -39,9 +39,6 @@ class BuildCommand extends Command
         $outputDir = getenv('OUTPUT_DIR');
         $contentDir = getenv('CONTENT_DIR');
 
-        // Load stuff for Blade templating engine
-        $blade = new Blade('./template/views', './cache');
-
         // Get all files in the content directory with a markdown extention
         $files = glob($contentDir . '/*.md', GLOB_BRACE);
 
@@ -50,6 +47,9 @@ class BuildCommand extends Command
 
             // Generate a slug
             $slug = basename($file, '.md');
+
+            // Load stuff for Blade templating engine
+            $blade = new Blade('./template/views', './cache');
 
             // Get contents of content file
             $content = file_get_contents($file);
@@ -73,7 +73,7 @@ class BuildCommand extends Command
         }
 
         // Copy assets to dist directory
-        shell_exec("cp -r './assets' '" + $outputDir + "'");
+        shell_exec("cp -r './assets' '" . $outputDir . "'");
 
     }
 }
