@@ -65,6 +65,7 @@ class BuildCommand extends Command
                     // Content
                     $blade->compiler()->directive('content', function () use ($content) {
                         return $content;
+                        echo $content;
                     });
 
             // Output the HTML content into files
