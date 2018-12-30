@@ -42,6 +42,8 @@ At installation, you will be required to copy the `sample.env` file to `.env`. T
 * `SITE_URL` => your chosen site url, we recommend just using `/`.
 * `OUTPUT_DIR` => The directory where you wish for your build site files to go, we recommend the `dist` directory. (If you change this from `dist`, you'll need to change your publish directory - step 5)
 * `CONTENT_DIR` => The directory where your content lives. Basically, your markdown files. We recommend using the `content` directory.
+* `ASSETS_DIR` => The directory where your images should be stored. We recommend using the `assets` directory.
+* `VIEWS_DIR` => The directory where your Blade views should be. Out of the box we use `resources/views`.
 
 ## Commands
 
@@ -81,6 +83,8 @@ However, if you've deleted that file, here are the settings you'll want to confi
     * `SITE_URL` => your chosen site url, we recommend just using `/`.
     * `OUTPUT_DIR` => The directory where you wish for your build site files to go, we recommend the `dist` directory. (If you change this from `dist`, you'll need to change your publish directory - step 5)
     * `CONTENT_DIR` => The directory where your content lives. Basically, your markdown files. We recommend using the `content` directory.
+    * `ASSETS_DIR` => The directory where your images should be stored. We recommend using the `assets` directory.
+    * `VIEWS_DIR` => The directory where your Blade views should be. Out of the box we use `resources/views`.
 8. Deploy your site again, and you should be good!
 
 **Even if you're using our provided `netlify.toml` file, you may still need to follow Steps 7 and 8 to set the version of PHP used by Netlify.**
