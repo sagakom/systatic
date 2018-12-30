@@ -38,6 +38,8 @@ class BuildCommand extends Command
         $site_url = getenv('SITE_URL');
         $outputDir = getenv('OUTPUT_DIR');
         $contentDir = getenv('CONTENT_DIR');
+        $assetsDir = getenv('ASSETS_DIR');
+        $viewsDir = getenv('VIEWS_DIR');
 
         // Get all files in the content directory with a markdown extention
         $files = glob($contentDir . '/*.md', GLOB_BRACE);
@@ -57,7 +59,7 @@ class BuildCommand extends Command
             // Templating
 
                 // Setup blade instance
-                $blade = new Blade('./resources/views', './cache');
+                $blade = new Blade($viewsDir, './cache');
 
                 // Echo the stuff to Blade template
                 $page = $blade->make('page');
@@ -73,7 +75,7 @@ class BuildCommand extends Command
         }
 
         // Copy assets to dist directory
-        shell_exec("cp -r './assets' '" . $outputDir . "'");
+        shell_exec("cp -r " . $assetsDir . " " . $outputDir);
 
     }
 }
