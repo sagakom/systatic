@@ -65,8 +65,18 @@ class BuildCommand extends Command
                 $page = $blade->make('page');
 
                     // Content
-                    $blade->compiler()->directive('content', function () use ($content) {
+                    $blade->compiler()->directive('content', function() use($content) {
                         return $content;
+                    });
+
+                    // Site Name
+                    $blade->compiler()->directive('siteName', function() use($site_name) {
+                        return $site_name;
+                    });
+
+                    // Site URL
+                    $blade->compiler()->directive('siteUrl', function() use($site_url) {
+                        return $site_url;
                     });
 
             // Output the HTML content into files
