@@ -57,7 +57,7 @@ class BuildCommand extends Command
             // Templating
 
                 // Setup blade instance
-                $blade = new Blade('./template/views', './cache');
+                $blade = new Blade('./resources/views', './cache');
 
                 // Echo the stuff to Blade template
                 $page = $blade->make('page');
@@ -65,7 +65,6 @@ class BuildCommand extends Command
                     // Content
                     $blade->compiler()->directive('content', function () use ($content) {
                         return $content;
-                        echo $content;
                     });
 
             // Output the HTML content into files
