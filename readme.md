@@ -42,6 +42,10 @@ At installation, you will be required to copy the `sample.env` file to `.env`. T
 * `SITE_URL` => your chosen site url, we recommend just using `/`.
 * `OUTPUT_DIR` => The directory where you wish for your build site files to go, we recommend the `dist` directory. (If you change this from `dist`, you'll need to change your publish directory - step 5)
 * `CONTENT_DIR` => The directory where your content lives. Basically, your markdown files. We recommend using the `content` directory.
+* `ASSETS_DIR` => The directory where your images should be stored. We recommend using the `assets` directory.
+* `VIEWS_DIR` => The directory where your Blade views should be. Out of the box we use `resources/views`.
+
+**If you don't create your own `.env` file, then we will just use the `sample.env` file. This means that if you don't have either the `.env` or `sample.env` files then Thunderbird won't function.**
 
 ## Commands
 
@@ -61,7 +65,7 @@ Once you've completed the installation instructions, head into your site directo
 
 ## Deploying
 
-We recommend using Netlify for hosting your Thunderbird site.
+We recommend using Netlify or a similar service for hosting your Thunderbird site.
 
 ### Netlify
 
@@ -72,7 +76,7 @@ However, if you've deleted that file, here are the settings you'll want to confi
 1. Upload your site to Github
 2. Login to Netlify and create a site.
 3. Link the site up to your Github repository.
-4. Set your build command as `composer install | php thunderbird build`
+4. Set your build command as `composer install | php thunderbird build | npm run production`
 5. Set your publish directory as `dist`
 6. Once you've done that, you'll want to go Build and Deployment settings.
 7. Now, setup enviroment variables, for Thunderbird to work you'll need the following: `PHP_VERSION` => `7.2`.
@@ -81,6 +85,8 @@ However, if you've deleted that file, here are the settings you'll want to confi
     * `SITE_URL` => your chosen site url, we recommend just using `/`.
     * `OUTPUT_DIR` => The directory where you wish for your build site files to go, we recommend the `dist` directory. (If you change this from `dist`, you'll need to change your publish directory - step 5)
     * `CONTENT_DIR` => The directory where your content lives. Basically, your markdown files. We recommend using the `content` directory.
+    * `ASSETS_DIR` => The directory where your images should be stored. We recommend using the `assets` directory.
+    * `VIEWS_DIR` => The directory where your Blade views should be. Out of the box we use `resources/views`.
 8. Deploy your site again, and you should be good!
 
 **Even if you're using our provided `netlify.toml` file, you may still need to follow Steps 7 and 8 to set the version of PHP used by Netlify.**
@@ -89,7 +95,21 @@ However, if you've deleted that file, here are the settings you'll want to confi
 
 We've got everything setup so that any files within the `assets` directory will be copied over to the `dist` directory at build time.
 
-We recommand you put all of your images, scripts and styles in this directory.
+We recommend you keep your icons, images and stuff like that in the `assets` folder.
+
+### Styles and Scripts
+
+Stylesheets and Javascript files should be kept inside the `resources` directory. 
+
+We've setup Laravel Mix, which is a popular wrapper for Webpack to compile your CSS and JS files and put them in your `dist` directory. You'll need to compile these assets seperatly using one of these commands.
+
+* `npm run dev` - Produces unminified files
+* `npm run watch` - Watches for changes to files and produces unminified files
+* `npn run prodiction` - Produces minified files
+
+We've also setup PurgeCSS which will look out for any un-used classes and remove them from the stylesheet. This helps your site's preformance.
+
+TailwindCSS and Vuejs are pre-installed with Thunderbird. If that's not what you want to use, feel free to rip out all of the front-end stuff and replace it with whatever you want to use.
 
 ## Content
 

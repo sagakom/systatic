@@ -14,7 +14,6 @@ use Thunderbird\Commands\BuildCommand;
 $application = new Application('Thunderbird');
 
 // Load commands
-$application->add(new HelloWorldCommand());
 $application->add(new BuildCommand());
 
 // Run the application

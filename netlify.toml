@@ -2,5 +2,5 @@
 
 PHP_VERSION=7.2
 
-command = "composer install | php thunderbird build"
+command = "composer install | php thunderbird build | npm run production"
 publish = "dist"
