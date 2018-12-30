@@ -31,11 +31,11 @@ class BuildCommand extends Command
 
         // Load stuff for enviroment variables
         $dotenv = new Dotenv();
-        $dotenv->load('./.env', './sample.env');
+        $dotenv->load('./.env');
 
         // Env variables
-        $site_name = getenv('SITE_NAME');
-        $site_url = getenv('SITE_URL');
+        $siteName = getenv('SITE_NAME');
+        $siteUrl = getenv('SITE_URL');
         $outputDir = getenv('OUTPUT_DIR');
         $contentDir = getenv('CONTENT_DIR');
         $assetsDir = getenv('ASSETS_DIR');
@@ -70,13 +70,13 @@ class BuildCommand extends Command
                     });
 
                     // Site Name
-                    $blade->compiler()->directive('siteName', function() use($site_name) {
-                        return $site_name;
+                    $blade->compiler()->directive('siteName', function() use($siteName) {
+                        return $siteName;
                     });
 
                     // Site URL
-                    $blade->compiler()->directive('siteUrl', function() use($site_url) {
-                        return $site_url;
+                    $blade->compiler()->directive('siteUrl', function() use($siteUrl) {
+                        return $siteUrl;
                     });
 
             // Output the HTML content into files
