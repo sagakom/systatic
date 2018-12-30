@@ -70,8 +70,7 @@ class BuildCommand extends Command
                     });
 
             // Output the HTML content into files
-            $output = $outputDir . '/' . $slug . '.html';
-            file_put_contents($output, $page);
+            file_put_contents($outputDir . '/' . $slug . '.html', $page);
         }
 
         // Copy assets to dist directory
