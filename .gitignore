@@ -6,6 +6,8 @@ package-lock.json
 
 dist/*.html
 dist/assets
+dist/js/app.js
+dist/css/app.css
 .env
 cache/*
 !cache/.gitkeep
