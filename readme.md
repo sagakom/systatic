@@ -45,6 +45,8 @@ At installation, you will be required to copy the `sample.env` file to `.env`. T
 * `ASSETS_DIR` => The directory where your images should be stored. We recommend using the `assets` directory.
 * `VIEWS_DIR` => The directory where your Blade views should be. Out of the box we use `resources/views`.
 
+**If you don't create your own `.env` file, then we will just use the `sample.env` file. This means that if you don't have either the `.env` or `sample.env` files then Thunderbird won't function.**
+
 ## Commands
 
 ### Build

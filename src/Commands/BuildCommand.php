@@ -31,7 +31,7 @@ class BuildCommand extends Command
 
         // Load stuff for enviroment variables
         $dotenv = new Dotenv();
-        $dotenv->load('./.env');
+        $dotenv->load('./.env', './sample.env');
 
         // Env variables
         $site_name = getenv('SITE_NAME');
