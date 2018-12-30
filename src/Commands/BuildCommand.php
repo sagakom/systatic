@@ -41,6 +41,9 @@ class BuildCommand extends Command
         $assetsDir = getenv('ASSETS_DIR');
         $viewsDir = getenv('VIEWS_DIR');
 
+        // Setup blade instance
+        $blade = new Blade($viewsDir, './cache');
+
         // Get all files in the content directory with a markdown extention
         $files = glob($contentDir . '/*.md', GLOB_BRACE);
 
@@ -57,9 +60,6 @@ class BuildCommand extends Command
             $content = $parsedown->text($content);
 
             // Templating
-
-                // Setup blade instance
-                $blade = new Blade($viewsDir, './cache');
 
                 // Echo the stuff to Blade template
                 $page = $blade->make('page');
