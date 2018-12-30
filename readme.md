@@ -74,7 +74,7 @@ However, if you've deleted that file, here are the settings you'll want to confi
 1. Upload your site to Github
 2. Login to Netlify and create a site.
 3. Link the site up to your Github repository.
-4. Set your build command as `composer install | php thunderbird build`
+4. Set your build command as `composer install | php thunderbird build | npm run production`
 5. Set your publish directory as `dist`
 6. Once you've done that, you'll want to go Build and Deployment settings.
 7. Now, setup enviroment variables, for Thunderbird to work you'll need the following: `PHP_VERSION` => `7.2`.
