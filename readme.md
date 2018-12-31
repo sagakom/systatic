@@ -63,34 +63,6 @@ We currently recommend using a Local Web Server like Laravel Valet, for Mac. Alt
 
 Once you've completed the installation instructions, head into your site directory and go into the `dist` directory in a Terminal. Run the following command `valet link [subdomain]`. This will allow you to visit your Thunderbird site at `[subdomain].test`.
 
-## Deploying
-
-We recommend using Netlify or a similar service for hosting your Thunderbird site.
-
-### Netlify
-
-By default, we have a `netlify.toml` file in the repository which has all of the settings pre-configured to make it simple to deploy.
-
-However, if you've deleted that file, here are the settings you'll want to configure to get started on Netlify.
-
-1. Upload your site to Github
-2. Login to Netlify and create a site.
-3. Link the site up to your Github repository.
-4. Set your build command as `composer install | php thunderbird build | npm run production`
-5. Set your publish directory as `dist`
-6. Once you've done that, you'll want to go Build and Deployment settings.
-7. Now, setup enviroment variables, for Thunderbird to work you'll need the following: `PHP_VERSION` => `7.2`.
-    * `PHP_VERSION` => `7.2`
-    * `SITE_NAME` => your chosen site name
-    * `SITE_URL` => your chosen site url, we recommend just using `/`.
-    * `OUTPUT_DIR` => The directory where you wish for your build site files to go, we recommend the `dist` directory. (If you change this from `dist`, you'll need to change your publish directory - step 5)
-    * `CONTENT_DIR` => The directory where your content lives. Basically, your markdown files. We recommend using the `content` directory.
-    * `ASSETS_DIR` => The directory where your images should be stored. We recommend using the `assets` directory.
-    * `VIEWS_DIR` => The directory where your Blade views should be. Out of the box we use `resources/views`.
-8. Deploy your site again, and you should be good!
-
-**Even if you're using our provided `netlify.toml` file, you may still need to follow Steps 7 and 8 to set the version of PHP used by Netlify.**
-
 ## Assets
 
 We've got everything setup so that any files within the `assets` directory will be copied over to the `dist` directory at build time.
