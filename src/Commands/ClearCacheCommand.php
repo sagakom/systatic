@@ -28,8 +28,14 @@ class ClearCacheCommand extends Command
         // Create filesystem instance
         $fileSystem = new Filesystem();
 
-        // Delete all of the files within the local/cache directory
+        // Reset the blade cache
         $fileSystem->remove(array('symlink', './local/cache', '*.php'));
+
+        // Creates the cache directory again
+        $fileSystem->mkdir('./local/cache', 0700);
+
+        // Creates gitkeep file again
+        $fileSystem->touch('./local/cache/.gitkeep');
 
     }
 }
