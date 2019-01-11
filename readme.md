@@ -1,8 +1,6 @@
-<p style="text-align: center;">
-    <img src="./dist/assets/images/thunderbird.svg" width="50px">
-</p>
+![Thunderbird](./dist/assets/images/thunderbird.svg)
 
-# [Thunderbird](https://thunderbird.netlify.com/)
+# Thunderbird
 
 Thunderbird is a Fast and Lightweight Static Site Generator built in PHP.
 
