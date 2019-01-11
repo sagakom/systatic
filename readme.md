@@ -7,7 +7,7 @@ Thunderbird is a fast and lightweight Static Site Generator (SSG) built in PHP.
 ## Installation
 
 1. You'll need to install [PHP](http://php.net/downloads.php) and the [Composer package manager](https://getcomposer.org/download/).
-2. Next, clone thunderbird from Git `git clone https://github.com/damccclean/Thunderbird.git your-site`
+2. Next, clone thunderbird from Git `git clone https://github.com/ThunderbirdSSG/Thunderbird.git your-site`
 3. Change into your site directory `cd your-site`
 4. Install composer dependencies `composer install`
 5. Copy `sample.env` to `.env`. Change any settings which you need to change

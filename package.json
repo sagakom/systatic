@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/damcclean/thunderbird.git"
+    "url": "git+https://github.com/ThunderbirdSSG/thunderbird.git"
   },
   "author": "Duncan McClean",
   "bugs": {
-    "url": "https://github.com/damcclean/thunderbird/issues"
+    "url": "https://github.com/ThunderbirdSSG/thunderbird/issues"
   },
-  "homepage": "https://github.com/damcclean/thunderbird#readme",
+  "homepage": "https://github.com/ThunderbirdSSG/thunderbird#readme",
   "dependencies": {
     "cross-env": "^5.2.0",
     "laravel-mix": "^4.0.12",

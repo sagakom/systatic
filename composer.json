@@ -1,6 +1,6 @@
 {
-    "name": "damcclean/thunderbird",
-    "description": "Static site generator",
+    "name": "thunderbirdssg/thunderbird",
+    "description": "Fast and Lightweight Static Site Generator",
     "authors": [
         {
             "name": "Duncan McClean",
