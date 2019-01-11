@@ -38,7 +38,6 @@ class BuildCommand extends Command
         $siteUrl = getenv('SITE_URL');
         $outputDir = getenv('OUTPUT_DIR');
         $contentDir = getenv('CONTENT_DIR');
-        $assetsDir = getenv('ASSETS_DIR');
         $viewsDir = getenv('VIEWS_DIR');
 
         // Setup blade instance
