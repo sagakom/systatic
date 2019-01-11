@@ -83,8 +83,5 @@ class BuildCommand extends Command
             file_put_contents($outputDir . '/' . $slug . '.html', $page);
         }
 
-        // Copy assets to dist directory
-        shell_exec("cp -r " . $assetsDir . " " . $outputDir);
-
     }
 }
