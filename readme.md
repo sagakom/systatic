@@ -65,9 +65,9 @@ Once you've completed the installation instructions, head into your site directo
 
 ## Assets
 
-We've got everything setup so that any files within the `assets` directory will be copied over to the `dist` directory at build time.
+We refer to images, videos etc as 'Assets'.
 
-We recommend you keep your icons, images and stuff like that in the `assets` folder.
+We recommend that your assets are stored in the `dist/assets` directory. You can arrage this however you want, it's up to you!
 
 ### Styles and Scripts
 
