@@ -1,6 +1,14 @@
-# Thunderbird
+<p style="text-align: center;">
+    <img src="./dist/assets/images/thunderbird.svg" width="50px">
+</p>
 
-Thunderbird is a fast and lightweight Static Site Generator (SSG) built in PHP.
+# [Thunderbird](https://thunderbird.netlify.com/)
+
+Thunderbird is a Fast and Lightweight Static Site Generator built in PHP.
+
+## Useful Links
+* [Website](https://thunderbird.netlify.com/)
+* [Discord](https://discord.gg/sxkrycQ)
 
 # Documentation
 
