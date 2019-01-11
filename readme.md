@@ -1,4 +1,4 @@
-![Thunderbird](./dist/assets/images/thunderbird.svg)
+<img src="./dist/assets/images/thunderbird.svg" width="100px">
 
 # Thunderbird
 
