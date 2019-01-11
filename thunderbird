@@ -7,14 +7,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 // Use stuff
 use Symfony\Component\Console\Application;
-use Thunderbird\Commands\HelloWorldCommand;
 use Thunderbird\Commands\BuildCommand;
+use Thunderbird\Commands\ClearCacheCommand;
 
 // Register synforny application
 $application = new Application('Thunderbird');
 
 // Load commands
 $application->add(new BuildCommand());
+$application->add(new ClearCacheCommand());
 
 // Run the application
 $application->run();
