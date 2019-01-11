@@ -9,5 +9,6 @@ dist/assets
 dist/js/app.js
 dist/css/app.css
 .env
-cache/*
-!cache/.gitkeep
+local/*.*
+local/cache/*
+!local/cache/.gitkeep

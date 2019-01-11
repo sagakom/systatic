@@ -42,7 +42,7 @@ class BuildCommand extends Command
         $viewsDir = getenv('VIEWS_DIR');
 
         // Setup blade instance
-        $blade = new Blade($viewsDir, './cache');
+        $blade = new Blade($viewsDir, './local/cache');
 
         // Get all files in the content directory with a markdown extention
         $files = glob($contentDir . '/*.md', GLOB_BRACE);
