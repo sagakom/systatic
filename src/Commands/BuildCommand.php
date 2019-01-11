@@ -8,6 +8,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Dotenv\Dotenv;
 use Parsedown;
 use Jenssegers\Blade\Blade;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 class BuildCommand extends Command
 {
@@ -40,8 +42,8 @@ class BuildCommand extends Command
         $contentDir = getenv('CONTENT_DIR');
         $viewsDir = getenv('VIEWS_DIR');
 
-        // Setup blade instance
-        $blade = new Blade($viewsDir, './local/cache');
+        // Create filesystem instance
+        $fileSystem = new Filesystem();
 
         // Get all files in the content directory with a markdown extention
         $files = glob($contentDir . '/*.md', GLOB_BRACE);
@@ -58,28 +60,38 @@ class BuildCommand extends Command
             // Parse the markdown content into HTML
             $content = $parsedown->text($content);
 
-            // Templating
+            // Create blade instance
+            $blade = new Blade($viewsDir, './local/cache');
 
-                // Echo the stuff to Blade template
-                $page = $blade->make('page');
+            // Echo the stuff to Blade template
+            $page = $blade->make('page');
 
-                    // Content
-                    $blade->compiler()->directive('content', function() use($content) {
-                        return $content;
-                    });
+            // Content
+            $blade->compiler()->directive('content', function() use($content) {
+                return $content;
+            });
 
-                    // Site Name
-                    $blade->compiler()->directive('siteName', function() use($siteName) {
-                        return $siteName;
-                    });
+            // Site Name
+            $blade->compiler()->directive('siteName', function() use($siteName) {
+                return $siteName;
+            });
 
-                    // Site URL
-                    $blade->compiler()->directive('siteUrl', function() use($siteUrl) {
-                        return $siteUrl;
-                    });
+            // Site URL
+            $blade->compiler()->directive('siteUrl', function() use($siteUrl) {
+                return $siteUrl;
+            });
 
             // Output the HTML content into files
             file_put_contents($outputDir . '/' . $slug . '.html', $page);
+
+            // Reset the blade cache
+            $fileSystem->remove(array('symlink', './local/cache', '*.php'));
+
+            // Creates the cache directory again
+            $fileSystem->mkdir('./local/cache', 0700);
+
+            // Creates gitkeep file again
+            $fileSystem->touch('./local/cache/.gitkeep');
         }
 
     }
