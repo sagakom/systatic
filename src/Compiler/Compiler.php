@@ -35,14 +35,14 @@ class Compiler
         });
 
         // Blade: Site Name
-        $siteName = $config->getConfig('SITE_NAME');
+        $siteName = $config->getEnv('SITE_NAME');
         $blade->compiler()->directive('siteName', function() use($siteName) 
         {
             return $siteName;
         });
 
         // Blade: Site URL
-        $siteUrl = $config->getConfig('SITE_URL');
+        $siteUrl = $config->getEnv('SITE_URL');
         $blade->compiler()->directive('siteUrl', function() use($siteUrl) 
         {
             return $siteUrl;
