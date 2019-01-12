@@ -21,7 +21,6 @@ class BuildCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         // Message
         $output->writeln('Building site...');
 
@@ -37,6 +36,5 @@ class BuildCommand extends Command
         {
             $compiler->compile($file, 'index');
         }
-
     }
 }

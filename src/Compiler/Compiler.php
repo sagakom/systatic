@@ -29,19 +29,22 @@ class Compiler
         $page = $blade->make($template);
 
         // Blade: Content
-        $blade->compiler()->directive('content', function() use($markdown) {
+        $blade->compiler()->directive('content', function() use($markdown) 
+        {
             return $markdown;
         });
 
         // Blade: Site Name
         $siteName = $config->getConfig('SITE_NAME');
-        $blade->compiler()->directive('siteName', function() use($siteName) {
+        $blade->compiler()->directive('siteName', function() use($siteName) 
+        {
             return $siteName;
         });
 
         // Blade: Site URL
         $siteUrl = $config->getConfig('SITE_URL');
-        $blade->compiler()->directive('siteUrl', function() use($siteUrl) {
+        $blade->compiler()->directive('siteUrl', function() use($siteUrl) 
+        {
             return $siteUrl;
         });
 
