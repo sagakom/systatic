@@ -13,7 +13,7 @@
             <div class="container mx-auto">
                 <a class="no-underline" href="@siteUrl()">
                     <h2 class="font-2xl text-center text-white">
-                        @siteName()
+                        @config('something')
                     </h2>
                 </a>
             </div>
@@ -27,7 +27,7 @@
     
         <div class="footer bg-grey-lighter p-4 mt-6">
             <div class="container mx-auto">
-                <p class="text-sm text-center mb-2 mt-2">Powered by Thunderbird</p>
+                <p class="text-sm text-center mb-2 mt-2">Powered by Thunderbird.</p>
             </div>
         </div>
     </div>
