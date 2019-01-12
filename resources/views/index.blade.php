@@ -13,7 +13,7 @@
             <div class="container mx-auto">
                 <a class="no-underline" href="@siteUrl()">
                     <h2 class="font-2xl text-center text-white">
-                        @siteName()
+                        @config('something')
                     </h2>
                 </a>
             </div>
