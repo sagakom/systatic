@@ -5,17 +5,16 @@ namespace Thunderbird\Commands;
 use Symfony\Component\Console\Command\Command as Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+use Thunderbird\Cache\Cache;
 
 class ClearCacheCommand extends Command
 {
-    protected static $defaultName = 'clear-cache';
+    protected static $defaultName = 'clear:cache';
 
     protected function configure()
     {
         $this
-            ->setDescription('Clears site cache')
+            ->setDescription('Clear site cache')
             ->setHelp('This command clears your cache directory. Helpful for debugging.');
     }
 
@@ -25,17 +24,10 @@ class ClearCacheCommand extends Command
         // Message
         $output->writeln('Clearing cache...');
 
-        // Create filesystem instance
-        $fileSystem = new Filesystem();
+        // Create instances
+        $cache = new Cache();
 
-        // Reset the blade cache
-        $fileSystem->remove(array('symlink', './local/cache', '*.php'));
-
-        // Creates the cache directory again
-        $fileSystem->mkdir('./local/cache', 0700);
-
-        // Creates gitkeep file again
-        $fileSystem->touch('./local/cache/.gitkeep');
-
+        // Clear cache
+        $cache->clearCache();
     }
 }

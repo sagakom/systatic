@@ -5,11 +5,8 @@ namespace Thunderbird\Commands;
 use Symfony\Component\Console\Command\Command as Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Dotenv\Dotenv;
-use Parsedown;
-use Jenssegers\Blade\Blade;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+use Thunderbird\Compiler\Compiler;
+use Thunderbird\Config\Config;
 
 class BuildCommand extends Command
 {
@@ -18,7 +15,7 @@ class BuildCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Builds static site')
+            ->setDescription('Build Thunderbird site')
             ->setHelp('This command builds your static site.');
     }
 
@@ -28,70 +25,17 @@ class BuildCommand extends Command
         // Message
         $output->writeln('Building site...');
 
-        // Generate html files from markdown content
-        $parsedown = new Parsedown();
+        // Create instances
+        $config = new Config();
+        $compiler = new Compiler();
 
-        // Load stuff for enviroment variables
-        $dotenv = new Dotenv();
-        $dotenv->load('./sample.env', './.env');
+        // Get an array of pages
+        $files = glob($config->getConfig('CONTENT_DIR') . '/*.md', GLOB_BRACE);
 
-        // Env variables
-        $siteName = getenv('SITE_NAME');
-        $siteUrl = getenv('SITE_URL');
-        $outputDir = getenv('OUTPUT_DIR');
-        $contentDir = getenv('CONTENT_DIR');
-        $viewsDir = getenv('VIEWS_DIR');
-
-        // Create filesystem instance
-        $fileSystem = new Filesystem();
-
-        // Get all files in the content directory with a markdown extention
-        $files = glob($contentDir . '/*.md', GLOB_BRACE);
-
-        // Loop through all of the markdown files
-        foreach($files as $file) {
-
-            // Generate a slug
-            $slug = basename($file, '.md');
-
-            // Get contents of content file
-            $content = file_get_contents($file);
-
-            // Parse the markdown content into HTML
-            $content = $parsedown->text($content);
-
-            // Create blade instance
-            $blade = new Blade($viewsDir, './local/cache');
-
-            // Echo the stuff to Blade template
-            $page = $blade->make('page');
-
-            // Content
-            $blade->compiler()->directive('content', function() use($content) {
-                return $content;
-            });
-
-            // Site Name
-            $blade->compiler()->directive('siteName', function() use($siteName) {
-                return $siteName;
-            });
-
-            // Site URL
-            $blade->compiler()->directive('siteUrl', function() use($siteUrl) {
-                return $siteUrl;
-            });
-
-            // Output the HTML content into files
-            file_put_contents($outputDir . '/' . $slug . '.html', $page);
-
-            // Reset the blade cache
-            $fileSystem->remove(array('symlink', './local/cache', '*.php'));
-
-            // Creates the cache directory again
-            $fileSystem->mkdir('./local/cache', 0700);
-
-            // Creates gitkeep file again
-            $fileSystem->touch('./local/cache/.gitkeep');
+        // Compile each of the pages
+        foreach($files as $file)
+        {
+            $compiler->compile($file, 'index');
         }
 
     }
