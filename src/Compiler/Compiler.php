@@ -16,7 +16,7 @@ class Compiler
         $config = new Config();
         $cache = new Cache();
         $parsedown = new Parsedown();
-        $blade = new Blade($config->getConfig('VIEWS_DIR'), './local/cache');
+        $blade = new Blade($config->getEnv('VIEWS_DIR'), './local/cache');
 
         // Basic file information
         $slug = basename($file, '.md'); // Slug
@@ -49,7 +49,7 @@ class Compiler
         });
 
         // Output the final blade template
-        file_put_contents($config->getConfig('OUTPUT_DIR') . '/' . $slug . '.html', $page);
+        file_put_contents($config->getEnv('OUTPUT_DIR') . '/' . $slug . '.html', $page);
 
         // Clear cache
         $cache->clearCache();

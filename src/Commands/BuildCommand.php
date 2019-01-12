@@ -29,7 +29,7 @@ class BuildCommand extends Command
         $compiler = new Compiler();
 
         // Get an array of pages
-        $files = glob($config->getConfig('CONTENT_DIR') . '/*.md', GLOB_BRACE);
+        $files = glob($config->getEnv('CONTENT_DIR') . '/*.md', GLOB_BRACE);
 
         // Compile each of the pages
         foreach($files as $file)
