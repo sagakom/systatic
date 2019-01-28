@@ -2,7 +2,12 @@
 
 # Thunderbird
 
-Thunderbird is a Fast and Lightweight Static Site Generator built in PHP.
+Thunderbird is a Fast and Lightweight Static Site Generator built on PHP. With a few install steps, you'll be ready to go! Behind the scenes, Thunderbird is using many different packages to make everything work the way it does. Some of these include:
+
+* Symfony Console
+* Parsedown
+* Laravel Blade
+* Symfony Filesystem
 
 ## Useful Links
 * [Website](https://thunderbird.netlify.com/)
