@@ -34,7 +34,7 @@ class BuildCommand extends Command
         // Compile each of the pages (root directory)
         foreach($files as $file)
         {
-            $compiler->compile($file, 'index');
+            $compiler->compile($file);
         }
 
         // Get an array of pages (root + 1 dir)
@@ -43,7 +43,7 @@ class BuildCommand extends Command
         // Compile each of the pages (root + 1 dir)
         foreach($files as $file)
         {
-            $compiler->compile($file, 'index');
+            $compiler->compile($file);
         }
     }
 }

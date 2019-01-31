@@ -4,19 +4,22 @@ namespace Thunderbird\Compiler;
 
 use Pagerange\Markdown\MetaParsedown;
 use Jenssegers\Blade\Blade;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Thunderbird\Config\Config;
 use Thunderbird\Cache\Cache;
 
 class Compiler 
 {
 
-    public function compile($file, $template) 
+    public function compile($file)
     {
         // Create instances
         $config = new Config();
         $cache = new Cache();
         $parsedown = new MetaParsedown();
         $blade = new Blade($config->getConfig('viewsDir'), $config->getConfig('cacheDir'));
+        $fileSystem = new Filesystem();
 
         // Basic file information
         $slug = basename($file, '.md');
@@ -28,7 +31,22 @@ class Compiler
         // Parse Front Matter
         $matter = $parsedown->meta($file);
 
-        // Blade templating
+        // Decide on the template to use
+        $views = $config->getConfig('viewsDir');
+
+        if($fileSystem->exists($views . '/' . $slug . '.blade.php')) {
+            // Slug template
+            $template = $slug;
+        } elseif(array_key_exists('template', $matter)) {
+            if($fileSystem->exists($views . '/' . $matter['template'] . '.blade.php')) {
+                // Matter template
+                $template = $matter['template'];
+            }
+        } else {
+            // Default template
+            $template = 'index';
+        }
+
         $page = $blade->make($template);
 
         // Blade: Content
