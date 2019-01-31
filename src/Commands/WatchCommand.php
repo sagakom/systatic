@@ -31,8 +31,8 @@ class WatchCommand extends Command
         $config = new Config();
 
         // Create a watcher for files
-        $listener = $watcher->watch($config->getConfig('CONTENT_DIR'));
-        $listener = $watcher->watch($config->getConfig('VIEWS_DIR'));
+        $listener = $watcher->watch($config->getConfig('contentDir'));
+        $listener = $watcher->watch($config->getConfig('viewsDir'));
 
         // Watch for any changes
         $listener->anything(function($event, $resource, $path) {

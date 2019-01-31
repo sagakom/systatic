@@ -16,7 +16,7 @@ class Compiler
         $config = new Config();
         $cache = new Cache();
         $parsedown = new MetaParsedown();
-        $blade = new Blade($config->getEnv('VIEWS_DIR'), './local/cache');
+        $blade = new Blade($config->getConfig('viewsDir'), $config->getConfig('cacheDir'));
 
         // Basic file information
         $slug = basename($file, '.md');
@@ -50,21 +50,33 @@ class Compiler
         });
 
         // Blade: Site Name
-        $siteName = $config->getEnv('SITE_NAME');
+        $siteName = $config->getConfig('siteName');
         $blade->compiler()->directive('siteName', function() use($siteName) 
         {
             return $siteName;
         });
 
         // Blade: Site URL
-        $siteUrl = $config->getEnv('SITE_URL');
+        $siteUrl = $config->getConfig('siteUrl');
         $blade->compiler()->directive('siteUrl', function() use($siteUrl) 
         {
             return $siteUrl;
         });
 
+        // Blade: Config Value
+        $blade->compiler()->directive('config', function($setting) use($config) 
+        {
+            return $config->getConfig($setting);
+        });
+
+        // Blade: Env Value
+        $blade->compiler()->directive('env', function($setting) use($config) 
+        {
+            return $config->getEnv($setting);
+        });
+
         // Output the final blade template
-        file_put_contents($config->getEnv('OUTPUT_DIR') . '/' . $slug . '.html', $page);
+        file_put_contents($config->getConfig('outputDir') . '/' . $slug . '.html', $page);
 
         // Clear cache
         $cache->clearCache();
