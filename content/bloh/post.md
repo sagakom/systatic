@@ -1,5 +1,0 @@
----
-title: Blog post
----
-
-Content
