@@ -28,13 +28,22 @@ class BuildCommand extends Command
         $config = new Config();
         $compiler = new Compiler();
 
-        // Get an array of pages
-        $files = glob($config->getEnv('CONTENT_DIR') . '/*.md', GLOB_BRACE);
+        // Get an array of pages (root directory)
+        $files = glob($config->getConfig('contentDir') . '/*.md', GLOB_BRACE);
 
-        // Compile each of the pages
+        // Compile each of the pages (root directory)
         foreach($files as $file)
         {
-            $compiler->compile($file, 'index');
+            $compiler->compile($file);
+        }
+
+        // Get an array of pages (root + 1 dir)
+        $files = glob($config->getConfig('contentDir') . '/*/*.md', GLOB_BRACE);
+
+        // Compile each of the pages (root + 1 dir)
+        foreach($files as $file)
+        {
+            $compiler->compile($file);
         }
     }
 }
