@@ -30,6 +30,6 @@ class UpdateCommand extends Command
         $version = $helper->ask($input, $output, $question);
 
         $updater = new Updater();
-        $updater->updateThunderbird();
+        $updater->updateThunderbird($version);
     }
 }
