@@ -18,6 +18,15 @@ class Updater
         // Copy across the thunderbird console file
         shell_exec("cp local/updater/download/thunderbird ./");
 
+        // Copy new composer json file
+        shell_exec("cp local/updater/download/composer.lock ./");
+
+        // Remove current composer lock file
+        shell_exec("rm ./composer.lock");
+
+        // Reinstall Composer dependenices
+        shell_exec("rm ./vendor && composer install");
+
         // Delete the downloaded release
         shell_exec("rm -rf local/updater/download");
     }
