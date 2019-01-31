@@ -37,10 +37,16 @@ class Compiler
             return $markdown;
         });
 
-        // Blade: Page Title
+        // Blade: Title
         $blade->compiler()->directive('title', function() use($matter)
         {
             return $matter['title'];
+        });
+
+        // Blade: Front Matter Variable
+        $blade->compiler()->directive('matter', function($variable) use($matter)
+        {
+            return $matter[$variable];
         });
 
         // Blade: Site Name
