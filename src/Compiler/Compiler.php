@@ -2,7 +2,7 @@
 
 namespace Thunderbird\Compiler;
 
-use Parsedown;
+use Pagerange\Markdown\MetaParsedown;
 use Jenssegers\Blade\Blade;
 use Thunderbird\Config\Config;
 use Thunderbird\Cache\Cache;
@@ -15,15 +15,18 @@ class Compiler
         // Create instances
         $config = new Config();
         $cache = new Cache();
-        $parsedown = new Parsedown();
+        $parsedown = new MetaParsedown();
         $blade = new Blade($config->getEnv('VIEWS_DIR'), './local/cache');
 
         // Basic file information
-        $slug = basename($file, '.md'); // Slug
-        $file = file_get_contents($file);   // File contents
+        $slug = basename($file, '.md');
+        $file = file_get_contents($file);
 
         // Parse markdown
-        $markdown = $parsedown->text($file);    // Markdown as HTML
+        $markdown = $parsedown->text($file);
+
+        // Parse Front Matter
+        $matter = $parsedown->meta($file);
 
         // Blade templating
         $page = $blade->make($template);
@@ -32,6 +35,12 @@ class Compiler
         $blade->compiler()->directive('content', function() use($markdown) 
         {
             return $markdown;
+        });
+
+        // Blade: Page Title
+        $blade->compiler()->directive('title', function() use($matter)
+        {
+            return $matter['title'];
         });
 
         // Blade: Site Name
