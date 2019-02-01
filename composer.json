@@ -19,6 +19,7 @@
         "symfony/dotenv": "^4.2",
         "jenssegers/blade": "^1.1",
         "symfony/filesystem": "^4.2",
-        "pagerange/metaparsedown": "^1.0"
+        "pagerange/metaparsedown": "^1.0",
+        "nesbot/carbon": "^1.26.3"
     }
 }
