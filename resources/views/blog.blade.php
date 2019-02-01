@@ -5,7 +5,11 @@
     <h1>@title()</h1>
     @content()
     <ul>
-        <li>Posts list coming soon</li>
+        <li>
+            <a class="text-black no-underline hover:underline" href="/awesome-first-blog-post.html">
+                Awesome first blog post
+            </a>
+        </li>
     </ul>
 </div>
 @endsection
