@@ -1,4 +1,4 @@
-<img src="./dist/assets/images/thunderbird.svg" width="100px">
+<img src="./dist/assets/images/thunderbird.svg" width="70px">
 
 # Thunderbird
 
