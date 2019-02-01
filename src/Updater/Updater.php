@@ -19,7 +19,7 @@ class Updater
         shell_exec("cp local/updater/download/thunderbird ./");
 
         // Copy new composer json file
-        shell_exec("cp local/updater/download/composer.lock ./");
+        shell_exec("cp local/updater/download/composer.json ./");
 
         // Remove current composer lock file
         shell_exec("rm ./composer.lock");
