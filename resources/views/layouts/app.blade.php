@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/app.css">
     <title>@title() - @siteName()</title>
 </head>
-<body>
+<body class="text-base leading-loose text-black font-sans bg-white">
     <div id="app">
         @include('partials.header')
     
