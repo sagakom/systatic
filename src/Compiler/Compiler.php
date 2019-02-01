@@ -68,17 +68,15 @@ class Compiler
         });
 
         // Blade: Site Name
-        $siteName = $config->getConfig('siteName');
-        $blade->compiler()->directive('siteName', function() use($siteName) 
+        $blade->compiler()->directive('siteName', function() use($config) 
         {
-            return $siteName;
+            return $config->getConfig('siteName');
         });
 
         // Blade: Site URL
-        $siteUrl = $config->getConfig('siteUrl');
-        $blade->compiler()->directive('siteUrl', function() use($siteUrl) 
+        $blade->compiler()->directive('siteUrl', function() use($config) 
         {
-            return $siteUrl;
+            return $config->getConfig('siteUrl');
         });
 
         // Blade: Config Value
