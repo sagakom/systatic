@@ -34,16 +34,14 @@ class Compiler
         // Decide on the template to use
         $views = $config->getConfig('viewsDir');
 
-        if($fileSystem->exists($views . '/' . $slug . '.blade.php')) {
-            // Slug template
-            $template = $slug;
-        } elseif(array_key_exists('template', $matter)) {
+        if(array_key_exists('template', $matter)) {
             if($fileSystem->exists($views . '/' . $matter['template'] . '.blade.php')) {
                 // Matter template
                 $template = $matter['template'];
             }
+        } elseif($fileSystem->exists($views . '/' . $slug . '.blade.php')) {
+            $template = $slug;
         } else {
-            // Default template
             $template = 'index';
         }
 
