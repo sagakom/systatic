@@ -1,6 +1,8 @@
 ---
 title: Awesome first blog post
 date: 15th January 2019
+author: Joe Bloggs
+template: post
 ---
 
 Everyone writes their first blog post, or their first tweet or their first word document... a nunc. Vestibulum elementum odio metus, sit amet tincidunt nisl suscipit a. Cras sollicitudin est orci, nec placerat odio eleifend sit amet. Duis consequat leo vel interdum luctus. Integer semper interdum ex, in tincidunt urna aliquet sit amet. Cras rhoncus est et eros varius, eget pellentesque justo finibus.
