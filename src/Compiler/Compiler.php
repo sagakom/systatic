@@ -51,45 +51,37 @@ class Compiler
             $template = $slug;
         }
 
-        $page = $blade->make($template);
+        // Make the page with the chosen blade template and with all the variables
+        $page = $blade->make($template, [
+            'title' => $matter['title'],
+            'content' => $markdown
+        ]);
 
-        // Blade: Content
-        $blade->compiler()->directive('content', function() use($markdown) 
-        {
-            return $markdown;
-        });
-
-        // Blade: Title
-        $blade->compiler()->directive('title', function() use($matter)
-        {
-            return $matter['title'];
-        });
-
-        // Blade: Front Matter Variable
+        // Directive: Front Matter Variable
         $blade->compiler()->directive('matter', function($variable) use($matter)
         {
             return $matter[$variable];
         });
 
-        // Blade: Site Name
+        // Directive: Site Name
         $blade->compiler()->directive('siteName', function() use($config) 
         {
             return $config->getConfig('siteName');
         });
 
-        // Blade: Site URL
+        // Directive: Site URL
         $blade->compiler()->directive('siteUrl', function() use($config) 
         {
             return $config->getConfig('siteUrl');
         });
 
-        // Blade: Config Value
+        // Directive: Config Value
         $blade->compiler()->directive('config', function($setting) use($config) 
         {
             return $config->getConfig($setting);
         });
 
-        // Blade: Env Value
+        // Directive: Env Value
         $blade->compiler()->directive('env', function($setting) use($config) 
         {
             return $config->getEnv($setting);
