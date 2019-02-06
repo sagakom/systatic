@@ -31,8 +31,16 @@ class Compiler
         // Parse Front Matter
         $matter = $parsedown->meta($file);
 
+        // If page has different slug setup in front matter
+        if(array_key_exists('slug', $matter)) {
+            $slug = $matter['slug'];
+        }
+
         // Decide on the template to use
         $views = $config->getConfig('viewsDir');
+
+        // Just set a template up first then detect if a different one is needed
+        $template = 'index';
 
         if(array_key_exists('template', $matter)) {
             if($fileSystem->exists($views . '/' . $matter['template'] . '.blade.php')) {
@@ -41,8 +49,6 @@ class Compiler
             }
         } elseif($fileSystem->exists($views . '/' . $slug . '.blade.php')) {
             $template = $slug;
-        } else {
-            $template = 'index';
         }
 
         $page = $blade->make($template);
