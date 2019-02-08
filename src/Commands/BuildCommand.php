@@ -17,6 +17,9 @@ class BuildCommand extends Command
         $this
             ->setDescription('Build Thunderbird site')
             ->setHelp('This command builds your static site.');
+
+        $this->config = new Config();
+        $this->compiler = new Compiler();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -24,26 +27,22 @@ class BuildCommand extends Command
         // Message
         $output->writeln('Building site...');
 
-        // Create instances
-        $config = new Config();
-        $compiler = new Compiler();
-
         // Get an array of pages (root directory)
-        $files = glob($config->getConfig('contentDir') . '/*.md', GLOB_BRACE);
+        $files = glob($this->config->getConfig('contentDir') . '/*.md', GLOB_BRACE);
 
         // Compile each of the pages (root directory)
         foreach($files as $file)
         {
-            $compiler->compile($file);
+            $this->compiler->compile($file);
         }
 
         // Get an array of pages (root + 1 dir)
-        $files = glob($config->getConfig('contentDir') . '/*/*.md', GLOB_BRACE);
+        $files = glob($this->config->getConfig('contentDir') . '/*/*.md', GLOB_BRACE);
 
         // Compile each of the pages (root + 1 dir)
         foreach($files as $file)
         {
-            $compiler->compile($file);
+            $this->compiler->compile($file);
         }
     }
 }

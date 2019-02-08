@@ -6,6 +6,11 @@ use Symfony\Component\Dotenv\Dotenv;
 
 class Config
 {
+    public function __construct()
+    {
+        $this->env = new Dotenv();
+    }
+
     public function getConfig($setting) 
     {
         $config = include('./config.php');
@@ -14,8 +19,7 @@ class Config
 
     public function getEnv($setting)
     {
-        $dotenv = new Dotenv();
-        $dotenv->load('./sample.env', './.env');
+        $this->env->load('./.env', './sample.env');
 
         $setting = getenv($setting);
         return $setting;

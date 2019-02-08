@@ -17,6 +17,8 @@ class UpdateCommand extends Command
         $this
             ->setDescription('Update Thunderbird')
             ->setHelp('This command updates Thunderbird.');
+        
+        $this->updater = new Updater();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -29,7 +31,7 @@ class UpdateCommand extends Command
         $question = new Question('What version do you want to update to? ');
         $version = $helper->ask($input, $output, $question);
 
-        $updater = new Updater();
-        $updater->updateThunderbird($version);
+        // Actually update
+        $this->updater->updateThunderbird($version);
     }
 }

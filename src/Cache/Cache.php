@@ -8,15 +8,16 @@ use Thunderbird\Config\Config;
 
 class Cache
 {
+    public function __construct()
+    {
+        $this->filesystem = new Filesystem();
+        $this->config = new Config();
+    }
+
     public function clearCache()
     {
-        // Create instances
-        $fileSystem = new Filesystem();
-        $config = new Config();
-
-        // Clear cache
-        $fileSystem->remove(array('symlink', $config->getConfig('cacheDir'), '*.php'));    // Remove all files from cache
-        $fileSystem->mkdir($config->getConfig('cacheDir'), 0700);  // Re-create cache directory
-        $fileSystem->touch($config->getConfig('cacheDir') . '/.gitkeep'); // Re-create cache directory gitkeep
+        $this->filesystem->remove(array('symlink', $this->config->getConfig('cacheDir'), '*.php'));    // Remove all files from cache
+        $this->filesystem->mkdir($this->config->getConfig('cacheDir'), 0700);  // Re-create cache directory
+        $this->filesystem->touch($this->config->getConfig('cacheDir') . '/.gitkeep'); // Re-create cache directory gitkeep
     }
 }

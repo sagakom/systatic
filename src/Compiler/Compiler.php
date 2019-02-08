@@ -11,88 +11,87 @@ use Thunderbird\Cache\Cache;
 
 class Compiler 
 {
+    public function __construct()
+    {
+        $this->config = new Config();
+        $this->cache = new Cache();
+        $this->parsedown = new MetaParsedown();
+        $this->blade = new Blade($this->config->getConfig('viewsDir'), $this->config->getConfig('cacheDir'));
+        $this->filesystem = new Filesystem();
+    }
 
     public function compile($file)
     {
-        // Create instances
-        $config = new Config();
-        $cache = new Cache();
-        $parsedown = new MetaParsedown();
-        $blade = new Blade($config->getConfig('viewsDir'), $config->getConfig('cacheDir'));
-        $fileSystem = new Filesystem();
-
         // Basic file information
         $slug = basename($file, '.md');
         $file = file_get_contents($file);
 
         // Parse markdown
-        $markdown = $parsedown->text($file);
+        $markdown = $this->parsedown->text($file);
 
         // Parse Front Matter
-        $matter = $parsedown->meta($file);
+        $matter = $this->parsedown->meta($file);
 
         // If page has different slug setup in front matter
         if(array_key_exists('slug', $matter)) {
             $slug = $matter['slug'];
         }
 
-        // Decide on the template to use
-        $views = $config->getConfig('viewsDir');
-
         // Just set a template up first then detect if a different one is needed
         $template = 'index';
 
         if(array_key_exists('template', $matter)) {
-            if($fileSystem->exists($views . '/' . $matter['template'] . '.blade.php')) {
+            if($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $matter['template'] . '.blade.php')) {
                 // Matter template
                 $template = $matter['template'];
             }
-        } elseif($fileSystem->exists($views . '/' . $slug . '.blade.php')) {
+        } elseif($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
             $template = $slug;
         }
 
         // Make the page with the chosen blade template and with all the variables
-        $page = $blade->make($template, [
+        $page = $this->blade->make($template, [
             'title' => $matter['title'],
             'content' => $markdown
         ]);
 
+        // Setup a config variable for using it in blade
+        $config = $this->config;
+
         // Directive: Front Matter Variable
-        $blade->compiler()->directive('matter', function($variable) use($matter)
+        $this->blade->compiler()->directive('matter', function($variable) use($matter)
         {
             return $matter[$variable];
         });
 
         // Directive: Site Name
-        $blade->compiler()->directive('siteName', function() use($config) 
+        $this->blade->compiler()->directive('siteName', function() use($config) 
         {
             return $config->getConfig('siteName');
         });
 
         // Directive: Site URL
-        $blade->compiler()->directive('siteUrl', function() use($config) 
+        $this->blade->compiler()->directive('siteUrl', function() use($config) 
         {
             return $config->getConfig('siteUrl');
         });
 
         // Directive: Config Value
-        $blade->compiler()->directive('config', function($setting) use($config) 
+        $this->blade->compiler()->directive('config', function($setting) use($config) 
         {
             return $config->getConfig($setting);
         });
 
         // Directive: Env Value
-        $blade->compiler()->directive('env', function($setting) use($config) 
+        $this->blade->compiler()->directive('env', function($setting) use($config) 
         {
             return $config->getEnv($setting);
         });
 
         // Output the final blade template
-        file_put_contents($config->getConfig('outputDir') . '/' . $slug . '.html', $page);
+        file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.html', $page);
 
         // Clear cache
-        $cache->clearCache();
-
+        $this->cache->clearCache();
     }
-
 }

@@ -16,18 +16,13 @@ class ClearCacheCommand extends Command
         $this
             ->setDescription('Clear site cache')
             ->setHelp('This command clears your cache directory. Helpful for debugging.');
+
+        $this->cache = new Cache();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
-        // Message
         $output->writeln('Clearing cache...');
-
-        // Create instances
-        $cache = new Cache();
-
-        // Clear cache
-        $cache->clearCache();
+        $this->cache->clearCache();
     }
 }
