@@ -61,7 +61,9 @@ class Compiler
         // Directive: Front Matter Variable
         $this->blade->compiler()->directive('matter', function($variable) use($matter)
         {
-            return $matter[$variable];
+            if (array_key_exists($variable, $matter)) {
+                return $matter[$variable];
+            }
         });
 
         // Directive: Site Name
