@@ -12,3 +12,4 @@ mix-manifest.json
 local/*.*
 local/cache/*
 !local/cache/.gitkeep
+local/cache/*.log
