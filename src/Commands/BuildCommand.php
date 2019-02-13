@@ -28,7 +28,7 @@ class BuildCommand extends Command
         $output->writeln('Building site...');
 
         // Get an array of pages (root directory)
-        $files = glob($this->config->getConfig('pagesDir') . '/*.md', GLOB_BRACE);
+        $files = glob($this->config->getConfig('contentDir') . '/*.md', GLOB_BRACE);
 
         // Compile each of the pages (root directory)
         foreach($files as $file)
@@ -37,7 +37,7 @@ class BuildCommand extends Command
         }
 
         // Get an array of pages (root + 1 dir)
-        $files = glob($this->config->getConfig('pagesDir') . '/*/*.md', GLOB_BRACE);
+        $files = glob($this->config->getConfig('contentDir') . '/*/*.md', GLOB_BRACE);
 
         // Compile each of the pages (root + 1 dir)
         foreach($files as $file)

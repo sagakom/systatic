@@ -4,7 +4,7 @@ return [
 	'siteName' => 'Thunderbird',
 	'siteUrl' => '/',
 	'outputDir' => './dist',
-	'pagesDir' => './content',
+	'contentDir' => './content',
 	'viewsDir' => './resources/views',
 	'cacheDir' => './local/cache'
 ];
