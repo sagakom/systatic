@@ -25,7 +25,7 @@ class Logging
         }
 
         // Write to the log file
-        $file = file_put_contents('./local/thunderbird.log', $message . PHP_EOL, FILE_APPEND | LOCK_EX);
+        $this->filesystem->appendToFile('./local/thunderbird.log', $message);
 
         return true;
     }

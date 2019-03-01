@@ -13,3 +13,4 @@ local/*.*
 local/cache/*
 !local/cache/.gitkeep
 local/cache/*.log
+.phpunit.result.cache
