@@ -2,7 +2,7 @@
 
 namespace Thunderbird\Compiler;
 
-use Pagerange\Markdown\MetaParsedown;
+use Damcclean\Markdown\MetaParsedown;
 use Jenssegers\Blade\Blade;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
