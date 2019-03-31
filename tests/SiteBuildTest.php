@@ -13,5 +13,6 @@ class SiteBuildTest extends TestCase
         $build = $build->build();
 
         $this->assertSame(true, $build);
+        $this->assertFileExists('dist/index.html');
     }
 }
