@@ -16,7 +16,7 @@ class Updater
         shell_exec("cp -a local/updater/download/src/* src");
 
         // Copy across the tests directory
-        shell_exec("cp -a local/updater/download/tests/* tests");
+        shell_exec("cp -a local/updater/download/tests/*.php tests");
 
         // Copy across the thunderbird console file
         shell_exec("cp local/updater/download/thunderbird ./");
