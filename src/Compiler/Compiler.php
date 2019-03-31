@@ -32,6 +32,12 @@ class Compiler
         // Parse Front Matter
         $matter = $this->parsedown->meta($file);
 
+        // Set a title - either from the title in the front matter or just set nothing as the title
+        $title = '';
+        if(array_key_exists('title', $matter)) {
+            $title = $matter['title'];
+        }
+
         // If page has different slug setup in front matter
         if(array_key_exists('slug', $matter)) {
             $slug = $matter['slug'];
@@ -51,7 +57,7 @@ class Compiler
 
         // Make the page with the chosen blade template and with all the variables
         $page = $this->blade->make($template, [
-            'title' => $matter['title'],
+            'title' => $title,
             'content' => $markdown
         ]);
 
