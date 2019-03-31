@@ -95,5 +95,7 @@ class Compiler
 
         // Clear cache
         $this->cache->clearCache();
+
+        return true;
     }
 }
