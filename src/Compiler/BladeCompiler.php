@@ -26,8 +26,10 @@ class BladeCompiler
 
         // Make the page with the chosen blade template and with all the variables
         $page = $this->blade->make($template, [
+            'page' => $page,
             'title' => $title,
-            'content' => $content
+            'content' => $content,
+            'matter' => $matter
         ]);
 
         // Setup a config variable for using it in blade
