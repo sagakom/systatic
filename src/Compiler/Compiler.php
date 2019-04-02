@@ -66,4 +66,37 @@ class Compiler
 
         return true;
     }
+
+    public function html($file)
+    {
+        // Basic file information
+        $slug = basename($file, '.html');
+        $file = file_get_contents($file);
+
+        // Get the content of the file
+        $content = $file;
+
+        // Set the title
+        $title = '';
+
+        // Decide on a template
+        $template = 'index';
+
+        if($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
+            $template = $slug;
+        }
+
+        // Compile 
+        $this->blade->compile([
+            'template' => $template,
+            'slug' => $slug,
+            'title' => $title,
+            'content' => $content,
+            'matter' => [
+                'title' => $title
+            ]
+        ]);
+
+        return true;
+    }
 }
