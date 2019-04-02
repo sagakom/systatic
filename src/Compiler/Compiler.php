@@ -56,7 +56,13 @@ class Compiler
         }
 
         // Compile 
-        $this->blade->compile($template, $slug, $title, $markdown, $matter);
+        $this->blade->compile([
+            'template' => $template,
+            'slug' => $slug,
+            'title' => $title,
+            'content' => $markdown,
+            'matter' => $matter
+        ]);
 
         return true;
     }

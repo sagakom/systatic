@@ -15,8 +15,15 @@ class BladeCompiler
         $this->blade = new Blade($this->config->getConfig('viewsDir'), $this->config->getConfig('cacheDir'));
     }
 
-    public function compile($template, $slug, $title, $content, $matter)
+    public function compile($array)
     {
+        // Get parameters
+        $template = $array['template'];
+        $slug = $array['slug'];
+        $title = $array['title'];
+        $content = $array['content'];
+        $matter = $array['matter'];
+
         // Make the page with the chosen blade template and with all the variables
         $page = $this->blade->make($template, [
             'title' => $title,
