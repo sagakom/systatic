@@ -20,7 +20,7 @@ class Compiler
         $this->filesystem = new Filesystem();
     }
 
-    public function compile($file)
+    public function markdown($file)
     {
         // Basic file information
         $slug = basename($file, '.md');

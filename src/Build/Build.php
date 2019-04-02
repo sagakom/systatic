@@ -25,7 +25,7 @@ class Build
         // Compile each of the files
         foreach($files as $file)
         {
-            $this->compiler->compile($file);
+            $this->compiler->markdown($file);
         }
 
         return true;
