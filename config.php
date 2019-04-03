@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'siteName' => 'My Awesome Website',
+	'siteName' => 'Awesome Website',
 	'siteUrl' => '/',
 	'outputDir' => './tests/site/dist',
 	'contentDir' => './tests/site/content',
