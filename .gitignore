@@ -1,16 +1,5 @@
 vendor
-node_modules
 .DS_Store
 composer.lock
-package-lock.json
-
-dist/*.html
-dist/js/app.js
-dist/css/app.css
-mix-manifest.json
 .env
-local/*.*
-local/cache/*
-!local/cache/.gitkeep
-local/cache/*.log
 .phpunit.result.cache
