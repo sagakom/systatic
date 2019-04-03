@@ -33,6 +33,14 @@ class CompilerTest extends TestCase
         $this->assertFileExists('./tests/site/dist/markdown_with_html_inside.html');
     }
 
+    public function testCanCompileDotMarkdownFileExtension()
+    {
+        $compiler = new Compiler();
+        $compile = $compiler->markdown('./tests/site/content/dot_markdown.markdown');
+        $this->assertSame(true, $compile);
+        $this->assertFileExists('./tests/site/dist/dot_markdown.html');
+    }
+
     public function testCanCompileHtmlStandard()
     {
         $compiler = new Compiler();

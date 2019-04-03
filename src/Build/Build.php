@@ -21,6 +21,8 @@ class Build
         // Get files to send to compiler
         $markdown = array_merge(glob($this->config->getConfig('contentDir') . '/*.md', GLOB_BRACE), $markdown);
         $markdown = array_merge(glob($this->config->getConfig('contentDir') . '/*/*.md', GLOB_BRACE), $markdown);
+        $markdown = array_merge(glob($this->config->getConfig('contentDir') . '/*.markdown', GLOB_BRACE), $markdown);
+        $markdown = array_merge(glob($this->config->getConfig('contentDir') . '/*/*.markdown', GLOB_BRACE), $markdown);
 
         // Compile each of the files
         foreach($markdown as $file)

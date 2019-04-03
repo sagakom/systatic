@@ -22,8 +22,14 @@ class Compiler
 
     public function markdown($file)
     {
-        // Basic file information
-        $slug = basename($file, '.md');
+        // Slug
+        if(strpos($file, '.md')) {
+            $slug = basename($file, '.md');
+        } elseif(strpos($file, '.markdown')) {
+            $slug = basename($file, '.markdown');
+        }
+
+        // File contents
         $file = file_get_contents($file);
 
         // Parse markdown
