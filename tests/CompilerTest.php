@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Thunderbird\Compiler\Compiler;
+use Damcclean\Systatic\Compiler\Compiler;
 
 class CompilerTest extends TestCase
 {

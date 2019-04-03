@@ -1,13 +1,13 @@
 <?php
 
-namespace Thunderbird\Updater;
+namespace Damcclean\Systatic\Updater;
 
 class Updater
 {
-    public function updateThunderbird($version)
+    public function updateSystatic($version)
     {
         // Download latest release from GitHub
-        shell_exec("git clone -b " . $version . " --single-branch https://github.com/ThunderbirdSSG/Thunderbird.git local/updater/download");
+        shell_exec("git clone -b " . $version . " --single-branch https://github.com/damcclean/Systatic.git local/updater/download");
 
         // Change into the release directory and remove the Git folder
         shell_exec("cd local/updater/download && rm -rf .git");

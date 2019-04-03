@@ -3,7 +3,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Thunderbird\Build\Build;
+use Damcclean\Systatic\Build\Build;
 
 class SiteBuildTest extends TestCase
 {

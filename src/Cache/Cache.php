@@ -1,10 +1,10 @@
 <?php
 
-namespace Thunderbird\Cache;
+namespace Damcclean\Systatic\Cache;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
-use Thunderbird\Config\Config;
+use Damcclean\Systatic\Config\Config;
 
 class Cache
 {

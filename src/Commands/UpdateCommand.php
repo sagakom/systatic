@@ -1,12 +1,12 @@
 <?php
 
-namespace Thunderbird\Commands;
+namespace Damcclean\Systatic\Commands;
 
 use Symfony\Component\Console\Command\Command as Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
-use Thunderbird\Updater\Updater;
+use Damcclean\Systatic\Updater\Updater;
 
 class UpdateCommand extends Command
 {
@@ -15,8 +15,8 @@ class UpdateCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Update Thunderbird')
-            ->setHelp('This command updates Thunderbird.');
+            ->setDescription('Update Systatic')
+            ->setHelp('This command updates Systatic.');
         
         $this->updater = new Updater();
     }
@@ -24,7 +24,7 @@ class UpdateCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Sends message to console indicating the update process has began
-        $output->writeln('Updating Thunderbird...');
+        $output->writeln('Updating Systatic...');
 
         // What version do you want to update to
         $helper = $this->getHelper('question');
@@ -32,6 +32,6 @@ class UpdateCommand extends Command
         $version = $helper->ask($input, $output, $question);
 
         // Actually update
-        $this->updater->updateThunderbird($version);
+        $this->updater->updateSystatic($version);
     }
 }

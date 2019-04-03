@@ -1,6 +1,6 @@
 {
-    "name": "thunderbirdssg/thunderbird",
-    "description": "Fast and Lightweight Static Site Generator",
+    "name": "damcclean/systatic",
+    "description": "Systatic is a Powerful Static Site Generator for PHP Developers.",
     "authors": [
         {
             "name": "Duncan McClean",
@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Thunderbird\\": "src"
+            "Damcclean\\Systatic\\": "src"
         }
     },
     "autoload-dev": {

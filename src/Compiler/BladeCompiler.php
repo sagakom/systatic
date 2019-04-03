@@ -1,9 +1,9 @@
 <?php
 
-namespace Thunderbird\Compiler;
+namespace Damcclean\Systatic\Compiler;
 
-use Thunderbird\Cache\Cache;
-use Thunderbird\Config\Config;
+use Damcclean\Systatic\Cache\Cache;
+use Damcclean\Systatic\Config\Config;
 use Jenssegers\Blade\Blade;
 
 class BladeCompiler

@@ -1,11 +1,11 @@
 <?php
 
-namespace Thunderbird\Commands;
+namespace Damcclean\Systatic\Commands;
 
 use Symfony\Component\Console\Command\Command as Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Thunderbird\Build\Build;
+use Damcclean\Systatic\Build\Build;
 
 class BuildCommand extends Command
 {
@@ -14,7 +14,7 @@ class BuildCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Build Thunderbird site')
+            ->setDescription('Build Systatic site')
             ->setHelp('This command builds your static site.');
 
         $this->build = new Build();

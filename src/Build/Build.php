@@ -1,9 +1,9 @@
 <?php
 
-namespace Thunderbird\Build;
+namespace Damcclean\Systatic\Build;
 
-use Thunderbird\Compiler\Compiler;
-use Thunderbird\Config\Config;
+use Damcclean\Systatic\Compiler\Compiler;
+use Damcclean\Systatic\Config\Config;
 
 class Build
 {
