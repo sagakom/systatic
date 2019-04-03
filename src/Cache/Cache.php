@@ -16,8 +16,8 @@ class Cache
 
     public function clearCache()
     {
-        $this->filesystem->remove(array('symlink', $this->config->getConfig('cacheDir'), '*.php'));    // Remove all files from cache
-        $this->filesystem->mkdir($this->config->getConfig('cacheDir'), 0700);  // Re-create cache directory
-        $this->filesystem->touch($this->config->getConfig('cacheDir') . '/.gitkeep'); // Re-create cache directory gitkeep
+        $this->filesystem->remove(array('symlink', $this->config->getConfig('storageDir'), '*.php'));    // Remove all files from cache
+        $this->filesystem->mkdir($this->config->getConfig('storageDir'), 0700);  // Re-create cache directory
+        $this->filesystem->touch($this->config->getConfig('storageDir') . '/.gitkeep'); // Re-create cache directory gitkeep
     }
 }

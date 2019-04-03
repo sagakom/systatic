@@ -12,7 +12,7 @@ class BladeCompiler
     {
         $this->cache = new Cache();
         $this->config = new Config();
-        $this->blade = new Blade($this->config->getConfig('viewsDir'), $this->config->getConfig('cacheDir'));
+        $this->blade = new Blade($this->config->getConfig('viewsDir'), $this->config->getConfig('storageDir'));
     }
 
     public function compile($array)

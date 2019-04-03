@@ -5,6 +5,6 @@ return [
 	'siteUrl' => '/',
 	'outputDir' => './dist',
 	'contentDir' => './content',
-	'viewsDir' => './resources/views',
-	'cacheDir' => './local/cache'
+	'viewsDir' => './views',
+	'storageDir' => './storage'
 ];
