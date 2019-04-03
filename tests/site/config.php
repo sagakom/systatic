@@ -1,0 +1,10 @@
+<?php
+
+return [
+	'siteName' => 'My Awesome Website',
+	'siteUrl' => '/',
+	'outputDir' => './tests/site/dist',
+	'contentDir' => './tests/site/content',
+	'viewsDir' => './tests/site/views',
+	'storageDir' => './tests/site/storage'
+];
