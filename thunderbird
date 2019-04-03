@@ -1,5 +1,4 @@
 #!/usr/bin/env php
-
 <?php
 
 // Load composer dependencies
@@ -7,17 +6,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 // Use stuff
 use Symfony\Component\Console\Application;
-use Thunderbird\Commands\BuildCommand;
-use Thunderbird\Commands\ClearCacheCommand;
-use Thunderbird\Commands\UpdateCommand;
+use Damcclean\Systatic\Commands\BuildCommand;
+use Damcclean\Systatic\Commands\ClearCacheCommand;
 
 // Register synforny application
-$application = new Application('Thunderbird');
+$application = new Application('Systatic');
 
 // Load commands
 $application->add(new BuildCommand());
 $application->add(new ClearCacheCommand());
-$application->add(new UpdateCommand());
 
 // Run the application
 $application->run();

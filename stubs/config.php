@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'siteName' => 'Thunderbird',
+	'siteName' => 'My Awesome Website',
 	'siteUrl' => '/',
 	'outputDir' => './dist',
 	'contentDir' => './content',

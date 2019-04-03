@@ -1,11 +1,11 @@
 <?php
 
-namespace Thunderbird\Commands;
+namespace Damcclean\Systatic\Commands;
 
 use Symfony\Component\Console\Command\Command as Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Thunderbird\Cache\Cache;
+use Damcclean\Systatic\Cache\Cache;
 
 class ClearCacheCommand extends Command
 {

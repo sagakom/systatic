@@ -1,6 +1,6 @@
 <?php
 
-namespace Thunderbird\Logging;
+namespace Damcclean\Systatic\Logging;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;

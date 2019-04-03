@@ -1,13 +1,13 @@
 <?php
 
-namespace Thunderbird\Compiler;
+namespace Damcclean\Systatic\Compiler;
 
 use Damcclean\Markdown\MetaParsedown;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
-use Thunderbird\Config\Config;
-use Thunderbird\Cache\Cache;
-use Thunderbird\Compiler\BladeCompiler;
+use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Cache\Cache;
+use Damcclean\Systatic\Compiler\BladeCompiler;
 
 class Compiler 
 {

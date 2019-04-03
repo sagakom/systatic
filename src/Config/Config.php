@@ -1,6 +1,6 @@
 <?php
 
-namespace Thunderbird\Config;
+namespace Damcclean\Systatic\Config;
 
 use Symfony\Component\Dotenv\Dotenv;
 
