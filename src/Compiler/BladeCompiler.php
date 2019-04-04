@@ -29,6 +29,7 @@ class BladeCompiler
             'page' => $array,
             'title' => $title,
             'slug' => $slug,
+            'url' => $this->config->getConfig('siteUrl') . '/' . $slug,
             'content' => $content,
             'matter' => $matter,
             'site' => [
