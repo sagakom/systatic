@@ -1,6 +1,6 @@
 # Systatic
 
-[![Build Status](https://travis-ci.com/ThunderbirdSSG/Thunderbird.svg?branch=master)](https://travis-ci.com/ThunderbirdSSG/Thunderbird)
+[![Build Status](https://travis-ci.com/damcclean/Systatic.svg?branch=master)](https://travis-ci.com/damcclean/Systatic)
 
 Systatic is a Powerful Static Site Generator for PHP Developers.
 
