@@ -28,6 +28,7 @@ class BladeCompiler
         $page = $this->blade->make($view, [
             'page' => $array,
             'title' => $title,
+            'slug' => $slug,
             'content' => $content,
             'matter' => $matter,
             'site' => [
