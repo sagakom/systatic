@@ -49,21 +49,21 @@ class Compiler
             $slug = $matter['slug'];
         }
 
-        // Just set a template up first then detect if a different one is needed
-        $template = 'index';
+        // Set view
+        $view = 'index';
 
-        if(array_key_exists('template', $matter)) {
-            if($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $matter['template'] . '.blade.php')) {
-                // Matter template
-                $template = $matter['template'];
+        if(array_key_exists('view', $matter)) {
+            if($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $matter['view'] . '.blade.php')) {
+                // Front matter view
+                $view = $matter['view'];
             }
         } elseif($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
-            $template = $slug;
+            $view = $slug;
         }
 
         // Compile 
         $this->blade->compile([
-            'template' => $template,
+            'view' => $view,
             'slug' => $slug,
             'title' => $title,
             'content' => $markdown,
@@ -85,16 +85,16 @@ class Compiler
         // Set the title
         $title = '';
 
-        // Decide on a template
-        $template = 'index';
+        // Decide on a view
+        $view = 'index';
 
         if($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
-            $template = $slug;
+            $view = $slug;
         }
 
         // Compile 
         $this->blade->compile([
-            'template' => $template,
+            'view' => $view,
             'slug' => $slug,
             'title' => $title,
             'content' => $content,

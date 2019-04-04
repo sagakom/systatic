@@ -18,14 +18,14 @@ class BladeCompiler
     public function compile($array)
     {
         // Get parameters
-        $template = $array['template'];
+        $view = $array['view'];
         $slug = $array['slug'];
         $title = $array['title'];
         $content = $array['content'];
         $matter = $array['matter'];
 
         // Make the page with the chosen blade template and with all the variables
-        $page = $this->blade->make($template, [
+        $page = $this->blade->make($view, [
             'page' => $array,
             'title' => $title,
             'content' => $content,
@@ -67,7 +67,7 @@ class BladeCompiler
             return $config->getEnv($setting);
         });
 
-        // Output the final blade template
+        // Send blade putput to file
         file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.html', $page);
 
         // Clear cache
