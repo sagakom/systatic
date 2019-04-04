@@ -40,14 +40,6 @@ class BladeCompiler
         // Setup a config variable for using it in blade
         $config = $this->config;
 
-        // Directive: Front Matter Variable
-        $this->blade->compiler()->directive('matter', function($variable) use($matter)
-        {
-            if (array_key_exists($variable, $matter)) {
-                return $matter[$variable];
-            }
-        });
-
         // Directive: Env \Value
         $this->blade->compiler()->directive('env', function($setting) use($config) 
         {
