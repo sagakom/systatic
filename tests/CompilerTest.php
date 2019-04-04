@@ -41,6 +41,14 @@ class CompilerTest extends TestCase
         $this->assertFileExists('./tests/site/dist/dot_markdown.html');
     }
 
+    public function testFrontMatterSlug()
+    {
+        $compiler = new Compiler();
+        $compile = $compiler->markdown('./tests/site/content/front-matter-slug.md');
+        $this->assertSame(true, $compile);
+        $this->assertFileExists('./tests/site/dist/awesome.html');
+    }
+
     public function testCanCompileHtmlStandard()
     {
         $compiler = new Compiler();
