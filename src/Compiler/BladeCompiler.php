@@ -33,7 +33,8 @@ class BladeCompiler
             'site' => [
                 'name' => $this->config->getConfig('siteName'),
                 'url' => $this->config->getConfig('siteUrl')
-            ]
+            ],
+            'config' => $this->config->getConfigArray()
         ]);
 
         // Setup a config variable for using it in blade
@@ -47,13 +48,7 @@ class BladeCompiler
             }
         });
 
-        // Directive: Config Value
-        $this->blade->compiler()->directive('config', function($setting) use($config) 
-        {
-            return $config->getConfig($setting);
-        });
-
-        // Directive: Env Value
+        // Directive: Env \Value
         $this->blade->compiler()->directive('env', function($setting) use($config) 
         {
             return $config->getEnv($setting);

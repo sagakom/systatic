@@ -11,10 +11,16 @@ class Config
         $this->env = new Dotenv();
     }
 
-    public function getConfig($setting) 
+    public function getConfig($setting)
     {
         $config = include('./config.php');
         return $config[$setting];
+    }
+
+    public function getConfigArray()
+    {
+        $config = include('./config.php');
+        return $config;
     }
 
     public function getEnv($setting)
