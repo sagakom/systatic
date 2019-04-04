@@ -29,7 +29,11 @@ class BladeCompiler
             'page' => $array,
             'title' => $title,
             'content' => $content,
-            'matter' => $matter
+            'matter' => $matter,
+            'site' => [
+                'name' => $this->config->getConfig('siteName'),
+                'url' => $this->config->getConfig('siteUrl')
+            ]
         ]);
 
         // Setup a config variable for using it in blade
@@ -41,18 +45,6 @@ class BladeCompiler
             if (array_key_exists($variable, $matter)) {
                 return $matter[$variable];
             }
-        });
-
-        // Directive: Site Name
-        $this->blade->compiler()->directive('siteName', function() use($config) 
-        {
-            return $config->getConfig('siteName');
-        });
-
-        // Directive: Site URL
-        $this->blade->compiler()->directive('siteUrl', function() use($config)
-        {
-            return $config->getConfig('siteUrl');
         });
 
         // Directive: Config Value
