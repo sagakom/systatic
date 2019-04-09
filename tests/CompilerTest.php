@@ -4,6 +4,7 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use Damcclean\Systatic\Compiler\Compiler;
+use Damcclean\Systatic\Compiler\BladeCompiler;
 
 class CompilerTest extends TestCase
 {
@@ -107,5 +108,22 @@ class CompilerTest extends TestCase
         $this->assertSame(true, $compile);
         $this->assertEquals($title, 0);
         $this->assertFileExists('./tests/site/dist/another.html');
+    }
+
+    public function testBladeCompiler()
+    {
+        $blade = new BladeCompiler();
+
+        $blade->compile([
+            'view' => 'index',
+            'slug' => 'i-love-bananas',
+            'title' => 'I love Bananas!!!',
+            'content' => '<p>Bananas are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
+            'matter' => [
+                'title' => 'I love Bananas!!!'
+            ]
+        ]);
+
+        $this->assertFileExists('./tests/site/dist/i-love-bananas.html');
     }
 }
