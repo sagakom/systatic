@@ -79,6 +79,16 @@ class CompilerTest extends TestCase
         $this->assertFileExists('./tests/site/dist/front-matter-view.html');
     }
 
+    public function testContentSameNameAsView()
+    {
+        $compiler = new Compiler();
+        $compile = $compiler->markdown('./tests/site/content/another.md');
+        $title = strpos($compile, '<meta name="description" content="another view">');
+        $this->assertSame(true, $compile);
+        $this->assertEquals($title, 0);
+        $this->assertFileExists('./tests/site/dist/another.html');
+    }
+
     public function testCanCompileHtmlStandard()
     {
         $compiler = new Compiler();
