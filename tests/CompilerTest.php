@@ -8,7 +8,7 @@ use Damcclean\Systatic\Compiler\Compiler;
 class CompilerTest extends TestCase
 {
     public function testCanCompileMarkdownWithFrontMatter()
-    {  
+    {
         $compiler = new Compiler();
         $compile = $compiler->markdown('./tests/site/content/markdown_with_frontmatter.md');
         $this->assertSame(true, $compile);
@@ -47,6 +47,26 @@ class CompilerTest extends TestCase
         $compile = $compiler->markdown('./tests/site/content/front-matter-slug.md');
         $this->assertSame(true, $compile);
         $this->assertFileExists('./tests/site/dist/awesome.html');
+    }
+
+    public function testFrontMatterTitle()
+    {
+        $compiler = new Compiler();
+        $compile = $compiler->markdown('./tests/site/content/front-matter-title.md');
+        $title = strpos($compile, '<title>Hey</title>');
+        $this->assertSame(true, $compile);
+        $this->assertEquals($title, 0);
+        $this->assertFileExists('./tests/site/dist/front-matter-title.html');
+    }
+
+    public function testFrontMatterWithoutTitle()
+    {
+        $compiler = new Compiler();
+        $compile = $compiler->markdown('./tests/site/content/front-matter-without-title.md');
+        $title = strpos($compile, '<title>front-matter-without-title</title>');
+        $this->assertSame(true, $compile);
+        $this->assertEquals($title, 0);
+        $this->assertFileExists('./tests/site/dist/front-matter-without-title.html');
     }
 
     public function testCanCompileHtmlStandard()
