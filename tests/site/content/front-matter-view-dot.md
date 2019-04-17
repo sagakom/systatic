@@ -1,0 +1,3 @@
+---
+view: something.another
+---

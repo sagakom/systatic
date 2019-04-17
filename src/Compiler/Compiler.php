@@ -57,6 +57,11 @@ class Compiler
             if($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $matter['view'] . '.blade.php')) {
                 // Front matter view
                 $view = $matter['view'];
+
+                // If it contains '.' replace it with '/'
+                if (strpos($view, '.') !== false) {
+                    $view = str_replace('.', '/', $view);
+                }
             }
         } elseif($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
             $view = $slug;
