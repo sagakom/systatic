@@ -2,6 +2,7 @@
 
 namespace Damcclean\Systatic\Build;
 
+use Damcclean\Systatic\Build\Redirects;
 use Damcclean\Systatic\Compiler\Compiler;
 use Damcclean\Systatic\Config\Config;
 
@@ -9,6 +10,7 @@ class Build
 {
     public function __construct()
     {
+        $this->redirects = new Redirects();
         $this->config = new Config();
         $this->compiler = new Compiler();
     }
@@ -40,6 +42,9 @@ class Build
         foreach ($html as $file) {
             $this->compiler->html($file);
         }
+
+        // Build the redirects
+        $this->redirects->build();
 
         return true;
     }

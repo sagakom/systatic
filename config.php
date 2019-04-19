@@ -6,5 +6,9 @@ return [
 	'outputDir' => './tests/site/dist',
 	'contentDir' => './tests/site/content',
 	'viewsDir' => './tests/site/views',
-	'storageDir' => './tests/site/storage'
+	'storageDir' => './tests/site/storage',
+
+	'redirects' => [
+		'google' => 'https://google.com'
+	]
 ];
