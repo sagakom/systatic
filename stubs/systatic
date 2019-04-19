@@ -1,18 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-// Load composer dependencies
 require __DIR__ . '/vendor/autoload.php';
+use Damcclean\Systatic\Commands\Commands;
 
-// Use stuff
-use Symfony\Component\Console\Application;
-use Damcclean\Systatic\Commands\BuildCommand;
-
-// Register synforny application
-$application = new Application('Systatic');
-
-// Load commands
-$application->add(new BuildCommand());
-
-// Run the application
-$application->run();
+$commands = new Commands();
+$commands->console();
