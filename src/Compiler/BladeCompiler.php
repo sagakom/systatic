@@ -43,8 +43,7 @@ class BladeCompiler
         $config = $this->config;
 
         // Directive: Env Value
-        $this->blade->compiler()->directive('env', function($setting) use($config) 
-        {
+        $this->blade->compiler()->directive('env', function ($setting) use ($config) {
             return $config->getEnv($setting);
         });
 

@@ -25,8 +25,7 @@ class Build
         $markdown = array_merge(glob($this->config->getConfig('contentDir') . '/*/*.markdown', GLOB_BRACE), $markdown);
 
         // Compile each of the files
-        foreach($markdown as $file)
-        {
+        foreach ($markdown as $file) {
             $this->compiler->markdown($file);
         }
 
@@ -38,8 +37,7 @@ class Build
         $html = array_merge(glob($this->config->getConfig('contentDir') . '/*/*.html', GLOB_BRACE), $html);
 
         // Compile each of the files
-        foreach($html as $file)
-        {
+        foreach ($html as $file) {
             $this->compiler->html($file);
         }
 

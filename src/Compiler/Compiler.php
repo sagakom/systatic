@@ -9,7 +9,7 @@ use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Compiler\BladeCompiler;
 
-class Compiler 
+class Compiler
 {
     public function __construct()
     {
@@ -23,9 +23,9 @@ class Compiler
     public function markdown($file)
     {
         // Slug
-        if(strpos($file, '.md')) {
+        if (strpos($file, '.md')) {
             $slug = basename($file, '.md');
-        } elseif(strpos($file, '.markdown')) {
+        } elseif (strpos($file, '.markdown')) {
             $slug = basename($file, '.markdown');
         }
 
@@ -40,12 +40,12 @@ class Compiler
 
         // Set a title - either from the title in the front matter or just set nothing as the title
         $title = $slug;
-        if(array_key_exists('title', $matter)) {
+        if (array_key_exists('title', $matter)) {
             $title = $matter['title'];
         }
 
         // If page has different slug setup in front matter
-        if(array_key_exists('slug', $matter)) {
+        if (array_key_exists('slug', $matter)) {
             $slug = $matter['slug'];
             $title = $slug;
         }
@@ -53,8 +53,8 @@ class Compiler
         // Set view
         $view = 'index';
 
-        if(array_key_exists('view', $matter)) {
-            if($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $matter['view'] . '.blade.php')) {
+        if (array_key_exists('view', $matter)) {
+            if ($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $matter['view'] . '.blade.php')) {
                 // Front matter view
                 $view = $matter['view'];
 
@@ -63,11 +63,11 @@ class Compiler
                     $view = str_replace('.', '/', $view);
                 }
             }
-        } elseif($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
+        } elseif ($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
             $view = $slug;
         }
 
-        // Compile 
+        // Compile
         $this->blade->compile([
             'view' => $view,
             'slug' => $slug,
@@ -94,11 +94,11 @@ class Compiler
         // Decide on a view
         $view = 'index';
 
-        if($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
+        if ($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
             $view = $slug;
         }
 
-        // Compile 
+        // Compile
         $this->blade->compile([
             'view' => $view,
             'slug' => $slug,

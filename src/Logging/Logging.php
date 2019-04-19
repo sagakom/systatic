@@ -20,7 +20,7 @@ class Logging
         $fileExists = $this->filesystem->exists($this->config->getConfig('storageDir') . '/systatic.log');
 
         // If the file does exist do nothing but if not, create the log file
-        if($fileExists) {
+        if ($fileExists) {
             // Do nothing
         } else {
             $this->filesystem->touch($this->config->getConfig('storageDir') . '/systatic.log');
