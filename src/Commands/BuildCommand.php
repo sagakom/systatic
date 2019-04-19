@@ -23,7 +23,7 @@ class BuildCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Message
-        $output->writeln('Building site...');
+        $output->writeln('<info>Building site...</info>');
 
         // Build the site
         $this->build->build();
