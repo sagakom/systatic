@@ -11,7 +11,7 @@ class CompilerTest extends TestCase
     public function setUp(): void
     {
         $this->compiler = new Compiler();
-        $this->blade = new Blade();
+        $this->blade = new BladeCompiler();
     }
 
     public function testCanCompileMarkdownWithFrontMatter()
