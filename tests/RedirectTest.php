@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Damcclean\Systatic\Build\Redirects;
 
 class RedirectTest extends TestCase

@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Damcclean\Systatic\Config\Config;
 
 class ConfigTest extends TestCase

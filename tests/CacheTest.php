@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
 use Symfony\Component\Filesystem\Filesystem;

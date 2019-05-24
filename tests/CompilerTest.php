@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Damcclean\Systatic\Compiler\Compiler;
 use Damcclean\Systatic\Compiler\BladeCompiler;
 
