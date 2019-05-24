@@ -13,13 +13,13 @@ class Config
 
     public function getConfig($setting)
     {
-        $config = include('./config.php');
+        $config = include(CONFIG);
         return $config[$setting];
     }
 
     public function getConfigArray()
     {
-        $config = include('./config.php');
+        $config = include(CONFIG);
         return $config;
     }
 

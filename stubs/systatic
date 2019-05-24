@@ -1,8 +1,33 @@
 #!/usr/bin/env php
 <?php
 
+/*
+    Path to Config
+    - A relative path to where your config file is located.
+*/
+
+$config = './config.php';
+
+/*
+    Bootstrap the application
+    - Please don't touch anything below this line or things could go horribly wrong
+*/
+
+if(!file_exists($config)) {
+    echo "Please specify your configuration path in your Systatic console file.";
+    exit();
+}
+
+define('CONFIG', $config);
+
 require __DIR__ . '/vendor/autoload.php';
+
 use Damcclean\Systatic\Commands\Commands;
+
+/*
+    Commands
+    - Register console commands
+*/
 
 $commands = new Commands();
 $commands->console();
