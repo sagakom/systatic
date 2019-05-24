@@ -9,6 +9,10 @@ use Damcclean\Systatic\Commands\ClearCacheCommand;
 
 class Commands
 {
+    /*
+        Bootstrap all of the avaliable console commands
+    */
+
     public function console()
     {
         $application = new Application('Systatic');

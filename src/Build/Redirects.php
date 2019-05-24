@@ -11,6 +11,10 @@ class Redirects
         $this->config = new Config();
     }
 
+    /*
+        Find redirects and send them to be compiled
+    */
+
     public function build()
     {
         $configArray = $this->config->getConfigArray();
@@ -29,6 +33,10 @@ class Redirects
             return true;
         }
     }
+
+    /*
+        Compile redirects to HTMl files
+    */
 
     public function compile($redirect)
     {

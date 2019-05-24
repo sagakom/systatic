@@ -23,6 +23,10 @@ class ClearSiteCommand extends Command
         $this->filesystem = new Filesystem();
     }
 
+    /*
+        Clear HTML output files
+    */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Message

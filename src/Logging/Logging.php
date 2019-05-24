@@ -14,19 +14,18 @@ class Logging
         $this->config = new Config();
     }
 
+    /*
+        Create a log file and write to it
+    */
+
     public function log($message)
     {
-        // Check if the log file exists
-        $fileExists = $this->filesystem->exists($this->config->getConfig('storageDir') . '/systatic.log');
+        $fileExists = file_exists($this->config->getConfig('storageDir') . '/systatic.log');
 
-        // If the file does exist do nothing but if not, create the log file
-        if ($fileExists) {
-            // Do nothing
-        } else {
+        if (!$fileExists) {
             $this->filesystem->touch($this->config->getConfig('storageDir') . '/systatic.log');
         }
 
-        // Write to the log file
         $this->filesystem->appendToFile($this->config->getConfig('storageDir') . '/systatic.log', $message);
 
         return true;

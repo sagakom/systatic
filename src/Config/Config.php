@@ -11,17 +11,29 @@ class Config
         $this->env = new Dotenv();
     }
 
+    /*
+        Get config value
+    */
+
     public function getConfig($setting)
     {
         $config = include(CONFIG);
         return $config[$setting];
     }
 
+    /*
+        Get config array
+    */
+
     public function getConfigArray()
     {
         $config = include(CONFIG);
         return $config;
     }
+
+    /*
+        Get env value
+    */
 
     public function getEnv($setting)
     {

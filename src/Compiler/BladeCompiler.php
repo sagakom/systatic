@@ -15,16 +15,20 @@ class BladeCompiler
         $this->blade = new Blade($this->config->getConfig('viewsDir'), $this->config->getConfig('storageDir') . '/cache');
     }
 
+    /*
+        Compile with given information
+    */
+
     public function compile($array)
     {
-        // Get parameters
+        // Fetches parameter array
         $view = $array['view'];
         $slug = $array['slug'];
         $title = $array['title'];
         $content = $array['content'];
         $matter = $array['matter'];
 
-        // Make the page with the chosen blade template and with all the variables
+        // Sends variables to Blade view
         $page = $this->blade->make($view, [
             'page' => $array,
             'title' => $title,
@@ -39,20 +43,13 @@ class BladeCompiler
             'config' => $this->config->getConfigArray()
         ]);
 
-        // Setup a config variable for using it in blade
         $config = $this->config;
-
-        // Directive: Env Value
         $this->blade->compiler()->directive('env', function ($setting) use ($config) {
             return $config->getEnv($setting);
         });
 
-        // Send blade putput to file
         file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.html', $page);
 
-        // Clear cache
         $this->cache->clearCache();
-
-        return true;
     }
 }

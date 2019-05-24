@@ -14,6 +14,10 @@ class Cache
         $this->config = new Config();
     }
 
+    /*
+        Clear the site cache
+    */
+
     public function clearCache()
     {
         $this->filesystem->remove(array('symlink', $this->config->getConfig('storageDir'), '/cache/*.php'));    // Remove all files from cache

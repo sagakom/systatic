@@ -20,6 +20,10 @@ class BuildCommand extends Command
         $this->build = new Build();
     }
 
+    /*
+        Build the site
+    */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Message

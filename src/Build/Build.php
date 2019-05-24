@@ -16,8 +16,9 @@ class Build
     }
 
     /*
-        Site Build
+        Find Markdown and HTMl files to the compiler
     */
+    
     public function build()
     {
         $markdown = [];

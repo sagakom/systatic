@@ -20,6 +20,10 @@ class ClearCacheCommand extends Command
         $this->cache = new Cache();
     }
 
+    /*
+        Clear the cache
+    */
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Message

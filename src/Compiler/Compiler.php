@@ -20,6 +20,10 @@ class Compiler
         $this->filesystem = new Filesystem();
     }
 
+    /*
+        Compile a Markdown file
+    */
+
     public function markdown($file)
     {
         // Slug
@@ -79,26 +83,23 @@ class Compiler
         return true;
     }
 
+    /*
+        Compile a HTML file
+    */
+
     public function html($file)
     {
-        // Basic file information
         $slug = basename($file, '.html');
         $file = file_get_contents($file);
 
-        // Get the content of the file
-        $content = $file;
-
-        // Set the title
         $title = '';
-
-        // Decide on a view
+        $content = $file;
         $view = 'index';
 
-        if ($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
+        if (file_exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
             $view = $slug;
         }
 
-        // Compile
         $this->blade->compile([
             'view' => $view,
             'slug' => $slug,
