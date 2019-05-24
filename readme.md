@@ -6,5 +6,6 @@
 
 Systatic is a Powerful Static Site Generator for PHP Developers.
 
-* [Documentation](https://github.com/damcclean/Systatic/wiki)
+* [Website](https://systatic.netlify.com)
+* [Documentation](https://systatic.netlify.com/getting-started)
 * [Discord](https://discord.gg/sxkrycQ)
