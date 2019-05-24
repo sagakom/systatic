@@ -43,11 +43,6 @@ class BladeCompiler
             'config' => $this->config->getConfigArray()
         ]);
 
-        $config = $this->config;
-        $this->blade->compiler()->directive('env', function ($setting) use ($config) {
-            return $config->getEnv($setting);
-        });
-
         file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.html', $page);
 
         $this->cache->clearCache();
