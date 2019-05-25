@@ -230,7 +230,7 @@ class CollectionsTest extends TestCase
         
         $expected = [
             'filename' => $file,
-            'title' => 'Hey',
+            'title' => 'cool2',
             'slug' => 'cool2',
             'view' => 'cool2',
             'content' => file_get_contents($file),

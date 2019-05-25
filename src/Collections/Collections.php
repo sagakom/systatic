@@ -137,7 +137,9 @@ class Collections
         $filename = $file;
         $contents = file_get_contents($file);
 
-        $slug = strpos($filename, '.html');
+        if(strpos($filename, '.html')) {
+            $slug = basename($filename, '.html');
+        }
 
         if(file_exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
             $view = $slug;
@@ -145,6 +147,10 @@ class Collections
 
         $title = $slug;
         $view = 'index';
+
+        if(file_exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
+            $view = $slug;
+        }
 
         $entry = [
             'filename' => $filename,
