@@ -17,6 +17,10 @@ class CacheTest extends TestCase
         $this->filesystem = new Filesystem();
     }
 
+    /*
+        Test that the cache can be cleared
+    */
+
     public function testCanClearCache()
     {  
         $this->filesystem->touch($this->config->getConfig('storageDir') . '/cache/file.txt');

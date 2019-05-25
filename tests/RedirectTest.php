@@ -12,12 +12,20 @@ class RedirectTest extends TestCase
         $this->redirects = new Redirects();
     }
 
+    /*
+        Test that we can configure redirects from the config
+    */
+
     public function testCanConfigureRedirectsFromConfig()
     {
         $build = $this->redirects->build();
         $this->assertSame(true, $build);
         $this->assertFileExists('./tests/site/dist/google.html');
     }
+
+    /*
+        Test that we can compile redirects
+    */
 
     public function testCanCompileRedirects()
     {

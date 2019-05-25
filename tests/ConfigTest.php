@@ -12,6 +12,10 @@ class ConfigTest extends TestCase
         $this->config = new Config();
     }
 
+    /*
+        Tests that we can get single config values
+    */
+
     public function testCanGetConfigValue()
     {  
         $siteName = $this->config->getConfig('siteName');
