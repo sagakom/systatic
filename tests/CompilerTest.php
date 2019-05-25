@@ -137,4 +137,19 @@ class CompilerTest extends TestCase
 
         $this->assertFileExists('./tests/site/dist/i-love-bananas.html');
     }
+
+    public function testBladeCompilerWithHtmlView()
+    {
+        $this->blade->compile([
+            'view' => 'this-is-cool',
+            'slug' => 'i-love-apples',
+            'title' => 'I love Apples!!!',
+            'content' => '<p>Apples are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
+            'matter' => [
+                'title' => 'I love Apples!!!'
+            ]
+        ]);
+
+        $this->assertFileExists('./tests/site/dist/i-love-apples.html');
+    }
 }
