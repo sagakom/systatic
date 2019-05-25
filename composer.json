@@ -22,7 +22,7 @@
         "symfony/console": "^4.2",
         "symfony/web-server-bundle": "^4.2",
         "symfony/dotenv": "^4.2",
-        "jenssegers/blade": "^1.1",
+        "jenssegers/blade": "^1.2",
         "symfony/filesystem": "^4.2",
         "damcclean/metaparsedown-extra": "^0.1.0"
     },
