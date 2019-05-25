@@ -39,7 +39,7 @@ class CollectionsTest extends TestCase
     public function testFetch()
     {
         $fetch = $this->collections->fetch();
-        $this->assertTrue($fetch);
+        $this->assertNotNull($fetch);
     }
 
     public function testFetchAsJson()
