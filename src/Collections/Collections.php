@@ -2,6 +2,8 @@
 
 namespace Damcclean\Systatic\Collections;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 use Damcclean\Markdown\MetaParsedown;
 use Damcclean\Systatic\Config\Config;
 
@@ -12,6 +14,8 @@ class Collections
         $this->config = new Config();
         $this->parsedown = new MetaParsedown();
         $this->store = [];
+
+        $this->filesystem = new Filesystem();
     }
 
     /*
@@ -39,7 +43,7 @@ class Collections
             $this->html($file);
         }
 
-        $this->store();
+        $this->save();
 
         // Go through everything in the collections and compile html output for them
 
@@ -50,9 +54,9 @@ class Collections
         Save to store
     */
 
-    public function store()
+    public function save()
     {
-        file_put_contents($this->config->getConfig('storageDir') . '/collections.txt', json_encode($this->store));
+        file_put_contents($this->config->getConfig('outoutDir') . '/store.json', json_encode($this->store));
         return true;
     }
 
