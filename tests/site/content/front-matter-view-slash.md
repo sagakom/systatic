@@ -1,3 +1,3 @@
 ---
-view: something.another
+view: something/another
 ---

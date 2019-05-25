@@ -74,19 +74,19 @@ class Collections
         $filename = $file;
         $contents = file_get_contents($file);
 
-        $title = $slug;
-        $view = 'index';
-
         if(strpos($filename, '.md') || strpos($filename, '.markdown')) {
             $slug = basename($filename, '.md');
             $slug = basename($filename, '.markdown');
         }
 
+        $title = $slug;
+        $view = 'index';
+
         $markdown = $this->parsedown->text($contents);
         $frontMatter = $this->parsedown->meta($contents);
 
         if(array_key_exists('title', $frontMatter)) {
-            $slug = $frontMatter['title'];
+            $title = $frontMatter['title'];
         }
 
         if(array_key_exists('slug', $frontMatter)) {
@@ -99,13 +99,15 @@ class Collections
 
         if(array_key_exists('view', $frontMatter)) {
             if(file_exists($this->config->getConfig('viewsDir') . '/' . $frontMatter['view'] . '.blade.php')) {
-                $view = $matter['view'];
+                $view = $frontMatter['view'];
                 if(strpos($view, '.') !== false) {
                     $view = str_replace('.', '/', $view);
                 }
             }
-        } elseif(file_exists($this->config->getConfig('viewsDir') . '/' . $frontMatter['slug'] . '.blade.php')) {
-            $view = $frontMatter['slug'];
+        } elseif(array_key_exists('slug', $frontMatter)) {
+            if(file_exists($this->config->getConfig('viewsDir') . '/' . $frontMatter['slug'] . '.blade.php')) {
+                $view = $frontMatter['slug'];
+            }
         }
 
         $entry = [
@@ -131,12 +133,14 @@ class Collections
         $filename = $file;
         $contents = file_get_contents($file);
 
-        $title = $slug;
-        $view = 'index';
+        $slug = strpos($filename, '.html');
 
         if(file_exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
             $view = $slug;
         }
+
+        $title = $slug;
+        $view = 'index';
 
         $entry = [
             'filename' => $filename,
