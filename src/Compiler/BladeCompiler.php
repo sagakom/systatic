@@ -21,21 +21,19 @@ class BladeCompiler
 
     public function compile($array)
     {
-        // Fetches parameter array
         $view = $array['view'];
         $slug = $array['slug'];
         $title = $array['title'];
         $content = $array['content'];
-        $matter = $array['matter'];
+        $meta = $array['meta'];
 
-        // Sends variables to Blade view
         $page = $this->blade->make($view, [
             'page' => $array,
             'title' => $title,
             'slug' => $slug,
             'url' => $this->config->getConfig('siteUrl') . '/' . $slug,
             'content' => $content,
-            'matter' => $matter,
+            'meta' => $meta,
             'site' => [
                 'name' => $this->config->getConfig('siteName'),
                 'url' => $this->config->getConfig('siteUrl')
@@ -46,5 +44,7 @@ class BladeCompiler
         file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.html', $page);
 
         $this->cache->clearCache();
+
+        return true;
     }
 }
