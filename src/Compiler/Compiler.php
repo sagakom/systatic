@@ -3,8 +3,6 @@
 namespace Damcclean\Systatic\Compiler;
 
 use Damcclean\Markdown\MetaParsedown;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Compiler\BladeCompiler;
@@ -17,7 +15,6 @@ class Compiler
         $this->cache = new Cache();
         $this->parsedown = new MetaParsedown();
         $this->blade = new BladeCompiler();
-        $this->filesystem = new Filesystem();
     }
 
     /*
@@ -58,7 +55,7 @@ class Compiler
         $view = 'index';
 
         if (array_key_exists('view', $matter)) {
-            if ($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $matter['view'] . '.blade.php')) {
+            if (file_exists($this->config->getConfig('viewsDir') . '/' . $matter['view'] . '.blade.php')) {
                 // Front matter view
                 $view = $matter['view'];
 
@@ -67,7 +64,7 @@ class Compiler
                     $view = str_replace('.', '/', $view);
                 }
             }
-        } elseif ($this->filesystem->exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
+        } elseif (file_exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
             $view = $slug;
         }
 
