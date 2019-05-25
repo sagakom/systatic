@@ -18,12 +18,7 @@ class CollectionsTest extends TestCase
         $this->parsedown = new MetaParsedown();
     }
 
-    public function testCollectMethod()
-    {
-        // TODO
-    }
-
-    public function testSaveCollection()
+    public function testSave()
     {
         $store = [
             [
@@ -41,12 +36,16 @@ class CollectionsTest extends TestCase
         $this->assertFileExists($this->config->getConfig('storageDir') . '/store.json');
     }
 
-    public function testFetchCollectionStore()
+    public function testFetch()
     {
-        // $fetch = $this->collections->fetch();
+        $fetch = $this->collections->fetch();
+        $this->assertTrue($fetch);
+    }
 
-        // echo $fetch;
-        // $this->assertNotNull($fetch);
+    public function testFetchAsJson()
+    {
+        $fetch = $this->collections->fetch();
+        $this->assertJson($fetch);
     }
 
     public function testMarkdownWithFrontMatter()

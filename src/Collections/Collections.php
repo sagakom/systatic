@@ -70,6 +70,15 @@ class Collections
     }
 
     /*
+        Fetch from store (As JSON)
+    */
+
+    public function fetchAsJson()
+    {
+        return file_get_contents($this->config->getConfig('storageDir') . '/store.json');
+    }
+
+    /*
         Get Markdown file information
     */
 
