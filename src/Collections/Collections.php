@@ -2,20 +2,18 @@
 
 namespace Damcclean\Systatic\Collections;
 
-use Symfony\Component\Filesystem\Filesystem;
-
 use Damcclean\Markdown\MetaParsedown;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Compiler\BladeCompiler;
 
 class Collections
 {
     public function __construct()
     {
         $this->config = new Config();
+        $this->blade = new BladeCompiler();
         $this->parsedown = new MetaParsedown();
         $this->store = [];
-
-        $this->filesystem = new Filesystem();
     }
 
     /*
@@ -46,6 +44,16 @@ class Collections
         $this->save($this->store);
 
         // Go through everything in the collections and compile html output for them
+        foreach($this->fetch as $item)
+        {
+            $this->blade->compile([
+                'view' => $item['view'],
+                'slug' => $item['slug'],
+                'title' => $item['title'],
+                'content' => $item['content'],
+                'meta' => $item['meta']
+            ]);
+        }
 
         return true;
     }
