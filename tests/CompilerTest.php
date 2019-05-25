@@ -20,7 +20,7 @@ class CompilerTest extends TestCase
             'slug' => 'i-love-bananas',
             'title' => 'I love Bananas!!!',
             'content' => '<p>Bananas are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
-            'matter' => [
+            'meta' => [
                 'title' => 'I love Bananas!!!'
             ]
         ]);
@@ -35,7 +35,7 @@ class CompilerTest extends TestCase
             'slug' => 'i-love-apples',
             'title' => 'I love Apples!!!',
             'content' => '<p>Apples are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
-            'matter' => [
+            'meta' => [
                 'title' => 'I love Apples!!!'
             ]
         ]);

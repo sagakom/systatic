@@ -43,7 +43,7 @@ class Collections
             $this->html($file);
         }
 
-        $this->save();
+        $this->save($this->store);
 
         // Go through everything in the collections and compile html output for them
 
@@ -54,9 +54,9 @@ class Collections
         Save to store
     */
 
-    public function save()
+    public function save($store)
     {
-        file_put_contents($this->config->getConfig('outoutDir') . '/store.json', json_encode($this->store));
+        file_put_contents($this->config->getConfig('storageDir') . '/store.json', json_encode($store));
         return true;
     }
 
@@ -66,7 +66,7 @@ class Collections
 
     public function fetch()
     {
-        return json_decode(file_get_contents($this->config->getConfig('storageDir') . '/collections.json'));
+        return json_decode(file_get_contents($this->config->getConfig('storageDir') . '/store.json'));
     }
 
     /*

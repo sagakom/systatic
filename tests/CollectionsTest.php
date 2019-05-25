@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Tests\TestCase;
+use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Collections\Collections;
 use Damcclean\Markdown\MetaParsedown;
 
@@ -11,6 +12,8 @@ class CollectionsTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+
+        $this->config = new Config();
         $this->collections = new Collections();
         $this->parsedown = new MetaParsedown();
     }
@@ -20,9 +23,22 @@ class CollectionsTest extends TestCase
         // TODO
     }
 
-    public function testStoreCollection()
+    public function testSaveCollection()
     {
-        // TODO
+        $store = [
+            [
+                "filename" => "index",
+                "title" => "Home",
+                "slug" => "index",
+                "content" => "<p>This is my homepage content</p>",
+                "meta" => []
+            ]
+        ];
+
+        $save = $this->collections->save($store);
+
+        $this->assertSame(true, $save);
+        $this->assertFileExists($this->config->getConfig('storageDir') . '/store.json');
     }
 
     public function testFetchCollectionStore()
