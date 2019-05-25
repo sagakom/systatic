@@ -3,7 +3,6 @@
 namespace Tests;
 
 use Tests\TestCase;
-use Damcclean\Systatic\Compiler\Compiler;
 use Damcclean\Systatic\Compiler\BladeCompiler;
 
 class CompilerTest extends TestCase
@@ -11,7 +10,6 @@ class CompilerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->compiler = new Compiler();
         $this->blade = new BladeCompiler();
     }
 

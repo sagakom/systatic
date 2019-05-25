@@ -74,8 +74,9 @@ class Collections
         $filename = $file;
         $contents = file_get_contents($file);
 
-        if(strpos($filename, '.md') || strpos($filename, '.markdown')) {
+        if(strpos($filename, '.md')) {
             $slug = basename($filename, '.md');
+        } elseif(strpos($filename, '.markdown')) {
             $slug = basename($filename, '.markdown');
         }
 
@@ -100,13 +101,12 @@ class Collections
         if(array_key_exists('view', $frontMatter)) {
             if(file_exists($this->config->getConfig('viewsDir') . '/' . $frontMatter['view'] . '.blade.php')) {
                 $view = $frontMatter['view'];
-                if(strpos($view, '.') !== false) {
-                    $view = str_replace('.', '/', $view);
-                }
+            } elseif(file_exists($this->config->getConfig('viewsDir') . '/' . str_replace('.', '/', $frontMatter['view']) . '.blade.php')) {
+                $view = str_replace('.', '/', $frontMatter['view']);
             }
-        } elseif(array_key_exists('slug', $frontMatter)) {
-            if(file_exists($this->config->getConfig('viewsDir') . '/' . $frontMatter['slug'] . '.blade.php')) {
-                $view = $frontMatter['slug'];
+        } elseif($slug !== 'index') {
+            if(file_exists($this->config->getConfig('viewsDir') . '/' . $slug . '.blade.php')) {
+                $view = $slug;
             }
         }
 

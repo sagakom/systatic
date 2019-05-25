@@ -162,9 +162,9 @@ class CollectionsTest extends TestCase
         
         $expected = [
             'filename' => $file,
-            'title' => 'front-matter-view.md',
-            'slug' => 'front-matter-title',
-            'view' => 'another',
+            'title' => 'front-matter-view',
+            'slug' => 'front-matter-view',
+            'view' => 'cool',
             'content' => $this->parsedown->text(file_get_contents($file)),
             'meta' => $this->parsedown->meta(file_get_contents($file))
         ];
@@ -179,7 +179,7 @@ class CollectionsTest extends TestCase
         
         $expected = [
             'filename' => $file,
-            'title' => 'front-matter-view-slash.md',
+            'title' => 'front-matter-view-slash',
             'slug' => 'front-matter-view-slash',
             'view' => 'something/another',
             'content' => $this->parsedown->text(file_get_contents($file)),
@@ -196,7 +196,7 @@ class CollectionsTest extends TestCase
         
         $expected = [
             'filename' => $file,
-            'title' => 'front-matter-view-dot.md',
+            'title' => 'front-matter-view-dot',
             'slug' => 'front-matter-view-dot',
             'view' => 'something/another',
             'content' => $this->parsedown->text(file_get_contents($file)),
@@ -208,14 +208,14 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownFileNameSameNameAsView()
     {
-        $file = './tests/site/content/another.md';
+        $file = './tests/site/content/cool.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
             'filename' => $file,
             'title' => 'Hey',
-            'slug' => 'another',
-            'view' => 'another',
+            'slug' => 'cool',
+            'view' => 'cool',
             'content' => $this->parsedown->text(file_get_contents($file)),
             'meta' => $this->parsedown->meta(file_get_contents($file))
         ];
@@ -225,14 +225,14 @@ class CollectionsTest extends TestCase
 
     public function testHtmlFileNameSameNameAsView()
     {
-        $file = './tests/site/content/another.html';
+        $file = './tests/site/content/cool2.html';
         $markdown = $this->collections->html($file);
         
         $expected = [
             'filename' => $file,
             'title' => 'Hey',
-            'slug' => 'another',
-            'view' => 'another',
+            'slug' => 'cool2',
+            'view' => 'cool2',
             'content' => "<h1>Hey</h1>
 
             Content",
@@ -249,7 +249,7 @@ class CollectionsTest extends TestCase
         
         $expected = [
             'filename' => $file,
-            'title' => 'html_standard.html',
+            'title' => 'html_standard',
             'slug' => 'html_standard',
             'view' => 'index',
             'content' => "<h1>I love Wildlife!!</h1>

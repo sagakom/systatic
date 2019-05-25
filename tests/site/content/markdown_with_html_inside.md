@@ -11,9 +11,7 @@ Aenean convallis sed tellus et fermentum. Vivamus vitae risus aliquet, fringilla
 
 Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras id ex pretium nisl iaculis fringilla a tempor velit. Donec rutrum auctor finibus. Fusce commodo vulputate ligula, in condimentum lorem pharetra non. Fusce ultricies pretium mi eu consectetur. Nam a imperdiet velit. Curabitur sed nulla ac magna posuere ultricie
 
-<span class="awesome">
-**Awesome**
-</span>
+<span class="awesome">**Awesome**</span>
 
 Proin dui augue, fermentum et pellentesque in, venenatis sit amet lacus. Quisque viverra, dui non suscipit ullamcorper, massa lacus malesuada mi, et ultricies eros nisi in lectus. Etiam vitae ornare nunc, imperdiet eleifend ante. Etiam tortor nisl, ultricies non maximus sed, porta vitae nulla. Praesent ipsum lacus, elementum id maximus in, congue sit amet justo. Vestibulum sit amet nibh ut turpis luctus iaculis a ac quam. Duis quis rutrum turpis, interdum maximus tortor. Sed vitae risus eu odio consectetur semper. Curabitur sodales mattis massa vehicula tempor.
 
