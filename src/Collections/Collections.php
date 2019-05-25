@@ -4,14 +4,14 @@ namespace Damcclean\Systatic\Collections;
 
 use Damcclean\Markdown\MetaParsedown;
 use Damcclean\Systatic\Config\Config;
-use Damcclean\Systatic\Compiler\BladeCompiler;
+use Damcclean\Systatic\Compiler\Compiler;
 
 class Collections
 {
     public function __construct()
     {
         $this->config = new Config();
-        $this->blade = new BladeCompiler();
+        $this->compiler = new Compiler();
         $this->parsedown = new MetaParsedown();
         $this->store = [];
     }
@@ -43,16 +43,9 @@ class Collections
 
         $this->save($this->store);
 
-        // Go through everything in the collections and compile html output for them
-        foreach($this->fetch as $item)
+        foreach($this->fetch as $entry)
         {
-            $this->blade->compile([
-                'view' => $item['view'],
-                'slug' => $item['slug'],
-                'title' => $item['title'],
-                'content' => $item['content'],
-                'meta' => $item['meta']
-            ]);
+            $this->compiler->compile($entry);
         }
 
         return true;

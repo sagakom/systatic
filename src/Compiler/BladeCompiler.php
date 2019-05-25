@@ -16,32 +16,22 @@ class BladeCompiler
     }
 
     /*
-        Compile with given information
+        Compile with Laravel Blade
     */
 
     public function compile($array)
     {
-        $view = $array['view'];
-        $slug = $array['slug'];
-        $title = $array['title'];
-        $content = $array['content'];
-        $meta = $array['meta'];
-
-        $page = $this->blade->make($view, [
-            'page' => $array,
-            'title' => $title,
-            'slug' => $slug,
-            'url' => $this->config->getConfig('siteUrl') . '/' . $slug,
-            'content' => $content,
-            'meta' => $meta,
-            'site' => [
-                'name' => $this->config->getConfig('siteName'),
-                'url' => $this->config->getConfig('siteUrl')
-            ],
+        $page = $this->blade->make($array['view'], [
+            'filename' => $array['filename'],
+            'title' => $array['title'],
+            'slug' => $array['slug'],
+            'view' => $array['view'],
+            'content' => $array['content'],
+            'meta' => $array['meta'],
             'config' => $this->config->getConfigArray()
         ]);
 
-        file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.html', $page);
+        file_put_contents($this->config->getConfig('outputDir') . '/' . $array['slug'] . '.html', $page);
 
         $this->cache->clearCache();
 

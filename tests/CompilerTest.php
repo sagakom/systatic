@@ -13,33 +13,31 @@ class CompilerTest extends TestCase
         $this->blade = new BladeCompiler();
     }
 
-    public function testBladeCompiler()
+    public function testBladeCompilerWithBladePhpView()
     {
         $this->blade->compile([
+            'filename' => 'banana.html',
+            'title' => 'I love Bananas!',
+            'slug' => 'banana',
             'view' => 'index',
-            'slug' => 'i-love-bananas',
-            'title' => 'I love Bananas!!!',
             'content' => '<p>Bananas are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
-            'meta' => [
-                'title' => 'I love Bananas!!!'
-            ]
+            'meta' => []
         ]);
 
-        $this->assertFileExists('./tests/site/dist/i-love-bananas.html');
+        $this->assertFileExists('./tests/site/dist/banana.html');
     }
 
     public function testBladeCompilerWithHtmlView()
     {
         $this->blade->compile([
+            'filename' => 'apple.html',
+            'title' => 'I love Apples!',
+            'slug' => 'apple',
             'view' => 'this-is-cool',
-            'slug' => 'i-love-apples',
-            'title' => 'I love Apples!!!',
             'content' => '<p>Apples are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
-            'meta' => [
-                'title' => 'I love Apples!!!'
-            ]
+            'meta' => []
         ]);
 
-        $this->assertFileExists('./tests/site/dist/i-love-apples.html');
+        $this->assertFileExists('./tests/site/dist/apple.html');
     }
 }
