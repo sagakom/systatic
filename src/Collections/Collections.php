@@ -52,7 +52,7 @@ class Collections
 
     public function store()
     {
-        file_put_contents($this->config->getConfig('storageDir') . '/collections.json', json_encode($this->store));
+        file_put_contents($this->config->getConfig('storageDir') . '/collections.txt', json_encode($this->store));
         return true;
     }
 
