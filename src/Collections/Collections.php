@@ -43,7 +43,7 @@ class Collections
 
         $this->save($this->store);
 
-        foreach($this->fetch as $entry)
+        foreach($this->store as $entry)
         {
             $this->compiler->compile($entry);
         }

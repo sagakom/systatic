@@ -2,6 +2,7 @@
 
 namespace Damcclean\Systatic\Compiler;
 
+use Damcclean\Systatic\Collections\Query;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
 use Jenssegers\Blade\Blade;
@@ -28,7 +29,10 @@ class BladeCompiler
             'view' => $array['view'],
             'content' => $array['content'],
             'meta' => $array['meta'],
-            'config' => $this->config->getConfigArray()
+
+            'config' => $this->config->getConfigArray(),
+
+            'all' => (new Query)->getAll()
         ]);
 
         file_put_contents($this->config->getConfig('outputDir') . '/' . $array['slug'] . '.html', $page);

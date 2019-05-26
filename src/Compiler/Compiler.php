@@ -23,14 +23,7 @@ class Compiler
         if($this->config->getConfig('compiler') === "blade") {
             $compiler = 'blade';
 
-            $this->blade->compile([
-                'filename' => $entry['filename'],
-                'title' => $entry['title'],
-                'slug' => $entry['slug'],
-                'view' => $entry['view'],
-                'content' => $entry['content'],
-                'meta' => $entry['meta']
-            ]);
+            $this->blade->compile($entry);
         } else {
             $compiler = 'blade';
         }
