@@ -1,0 +1,4 @@
+[build]
+    publish="dist"
+    command="php systatic build"
+    environment = { PHP_VERSION = "7.3" }
