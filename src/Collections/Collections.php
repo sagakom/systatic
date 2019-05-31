@@ -67,7 +67,7 @@ class Collections
 
     public function fetch()
     {
-        return json_encode(file_get_contents($this->config->getConfig('storageDir') . '/store.json'));
+        return json_decode(file_get_contents($this->config->getConfig('storageDir') . '/store.json'));
     }
 
     /*
