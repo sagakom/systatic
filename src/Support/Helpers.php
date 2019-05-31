@@ -1,5 +1,7 @@
 <?php
 
+use Damcclean\Systatic\Config\Config;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\VarDumper\VarDumper;
 
 /*
@@ -15,5 +17,24 @@ if (!function_exists('dd')) {
         }
 
         die();
+    }
+}
+
+/*
+    Logging
+    - Dump data into a log file
+    - Useful for debugging broken code
+*/
+
+if(!function_exists('logging')) {
+    function logging($message)
+    {
+        $file = (new Config)->getConfig('storageDir') . '/systatic.log';
+
+        if(!file_exists($file)) {
+            (new Filesystem)->touch($file);
+        }
+
+        (new Filesystem)->appendToFile($file, $message);
     }
 }
