@@ -12,7 +12,7 @@
 			  background-color: #ffb305;
 			  font-weight: 10;
 			  color: #ffffff;
-			  font-family: 'Roboto';
+				font-family: 'system-ui', 'BlinkMacSystemFont', '-apple-system', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif';
 			}
 
 			div {
@@ -29,17 +29,16 @@
 			}
 
 			nav {
-			  display: flec;
+			  display: flex;
 			  flex-direction: row;
 			  align-items: center;
 			}
 
 			a {
-			  margin-left: 5px;
-			  margin-right: 5px;
+			  margin-left: 10px;
+			  margin-right: 10px;
 			  color: #ffffff;
 			  text-decoration: none;
-			  font-size: 17px;
 			}
 		</style>
 	</head>
