@@ -20,7 +20,7 @@ class RedirectTest extends TestCase
     {
         $build = $this->redirects->build();
         $this->assertSame(true, $build);
-        $this->assertFileExists('./tests/site/dist/google.html');
+        $this->assertFileExists('./tests/fixtures/dist/google.html');
     }
 
     /*
@@ -34,6 +34,6 @@ class RedirectTest extends TestCase
             'target' => 'https://bing.com'
         ]);
         $this->assertSame(true, $build);
-        $this->assertFileExists('./tests/site/dist/bing.html');
+        $this->assertFileExists('./tests/fixtures/dist/bing.html');
     }
 }

@@ -50,7 +50,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownWithFrontMatter()
     {
-        $file = './tests/site/content/markdown_with_frontmatter.md';
+        $file = './tests/fixtures/content/markdown_with_frontmatter.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -67,7 +67,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownWithoutFrontMatter()
     {
-        $file = './tests/site/content/markdown_without_frontmatter.md';
+        $file = './tests/fixtures/content/markdown_without_frontmatter.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -84,7 +84,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownWithHtmlInContent()
     {
-        $file = './tests/site/content/markdown_with_html_inside.md';
+        $file = './tests/fixtures/content/markdown_with_html_inside.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -104,7 +104,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownUsingDotMarkdownFileExtension()
     {
-        $file = './tests/site/content/dot_markdown.markdown';
+        $file = './tests/fixtures/content/dot_markdown.markdown';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -121,7 +121,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownWithFrontMatterSlug()
     {
-        $file = './tests/site/content/front-matter-slug.md';
+        $file = './tests/fixtures/content/front-matter-slug.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -138,7 +138,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownWithFrontMatterTitle()
     {
-        $file = './tests/site/content/front-matter-title.md';
+        $file = './tests/fixtures/content/front-matter-title.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -155,7 +155,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownWithoutTitle()
     {
-        $file = './tests/site/content/front-matter-without-title.md';
+        $file = './tests/fixtures/content/front-matter-without-title.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -172,7 +172,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownWithFrontMatterView()
     {
-        $file = './tests/site/content/front-matter-view.md';
+        $file = './tests/fixtures/content/front-matter-view.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -189,7 +189,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownFrontMatterViewAsSlash()
     {
-        $file = './tests/site/content/front-matter-view-slash.md';
+        $file = './tests/fixtures/content/front-matter-view-slash.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -206,7 +206,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownFrontMatterViewAsDot()
     {
-        $file = './tests/site/content/front-matter-view-dot.md';
+        $file = './tests/fixtures/content/front-matter-view-dot.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -223,7 +223,7 @@ class CollectionsTest extends TestCase
 
     public function testMarkdownFileNameSameNameAsView()
     {
-        $file = './tests/site/content/cool.md';
+        $file = './tests/fixtures/content/cool.md';
         $markdown = $this->collections->markdown($file);
         
         $expected = [
@@ -240,7 +240,7 @@ class CollectionsTest extends TestCase
 
     public function testHtmlFileNameSameNameAsView()
     {
-        $file = './tests/site/content/cool2.html';
+        $file = './tests/fixtures/content/cool2.html';
         $markdown = $this->collections->html($file);
         
         $expected = [
@@ -257,7 +257,7 @@ class CollectionsTest extends TestCase
 
     public function testHtmlNormal()
     {
-        $file = './tests/site/content/html_standard.html';
+        $file = './tests/fixtures/content/html_standard.html';
         $markdown = $this->collections->html($file);
         
         $expected = [

@@ -24,7 +24,7 @@ class CompilerTest extends TestCase
             'meta' => []
         ]);
 
-        $this->assertFileExists('./tests/site/dist/banana.html');
+        $this->assertFileExists('./tests/fixtures/dist/banana.html');
     }
 
     public function testBladeCompilerWithHtmlView()
@@ -38,6 +38,6 @@ class CompilerTest extends TestCase
             'meta' => []
         ]);
 
-        $this->assertFileExists('./tests/site/dist/apple.html');
+        $this->assertFileExists('./tests/fixtures/dist/apple.html');
     }
 }
