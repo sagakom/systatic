@@ -22,10 +22,10 @@ class Compiler
     {
         if($this->config->getConfig('compiler') === "blade") {
             $compiler = 'blade';
-
             $this->blade->compile($entry);
         } else {
             $compiler = 'blade';
+            $this->blade->compile($entry);
         }
     }
 }
