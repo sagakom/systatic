@@ -43,4 +43,18 @@ class Query
 
         return $results;
     }
+
+    public function getByView($view)
+    {
+        $results = [];
+        $array = $this->collections->fetch();
+
+        foreach($array as $item) {
+            if($item['view'] == $view) {
+                array_push($results, $item);
+            }
+        }
+
+        return $results;
+    }
 }

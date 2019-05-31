@@ -20,13 +20,15 @@ class CollectionQueryTest extends TestCase
                 "filename" => "index.md",
                 "title" => "Home",
                 "slug" => "index",
+                "view" => "index",
                 "content" => "<p>This is my homepage content</p>",
                 "meta" => []
             ],
             [
                 "filename" => "about.md",
-                "title" => "About Us",
+                "title" => "About Me",
                 "slug" => "about",
+                "view" => "index",
                 "content" => "<p>Hello, I am a very interesting person. I enjoy water sports and volunteering at local football games.</p>",
                 "meta" => []
             ],
@@ -34,6 +36,7 @@ class CollectionQueryTest extends TestCase
                 "filename" => "contact.md",
                 "title" => "Contact",
                 "slug" => "contact",
+                "view" => "contact",
                 "content" => "<p>I love it when people get in touch with me. I try to get back to them right away.</p>",
                 "meta" => []
             ],
@@ -68,5 +71,17 @@ class CollectionQueryTest extends TestCase
         $search = $this->query->getBySlug('contact');
 
         $this->assertStringContainsString('<p>I love it when people', json_encode($search));
+    }
+
+    public function testGetByView()
+    {
+        $collections = $this->collections->save($this->store);
+        $collections = $this->collections->fetch();
+
+        $search = $this->query->getByView('index');
+
+        $this->assertStringContainsString('Home', json_encode($search));
+        $this->assertStringContainsString('About', json_encode($search));
+        $this->assertThat(json_encode($search), $this->logicalNot($this->stringContains('Contact')));
     }
 }
