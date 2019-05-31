@@ -31,7 +31,5 @@ class BuildCommand extends Command
 
         // Build the site
         $this->build->build();
-
-        logging('Something');
     }
 }
