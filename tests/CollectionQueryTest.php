@@ -37,7 +37,7 @@ class CollectionQueryTest extends TestCase
                 "title" => "Contact",
                 "slug" => "contact",
                 "view" => "contact",
-                "content" => "<p>I love it when people get in touch with me. I try to get back to them right away.</p>",
+                "content" => "<p>Hello, I love it when people get in touch with me. I try to get back to them right away.</p>",
                 "meta" => []
             ],
         ];
@@ -70,7 +70,7 @@ class CollectionQueryTest extends TestCase
 
         $search = $this->query->getBySlug('contact');
 
-        $this->assertStringContainsString('<p>I love it when people', json_encode($search));
+        $this->assertStringContainsString('<p>Hello, I love it when people', json_encode($search));
     }
 
     public function testGetByView()
@@ -83,5 +83,15 @@ class CollectionQueryTest extends TestCase
         $this->assertStringContainsString('Home', json_encode($search));
         $this->assertStringContainsString('About', json_encode($search));
         $this->assertThat(json_encode($search), $this->logicalNot($this->stringContains('Contact')));
+    }
+
+    public function testGetWhereContentContainsText()
+    {
+        $collections = $this->collections->save($this->store);
+        $collections = $this->collections->fetch();
+
+        $search = $this->query->getWhereContentContains('Hello,');
+
+        $this->assertStringContainsString('<p>Hello,', json_encode($search));
     }
 }

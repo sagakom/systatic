@@ -57,4 +57,18 @@ class Query
 
         return $results;
     }
+
+    public function getWhereContentContains($text)
+    {
+        $results = [];
+        $array = $this->collections->fetch();
+
+        foreach($array as $item) {
+            if(strpos($item['content'], $text) !== false) {
+                array_push($results, $item);
+            }
+        }
+
+        return $results;
+    }
 }
