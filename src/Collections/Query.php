@@ -16,6 +16,20 @@ class Query
         return $this->collections->fetch();
     }
 
+    public function getByFileName($filename)
+    {
+        $results = [];
+        $array = $this->collections->fetch();
+
+        foreach($array as $item) {
+            if($item['filename'] == $filename) {
+                array_push($results, $item);
+            }
+        }
+
+        return $results;
+    }
+
     public function getBySlug($slug)
     {
         $results = [];

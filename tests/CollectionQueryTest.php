@@ -17,21 +17,21 @@ class CollectionQueryTest extends TestCase
 
         $this->store = [
             [
-                "filename" => "index",
+                "filename" => "index.md",
                 "title" => "Home",
                 "slug" => "index",
                 "content" => "<p>This is my homepage content</p>",
                 "meta" => []
             ],
             [
-                "filename" => "about",
+                "filename" => "about.md",
                 "title" => "About Us",
                 "slug" => "about",
                 "content" => "<p>Hello, I am a very interesting person. I enjoy water sports and volunteering at local football games.</p>",
                 "meta" => []
             ],
             [
-                "filename" => "contact",
+                "filename" => "contact.md",
                 "title" => "Contact",
                 "slug" => "contact",
                 "content" => "<p>I love it when people get in touch with me. I try to get back to them right away.</p>",
@@ -48,6 +48,16 @@ class CollectionQueryTest extends TestCase
         $all = $this->query->getAll();
 
         $this->assertStringContainsString('<p>Hello, I am a very', json_encode($all));
+    }
+
+    public function testGetByFileName()
+    {
+        $collections = $this->collections->save($this->store);
+        $collections = $this->collections->fetch();
+
+        $search = $this->query->getByFileName('index.md');
+
+        $this->assertStringContainsString('<p>This is my homepage', json_encode($search));
     }
 
     public function testGetBySlug()
