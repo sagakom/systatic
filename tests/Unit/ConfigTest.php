@@ -18,7 +18,7 @@ class ConfigTest extends TestCase
 
     public function testCanGetConfigValue()
     {  
-        $siteName = $this->config->getConfig('siteName');
-        $this->assertSame($siteName, 'Awesome Website');
+        $name = $this->config->getConfig('name');
+        $this->assertSame($name, 'Systatic');
     }
 }

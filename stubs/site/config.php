@@ -1,10 +1,14 @@
 <?php
 
 return [
-	'siteName' => 'My Awesome Website',
-	'siteUrl' => '/',
-	'outputDir' => './dist',
-	'contentDir' => './content',
-	'viewsDir' => './views',
-	'storageDir' => './storage'
+	'name' => 'Systatic',
+	'env' => 'local',
+	'url' => 'http://localhost:8080',
+
+	'locations' => [
+		'output' => './dist',
+		'content' => './content',
+		'views' => './views',
+		'storage' => './storage'
+	]
 ];

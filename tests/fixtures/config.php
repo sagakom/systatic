@@ -1,14 +1,14 @@
 <?php
 
 return [
-	'siteName' => 'Awesome Website',
-	'siteUrl' => '/',
-	'outputDir' => './tests/fixtures/dist',
-	'contentDir' => './tests/fixtures/content',
-	'viewsDir' => './tests/fixtures/views',
-	'storageDir' => './tests/fixtures/storage',
+	'name' => 'Systatic',
+	'env' => 'local',
+	'url' => 'http://localhost:8080',
 
-	'redirects' => [
-		'google' => 'https://google.com'
+	'locations' => [
+		'output' => './dist',
+		'content' => './content',
+		'views' => './views',
+		'storage' => './storage'
 	]
 ];

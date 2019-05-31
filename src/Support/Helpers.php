@@ -29,7 +29,7 @@ if (!function_exists('dd')) {
 if(!function_exists('logging')) {
     function logging($message)
     {
-        $file = (new Config)->getConfig('storageDir') . '/systatic.log';
+        $file = (new Config)->getConfig('locations.storage') . '/systatic.log';
 
         if(!file_exists($file)) {
             (new Filesystem)->touch($file);
