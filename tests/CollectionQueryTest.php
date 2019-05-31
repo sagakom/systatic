@@ -49,4 +49,14 @@ class CollectionQueryTest extends TestCase
 
         $this->assertStringContainsString('<p>Hello, I am a very', json_encode($all));
     }
+
+    public function testGetBySlug()
+    {
+        $collections = $this->collections->save($this->store);
+        $collections = $this->collections->fetch();
+
+        $search = $this->query->getBySlug('contact');
+
+        $this->assertStringContainsString('<p>I love it when people', json_encode($search));
+    }
 }

@@ -16,9 +16,17 @@ class Query
         return $this->collections->fetch();
     }
 
-    public function getBySlug()
+    public function getBySlug($slug)
     {
-        $all = $this->collections->fetch();
-        
+        $results = [];
+        $array = $this->collections->fetch();
+
+        foreach($array as $item) {
+            if($item['slug'] == $slug) {
+                array_push($results, $item);
+            }
+        }
+
+        return $results;
     }
 }
