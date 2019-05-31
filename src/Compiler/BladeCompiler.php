@@ -32,7 +32,7 @@ class BladeCompiler
 
             'config' => $this->config->getConfigArray(),
 
-            'all' => (new Query)->getAll()
+            // 'all' => (new Query)->getAll()
         ]);
 
         file_put_contents($this->config->getConfig('outputDir') . '/' . $array['slug'] . '.html', $page);
