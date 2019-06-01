@@ -28,7 +28,8 @@
         "jenssegers/blade": "^1.2",
         "symfony/filesystem": "^4.3",
         "damcclean/metaparsedown-extra": "^0.1.0",
-        "illuminate/config": "^5.8"
+        "illuminate/config": "^5.8",
+        "vlucas/phpdotenv": "^3.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^8",

@@ -10,7 +10,7 @@ class Config
 {
     public function __construct()
     {
-        // $this->env = new Dotenv();
+        $this->env = new Dotenv();
         $this->config = new Repository(require CONFIGURATION);
     }
 
@@ -39,12 +39,8 @@ class Config
 
     public function env($key)
     {
-        // $this->env->loadEnv('./.env', './sample.env');
-        // $setting = getenv($key);
-        // return $setting;
-
-        $env = new Dotenv();
-        $env->load('./.env');
+        $this->env->load(__DIR__.'/.env');
         return $_ENV[$key];
+        // return getenv($key);
     }
 }

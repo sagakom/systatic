@@ -21,4 +21,10 @@ class ConfigTest extends TestCase
         $name = $this->config->get('name');
         $this->assertSame($name, 'Systatic');
     }
+
+    public function testCanGetEnvValue()
+    {
+        $env = $this->config->env('env');
+        $this->assertSame($env, 'testing');
+    }
 }
