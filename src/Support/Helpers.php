@@ -72,3 +72,16 @@ if(!function_exists('config_path')) {
         return CONFIG;
     }
 }
+
+/*
+    Env helper
+*/
+
+if(!function_exists('env')) {
+    $config = new Config();
+
+    function env($key) 
+    {
+        return $config->env($key);
+    }
+}
