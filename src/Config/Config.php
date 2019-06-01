@@ -10,7 +10,7 @@ class Config
     public function __construct()
     {
         $this->env = new Dotenv();
-        $this->config = new Repository(require CONFIG);
+        $this->config = new Repository(require CONFIGURATION);
     }
 
     /*
@@ -28,7 +28,7 @@ class Config
 
     public function getArray()
     {
-        $config = include(CONFIG);
+        $config = include(CONFIGURATION);
         return $config;
     }
 

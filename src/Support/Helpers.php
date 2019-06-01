@@ -50,18 +50,18 @@ if(!function_exists('logging')) {
     - Get values from the configuration
 */
 
-if(!function_exists('config')) {
-    $config = new Config();
+// if(!function_exists('config')) {
+//     $config = new Config();
 
-    function config($key)
-    {
-        if(is_null($key)) {
-            return $config->array();
-        }
+//     function config($key)
+//     {
+//         if(is_null($key)) {
+//             return $config->array();
+//         }
 
-        return $config->get($key);
-    }
-}
+//         return $config->get($key);
+//     }
+// }
 
 /*
     Get the path of the configuration file
