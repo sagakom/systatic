@@ -4,12 +4,13 @@ namespace Damcclean\Systatic\Config;
 
 use Illuminate\Config\Repository;
 use Symfony\Component\Dotenv\Dotenv;
+use Dotenv\Environment\DotenvFactory;
 
 class Config
 {
     public function __construct()
     {
-        $this->env = new Dotenv();
+        // $this->env = new Dotenv();
         $this->config = new Repository(require CONFIGURATION);
     }
 
@@ -38,8 +39,12 @@ class Config
 
     public function env($key)
     {
-        $this->env->load('./.env', './sample.env');
-        $setting = getenv($key);
-        return $setting;
+        // $this->env->loadEnv('./.env', './sample.env');
+        // $setting = getenv($key);
+        // return $setting;
+
+        $env = new Dotenv();
+        $env->load('./.env');
+        return $_ENV[$key];
     }
 }

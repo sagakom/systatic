@@ -2,7 +2,7 @@
 
 return [
 	'name' => 'Systatic',
-	'env' => 'local',
+	'env' => env('APP_ENV'),
 	'url' => 'http://localhost:8080',
 
 	'locations' => [
