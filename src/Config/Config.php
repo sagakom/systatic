@@ -19,7 +19,6 @@ class Config
 
     public function get($setting)
     {
-        dd($this->config);
         return $this->config->get($setting);
     }
 

@@ -6,9 +6,9 @@ return [
 	'url' => 'http://localhost:8080',
 
 	'locations' => [
-		'output' => './dist',
-		'content' => './content',
-		'views' => './views',
-		'storage' => './storage'
+		'output' => './tests/fixtures/dist',
+		'content' => './tests/fixtures/content',
+		'views' => './tests/fixtures/views',
+		'storage' => './tests/fixtures/storage'
 	]
 ];
