@@ -17,7 +17,7 @@ class Redirects
 
     public function build()
     {
-        $configArray = $this->config->getConfigArray();
+        $configArray = $this->config->getArray();
         if(array_key_exists('redirects', $configArray)) {
             foreach($configArray['redirects'] as $slug => $redirect) {
                 $item = [
@@ -44,7 +44,7 @@ class Redirects
         $target = $redirect['target'];
 
         $contents = '<meta http-equiv="refresh" content="0; URL=\'' . $target . '\'" />';
-        file_put_contents($this->config->getConfig('locations.output') . '/' . $slug . '.html', $contents);
+        file_put_contents($this->config->get('locations.output') . '/' . $slug . '.html', $contents);
 
         return true;
     }

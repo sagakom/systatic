@@ -25,13 +25,13 @@ class Collections
         $markdown = [];
         $html = [];
 
-        $markdown = array_merge(glob($this->config->getConfig('locations.content') . '/*.md', GLOB_BRACE), $markdown);
-        $markdown = array_merge(glob($this->config->getConfig('locations.content') . '/*/*.md', GLOB_BRACE), $markdown);
-        $markdown = array_merge(glob($this->config->getConfig('locations.content') . '/*.markdown', GLOB_BRACE), $markdown);
-        $markdown = array_merge(glob($this->config->getConfig('locations.content') . '/*/*.markdown', GLOB_BRACE), $markdown);
+        $markdown = array_merge(glob($this->config->get('locations.content') . '/*.md', GLOB_BRACE), $markdown);
+        $markdown = array_merge(glob($this->config->get('locations.content') . '/*/*.md', GLOB_BRACE), $markdown);
+        $markdown = array_merge(glob($this->config->get('locations.content') . '/*.markdown', GLOB_BRACE), $markdown);
+        $markdown = array_merge(glob($this->config->get('locations.content') . '/*/*.markdown', GLOB_BRACE), $markdown);
 
-        $html = array_merge(glob($this->config->getConfig('locations.content') . '/*.html', GLOB_BRACE), $html);
-        $html = array_merge(glob($this->config->getConfig('locations.content') . '/*/*.html', GLOB_BRACE), $html);
+        $html = array_merge(glob($this->config->get('locations.content') . '/*.html', GLOB_BRACE), $html);
+        $html = array_merge(glob($this->config->get('locations.content') . '/*/*.html', GLOB_BRACE), $html);
 
         foreach($markdown as $file) {
             $this->markdown($file);
@@ -57,7 +57,7 @@ class Collections
 
     public function save($store)
     {
-        file_put_contents($this->config->getConfig('locations.storage') . '/store.json', json_encode($store));
+        file_put_contents($this->config->get('locations.storage') . '/store.json', json_encode($store));
         return true;
     }
 
@@ -67,7 +67,7 @@ class Collections
 
     public function fetch()
     {
-        return json_decode(file_get_contents($this->config->getConfig('locations.storage') . '/store.json'), true);
+        return json_decode(file_get_contents($this->config->get('locations.storage') . '/store.json'), true);
     }
 
     /*
@@ -76,7 +76,7 @@ class Collections
 
     public function fetchAsJson()
     {
-        return file_get_contents($this->config->getConfig('locations.storage') . '/store.json');
+        return file_get_contents($this->config->get('locations.storage') . '/store.json');
     }
 
     /*
@@ -113,13 +113,13 @@ class Collections
         }
 
         if(array_key_exists('view', $frontMatter)) {
-            if(file_exists($this->config->getConfig('locations.views') . '/' . $frontMatter['view'] . '.blade.php')) {
+            if(file_exists($this->config->get('locations.views') . '/' . $frontMatter['view'] . '.blade.php')) {
                 $view = $frontMatter['view'];
-            } elseif(file_exists($this->config->getConfig('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . '.blade.php')) {
+            } elseif(file_exists($this->config->get('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . '.blade.php')) {
                 $view = str_replace('.', '/', $frontMatter['view']);
             }
         } elseif($slug !== 'index') {
-            if(file_exists($this->config->getConfig('locations.views') . '/' . $slug . '.blade.php')) {
+            if(file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
                 $view = $slug;
             }
         }
@@ -151,14 +151,14 @@ class Collections
             $slug = basename($filename, '.html');
         }
 
-        if(file_exists($this->config->getConfig('locations.views') . '/' . $slug . '.blade.php')) {
+        if(file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
             $view = $slug;
         }
 
         $title = $slug;
         $view = 'index';
 
-        if(file_exists($this->config->getConfig('locations.views') . '/' . $slug . '.blade.php')) {
+        if(file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
             $view = $slug;
         }
 

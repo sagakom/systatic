@@ -20,7 +20,7 @@ class Compiler
 
     public function compile($entry)
     {
-        if($this->config->getConfig('compiler') === "blade") {
+        if($this->config->get('compiler') === "blade") {
             $compiler = 'blade';
             $this->blade->compile($entry);
         } else {

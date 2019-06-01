@@ -2,6 +2,7 @@
 
 namespace Damcclean\Systatic\Config;
 
+use Illuminate\Config\Repository;
 use Symfony\Component\Dotenv\Dotenv;
 
 class Config
@@ -9,36 +10,36 @@ class Config
     public function __construct()
     {
         $this->env = new Dotenv();
+        $this->config = new Repository(require CONFIG);
     }
 
     /*
-        Get config value
+        Get a configuration value
     */
 
-    public function getConfig($setting)
+    public function get($setting)
     {
-        $config = include(CONFIG);
-        return $config[$setting];
+        dd($this->config);
+        return $this->config->get($setting);
     }
 
     /*
-        Get config array
+        Get the configuration file as an array
     */
 
-    public function getConfigArray()
+    public function getArray()
     {
         $config = include(CONFIG);
         return $config;
     }
 
     /*
-        Get env value
+        Get value from enviroment file
     */
 
-    public function getEnv($setting)
+    public function env($setting)
     {
         $this->env->load('./.env', './sample.env');
-
         $setting = getenv($setting);
         return $setting;
     }

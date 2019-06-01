@@ -23,10 +23,10 @@ class CacheTest extends TestCase
 
     public function testCanClearCache()
     {  
-        $this->filesystem->touch($this->config->getConfig('locations.storage') . '/cache/file.txt');
+        $this->filesystem->touch($this->config->get('locations.storage') . '/cache/file.txt');
         $this->cache->clearCache();
         
-        if(file_exists($this->config->getConfig('locations.storage') . '/cache/file.txt')) {
+        if(file_exists($this->config->get('locations.storage') . '/cache/file.txt')) {
             $this->assertFalse(false);
         } else {
             $this->assertTrue(true);

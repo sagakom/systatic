@@ -13,12 +13,12 @@ class ConfigTest extends TestCase
     }
 
     /*
-        Tests that we can get single config values
+        Test we can get a configuration value
     */
 
     public function testCanGetConfigValue()
     {  
-        $name = $this->config->getConfig('name');
+        $name = $this->config->get('name');
         $this->assertSame($name, 'Systatic');
     }
 }

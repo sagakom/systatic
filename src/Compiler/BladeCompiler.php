@@ -13,7 +13,7 @@ class BladeCompiler
     {
         $this->cache = new Cache();
         $this->config = new Config();
-        $this->blade = new Blade($this->config->getConfig('locations.views'), $this->config->getConfig('locations.storage') . '/cache');
+        $this->blade = new Blade($this->config->get('locations.views'), $this->config->get('locations.storage') . '/cache');
     }
 
     /*
@@ -30,12 +30,12 @@ class BladeCompiler
             'content' => $array['content'],
             'meta' => $array['meta'],
 
-            'config' => $this->config->getConfigArray(),
+            'config' => $this->config->getArray(),
 
             // 'all' => (new Query)->getAll()
         ]);
 
-        file_put_contents($this->config->getConfig('locations.output') . '/' . $array['slug'] . '.html', $page);
+        file_put_contents($this->config->get('locations.output') . '/' . $array['slug'] . '.html', $page);
 
         $this->cache->clearCache();
 

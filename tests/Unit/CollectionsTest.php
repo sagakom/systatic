@@ -33,7 +33,7 @@ class CollectionsTest extends TestCase
         $save = $this->collections->save($store);
 
         $this->assertSame(true, $save);
-        $this->assertFileExists($this->config->getConfig('locations.storage') . '/store.json');
+        $this->assertFileExists($this->config->get('locations.storage') . '/store.json');
     }
 
     public function testFetch()
