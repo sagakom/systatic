@@ -47,25 +47,28 @@ if(!function_exists('logging')) {
 
 /*
     Configuration
-    - Use the Laravel Configuration helpers
+    - Get values from the configuration
 */
 
-if (! function_exists('config')) {
-    function config($key = null, $default = null)
+if(!function_exists('config')) {
+    $config = new Config();
+
+    function config($key)
     {
-        if (is_null($key)) {
-            return app('config');
+        if(is_null($key)) {
+            return $config->array();
         }
-        if (is_array($key)) {
-            return app('config')->set($key);
-        }
-        return app('config')->get($key, $default);
+
+        return $config->get($key);
     }
 }
 
-if (! function_exists('config_path')) {
-    function config_path($path = '')
-    {
-        return app()->make('path.config').($path ? DIRECTORY_SEPARATOR . $path : $path);
+/*
+    Get the path of the configuration file
+*/
+
+if(!function_exists('config_path')) {
+    function config_path() {
+        return CONFIG;
     }
 }

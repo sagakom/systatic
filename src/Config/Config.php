@@ -17,9 +17,9 @@ class Config
         Get a configuration value
     */
 
-    public function get($setting)
+    public function get($key)
     {
-        return $this->config->get($setting);
+        return $this->config->get($key);
     }
 
     /*
@@ -36,10 +36,10 @@ class Config
         Get value from enviroment file
     */
 
-    public function env($setting)
+    public function env($key)
     {
         $this->env->load('./.env', './sample.env');
-        $setting = getenv($setting);
+        $setting = getenv($key);
         return $setting;
     }
 }
