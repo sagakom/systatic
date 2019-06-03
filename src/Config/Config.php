@@ -25,7 +25,7 @@ class Config
 
     public function getEnv($setting)
     {
-        $this->env->load('./.env', './sample.env');
+        $this->env->load('./.env', './.sample.env', './.example.env');
 
         $setting = getenv($setting);
         return $setting;
