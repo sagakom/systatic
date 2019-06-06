@@ -37,17 +37,17 @@ class Compiler
 
         // Parse Front Matter
         $matter = $this->parsedown->meta($file);
+        
+        // If page has different slug setup in front matter
+        if (array_key_exists('slug', $matter)) {
+            $slug = $matter['slug'];
+            $title = $slug;
+        }
 
         // Set a title - either from the title in the front matter or just set nothing as the title
         $title = $slug;
         if (array_key_exists('title', $matter)) {
             $title = $matter['title'];
-        }
-
-        // If page has different slug setup in front matter
-        if (array_key_exists('slug', $matter)) {
-            $slug = $matter['slug'];
-            $title = $slug;
         }
 
         // Set view
