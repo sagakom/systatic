@@ -130,7 +130,8 @@ class Collections
             'slug' => $slug,
             'view' => $view,
             'content' => $markdown,
-            'meta' => $frontMatter
+            'meta' => $frontMatter,
+            'type' => 'local'
         ];
 
         array_push($this->store, $entry);
@@ -168,7 +169,8 @@ class Collections
             'slug' => $slug,
             'view' => $view,
             'content' => $contents,
-            'meta' => []
+            'meta' => [],
+            'type' => 'local'
         ];
 
         array_push($this->store, $entry);

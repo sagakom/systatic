@@ -21,7 +21,8 @@ class CompilerTest extends TestCase
             'slug' => 'banana',
             'view' => 'index',
             'content' => '<p>Bananas are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
-            'meta' => []
+            'meta' => [],
+            'type' => 'local'
         ]);
 
         $this->assertFileExists('./tests/fixtures/dist/banana.html');
@@ -35,7 +36,8 @@ class CompilerTest extends TestCase
             'slug' => 'apple',
             'view' => 'this-is-cool',
             'content' => '<p>Apples are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
-            'meta' => []
+            'meta' => [],
+            'type' => 'local'
         ]);
 
         $this->assertFileExists('./tests/fixtures/dist/apple.html');

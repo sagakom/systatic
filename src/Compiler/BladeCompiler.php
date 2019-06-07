@@ -29,6 +29,7 @@ class BladeCompiler
             'view' => $array['view'],
             'content' => $array['content'],
             'meta' => $array['meta'],
+            'type' => $array['type'],
 
             'config' => $this->config->getArray(),
 

@@ -22,7 +22,8 @@ class CollectionQueryTest extends TestCase
                 "slug" => "index",
                 "view" => "index",
                 "content" => "<p>This is my homepage content</p>",
-                "meta" => []
+                "meta" => [],
+                'type' => 'local'
             ],
             [
                 "filename" => "about.md",
@@ -30,7 +31,8 @@ class CollectionQueryTest extends TestCase
                 "slug" => "about",
                 "view" => "index",
                 "content" => "<p>Hello, I am a very interesting person. I enjoy water sports and volunteering at local football games.</p>",
-                "meta" => []
+                "meta" => [],
+                'type' => 'local'
             ],
             [
                 "filename" => "contact.md",
@@ -38,7 +40,8 @@ class CollectionQueryTest extends TestCase
                 "slug" => "contact",
                 "view" => "contact",
                 "content" => "<p>Hello, I love it when people get in touch with me. I try to get back to them right away.</p>",
-                "meta" => []
+                "meta" => [],
+                'type' => 'local'
             ],
         ];
     }

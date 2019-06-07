@@ -26,7 +26,8 @@ class CollectionsTest extends TestCase
                 "title" => "Home",
                 "slug" => "index",
                 "content" => "<p>This is my homepage content</p>",
-                "meta" => []
+                "meta" => [],
+                'type' => 'local'
             ]
         ];
 
@@ -59,7 +60,8 @@ class CollectionsTest extends TestCase
             'slug' => 'markdown_with_frontmatter',
             'view' => 'index',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -76,7 +78,8 @@ class CollectionsTest extends TestCase
             'slug' => 'markdown_without_frontmatter',
             'view' => 'index',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -93,7 +96,8 @@ class CollectionsTest extends TestCase
             'slug' => 'markdown_with_html_inside',
             'view' => 'index',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $html = '<span class="awesome"><strong>Awesome</strong></span>';
@@ -113,7 +117,8 @@ class CollectionsTest extends TestCase
             'slug' => 'dot_markdown',
             'view' => 'index',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -130,7 +135,8 @@ class CollectionsTest extends TestCase
             'slug' => 'awesome',
             'view' => 'index',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -147,7 +153,8 @@ class CollectionsTest extends TestCase
             'slug' => 'front-matter-title',
             'view' => 'index',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -164,7 +171,8 @@ class CollectionsTest extends TestCase
             'slug' => 'front-matter-without-title',
             'view' => 'index',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -181,7 +189,8 @@ class CollectionsTest extends TestCase
             'slug' => 'front-matter-view',
             'view' => 'cool',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -198,7 +207,8 @@ class CollectionsTest extends TestCase
             'slug' => 'front-matter-view-slash',
             'view' => 'something/another',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -215,7 +225,8 @@ class CollectionsTest extends TestCase
             'slug' => 'front-matter-view-dot',
             'view' => 'something/another',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -232,7 +243,8 @@ class CollectionsTest extends TestCase
             'slug' => 'cool',
             'view' => 'cool',
             'content' => $this->parsedown->text(file_get_contents($file)),
-            'meta' => $this->parsedown->meta(file_get_contents($file))
+            'meta' => $this->parsedown->meta(file_get_contents($file)),
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -249,7 +261,8 @@ class CollectionsTest extends TestCase
             'slug' => 'cool2',
             'view' => 'cool2',
             'content' => file_get_contents($file),
-            'meta' => []
+            'meta' => [],
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
@@ -266,7 +279,8 @@ class CollectionsTest extends TestCase
             'slug' => 'html_standard',
             'view' => 'index',
             'content' => file_get_contents($file),
-            'meta' => []
+            'meta' => [],
+            'type' => 'local'
         ];
 
         $this->assertSame($expected, $markdown);
