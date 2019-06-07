@@ -32,7 +32,9 @@ class BladeCompiler
 
             'config' => $this->config->getArray(),
 
-            // 'all' => (new Query)->getAll()
+            'query' => [
+                'all' => (new Query)->getAll()
+            ]
         ]);
 
         file_put_contents($this->config->get('locations.output') . '/' . $array['slug'] . '.html', $page);
