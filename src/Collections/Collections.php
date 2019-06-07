@@ -41,6 +41,14 @@ class Collections
             $this->html($file);
         }
 
+        $configCollections = $this->config->get('collections');
+
+        foreach($configCollections as $collection) {
+            if($collection['remote']) {
+                $this->remote($collection);
+            }
+        }
+
         $this->save($this->store);
 
         foreach($this->store as $entry)
@@ -176,5 +184,29 @@ class Collections
         array_push($this->store, $entry);
 
         return $entry;
+    }
+
+    /*
+        Remote collections
+    */
+
+    public function remote($collection)
+    {
+        $items = json_decode(file_get_contents($collection['remote']), true);
+        
+        foreach($items as $item) {
+            $entry = [
+                'filename' => $item['slug'],
+                'title' => $item['title']['rendered'],
+                'slug' => $item['slug'],
+                'view' => 'index',
+                'content' => $item['content']['rendered'],
+                'meta' => [],
+                'type' => 'remote'
+            ];
+    
+            array_push($this->store, $entry);
+            return $entry;
+        }
     }
 }
