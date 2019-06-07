@@ -25,4 +25,4 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Damcclean\Systatic\Systatic;
 
-$app = (new Systatic)->boot();
+$app = (new Systatic())->boot();

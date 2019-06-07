@@ -15,5 +15,10 @@ define('CONFIGURATION', './tests/fixtures/config.php');
 
 class TestCase extends Base
 {
-    //
+    public function setUp() : void
+    {
+        parent::setUp();
+
+        // $app = (new Systatic())->boot();
+    }
 }
