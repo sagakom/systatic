@@ -24,12 +24,5 @@ define('CONFIGURATION', $config);
 require __DIR__ . '/vendor/autoload.php';
 
 use Damcclean\Systatic\Systatic;
-use Damcclean\Systatic\Commands\Commands;
 
-/*
-    Commands
-    - Register console commands
-*/
-
-$commands = new Commands();
-$commands->console();
+$app = (new Systatic)->boot();
