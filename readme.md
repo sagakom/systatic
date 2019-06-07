@@ -24,7 +24,6 @@
     <a href="https://systatic.netlify.com/docs">Documentation</a>
     <span> . </span>
     <a href="https://discord.gg/sxkrycQ">Discord</a>
-    <span> . </span>
 </h3>
 
 Systatic is a modern static site generator for developers to build fast sites.
