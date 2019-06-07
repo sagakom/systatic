@@ -9,3 +9,7 @@ Systatic is a Powerful Static Site Generator for PHP Developers.
 * [Website](https://systatic.netlify.com)
 * [Documentation](https://systatic.netlify.com/getting-started)
 * [Discord](https://discord.gg/sxkrycQ)
+
+## v2
+
+**We're currently developing `v2` of Systatic!** - It's the next big version and we would love your feedback and contributions on it. You can see our work on the [`v2` branch](https://github.com/damcclean/Systatic/tree/v2).
