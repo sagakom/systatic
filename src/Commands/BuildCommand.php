@@ -28,7 +28,6 @@ class BuildCommand extends Command
     {
         // Message
         $output->writeln('<info>Building site...</info>');
-        $output->writeln('Systatic ' . SYSTATIC_VERSION);
 
         // Build the site
         $this->build->build();
