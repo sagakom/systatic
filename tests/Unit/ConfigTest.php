@@ -7,13 +7,13 @@ use Damcclean\Systatic\Config\Config;
 
 class ConfigTest extends TestCase
 {
-    public function setUp(): void
+    public function setUp() : void
     {
         $this->config = new Config();
     }
 
     /*
-        Test we can get a configuration value
+        Test that we can get a configuration value
     */
 
     public function testCanGetConfigValue()
@@ -22,9 +22,13 @@ class ConfigTest extends TestCase
         $this->assertSame($name, 'Systatic');
     }
 
+    /*
+        Test that we can get a env value
+    */
+
     public function testCanGetEnvValue()
     {
-        $env = $this->config->env('env');
+        $env = $this->config->env('APP_ENV');
         $this->assertSame($env, 'testing');
     }
 }

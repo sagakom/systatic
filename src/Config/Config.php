@@ -4,7 +4,6 @@ namespace Damcclean\Systatic\Config;
 
 use Illuminate\Config\Repository;
 use Symfony\Component\Dotenv\Dotenv;
-use Dotenv\Environment\DotenvFactory;
 
 class Config
 {
@@ -39,8 +38,7 @@ class Config
 
     public function env($key)
     {
-        $this->env->load(__DIR__.'/.env');
+        $env = $this->env->load(BASE . '/.env');
         return $_ENV[$key];
-        // return getenv($key);
     }
 }

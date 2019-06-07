@@ -18,6 +18,7 @@ if(!file_exists($config)) {
     exit();
 }
 
+define('BASE', __DIR__);
 define('CONFIGURATION', $config);
 
 require __DIR__ . '/vendor/autoload.php';
