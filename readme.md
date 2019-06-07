@@ -10,11 +10,9 @@
     <a href="https://packagist.org/packages/damcclean/systatic">
         <img src="https://img.shields.io/packagist/v/damcclean/systatic.svg?style=flat-square" alt="Latest Version on Packagist" />
     </a>
-
     <a href="https://travis-ci.com/damcclean/Systatic">
         <img src="https://travis-ci.com/damcclean/Systatic.svg?branch=v2" alt="Build Status" />
     </a>
-
     <a href="https://packagist.org/packages/damcclean/systatic">
         <img src="https://img.shields.io/packagist/dt/damcclean/systatic.svg?style=flat-square" alt="Total Downloads" />
     </a>
