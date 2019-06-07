@@ -46,25 +46,8 @@ if(!function_exists('logging')) {
 }
 
 /*
-    Configuration
-    - Get values from the configuration
-*/
-
-// if(!function_exists('config')) {
-//     $config = new Config();
-
-//     function config($key)
-//     {
-//         if(is_null($key)) {
-//             return $config->array();
-//         }
-
-//         return $config->get($key);
-//     }
-// }
-
-/*
-    Get the path of the configuration file
+    Configuration path
+    - Get the path of the configuration file
 */
 
 if(!function_exists('config_path')) {
@@ -74,7 +57,8 @@ if(!function_exists('config_path')) {
 }
 
 /*
-    Env helper
+    Env key
+    - Get value from env file
 */
 
 if(!function_exists('env')) {
