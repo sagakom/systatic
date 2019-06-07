@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use Damcclean\Systatic\Systatic;
 use PHPUnit\Framework\TestCase as Base;
 
 /*
