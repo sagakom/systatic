@@ -69,3 +69,19 @@ if(!function_exists('env')) {
         return $config->env($key);
     }
 }
+
+/*
+    Meta key existance check
+    - Checks if a key exists on the meta array
+    - Uses the array_key_exists function
+*/
+
+if(!function_exists('meta_exists')) {
+    function meta_exists($meta, $key) {
+        if(array_key_exists($key, $meta)) {
+            return true;
+        }
+
+        return false;
+    }
+}
