@@ -32,7 +32,7 @@ class BladeCompiler
             'meta' => $array['meta'],
             'type' => $array['type'],
 
-            'config' => $this->config->getArray(),
+            'config' => ((object) $this->config->getArray()),
             'collections' => collect((new Collections())->fetch())
         ]);
 
