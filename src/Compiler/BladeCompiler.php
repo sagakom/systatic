@@ -33,7 +33,7 @@ class BladeCompiler
             'type' => $array['type'],
 
             'config' => $this->config->getArray(),
-            'collection' => collect((new Collections())->fetch())
+            'collections' => collect((new Collections())->fetch())
         ]);
 
         file_put_contents($this->config->get('locations.output') . '/' . $array['slug'] . '.html', $page);
