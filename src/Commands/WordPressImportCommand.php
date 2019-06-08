@@ -7,7 +7,6 @@ use Symfony\Component\Console\Command\Command as Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Damcclean\Systatic\Import\WordPress;
-use Damcclean\Systatic\Config\Config;
 
 class WordPressImportCommand extends Command
 {
@@ -20,7 +19,6 @@ class WordPressImportCommand extends Command
             ->setHelp('This command imports from WordPress using their REST API.');
 
         $this->wordpress = new WordPress();
-        $this->config = new Config();
     }
 
     /*
@@ -33,24 +31,7 @@ class WordPressImportCommand extends Command
         $question = new Question('<comment>Enter the base URL of your WordPress site:</comment> ');
         $baseUrl = $helper->ask($input, $output, $question);
 
-        $apiUrl = $baseUrl . '/wp-json/wp/v2';
-
-        $pages = json_decode(file_get_contents($apiUrl . '/pages'), true);
-
-        foreach($pages as $page) {
-            $contents = 
-                '---' .
-                'title: "' . $page['title']['rendered'] . '"' .
-                'slug: "' . $page['slug'] . '"' .
-                'excerpt: "' . $page['excerpt']['rendered'] . '"' .
-                'date: "' . $page['date'] . '"' .
-                '---' .
-                $page['content']['rendered'];
-
-            $filename = $this->config->get('locations.content') . '/' . $page['slug'] . '.md';
-
-            file_put_contents($filename, $contents);
-        }
+        $this->wordpress->import($baseUrl);
 
         $output->writeln('<info>Imported from WordPress!</info>');
     }
