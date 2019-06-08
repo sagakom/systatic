@@ -10,5 +10,12 @@ return [
 		'content' => './tests/fixtures/content',
 		'views' => './tests/fixtures/views',
 		'storage' => './tests/fixtures/storage'
+	],
+	
+	'redirects' => [
+		[
+			'slug' => 'google',
+			'target' => 'https://google.com'
+		]
 	]
 ];
