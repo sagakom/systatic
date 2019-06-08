@@ -32,6 +32,7 @@ class BladeCompiler
             'meta' => $array['meta'],
             'type' => $array['type'],
 
+            'url' => $this->config->get('url') . $array['slug'] . '.html',
             'config' => ((object) $this->config->getArray()),
             'collections' => collect((new Collections())->fetch())
         ]);
