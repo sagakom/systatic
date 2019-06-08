@@ -17,21 +17,13 @@ class Redirects
 
     public function build()
     {
-        $configArray = $this->config->getArray();
-        if(array_key_exists('redirects', $configArray)) {
-            foreach($configArray['redirects'] as $slug => $redirect) {
-                $item = [
-                    'slug' => $slug,
-                    'target' => $redirect
-                ];
-    
-                $this->compile($item);
+        if(array_key_exists('redirects', $this->config->getArray())) {
+            foreach($this->config->getArray()['redirects'] as $redirect) {
+                return $this->compile($redirect);
             }
-    
-            return true;
-        } else {
-            return true;
         }
+
+        return false;
     }
 
     /*
