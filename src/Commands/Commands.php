@@ -6,6 +6,7 @@ use Symfony\Component\Console\Application;
 use Damcclean\Systatic\Commands\BuildCommand;
 use Damcclean\Systatic\Commands\ClearSiteCommand;
 use Damcclean\Systatic\Commands\ClearCacheCommand;
+use Damcclean\Systatic\Commands\WordPressImportCommand;
 
 class Commands
 {
@@ -20,6 +21,7 @@ class Commands
         $application->add(new BuildCommand());
         $application->add(new ClearSiteCommand());
         $application->add(new ClearCacheCommand());
+        $application->add(new WordPressImportCommand());
 
         $application->run();
     }
