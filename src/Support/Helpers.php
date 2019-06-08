@@ -62,10 +62,9 @@ if(!function_exists('config_path')) {
 */
 
 if(!function_exists('env')) {
-    $config = new Config();
-
     function env($key) 
     {
+        $config = new Config();
         return $config->env($key);
     }
 }
