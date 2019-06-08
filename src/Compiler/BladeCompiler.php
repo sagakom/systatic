@@ -2,6 +2,7 @@
 
 namespace Damcclean\Systatic\Compiler;
 
+use Illuminate\Support\Str;
 use Jenssegers\Blade\Blade;
 use Tightenco\Collect\Support\Collection;
 use Damcclean\Systatic\Cache\Cache;
