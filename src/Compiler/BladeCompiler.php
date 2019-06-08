@@ -2,11 +2,11 @@
 
 namespace Damcclean\Systatic\Compiler;
 
-use Illuminate\Support\Str;
 use Jenssegers\Blade\Blade;
 use Tightenco\Collect\Support\Collection;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Collections\Collections;
 
 class BladeCompiler
 {
@@ -32,7 +32,8 @@ class BladeCompiler
             'meta' => $array['meta'],
             'type' => $array['type'],
 
-            'config' => $this->config->getArray()
+            'config' => $this->config->getArray(),
+            'collection' => collect((new Collections())->fetch())
         ]);
 
         file_put_contents($this->config->get('locations.output') . '/' . $array['slug'] . '.html', $page);
