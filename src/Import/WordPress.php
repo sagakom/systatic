@@ -30,10 +30,10 @@ class WordPress
     {
         $contents = 
                 '---' .
-                'title: "' . $page['title']['rendered'] . '"' .
-                'slug: "' . $page['slug'] . '"' .
-                'excerpt: "' . $page['excerpt']['rendered'] . '"' .
-                'date: "' . $page['date'] . '"' .
+                ' title: "' . $page['title']['rendered'] . '"' .
+                ' slug: "' . $page['slug'] . '"' .
+                ' excerpt: "' . $page['excerpt']['rendered'] . '"' .
+                ' date: "' . $page['date'] . '"' .
                 '---' .
                 $page['content']['rendered'];
 
