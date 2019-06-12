@@ -2,21 +2,20 @@
 
 namespace Damcclean\Systatic\Commands;
 
-use Symfony\Component\Console\Application;
-use Damcclean\Systatic\Commands\InitCommand;
-use Damcclean\Systatic\Commands\BuildCommand;
-use Damcclean\Systatic\Commands\ClearSiteCommand;
-use Damcclean\Systatic\Commands\ClearCacheCommand;
+use Illuminate\Console\Application;
 
 class Commands
 {
     /*
-        Bootstrap all of the avaliable console commands
+        Load application comands
+        - Commands are not 'use'd because they are in the
+        - same directory
     */
 
     public function console()
     {
-        $application = new Application('Systatic');
+        $application = new Application('v2');
+        $application->setName('Systatic');
 
         $application->add(new InitCommand());
         $application->add(new BuildCommand());

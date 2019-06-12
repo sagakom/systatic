@@ -2,34 +2,17 @@
 
 namespace Damcclean\Systatic\Commands;
 
+use Illuminate\Console\Command;
 use Damcclean\Systatic\Cache\Cache;
-use Symfony\Component\Console\Command\Command as Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class ClearCacheCommand extends Command
 {
-    protected static $defaultName = 'clear:cache';
+    protected $signature = 'clear:cache';
+    protected $description = 'Clear site cache';
 
-    protected function configure()
+    public function handle()
     {
-        $this
-            ->setDescription('Clear site cache')
-            ->setHelp('This command clears all Systatic cache files.');
-
-        $this->cache = new Cache();
-    }
-
-    /*
-        Clear the cache
-    */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        // Message
-        $output->writeln('<info>Clearing cache...</info>');
-
-        // Clear site cache
-        $this->cache->clearCache();
+        $this->info('Clearing cache...');
+        (new Cache())->clearCache();
     }
 }
