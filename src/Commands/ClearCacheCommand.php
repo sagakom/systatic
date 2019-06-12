@@ -13,11 +13,12 @@ class ClearCacheCommand extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->cache = new Cache();
     }
 
     public function handle()
     {
         $this->info('Clearing cache...');
-        (new Cache())->clearCache();
+        $this->cache->clearCache();
     }
 }

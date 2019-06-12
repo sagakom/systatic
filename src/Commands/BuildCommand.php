@@ -13,11 +13,12 @@ class BuildCommand extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->build = new Build();
     }
 
     public function handle()
     {
         $this->info('Build site...');
-        (new Build())->build();
+        $this->build->build();
     }
 }

@@ -15,22 +15,20 @@ class ClearSiteCommand extends Command
     public function __construct()
     {
         parent::__construct();
+
+        $this->config = new Config();
+        $this->filesystem = new Filesystem();
     }
 
     public function handle()
     {
-        $config = new Config();
-        $filesystem = new Filesystem();
-
         $this->info('Clearing site...');
 
-        // Get a list of all HTML files
         $files = [];
-        $files = array_merge(glob($config->get('locations.output') . '/*.html', GLOB_BRACE), $files);
+        $files = array_merge(glob($this->config->get('locations.output') . '/*.html', GLOB_BRACE), $files);
 
-        // Get rid of all HTML files from output directory
         foreach($files as $file) {
-            $filesystem->remove($file);
+            $this->filesystem->remove($file);
         }
     }
 }
