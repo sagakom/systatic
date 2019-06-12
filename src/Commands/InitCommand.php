@@ -12,17 +12,18 @@ class InitCommand extends Command
 
     public function __construct()
     {
-        $this->filesystem = new Filesystem();
+        parent::__construct();
     }
     
     public function handle()
     {
+        $filesystem = new Filesystem();
         $base = getcwd();
 
-        $this->filesystem->copyDir($base . '/vendor/damcclean/systatic/stubs/site', $base);
+        $filesystem->copyDir($base . '/vendor/damcclean/systatic/stubs/site', $base);
 
         if($this->confirm('Do you want to copy the Laravel Valet driver?')) {
-            $this->filesystem->copyDir($base . '/vendor/damcclean/systatic/stubs/valet', $base);
+            $filesystem->copyDir($base . '/vendor/damcclean/systatic/stubs/valet', $base);
         }
 
         $this->info("All that's left now is for you to build your site! - php systatic build");

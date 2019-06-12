@@ -10,6 +10,11 @@ class BuildCommand extends Command
     protected $signature = 'build';
     protected $description = 'Builds Systatic site';
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function handle()
     {
         $this->info('Build site...');

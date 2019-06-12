@@ -10,6 +10,11 @@ class ClearCacheCommand extends Command
     protected $signature = 'clear:cache';
     protected $description = 'Clear site cache';
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function handle()
     {
         $this->info('Clearing cache...');
