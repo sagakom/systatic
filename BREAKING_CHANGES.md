@@ -6,3 +6,9 @@
 * New `store.json` file in the `storage` directory.
 * Stubs have changed location
 * Configuration changed completly
+
+When installing for the first time, user can run this command
+
+```
+php vendor/damcclean/systatic/init init
+```

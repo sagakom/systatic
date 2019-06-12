@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+/*
+    Bootstrap what we need
+*/
+
+define('CONFIGURATION', __DIR__ . '/tests/fixtures/config.php');
+
+require getcwd() . '/vendor/autoload.php';
+
+use Damcclean\Systatic\Commands\Commands;
+
+$app = (new Commands)->console();
