@@ -2,34 +2,23 @@
 
 namespace Damcclean\Systatic\Commands;
 
-use Symfony\Component\Console\Command\Command as Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Illuminate\Console\Command;
 use Damcclean\Systatic\Build\Build;
 
 class BuildCommand extends Command
 {
-    protected static $defaultName = 'build';
+    protected $signature = 'build';
+    protected $description = 'Builds Systatic site';
 
-    protected function configure()
+    public function __construct()
     {
-        $this
-            ->setDescription('Build Systatic site')
-            ->setHelp('This command builds your static site.');
-
+        parent::__construct();
         $this->build = new Build();
     }
 
-    /*
-        Build the site
-    */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    public function handle()
     {
-        // Message
-        $output->writeln('<info>Building site...</info>');
-
-        // Build the site
+        $this->info('Build site...');
         $this->build->build();
     }
 }
