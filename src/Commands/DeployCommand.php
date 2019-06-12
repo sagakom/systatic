@@ -3,6 +3,7 @@
 namespace Damcclean\Systatic\Commands;
 
 use Illuminate\Console\Command;
+use Damcclean\Systatic\Build\Build;
 use Damcclean\Systatic\Filesystem\Filesystem;
 
 class DeployCommand extends Command
@@ -14,6 +15,7 @@ class DeployCommand extends Command
     {
         parent::__construct();
         $this->filesystem = new Filesystem();
+        $this->build = new Build();
     }
     
     public function handle()
@@ -27,6 +29,7 @@ class DeployCommand extends Command
         ], 0);
 
         $this->info('Deploying to ' . $location);
+        $build = $this->build->build();
 
         if($location === "Netlify") {
             if(!file_exists(BASE . '/netlify.toml')) {
