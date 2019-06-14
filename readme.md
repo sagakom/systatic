@@ -4,10 +4,10 @@
 [![Build Status](https://travis-ci.com/damcclean/Systatic.svg?branch=master)](https://travis-ci.com/damcclean/Systatic)
 [![Total Downloads](https://img.shields.io/packagist/dt/damcclean/systatic.svg?style=flat-square)](https://packagist.org/packages/damcclean/systatic)
 
-Systatic is a Powerful Static Site Generator for PHP Developers.
+Simple, Modern Static Site Generator built in PHP
 
 * [Website](https://systatic.netlify.com)
-* [Documentation](https://systatic.netlify.com/getting-started)
+* [Documentation](https://systatic.netlify.com/getting-started.html)
 * [Discord](https://discord.gg/sxkrycQ)
 
 ## v2
