@@ -11,7 +11,7 @@ return [
 		'views' => './tests/fixtures/views',
 		'storage' => './tests/fixtures/storage'
 	],
-	
+
 	'redirects' => [
 		[
 			'slug' => 'google',

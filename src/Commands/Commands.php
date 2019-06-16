@@ -29,6 +29,7 @@ class Commands
         $application->add(new BuildCommand());
         $application->add(new ClearSiteCommand());
         $application->add(new ClearCacheCommand());
+        $application->add(new WordPressImportCommand());
         $application->add(new DeployCommand());
 
         $application->run();
