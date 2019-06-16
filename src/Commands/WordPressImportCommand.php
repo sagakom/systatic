@@ -2,34 +2,24 @@
 
 namespace Damcclean\Systatic\Commands;
 
-use Symfony\Component\Console\Question\Question;
-use Symfony\Component\Console\Command\Command as Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Illuminate\Console\Command;
 use Damcclean\Systatic\Import\WordPress;
 
 class WordPressImportCommand extends Command
 {
-    protected static $defaultName = 'import:wordpress';
+    protected $signature = 'import:wordpress';
+    protected $description = 'Import from WordPress';
 
-    protected function configure()
+    public function __construct()
     {
-        $this
-            ->setDescription('Import Pages and Posts from WordPress')
-            ->setHelp('This command imports from WordPress using their REST API.');
+        parent::__construct();
 
         $this->wordpress = new WordPress();
     }
 
-    /*
-        Build the site
-    */
-
-    protected function execute(InputInterface $input, OutputInterface $output)
+    public function handle()
     {
-        $helper = $this->getHelper('question');
-        $question = new Question('<comment>Enter the base URL of your WordPress site:</comment> ');
-        $baseUrl = $helper->ask($input, $output, $question);
+        $baseUrl = $this->ask('Enter the base URL of your WordPress site:');
 
         $import = $this->wordpress->import($baseUrl);
 
