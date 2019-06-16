@@ -3,6 +3,7 @@
 use Damcclean\Systatic\Config\Config;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\VarDumper\VarDumper;
+use Damcclean\Systatic\Collections\Collections;
 
 /*
     Helpers
@@ -82,5 +83,36 @@ if(!function_exists('meta_exists')) {
         }
 
         return false;
+    }
+}
+
+/*
+    Route helper
+    - Links to a Systatic URL using it's slug
+    - Links to a redirect link
+*/
+
+if(!function_exists('route')) {
+    function route($slug) {
+        $config = new Config();
+        $collections = new Collections();
+
+        $siteUrl = $config->get('url');
+
+        if(array_key_exists('redirects', $config->getArray())) {
+            foreach($config->getArray()['redirects'] as $redirect) {
+                if($redirect['slug'] === $slug) {
+                    return $siteUrl . '/' . $slug . '.html';
+                }
+            }
+        }
+
+        foreach($collections->fetch() as $item) {
+            if($item['slug'] === $slug) {
+                return $siteUrl . '/' . $slug . '.html';
+            }
+        }
+
+        return '';
     }
 }

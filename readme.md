@@ -47,10 +47,10 @@ mkdir dog-food-blog && cd dog-food-blog
 composer require damcclean/systatic
 ```
 
-3. **Copy site files**
+3. **Initialize Systatic**
 
 ```
-cp -a vendor/damcclean/systatic/stubs/site/* .
+php vendor/damcclean/systatic/init init
 ```
 
 4. **Build your site**

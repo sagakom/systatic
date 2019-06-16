@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+/*
+    Bootstrap what we need
+*/
+
+define('CONFIGURATION', __DIR__ . '/tests/fixtures/config.php');
+
+require getcwd() . '/vendor/autoload.php';
+
+use Illuminate\Events\Dispatcher;
+use Illuminate\Container\Container;
+use Illuminate\Console\Application;
+use Damcclean\Systatic\Commands\InitCommand;
+
+$container = new Container();
+$events = new Dispatcher($container);
+
+$application = new Application($container, $events, 'v2');
+$application->setName('Systatic');
+$application->add(new InitCommand());
+$application->run();
