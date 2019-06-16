@@ -6,6 +6,14 @@
 * New `store.json` file in the `storage` directory.
 * Stubs have changed location
 * Configuration changed completly
+* Redirects looks like this now:
+
+```
+[
+	'slug' => 'bing',
+	'target' => 'https://bing.com'
+]
+```
 
 When installing for the first time, user can run this command
 
