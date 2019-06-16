@@ -31,6 +31,7 @@ class Commands
         $application->add(new ClearCacheCommand());
         $application->add(new WordPressImportCommand());
         $application->add(new DeployCommand());
+        $application->add(new ServeCommand());
 
         $application->run();
     }
