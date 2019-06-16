@@ -4,6 +4,7 @@ namespace Damcclean\Systatic\Commands;
 
 use Illuminate\Console\Command;
 use Damcclean\Systatic\Build\Build;
+use Damcclean\Systatic\Config\Config;
 
 class BuildCommand extends Command
 {
@@ -13,12 +14,14 @@ class BuildCommand extends Command
     public function __construct()
     {
         parent::__construct();
+
         $this->build = new Build();
+        $this->config = new Config();
     }
 
     public function handle()
     {
-        $this->info('Build site...');
+        $this->info('Building site from ' . $this->config->get('locations.content') . ' to ' . $this->config->get('locations.output') . '.');
         $this->build->build();
     }
 }
