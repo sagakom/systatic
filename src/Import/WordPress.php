@@ -17,13 +17,19 @@ class WordPress
     {
         $apiUrl = $baseUrl . '/wp-json/wp/v2';
 
-        $pages = json_decode(file_get_contents($apiUrl . '/pages'), true);
+        $pages = json_decode(@file_get_contents($apiUrl . '/pages'), true);
+
+        if(!$pages) {
+            return false;
+        }
 
         foreach($pages as $page) {
             $this->createFile($page);
         }
 
-        // $this->build->build();
+        $this->build->build();
+
+        return true;
     }
 
     public function createFile($page)

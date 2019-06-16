@@ -31,7 +31,12 @@ class WordPressImportCommand extends Command
         $question = new Question('<comment>Enter the base URL of your WordPress site:</comment> ');
         $baseUrl = $helper->ask($input, $output, $question);
 
-        $this->wordpress->import($baseUrl);
+        $import = $this->wordpress->import($baseUrl);
+
+        if($import != true) {
+            $output->writeln('<error>Failed to import from WordPress</error>');
+            exit();
+        }
 
         $output->writeln('<info>Imported from WordPress!</info>');
     }
