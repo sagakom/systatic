@@ -4,6 +4,8 @@ If you want to test out Systatic v2 while it's still in development, then you ca
 
 You'll need to have Composer and PHP installed on your machine.
 
+**Please don't test v2 in a production application, as it's not stable and tests still need to be written.**
+
 1. Create a new directory and CD into that directory
 
 ```
