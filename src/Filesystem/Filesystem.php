@@ -42,4 +42,14 @@ class Filesystem
     {
         return $this->fs->mirror($source, $destination);
     }
+
+    /*
+        Append to body
+        - Add to the end of a file
+    */
+
+    public function append($file, $text)
+    {
+        return $this->fs->appendToFile($file, $text);
+    }
 }

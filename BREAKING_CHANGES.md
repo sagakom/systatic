@@ -20,3 +20,21 @@ When installing for the first time, user can run this command
 ```
 php vendor/damcclean/systatic/init init
 ```
+
+### Plugins
+
+If you want to use plugins, you need to create a `plugins` directory and PHP files in there with the following contents:
+
+```php
+<?php
+
+function before()
+{
+	//
+}
+
+function after()
+{
+	//
+}
+```
