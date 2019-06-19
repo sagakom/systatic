@@ -1,10 +1,10 @@
 <?php
 
-namespace Damcclean\Systatic\Addons;
+namespace Damcclean\Systatic\Plugins;
 
 use Damcclean\Systatic\Config\Config;
 
-class Addons
+class Plugins
 {
     public function __construct()
     {
