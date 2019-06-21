@@ -219,7 +219,7 @@ class Collections
 
     // public function remote($collection)
     // {
-    //     $items = json_decode(file_get_contents($collection['remote']), true);
+    //     $items = json_decode(file_get_contents($collection['location']), true);
         
     //     foreach($items as $item) {
     //         $entry = [
