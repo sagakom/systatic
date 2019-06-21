@@ -36,17 +36,18 @@ class Collections
             foreach($collections as $collection) {
                 if(strpos($collection['location'], 'http') != false) {
                     //$this->remote($collection); WIP
+                    echo $collection['name'] . " is a remote collection.";
                 } else {
                     $markdown = [];
                     $html = [];
 
-                    $markdown = array_merge(glob($collection['array'] . '/*.md', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($collection['array'] . '/*/*.md', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($collection['array'] . '/*.markdown', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($collection['array'] . '/*/*.markdown', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($collection['location'] . '/*.md', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($collection['location'] . '/*/*.md', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($collection['location'] . '/*.markdown', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($collection['location'] . '/*/*.markdown', GLOB_BRACE), $markdown);
 
-                    $html = array_merge(glob($collection['array'] . '/*.html', GLOB_BRACE), $html);
-                    $html = array_merge(glob($collection['array'] . '/*/*.html', GLOB_BRACE), $html);
+                    $html = array_merge(glob($collection['location'] . '/*.html', GLOB_BRACE), $html);
+                    $html = array_merge(glob($collection['location'] . '/*/*.html', GLOB_BRACE), $html);
 
                     foreach($markdown as $file) {
                         $this->markdown($file, $collection);

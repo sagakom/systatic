@@ -12,14 +12,14 @@ class Filesystem
         $this->fs = new SymfonyFilesystem();
     }
 
-    public function createDirectory()
+    public function createDirectory($file)
     {
-        //
+        return $this->fs->touch($file);
     }
 
-    public function createFile()
+    public function createFile($directory)
     {
-        //
+        return $this->fs->mkdir($directory, 0777);
     }
 
     /*
