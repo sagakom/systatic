@@ -118,6 +118,18 @@ if(!function_exists('route')) {
 }
 
 /*
+    String starts with
+*/
+
+if(!function_exists('startsWith')) {
+    function startsWith ($string, $starting) 
+    { 
+        $len = strlen($starting); 
+        return (substr($string, 0, $len) === $starting); 
+    } 
+}
+
+/*
     String ends with
 */
 

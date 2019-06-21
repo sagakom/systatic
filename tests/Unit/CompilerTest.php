@@ -17,7 +17,7 @@ class CompilerTest extends TestCase
     {
         $this->blade->compile([
             'filename' => 'banana.html',
-            'permalink' => '/',
+            'permalink' => '/banana.html',
             'title' => 'I love Bananas!',
             'slug' => 'banana',
             'view' => 'index',
@@ -32,7 +32,7 @@ class CompilerTest extends TestCase
     {
         $this->blade->compile([
             'filename' => 'apple.html',
-            'permalink' => '/',
+            'permalink' => '/apple.html',
             'title' => 'I love Apples!',
             'slug' => 'apple',
             'view' => 'this-is-cool',

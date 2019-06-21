@@ -37,7 +37,13 @@ class BladeCompiler
             'collections' => collect((new Collections())->fetch())
         ]);
 
-        file_put_contents($this->config->get('locations.output') . '/' . $array['slug'] . '.html', $page);
+        $name = '/' . $array['permalink'];
+
+        if(startsWith($array['permalink'], '/')) {
+            $name = $array['permalink'];
+        }
+
+        file_put_contents($this->config->get('locations.output') . $name, $page);
 
         $this->cache->clearCache();
 
