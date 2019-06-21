@@ -22,32 +22,42 @@ class Collections
 
     public function collect()
     {
-        $markdown = [];
-        $html = [];
+        $collections = [
+            'pages' => [
+                'name' => 'Pages',
+                'permalink' => '/',
+                'location' => './content/pages'
+            ]
+        ];
 
-        $markdown = array_merge(glob($this->config->get('locations.content') . '/*.md', GLOB_BRACE), $markdown);
-        $markdown = array_merge(glob($this->config->get('locations.content') . '/*/*.md', GLOB_BRACE), $markdown);
-        $markdown = array_merge(glob($this->config->get('locations.content') . '/*.markdown', GLOB_BRACE), $markdown);
-        $markdown = array_merge(glob($this->config->get('locations.content') . '/*/*.markdown', GLOB_BRACE), $markdown);
+        if(array_key_exists('collections', $this->config->getArray())) {
+            $collections = $this->config->get('collections');
 
-        $html = array_merge(glob($this->config->get('locations.content') . '/*.html', GLOB_BRACE), $html);
-        $html = array_merge(glob($this->config->get('locations.content') . '/*/*.html', GLOB_BRACE), $html);
+            foreach($collections as $collection) {
+                if(strpos($collection['location'], 'http') != false) {
+                    //$this->remote($collection); WIP
+                } else {
+                    $markdown = [];
+                    $html = [];
 
-        foreach($markdown as $file) {
-            $this->markdown($file);
+                    $markdown = array_merge(glob($this->config->get('locations.content') . '/*.md', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($this->config->get('locations.content') . '/*/*.md', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($this->config->get('locations.content') . '/*.markdown', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($this->config->get('locations.content') . '/*/*.markdown', GLOB_BRACE), $markdown);
+
+                    $html = array_merge(glob($this->config->get('locations.content') . '/*.html', GLOB_BRACE), $html);
+                    $html = array_merge(glob($this->config->get('locations.content') . '/*/*.html', GLOB_BRACE), $html);
+
+                    foreach($markdown as $file) {
+                        $this->markdown($file);
+                    }
+
+                    foreach($html as $file) {
+                        $this->html($file);
+                    }
+                }
+            }
         }
-
-        foreach($html as $file) {
-            $this->html($file);
-        }
-
-        // $configCollections = $this->config->get('collections');
-
-        // foreach($configCollections as $collection) {
-        //     if($collection['remote']) {
-        //         $this->remote($collection);
-        //     }
-        // }
 
         $this->save($this->store);
 
