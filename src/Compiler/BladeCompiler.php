@@ -43,6 +43,10 @@ class BladeCompiler
             $name = $array['permalink'];
         }
 
+        if(array_key_exists('filetype', $array['meta'])) {
+            str_replace('.html', '.' . $array['meta']['filetype'], $name);
+        }
+
         file_put_contents($this->config->get('locations.output') . $name, $page);
 
         $this->cache->clearCache();
