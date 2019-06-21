@@ -21,7 +21,7 @@ class BuildCommand extends Command
 
     public function handle()
     {
-        $this->info('Building site from ' . $this->config->get('locations.content') . ' to ' . $this->config->get('locations.output') . '.');
+        $this->info('Building site to ' . $this->config->get('locations.output') . '.');
         $this->build->build();
     }
 }

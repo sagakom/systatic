@@ -6,6 +6,8 @@
 * New `store.json` file in the `storage` directory.
 * Stubs have changed location
 * Configuration changed completly
+* Removed the content location option from the locations config array
+* You are now required to configure content collections
 * Redirects looks like this now:
 
 ```

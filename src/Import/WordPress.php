@@ -40,16 +40,16 @@ class WordPress
 
     public function createFile($page)
     {
-        $frontMatter = [
-            'title' => $page['title']['rendered'],
-            'slug' => $page['slug'],
-            'excerpt' => $page['excerpt']['rendered'],
-            'date' => $page['date']
-        ];
+        // $frontMatter = [
+        //     'title' => $page['title']['rendered'],
+        //     'slug' => $page['slug'],
+        //     'excerpt' => $page['excerpt']['rendered'],
+        //     'date' => $page['date']
+        // ];
 
-        $contents = '---' . Yaml::dump($frontMatter) . '---' . $page['content']['rendered'];
-        $filename = $this->config->get('locations.content') . '/' . $page['slug'] . '.md';
+        // $contents = '---' . Yaml::dump($frontMatter) . '---' . $page['content']['rendered'];
+        // $filename = $this->config->get('locations.content') . '/' . $page['slug'] . '.md';
 
-        file_put_contents($filename, $contents);
+        // file_put_contents($filename, $contents);
     }
 }

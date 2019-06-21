@@ -40,13 +40,13 @@ class Collections
                     $markdown = [];
                     $html = [];
 
-                    $markdown = array_merge(glob($this->config->get('locations.content') . '/*.md', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($this->config->get('locations.content') . '/*/*.md', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($this->config->get('locations.content') . '/*.markdown', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($this->config->get('locations.content') . '/*/*.markdown', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($collection['array'] . '/*.md', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($collection['array'] . '/*/*.md', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($collection['array'] . '/*.markdown', GLOB_BRACE), $markdown);
+                    $markdown = array_merge(glob($collection['array'] . '/*/*.markdown', GLOB_BRACE), $markdown);
 
-                    $html = array_merge(glob($this->config->get('locations.content') . '/*.html', GLOB_BRACE), $html);
-                    $html = array_merge(glob($this->config->get('locations.content') . '/*/*.html', GLOB_BRACE), $html);
+                    $html = array_merge(glob($collection['array'] . '/*.html', GLOB_BRACE), $html);
+                    $html = array_merge(glob($collection['array'] . '/*/*.html', GLOB_BRACE), $html);
 
                     foreach($markdown as $file) {
                         $this->markdown($file);
