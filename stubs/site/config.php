@@ -8,7 +8,8 @@ return [
 	'locations' => [
 		'output' => './dist',
 		'views' => './views',
-		'storage' => './storage'
+		'storage' => './storage',
+		'plugins' => './plugins'
 	],
 
 	'collections' => [
