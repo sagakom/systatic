@@ -136,6 +136,10 @@ class Collections
             } elseif(file_exists($this->config->get('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . '.blade.php')) {
                 $view = str_replace('.', '/', $frontMatter['view']);
             }
+        } elseif(array_key_exists('view', $collection)) {
+            if(file_exists($this->config->get('locations.views') . '/' . $collection['view'] . '.blade.php')) {
+                $view = $collection['view'];
+            }
         } elseif($slug !== 'index') {
             if(file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
                 $view = $slug;
