@@ -22,6 +22,7 @@ class BladeCompiler
         $slug = $array['slug'];
         $title = $array['title'];
         $content = $array['content'];
+        $format = $array['format'];
         $matter = $array['matter'];
 
         // Make the page with the chosen blade template and with all the variables
@@ -48,7 +49,7 @@ class BladeCompiler
         });
 
         // Send blade putput to file
-        file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.html', $page);
+        file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.' . $format, $page);
 
         // Clear cache
         $this->cache->clearCache();

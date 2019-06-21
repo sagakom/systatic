@@ -50,6 +50,12 @@ class Compiler
             $title = $matter['title'];
         }
 
+        // Decide what format we should output as
+        $format = 'html';
+        if(array_key_exists('format', $matter)) {
+            $format = $matter['format'];
+        }
+
         // Set view
         $view = 'index';
 
@@ -73,6 +79,7 @@ class Compiler
             'slug' => $slug,
             'title' => $title,
             'content' => $markdown,
+            'format' => $format,
             'matter' => $matter
         ]);
 
@@ -104,6 +111,7 @@ class Compiler
             'slug' => $slug,
             'title' => $title,
             'content' => $content,
+            'format' => 'html',
             'matter' => [
                 'title' => $title
             ]

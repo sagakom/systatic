@@ -105,6 +105,14 @@ class CompilerTest extends TestCase
         $this->assertFileExists('./tests/site/dist/another.html');
     }
 
+    public function testCanCompileWithXmlFormat()
+    {
+        $compile = $this->compiler->markdown('./tests/site/content/xml-format.md');
+        
+        $this->assertSame(true, $compile);
+        $this->assertFileExists('./tests/site/dist/xml-format.xml');
+    }
+
     public function testCanCompileHtmlStandard()
     {
         $compile = $this->compiler->html('./tests/site/content/html_standard.html');
@@ -130,6 +138,7 @@ class CompilerTest extends TestCase
             'slug' => 'i-love-bananas',
             'title' => 'I love Bananas!!!',
             'content' => '<p>Bananas are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
+            'format' => 'html',
             'matter' => [
                 'title' => 'I love Bananas!!!'
             ]
