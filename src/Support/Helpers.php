@@ -116,3 +116,23 @@ if(!function_exists('route')) {
         return '';
     }
 }
+
+/*
+    String ends with
+*/
+
+if(!function_exists('endsWith')) {
+    function endsWith ($string, $ending)
+    {
+        $strLength = strlen ($string);
+        $endsLength = strlen ($ending);
+
+        for ($i = 0; $i < $endsLength; $i++) {
+            if ($string [$strLength - $i - 1] !== $ending [$i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}

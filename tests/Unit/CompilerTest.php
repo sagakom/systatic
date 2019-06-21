@@ -17,12 +17,12 @@ class CompilerTest extends TestCase
     {
         $this->blade->compile([
             'filename' => 'banana.html',
+            'permalink' => '/',
             'title' => 'I love Bananas!',
             'slug' => 'banana',
             'view' => 'index',
             'content' => '<p>Bananas are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
-            'meta' => [],
-            'type' => 'local'
+            'meta' => []
         ]);
 
         $this->assertFileExists('./tests/fixtures/dist/banana.html');
@@ -32,12 +32,12 @@ class CompilerTest extends TestCase
     {
         $this->blade->compile([
             'filename' => 'apple.html',
+            'permalink' => '/',
             'title' => 'I love Apples!',
             'slug' => 'apple',
             'view' => 'this-is-cool',
             'content' => '<p>Apples are my favourite thing to eat. I wish I could eat them for breakfast, lunch and dinner.</p>',
-            'meta' => [],
-            'type' => 'local'
+            'meta' => []
         ]);
 
         $this->assertFileExists('./tests/fixtures/dist/apple.html');

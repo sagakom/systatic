@@ -49,11 +49,11 @@ class Collections
                     $html = array_merge(glob($collection['array'] . '/*/*.html', GLOB_BRACE), $html);
 
                     foreach($markdown as $file) {
-                        $this->markdown($file);
+                        $this->markdown($file, $collection);
                     }
 
                     foreach($html as $file) {
-                        $this->html($file);
+                        $this->html($file, $collection);
                     }
                 }
             }
@@ -101,7 +101,7 @@ class Collections
         Get Markdown file information
     */
 
-    public function markdown($file)
+    public function markdown($file, $collection)
     {
         $filename = $file;
         $contents = file_get_contents($file);
@@ -142,14 +142,20 @@ class Collections
             }
         }
 
+        if(endsWith($collection['permalink'], '/') != false) {
+            $permalink = $collection['permalink'] . $slug . '.html';
+        } else {
+            $permalink = $collection['permalink'] . '/' . $slug . '.html';
+        }
+
         $entry = [
             'filename' => $filename,
+            'permalink' => $permalink,
             'title' => $title,
             'slug' => $slug,
             'view' => $view,
             'content' => $markdown,
-            'meta' => $frontMatter,
-            'type' => 'local'
+            'meta' => $frontMatter
         ];
 
         array_push($this->store, $entry);
@@ -161,7 +167,7 @@ class Collections
         Get HTML file information
     */
 
-    public function html($file)
+    public function html($file, $collection)
     {
         $filename = $file;
         $contents = file_get_contents($file);
@@ -181,14 +187,20 @@ class Collections
             $view = $slug;
         }
 
+        if(endsWith($collection['permalink'], '/') != false) {
+            $permalink = $collection['permalink'] . $slug . '.html';
+        } else {
+            $permalink = $collection['permalink'] . '/' . $slug . '.html';
+        }
+
         $entry = [
             'filename' => $filename,
+            'permalink' => $permalink,
             'title' => $title,
             'slug' => $slug,
             'view' => $view,
             'content' => $contents,
-            'meta' => [],
-            'type' => 'local'
+            'meta' => []
         ];
 
         array_push($this->store, $entry);

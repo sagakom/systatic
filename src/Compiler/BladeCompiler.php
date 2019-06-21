@@ -25,12 +25,12 @@ class BladeCompiler
     {
         $page = $this->blade->make($array['view'], [
             'filename' => $array['filename'],
+            'permalink' => $array['permalink'],
             'title' => $array['title'],
             'slug' => $array['slug'],
             'view' => $array['view'],
             'content' => $array['content'],
             'meta' => $array['meta'],
-            'type' => $array['type'],
 
             'url' => $this->config->get('url') . $array['slug'] . '.html',
             'config' => ((object) $this->config->getArray()),
