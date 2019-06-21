@@ -7,8 +7,15 @@ return [
 
 	'locations' => [
 		'output' => './dist',
-		'content' => './content',
 		'views' => './views',
 		'storage' => './storage'
+	],
+
+	'collections' => [
+		'pages' => [
+			'name' => 'Pages',
+            'permalink' => '/',
+            'location' => './content/pages'
+		]
 	]
 ];
