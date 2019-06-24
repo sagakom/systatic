@@ -43,6 +43,7 @@ class Collections
 
             $this->store["{$key}"] = [];
             $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
+            $this->store["{$key}"]['items'] = [];
 
             if(strpos($collection['location'], 'http') != false) {
                 //$this->remote($collection); WIP
@@ -173,7 +174,7 @@ class Collections
         ];
 
         $key = $collection['key'];
-        array_push($this->store["{$key}"], $entry);
+        array_push($this->store["{$key}"]['items'], $entry);
 
         return $entry;
     }
@@ -219,7 +220,7 @@ class Collections
         ];
 
         $key = $collection['key'];
-        array_push($this->store["{$key}"], $entry);
+        array_push($this->store["{$key}"]['items'], $entry);
 
         return $entry;
     }
