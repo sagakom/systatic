@@ -72,10 +72,11 @@ class Collections
 
         $this->save($this->store);
 
-        // foreach($this->store as $entry)
-        // {
-        //     $this->compiler->compile($entry);
-        // }
+        foreach($this->store as $collection) {
+            foreach($collection['items'] as $entry) {
+                $this->compiler->compile($entry);
+            }
+        }
 
         return true;
     }
