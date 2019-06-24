@@ -32,40 +32,49 @@ class Collections
 
         if(array_key_exists('collections', $this->config->getArray())) {
             $collections = $this->config->get('collections');
+        }
 
-            foreach($collections as $collection) {
-                if(strpos($collection['location'], 'http') != false) {
-                    //$this->remote($collection); WIP
-                    echo $collection['name'] . " is a remote collection.";
-                } else {
-                    $markdown = [];
-                    $html = [];
+        foreach($collections as $key => $collection) {
+            $collection['key'] = $key;
 
-                    $markdown = array_merge(glob($collection['location'] . '/*.md', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($collection['location'] . '/*/*.md', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($collection['location'] . '/*.markdown', GLOB_BRACE), $markdown);
-                    $markdown = array_merge(glob($collection['location'] . '/*/*.markdown', GLOB_BRACE), $markdown);
+            if(!array_key_exists('view', $collection)) {
+                $collection['view'] = null;
+            }
 
-                    $html = array_merge(glob($collection['location'] . '/*.html', GLOB_BRACE), $html);
-                    $html = array_merge(glob($collection['location'] . '/*/*.html', GLOB_BRACE), $html);
+            $this->store["{$key}"] = [];
+            $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
 
-                    foreach($markdown as $file) {
-                        $this->markdown($file, $collection);
-                    }
+            if(strpos($collection['location'], 'http') != false) {
+                //$this->remote($collection); WIP
+                echo $collection['name'] . " is a remote collection.";
+            } else {
+                $markdown = [];
+                $html = [];
 
-                    foreach($html as $file) {
-                        $this->html($file, $collection);
-                    }
+                $markdown = array_merge(glob($collection['location'] . '/*.md', GLOB_BRACE), $markdown);
+                $markdown = array_merge(glob($collection['location'] . '/*/*.md', GLOB_BRACE), $markdown);
+                $markdown = array_merge(glob($collection['location'] . '/*.markdown', GLOB_BRACE), $markdown);
+                $markdown = array_merge(glob($collection['location'] . '/*/*.markdown', GLOB_BRACE), $markdown);
+
+                $html = array_merge(glob($collection['location'] . '/*.html', GLOB_BRACE), $html);
+                $html = array_merge(glob($collection['location'] . '/*/*.html', GLOB_BRACE), $html);
+
+                foreach($markdown as $file) {
+                    $this->markdown($file, $collection);
+                }
+
+                foreach($html as $file) {
+                    $this->html($file, $collection);
                 }
             }
         }
 
         $this->save($this->store);
 
-        foreach($this->store as $entry)
-        {
-            $this->compiler->compile($entry);
-        }
+        // foreach($this->store as $entry)
+        // {
+        //     $this->compiler->compile($entry);
+        // }
 
         return true;
     }
@@ -163,7 +172,7 @@ class Collections
             'meta' => $frontMatter
         ];
 
-        array_push($this->store, $entry);
+        //array_push($this->store[0], $entry);
 
         return $entry;
     }
