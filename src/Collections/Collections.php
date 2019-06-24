@@ -172,7 +172,8 @@ class Collections
             'meta' => $frontMatter
         ];
 
-        //array_push($this->store[0], $entry);
+        $key = $collection['key'];
+        array_push($this->store["{$key}"], $entry);
 
         return $entry;
     }
@@ -217,7 +218,8 @@ class Collections
             'meta' => []
         ];
 
-        array_push($this->store, $entry);
+        $key = $collection['key'];
+        array_push($this->store["{$key}"], $entry);
 
         return $entry;
     }
