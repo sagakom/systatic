@@ -13,11 +13,6 @@ class Compiler
         $this->blade = new BladeCompiler();
     }
 
-    /*
-        - Decide which templating driver to use
-        - Then send the entry to the compiler
-    */
-
     public function compile($entry)
     {
         if($this->config->get('compiler') === "blade") {

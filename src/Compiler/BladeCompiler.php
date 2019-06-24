@@ -6,6 +6,7 @@ use Jenssegers\Blade\Blade;
 use Tightenco\Collect\Support\Collection;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Filesystem\Filesystem;
 use Damcclean\Systatic\Collections\Collections;
 
 class BladeCompiler
@@ -14,12 +15,9 @@ class BladeCompiler
     {
         $this->cache = new Cache();
         $this->config = new Config();
+        $this->filesystem = new Filesystem();
         $this->blade = new Blade($this->config->get('locations.views'), $this->config->get('locations.storage') . '/cache');
     }
-
-    /*
-        Compile with Laravel Blade
-    */
 
     public function compile($array)
     {
@@ -47,7 +45,9 @@ class BladeCompiler
             str_replace('.html', '.' . $array['meta']['filetype'], $name);
         }
 
-        file_put_contents($this->config->get('locations.output') . $name, $page);
+        $this->filesystem->createFile($this->config->get('locations.output') . $name, $page);
+
+        //file_put_contents($this->config->get('locations.output') . $name, $page);
 
         $this->cache->clearCache();
 

@@ -16,10 +16,6 @@ class Collections
         $this->store = [];
     }
 
-    /*
-        Collect Markdown and HTML files to the store
-    */
-
     public function collect()
     {
         $collections = [
@@ -81,37 +77,21 @@ class Collections
         return true;
     }
 
-    /*
-        Save to store
-    */
-
     public function save($store)
     {
         file_put_contents($this->config->get('locations.storage') . '/store.json', json_encode($store));
         return true;
     }
 
-    /*  
-        Fetch from store
-    */
-
     public function fetch()
     {
         return json_decode(file_get_contents($this->config->get('locations.storage') . '/store.json'), true);
     }
 
-    /*
-        Fetch from store (As JSON)
-    */
-
     public function fetchAsJson()
     {
         return file_get_contents($this->config->get('locations.storage') . '/store.json');
     }
-
-    /*
-        Get Markdown file information
-    */
 
     public function markdown($file, $collection)
     {
@@ -180,10 +160,6 @@ class Collections
         return $entry;
     }
 
-    /*
-        Get HTML file information
-    */
-
     public function html($file, $collection)
     {
         $filename = $file;
@@ -225,10 +201,6 @@ class Collections
 
         return $entry;
     }
-
-    /*
-        Remote collections
-    */
 
     // public function remote($collection)
     // {
