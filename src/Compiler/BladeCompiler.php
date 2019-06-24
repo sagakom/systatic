@@ -45,9 +45,7 @@ class BladeCompiler
             str_replace('.html', '.' . $array['meta']['filetype'], $name);
         }
 
-        $this->filesystem->createFile($this->config->get('locations.output') . $name, $page);
-
-        //file_put_contents($this->config->get('locations.output') . $name, $page);
+        file_write_contents($this->config->get('locations.output') . $name, $page);
 
         $this->cache->clearCache();
 

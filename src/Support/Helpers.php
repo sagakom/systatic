@@ -3,6 +3,7 @@
 use Damcclean\Systatic\Config\Config;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\VarDumper\VarDumper;
+use Damcclean\Systatic\Filesystem\Filesystem as SystaticFilesystem;
 use Damcclean\Systatic\Collections\Collections;
 
 /*
@@ -122,7 +123,7 @@ if(!function_exists('route')) {
 */
 
 if(!function_exists('startsWith')) {
-    function startsWith ($string, $starting) 
+    function startsWith($string, $starting) 
     { 
         $len = strlen($starting); 
         return (substr($string, 0, $len) === $starting); 
@@ -134,7 +135,7 @@ if(!function_exists('startsWith')) {
 */
 
 if(!function_exists('endsWith')) {
-    function endsWith ($string, $ending)
+    function endsWith($string, $ending)
     {
         $strLength = strlen ($string);
         $endsLength = strlen ($ending);
@@ -146,5 +147,25 @@ if(!function_exists('endsWith')) {
         }
 
         return true;
+    }
+}
+
+/*
+    Write to file
+    - Creates a file, along with any directories needed
+    - Also writes content to the file
+*/
+
+if(!function_exists('file_write_contents')) {
+    function file_write_contents($path, $content) {
+        $filesystem = new SystaticFilesystem();
+
+        $dirName = pathinfo($path, PATHINFO_DIRNAME);
+
+        if(!file_exists($dirName)) {
+            $filesystem->createDirectory($dirName);
+        }
+
+        return (bool) file_put_contents($path, $content);
     }
 }
