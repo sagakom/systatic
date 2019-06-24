@@ -13,6 +13,7 @@ class Collections
         $this->config = new Config();
         $this->compiler = new Compiler();
         $this->parsedown = new MetaParsedown();
+
         $this->store = [];
     }
 
@@ -35,6 +36,10 @@ class Collections
 
             if(!array_key_exists('view', $collection)) {
                 $collection['view'] = null;
+            }
+
+            if(!array_key_exists('searchable', $collection)) {
+                $collection['searchable'] = false;
             }
 
             $this->store["{$key}"] = [];
@@ -69,6 +74,10 @@ class Collections
         $this->save($this->store);
 
         foreach($this->store as $collection) {
+            if($collection['searchable'] != false) {
+                (new Search)->index($collection['items']);
+            }
+
             foreach($collection['items'] as $entry) {
                 $this->compiler->compile($entry);
             }
