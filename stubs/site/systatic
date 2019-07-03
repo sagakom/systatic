@@ -22,7 +22,7 @@ define('BASE', __DIR__);
 define('CONFIGURATION', $config);
 
 require __DIR__ . '/vendor/autoload.php';
-include(__DIR__ . '/vendor/damcclean/systatic/src/support/helpers.php');
+include(__DIR__ . '/vendor/damcclean/systatic/src/helpers.php');
 
 use Damcclean\Systatic\Systatic;
 
