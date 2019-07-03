@@ -30,9 +30,9 @@ class BladeCompiler
             'slug' => $data['slug'],
             'view' => $data['view'],
             'content' => $data['content'],
-            'meta' => $data['meta'],
+            'meta' => convert_to_object($data['meta']),
 
-            'config' => $this->config->getArray(),
+            'config' => convert_to_object($this->config->getArray()),
         ];
 
         foreach((new Collections())->fetch() as $collection) {
