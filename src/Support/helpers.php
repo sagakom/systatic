@@ -169,3 +169,26 @@ if(!function_exists('file_write_contents')) {
         return (bool) file_put_contents($path, $content);
     }
 }
+
+/*
+    Convert arrays into an object
+    - Works with nested arrays
+*/
+
+if(!function_exists('convert_to_object')) {
+    function convert_to_object($array) {
+        $object = new stdClass;
+
+        foreach($array as $key => $value) {
+            if(strlen($key)) {
+                if(is_array($key)) {
+                    $object->{$key} = convert_to_object($value);
+                } else {
+                    $object->{$key} = $value;
+                }
+            }
+        }
+
+        return $object;
+    }
+}
