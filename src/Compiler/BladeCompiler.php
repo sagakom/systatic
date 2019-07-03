@@ -30,6 +30,7 @@ class BladeCompiler
             'slug' => $data['slug'],
             'view' => $data['view'],
             'content' => $data['content'],
+            'last_updated' => $data['last_updated'],
             'meta' => convert_to_object($data['meta']),
 
             'config' => convert_to_object($this->config->getArray()),

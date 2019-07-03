@@ -107,6 +107,12 @@ class Collections
         $filename = $file;
         $contents = file_get_contents($file);
 
+        $lastUpdated = filemtime($file);
+
+        if($lastUpdated === false) {
+            $lastUpdated = null;
+        }
+
         if(strpos($filename, '.md')) {
             $slug = basename($filename, '.md');
         } elseif(strpos($filename, '.markdown')) {
@@ -160,7 +166,8 @@ class Collections
             'slug' => $slug,
             'view' => $view,
             'content' => $markdown,
-            'meta' => $frontMatter
+            'meta' => $frontMatter,
+            'last_updated' => $lastUpdated
         ];
 
         $key = $collection['key'];
@@ -173,6 +180,12 @@ class Collections
     {
         $filename = $file;
         $contents = file_get_contents($file);
+
+        $lastUpdated = filemtime($file);
+
+        if($lastUpdated === false) {
+            $lastUpdated = null;
+        }
 
         if(strpos($filename, '.html')) {
             $slug = basename($filename, '.html');
@@ -202,7 +215,8 @@ class Collections
             'slug' => $slug,
             'view' => $view,
             'content' => $contents,
-            'meta' => []
+            'meta' => [],
+            'last_updated' => $lastUpdated
         ];
 
         $key = $collection['key'];
