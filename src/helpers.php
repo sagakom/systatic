@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Damcclean\Systatic\Config\Config;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\VarDumper\VarDumper;
@@ -190,5 +191,20 @@ if(!function_exists('convert_to_object')) {
         }
 
         return $object;
+    }
+}
+
+/*
+    Carbon
+    - Helper for the Carbon dates package
+*/
+
+if(!function_exists('carbon')) {
+    function carbon($value) {
+        if(!$value instanceof Carbon) {
+            $value = (is_numeric($value)) ? Carbon::createFromTimestamp($value) : Carbon::parse($value);
+        }
+
+        return $value;
     }
 }
