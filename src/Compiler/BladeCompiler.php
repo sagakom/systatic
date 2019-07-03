@@ -16,36 +16,47 @@ class BladeCompiler
         $this->cache = new Cache();
         $this->config = new Config();
         $this->filesystem = new Filesystem();
+        $this->collections = new Collections();
         $this->blade = new Blade($this->config->get('locations.views'), $this->config->get('locations.storage') . '/cache');
     }
 
-    public function compile($array)
+    public function compile($data)
     {
-        $page = $this->blade->make($array['view'], [
-            'filename' => $array['filename'],
-            'permalink' => $array['permalink'],
-            'title' => $array['title'],
-            'slug' => $array['slug'],
-            'view' => $array['view'],
-            'content' => $array['content'],
-            'meta' => $array['meta'],
+        $page = [
+            'url' => $this->config->get('url') . $data['slug'] . '.html',
+            'filename' => $data['filename'],
+            'permalink' => $data['permalink'],
 
-            'url' => $this->config->get('url') . $array['slug'] . '.html',
-            'config' => ((object) $this->config->getArray()),
-            'collections' => collect((new Collections())->fetch())
-        ]);
+            'title' => $data['title'],
+            'slug' => $data['slug'],
+            'view' => $data['view'],
+            'content' => $data['content'],
+            'meta' => $data['meta'],
 
-        $name = '/' . $array['permalink'];
+            'config' => $this->config->getArray(),
+        ];
 
-        if(startsWith($array['permalink'], '/')) {
-            $name = $array['permalink'];
+        dd($this->collections->fetch());
+
+        // foreach($this->collections->fetch() as $collection) {
+        //     $page["{$collection['key']}"] = convert_to_object($collection['items']);
+        // }
+
+        // dd($page);
+
+        $view = $this->blade->make($data['view'], $page);
+
+        $name = '/' . $data['permalink'];
+
+        if(startsWith($data['permalink'], '/')) {
+            $name = $data['permalink'];
         }
 
-        if(array_key_exists('filetype', $array['meta'])) {
-            str_replace('.html', '.' . $array['meta']['filetype'], $name);
+        if(array_key_exists('filetype', $data['meta'])) {
+            str_replace('.html', '.' . $data['meta']['filetype'], $name);
         }
 
-        file_write_contents($this->config->get('locations.output') . $name, $page);
+        file_write_contents($this->config->get('locations.output') . $name, $view);
 
         $this->cache->clearCache();
 
