@@ -17,7 +17,7 @@
             "Tests\\": "tests"
         },
         "files": [
-            "src/Support/Helpers.php"
+            "src/helpers.php"
         ]
     },
     "require": {
