@@ -16,7 +16,6 @@ class BladeCompiler
         $this->cache = new Cache();
         $this->config = new Config();
         $this->filesystem = new Filesystem();
-        $this->collections = new Collections();
         $this->blade = new Blade($this->config->get('locations.views'), $this->config->get('locations.storage') . '/cache');
     }
 
@@ -36,13 +35,9 @@ class BladeCompiler
             'config' => $this->config->getArray(),
         ];
 
-        dd($this->collections->fetch());
-
-        // foreach($this->collections->fetch() as $collection) {
-        //     $page["{$collection['key']}"] = convert_to_object($collection['items']);
-        // }
-
-        // dd($page);
+        foreach((new Collections())->fetch() as $collection) {
+            $page["{$collection['key']}"] = convert_to_object($collection['items']);
+        }
 
         $view = $this->blade->make($data['view'], $page);
 
