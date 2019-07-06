@@ -161,10 +161,10 @@ if(!function_exists('file_write_contents')) {
     function file_write_contents($path, $content) {
         $filesystem = new SystaticFilesystem();
 
-        $dirName = pathinfo($path, PATHINFO_DIRNAME);
+        $directory = pathinfo($path, PATHINFO_DIRNAME);
 
-        if(!file_exists($dirName)) {
-            $filesystem->createDirectory($dirName);
+        if(!file_exists($directory)) {
+            $filesystem->createDirectory($directory);
         }
 
         return (bool) file_put_contents($path, $content);
