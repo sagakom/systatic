@@ -28,8 +28,9 @@ class Plugins
     {
         foreach($this->config->getArray()['plugins'] as $plugin) {
             $p = new $plugin();
+            $p = $p->boot();
 
-            array_push($p, $this->store);
+            array_push($this->store, $p);
         }
 
         $this->save($this->store);
