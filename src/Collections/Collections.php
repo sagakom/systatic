@@ -203,9 +203,9 @@ class Collections
         }
 
         if(endsWith($collection['permalink'], '/') != false) {
-            $permalink = $collection['permalink'] . $slug . '.html';
+            $permalink = $collection['permalink'] . $slug . '/index.html';
         } else {
-            $permalink = $collection['permalink'] . '/' . $slug . '.html';
+            $permalink = $collection['permalink'] . '/' . $slug . '/index.html';
         }
 
         $entry = [
