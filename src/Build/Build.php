@@ -2,6 +2,7 @@
 
 namespace Damcclean\Systatic\Build;
 
+use Damcclean\Sysyatic\Cache\Cache;
 use Damcclean\Systatic\Build\Redirects;
 use Damcclean\Systatic\Collections\Collections;
 
@@ -9,8 +10,9 @@ class Build
 {
     public function __construct()
     {
-        $this->collections = new Collections();
+        $this->cache = new Cache();
         $this->redirects = new Redirects();
+        $this->collections = new Collections();
     }
 
     /*
@@ -21,5 +23,6 @@ class Build
     {
         $this->collections->collect();
         $this->redirects->build();
+        $this->cache->clearStoreCache();
     }
 }
