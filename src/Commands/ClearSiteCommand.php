@@ -26,6 +26,9 @@ class ClearSiteCommand extends Command
 
         $files = [];
         $files = array_merge(glob($this->config->get('locations.output') . '/*.html', GLOB_BRACE), $files);
+        $files = array_merge(glob($this->config->get('locations.output') . '/*/*.html', GLOB_BRACE), $files);
+        $files = array_merge(glob($this->config->get('locations.output') . '/*/*/*.html', GLOB_BRACE), $files);
+        $files = array_merge(glob($this->config->get('locations.output') . '/*/*/*/*.html', GLOB_BRACE), $files);
 
         foreach($files as $file) {
             $this->filesystem->remove($file);
