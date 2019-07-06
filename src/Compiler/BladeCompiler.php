@@ -22,7 +22,7 @@ class BladeCompiler
     public function compile($data)
     {
         $page = [
-            'url' => $this->config->get('url') . $data['slug'] . '.html',
+            'url' => $this->config->get('url') . $data['slug'] . '/index.html',
             'filename' => $data['filename'],
             'permalink' => $data['permalink'],
 
@@ -38,6 +38,12 @@ class BladeCompiler
 
         foreach((new Collections())->fetch() as $collection) {
             $page["{$collection['key']}"] = collect($collection['items']);
+
+            foreach($page["{$collection['key']}"] as $item) {
+                $item = convert_to_object($item);
+            }
+
+            dd($page["{$collection['key']}"]);
         }
 
         $view = $this->blade->make($data['view'], $page);
