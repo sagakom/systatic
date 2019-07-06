@@ -176,55 +176,6 @@ class Collections
         return $entry;
     }
 
-    public function html($file, $collection)
-    {
-        $filename = $file;
-        $contents = file_get_contents($file);
-
-        $lastUpdated = filemtime($file);
-
-        if($lastUpdated === false) {
-            $lastUpdated = null;
-        }
-
-        if(strpos($filename, '.html')) {
-            $slug = basename($filename, '.html');
-        }
-
-        if(file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
-            $view = $slug;
-        }
-
-        $title = $slug;
-        $view = 'index';
-
-        if(file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
-            $view = $slug;
-        }
-
-        if(endsWith($collection['permalink'], '/') != false) {
-            $permalink = $collection['permalink'] . $slug . '/index.html';
-        } else {
-            $permalink = $collection['permalink'] . '/' . $slug . '/index.html';
-        }
-
-        $entry = [
-            'filename' => $filename,
-            'permalink' => $permalink,
-            'title' => $title,
-            'slug' => $slug,
-            'view' => $view,
-            'content' => $contents,
-            'meta' => [],
-            'last_updated' => $lastUpdated
-        ];
-
-        $key = $collection['key'];
-        array_push($this->store["{$key}"]['items'], $entry);
-
-        return $entry;
-    }
-
     // public function remote($collection)
     // {
     //     $items = json_decode(file_get_contents($collection['location']), true);
