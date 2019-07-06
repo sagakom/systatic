@@ -2,7 +2,7 @@
 
 namespace Damcclean\Systatic\Build;
 
-use Damcclean\Sysyatic\Cache\Cache;
+use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Build\Redirects;
 use Damcclean\Systatic\Collections\Collections;
 
