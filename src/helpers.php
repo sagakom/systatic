@@ -54,7 +54,8 @@ if(!function_exists('logging')) {
 */
 
 if(!function_exists('config_path')) {
-    function config_path() {
+    function config_path() 
+    {
         return CONFIG;
     }
 }
@@ -79,7 +80,8 @@ if(!function_exists('env')) {
 */
 
 if(!function_exists('meta_exists')) {
-    function meta_exists($meta, $key) {
+    function meta_exists($meta, $key) 
+    {
         if(array_key_exists($key, $meta)) {
             return true;
         }
@@ -95,7 +97,8 @@ if(!function_exists('meta_exists')) {
 */
 
 if(!function_exists('route')) {
-    function route($slug) {
+    function route($slug) 
+    {
         $config = new Config();
         $collections = new Collections();
 
@@ -158,7 +161,8 @@ if(!function_exists('endsWith')) {
 */
 
 if(!function_exists('file_write_contents')) {
-    function file_write_contents($path, $content) {
+    function file_write_contents($path, $content) 
+    {
         $filesystem = new SystaticFilesystem();
 
         $directory = pathinfo($path, PATHINFO_DIRNAME);
@@ -177,7 +181,8 @@ if(!function_exists('file_write_contents')) {
 */
 
 if(!function_exists('convert_to_object')) {
-    function convert_to_object($array) {
+    function convert_to_object($array) 
+    {
         $object = new stdClass;
 
         foreach($array as $key => $value) {
@@ -200,7 +205,8 @@ if(!function_exists('convert_to_object')) {
 */
 
 if(!function_exists('carbon')) {
-    function carbon($value) {
+    function carbon($value) 
+    {
         if(!$value instanceof Carbon) {
             $value = (is_numeric($value)) ? Carbon::createFromTimestamp($value) : Carbon::parse($value);
         }
