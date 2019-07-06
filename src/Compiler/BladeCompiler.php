@@ -39,11 +39,9 @@ class BladeCompiler
         foreach((new Collections())->fetch() as $collection) {
             $page["{$collection['key']}"] = collect($collection['items']);
 
-            foreach($page["{$collection['key']}"] as $item) {
-                $item = convert_to_object($item);
+            foreach($page["{$collection['key']}"] as $key => $value) {
+                $page["{$collection['key']}"]["{$key}"] = convert_to_object($value);
             }
-
-            dd($page["{$collection['key']}"]);
         }
 
         $view = $this->blade->make($data['view'], $page);
