@@ -51,22 +51,14 @@ class Collections
                 echo $collection['name'] . " is a remote collection.";
             } else {
                 $markdown = [];
-                $html = [];
 
                 $markdown = array_merge(glob($collection['location'] . '/*.md', GLOB_BRACE), $markdown);
                 $markdown = array_merge(glob($collection['location'] . '/*/*.md', GLOB_BRACE), $markdown);
                 $markdown = array_merge(glob($collection['location'] . '/*.markdown', GLOB_BRACE), $markdown);
                 $markdown = array_merge(glob($collection['location'] . '/*/*.markdown', GLOB_BRACE), $markdown);
 
-                $html = array_merge(glob($collection['location'] . '/*.html', GLOB_BRACE), $html);
-                $html = array_merge(glob($collection['location'] . '/*/*.html', GLOB_BRACE), $html);
-
                 foreach($markdown as $file) {
                     $this->markdown($file, $collection);
-                }
-
-                foreach($html as $file) {
-                    $this->html($file, $collection);
                 }
             }
         }
