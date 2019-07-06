@@ -12,7 +12,7 @@ class Entries
         $this->store = [];
     }
 
-    public function collect($collection, $key)
+    public function process($collection, $key)
     {
         if(strpos($collection['location'], 'http') != false) {
             $entries = json_decode(file_get_contents($collection['location']), true);
