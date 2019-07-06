@@ -146,9 +146,15 @@ class Collections
         }
 
         if(endsWith($collection['permalink'], '/') != false) {
-            $permalink = $collection['permalink'] . $slug . '/index.html';
+            $permalink = $collection['permalink'] . $slug;
         } else {
-            $permalink = $collection['permalink'] . '/' . $slug . '/index.html';
+            $permalink = $collection['permalink'] . '/' . $slug;
+        }
+
+        if($slug != 'index') {
+            $permalink = $permalink . '/index.html';
+        } else {
+            $permalink = $permalink . '.html';
         }
 
         $entry = [
