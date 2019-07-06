@@ -14,12 +14,6 @@ class Commands
         $this->events = new Dispatcher($this->container);
     }
 
-    /*
-        Load application comands
-        - Commands are not 'use'd because they are in the
-        - same directory
-    */
-
     public function console()
     {
         $application = new Application($this->container, $this->events, 'v2');
