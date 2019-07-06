@@ -9,6 +9,7 @@ class ConfigTest extends TestCase
 {
     public function setUp() : void
     {
+        parent::setUp();
         $this->config = new Config();
     }
 

@@ -4,28 +4,31 @@ namespace Tests;
 
 use Tests\TestCase;
 use Damcclean\Systatic\Cache\Cache;
-use Damcclean\Systatic\Config\Config;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
+use Damcclean\Systatic\Filesystem\Filesystem;
 
 class CacheTest extends TestCase
 {
-    public function setUp(): void
+    public function setUp() : void
     {
-        $this->config = new Config();
+        parent::setUp();
         $this->cache = new Cache();
         $this->filesystem = new Filesystem();
+
+        $this->filesystem->dump('./tests/fixtures/storage/cache/pretend-view-cache-file.php', 'wip commits are good');
+        $this->filesystem->dump('./tests/fixtures/storage/collections.json', '{}');
+        $this->filesystem->dump('./tests/fixtures/storage/plugins.json', '{}');
     }
 
     public function testCanClearViewCache()
-    {  
-        $this->filesystem->touch($this->config->get('locations.storage') . '/cache/file.txt');
-        $this->cache->clearViewCache();
-        
-        if(file_exists($this->config->get('locations.storage') . '/cache/file.txt')) {
-            $this->assertFalse(false);
-        } else {
-            $this->assertTrue(true);
-        }
+    {
+        $clear = $this->cache->clearViewCache();
+        $this->assertFalse(file_exists('./tests/fixtures/storage/cache/pretend-view-cache-file.php'));
+    }
+
+    public function testCanClearStoreCache()
+    {
+        $clear = $this->cache->clearStoreCache();
+        $this->assertFalse(file_exists('./tests/fixtures/storage/collections.json'));
+        $this->assertFalse(file_exists('./tests/fixtures/storage/plugins.json'));
     }
 }

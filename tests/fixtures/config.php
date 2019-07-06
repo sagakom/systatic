@@ -1,4 +1,5 @@
 <?php
+
 return [
 	'name' => 'Systatic',
 	'env' => 'local',
