@@ -80,18 +80,18 @@ class Collections
 
     public function save($store)
     {
-        file_put_contents($this->config->get('locations.storage') . '/store.json', json_encode($store));
+        file_put_contents($this->config->get('locations.storage') . '/collections.json', json_encode($store));
         return true;
     }
 
     public function fetch()
     {
-        return json_decode(file_get_contents($this->config->get('locations.storage') . '/store.json'), true);
+        return json_decode(file_get_contents($this->config->get('locations.storage') . '/collections.json'), true);
     }
 
     public function fetchAsJson()
     {
-        return file_get_contents($this->config->get('locations.storage') . '/store.json');
+        return file_get_contents($this->config->get('locations.storage') . '/collection.json');
     }
 
     public function markdown($file, $collection)

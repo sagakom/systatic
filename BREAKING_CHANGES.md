@@ -3,7 +3,7 @@
 * New Systatic console file
 * Removed `@env` blade directive
 * Instead of `matter` in templates, it is now `meta`
-* New `store.json` file in the `storage` directory.
+* New `collections.json` file in the `storage` directory.
 * Stubs have changed location
 * Configuration changed completly
 * Removed the content location option from the locations config array
