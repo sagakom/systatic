@@ -34,7 +34,7 @@ class Cache
     public function clearStoreCache()
     {
         $storeFiles = glob(
-            $this->config->get('locations.storage') . '/cache/*.json',
+            $this->config->get('locations.storage') . '/*.json',
             GLOB_BRACE
         );
 
