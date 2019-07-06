@@ -42,6 +42,8 @@ class Collections
 
         $this->save($this->store);
 
+        $this->create('Test', '/test/', './content/test');
+
         foreach($this->store as $collection) {
             if(array_key_exists('searchable', $collection)) {
                 if($collection['searchable'] != false) {
@@ -72,5 +74,33 @@ class Collections
     public function fetchAsJson()
     {
         return file_get_contents($this->config->get('locations.storage') . '/collection.json');
+    }
+
+    public function create($name, $permalink, $location, $searchable = null)
+    {
+        $slug = strtolower($name);
+
+        $collection['collections'] = $this->config->getArray()['collections'];
+        $collection['collections']["{$slug}"] = [
+            'name' => $name,
+            'permalink' => $permalink,
+            'location' => $location
+        ];
+
+        if($searchable != null) {
+            $collection["{$slug}"]['searchable'] = $searchable;
+        }
+
+        return $this->config->updateArray($collection);
+    }
+
+    public function update()
+    {
+        //
+    }
+
+    public function delete()
+    {
+        //
     }
 }

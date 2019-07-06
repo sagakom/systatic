@@ -13,18 +13,10 @@ class Config
         $this->config = new Repository(require CONFIGURATION);
     }
 
-    /*
-        Get a configuration value
-    */
-
     public function get($key)
     {
         return $this->config->get($key);
     }
-
-    /*
-        Get the configuration file as an array
-    */
 
     public function getArray()
     {
@@ -32,9 +24,15 @@ class Config
         return $config;
     }
 
-    /*
-        Get value from enviroment file
-    */
+    public function updateArray($data)
+    {
+        $config = include(CONFIGURATION);
+        $config = array_merge($config, $data);
+
+        // Update the config file with the updated array
+
+        return $config;
+    }
 
     public function env($key)
     {
