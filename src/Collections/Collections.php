@@ -3,7 +3,6 @@
 namespace Damcclean\Systatic\Collections;
 
 use Damcclean\Systatic\Cache\Cache;
-use Damcclean\Markdown\MetaParsedown;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Compiler\Compiler;
 
@@ -13,25 +12,15 @@ class Collections
     {
         $this->cache = new Cache();
         $this->config = new Config();
+        $this->entries = new Entries();
         $this->compiler = new Compiler();
-        $this->parsedown = new MetaParsedown();
 
         $this->store = [];
     }
 
     public function collect()
     {
-        $collections = [
-            'pages' => [
-                'name' => 'Pages',
-                'permalink' => '/',
-                'location' => './content/pages'
-            ]
-        ];
-
-        if(array_key_exists('collections', $this->config->getArray())) {
-            $collections = $this->config->get('collections');
-        }
+        $collections = $this->config->get('collections');
 
         foreach($collections as $key => $collection) {
             $collection['key'] = $key;
@@ -44,32 +33,20 @@ class Collections
                 $collection['searchable'] = false;
             }
 
+            $entries = $this->entries->collect($collection, $key);
+
             $this->store["{$key}"] = [];
             $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
-            $this->store["{$key}"]['items'] = [];
-
-            if(strpos($collection['location'], 'http') != false) {
-                //$this->remote($collection); WIP
-                echo $collection['name'] . " is a remote collection.";
-            } else {
-                $markdown = [];
-
-                $markdown = array_merge(glob($collection['location'] . '/*.md', GLOB_BRACE), $markdown);
-                $markdown = array_merge(glob($collection['location'] . '/*/*.md', GLOB_BRACE), $markdown);
-                $markdown = array_merge(glob($collection['location'] . '/*.markdown', GLOB_BRACE), $markdown);
-                $markdown = array_merge(glob($collection['location'] . '/*/*.markdown', GLOB_BRACE), $markdown);
-
-                foreach($markdown as $file) {
-                    $this->markdown($file, $collection);
-                }
-            }
+            $this->store["{$key}"]['items'] = $entries;
         }
 
         $this->save($this->store);
 
         foreach($this->store as $collection) {
-            if($collection['searchable'] != false) {
-                (new Search)->index($collection['items']);
+            if(array_key_exists('searchable', $collection)) {
+                if($collection['searchable'] != false) {
+                    (new Search)->index($collection['items']);
+                }   
             }
 
             foreach($collection['items'] as $entry) {
@@ -96,104 +73,4 @@ class Collections
     {
         return file_get_contents($this->config->get('locations.storage') . '/collection.json');
     }
-
-    public function markdown($file, $collection)
-    {
-        $filename = $file;
-        $contents = file_get_contents($file);
-
-        $lastUpdated = filemtime($file);
-
-        if($lastUpdated === false) {
-            $lastUpdated = null;
-        }
-
-        if(strpos($filename, '.md')) {
-            $slug = basename($filename, '.md');
-        } elseif(strpos($filename, '.markdown')) {
-            $slug = basename($filename, '.markdown');
-        }
-
-        $title = $slug;
-        $view = 'index';
-
-        $markdown = $this->parsedown->text($contents);
-        $frontMatter = $this->parsedown->meta($contents);
-
-        if(array_key_exists('title', $frontMatter)) {
-            $title = $frontMatter['title'];
-        }
-
-        if(array_key_exists('slug', $frontMatter)) {
-            $slug = $frontMatter['slug'];
-
-            if(!array_key_exists('title', $frontMatter)) {
-                $title = $slug;
-            }
-        }
-
-        if(array_key_exists('view', $frontMatter)) {
-            if(file_exists($this->config->get('locations.views') . '/' . $frontMatter['view'] . '.blade.php')) {
-                $view = $frontMatter['view'];
-            } elseif(file_exists($this->config->get('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . '.blade.php')) {
-                $view = str_replace('.', '/', $frontMatter['view']);
-            }
-        } elseif(array_key_exists('view', $collection)) {
-            if(file_exists($this->config->get('locations.views') . '/' . $collection['view'] . '.blade.php')) {
-                $view = $collection['view'];
-            }
-        } elseif($slug !== 'index') {
-            if(file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
-                $view = $slug;
-            }
-        }
-
-        if(endsWith($collection['permalink'], '/') != false) {
-            $permalink = $collection['permalink'] . $slug;
-        } else {
-            $permalink = $collection['permalink'] . '/' . $slug;
-        }
-
-        if($slug != 'index') {
-            $permalink = $permalink . '/index.html';
-        } else {
-            $permalink = $permalink . '.html';
-        }
-
-        $entry = [
-            'filename' => $filename,
-            'permalink' => $permalink,
-            'title' => $title,
-            'slug' => $slug,
-            'view' => $view,
-            'content' => $markdown,
-            'meta' => $frontMatter,
-            'last_updated' => $lastUpdated
-        ];
-
-        $key = $collection['key'];
-        array_push($this->store["{$key}"]['items'], $entry);
-
-        return $entry;
-    }
-
-    // public function remote($collection)
-    // {
-    //     $items = json_decode(file_get_contents($collection['location']), true);
-        
-    //     foreach($items as $item) {
-    //         $entry = [
-    //             'filename' => $item['slug'],
-    //             'title' => $item['title']['rendered'],
-    //             'slug' => $item['slug'],
-    //             'view' => 'index',
-    //             'content' => $item['content']['rendered'],
-    //             'meta' => [],
-    //             'type' => 'remote'
-    //         ];
-    
-    //         array_push($this->store, $entry);
-    //         return $entry;
-    //     }
-    // }
 }
