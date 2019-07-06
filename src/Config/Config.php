@@ -38,7 +38,7 @@ class Config
 
     public function env($key)
     {
-        $env = $this->env->load(BASE . '/.env', BASE . '/.env.example', BASE . '/.env.sample');
+        $env = $this->env->load(BASE . '/.env');
         return $_ENV[$key];
     }
 }
