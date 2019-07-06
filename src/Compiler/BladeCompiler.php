@@ -3,7 +3,6 @@
 namespace Damcclean\Systatic\Compiler;
 
 use Jenssegers\Blade\Blade;
-use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Filesystem\Filesystem;
 use Damcclean\Systatic\Compiler\Page;
@@ -13,7 +12,6 @@ class BladeCompiler
     public function __construct()
     {
         $this->page = new Page();
-        $this->cache = new Cache();
         $this->config = new Config();
         $this->filesystem = new Filesystem();
         $this->blade = new Blade($this->config->get('locations.views'), $this->config->get('locations.storage') . '/cache');
@@ -36,8 +34,6 @@ class BladeCompiler
         }
 
         file_write_contents($this->config->get('locations.output') . $name, $view);
-
-        $this->cache->clearCache();
 
         return true;
     }

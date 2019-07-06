@@ -2,6 +2,7 @@
 
 namespace Damcclean\Systatic\Collections;
 
+use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Markdown\MetaParsedown;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Compiler\Compiler;
@@ -10,6 +11,7 @@ class Collections
 {
     public function __construct()
     {
+        $this->cache = new Cache();
         $this->config = new Config();
         $this->compiler = new Compiler();
         $this->parsedown = new MetaParsedown();
@@ -72,6 +74,7 @@ class Collections
 
             foreach($collection['items'] as $entry) {
                 $this->compiler->compile($entry);
+                $this->cache->clearCache();
             }
         }
 
