@@ -15,9 +15,20 @@ class Page
 
     public function process($data)
     {
+        $filename = '/' . $data['permalink'];
+
+        if(startsWith($data['permalink'], '/')) {
+            $filename = $data['permalink'];
+        }
+
+        if(array_key_exists('filetype', $data['meta'])) {
+            str_replace('.html', '.' . $data['meta']['filetype'], $filename);
+        }
+
         $page = [
             'url' => $this->config->get('url') . $data['slug'] . '/index.html',
             'filename' => $data['filename'],
+            'output_filename' => $filename,
             'permalink' => $data['permalink'],
 
             'title' => $data['title'],

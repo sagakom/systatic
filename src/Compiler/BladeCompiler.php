@@ -20,21 +20,10 @@ class BladeCompiler
     public function compile($data)
     {
         $page = $this->page->process($data);
-
         $view = $this->blade->make($data['view'], $page);
 
-        $name = '/' . $data['permalink'];
-
-        if(startsWith($data['permalink'], '/')) {
-            $name = $data['permalink'];
-        }
-
-        if(array_key_exists('filetype', $data['meta'])) {
-            str_replace('.html', '.' . $data['meta']['filetype'], $name);
-        }
-
-        file_write_contents($this->config->get('locations.output') . $name, $view);
-
+        file_write_contents($this->config->get('locations.output') . $data['output_filename'], $view);
+        
         return true;
     }
 }
