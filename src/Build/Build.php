@@ -2,7 +2,6 @@
 
 namespace Damcclean\Systatic\Build;
 
-use Damcclean\Systatic\Plugins\Plugins;
 use Damcclean\Systatic\Build\Redirects;
 use Damcclean\Systatic\Collections\Collections;
 
@@ -10,7 +9,6 @@ class Build
 {
     public function __construct()
     {
-        $this->plugins = new Plugins();
         $this->collections = new Collections();
         $this->redirects = new Redirects();
     }
@@ -21,9 +19,7 @@ class Build
     
     public function build()
     {
-        $this->plugins->beforeBuild();
         $this->collections->collect();
         $this->redirects->build();
-        $this->plugins->afterBuild();
     }
 }

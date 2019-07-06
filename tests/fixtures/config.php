@@ -7,8 +7,7 @@ return [
 	'locations' => [
 		'output' => './tests/fixtures/dist',
 		'views' => './tests/fixtures/views',
-        'storage' => './tests/fixtures/storage',
-        'plugins' => './tests/fixtures/plugins'
+        'storage' => './tests/fixtures/storage'
     ],
 
     'collections' => [
