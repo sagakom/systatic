@@ -27,7 +27,7 @@ class Filesystem
         return $this->fs->copy($source, $destination, true);
     }
 
-    public function copyDir($source, $destination)
+    public function copyDirectory($source, $destination)
     {
         return $this->fs->mirror($source, $destination);
     }
@@ -35,5 +35,20 @@ class Filesystem
     public function append($file, $text)
     {
         return $this->fs->appendToFile($file, $text);
+    }
+
+    public function dump($file, $text)
+    {
+        return $this->fs->dumpFile($file, $text);
+    }
+
+    public function rename($old, $new)
+    {
+        return $this->fs->rename($old, $new);
+    }
+
+    public function delete($file)
+    {
+        return $this->fs->remove(['symlink', $file, 'filesystem.log']);
     }
 }

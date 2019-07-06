@@ -21,10 +21,10 @@ class InitCommand extends Command
     {
         $base = getcwd();
 
-        $this->filesystem->copyDir($base . '/vendor/damcclean/systatic/stubs/site', $base);
+        $this->filesystem->copyDirectory($base . '/vendor/damcclean/systatic/stubs/site', $base);
 
         if($this->confirm('Do you want to copy the Laravel Valet driver?')) {
-            $this->filesystem->copyDir($base . '/vendor/damcclean/systatic/stubs/valet', $base);
+            $this->filesystem->copyDirectory($base . '/vendor/damcclean/systatic/stubs/valet', $base);
         }
 
         $this->info("All that's left now is for you to build your site! - php systatic build");

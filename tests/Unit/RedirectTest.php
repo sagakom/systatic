@@ -7,25 +7,18 @@ use Damcclean\Systatic\Build\Redirects;
 
 class RedirectTest extends TestCase
 {
-    public function setUp(): void
+    public function setUp() : void
     {
         $this->redirects = new Redirects();
     }
 
-    /*
-        Test that we can configure redirects from the config
-    */
-
     public function testCanConfigureRedirectsFromConfig()
     {
         $build = $this->redirects->build();
+
         $this->assertSame(true, $build);
         $this->assertFileExists('./tests/fixtures/dist/google.html');
     }
-
-    /*
-        Test that we can compile redirects
-    */
 
     public function testCanCompileRedirects()
     {
@@ -33,6 +26,7 @@ class RedirectTest extends TestCase
             'slug' => 'bing',
             'target' => 'https://bing.com'
         ]);
+
         $this->assertSame(true, $build);
         $this->assertFileExists('./tests/fixtures/dist/bing.html');
     }

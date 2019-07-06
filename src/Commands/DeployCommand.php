@@ -34,7 +34,7 @@ class DeployCommand extends Command
         if($location === "Netlify") {
             if(!file_exists(BASE . '/netlify.toml')) {
                 $this->line('Pushed the Netlify configuration file, it did not already exist.');
-                $this->filesystem->copyDir(BASE . '/vendor/damcclean/systatic/stubs/netlify', BASE);
+                $this->filesystem->copyDirectory(BASE . '/vendor/damcclean/systatic/stubs/netlify', BASE);
             }
 
             $cliInstalled = shell_exec('netlify');

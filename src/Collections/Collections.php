@@ -74,7 +74,7 @@ class Collections
 
             foreach($collection['items'] as $entry) {
                 $this->compiler->compile($entry);
-                $this->cache->clearCache();
+                $this->cache->clearViewCache();
             }
         }
 

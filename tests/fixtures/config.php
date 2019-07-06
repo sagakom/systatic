@@ -1,7 +1,7 @@
 <?php
 return [
 	'name' => 'Systatic',
-	'env' => env('APP_ENV'),
+	'env' => 'local',
     'url' => 'http://localhost:8080',
     
 	'locations' => [
@@ -11,8 +11,8 @@ return [
     ],
 
     'collections' => [
-        'normal' => [
-            'name' => 'Normal Content',
+        'pages' => [
+            'name' => 'Pages',
             'permalink' => '/',
             'location' => './texts/fixtures/content'
         ]

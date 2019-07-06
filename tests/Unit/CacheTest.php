@@ -17,14 +17,10 @@ class CacheTest extends TestCase
         $this->filesystem = new Filesystem();
     }
 
-    /*
-        Test that the cache can be cleared
-    */
-
-    public function testCanClearCache()
+    public function testCanClearViewCache()
     {  
         $this->filesystem->touch($this->config->get('locations.storage') . '/cache/file.txt');
-        $this->cache->clearCache();
+        $this->cache->clearViewCache();
         
         if(file_exists($this->config->get('locations.storage') . '/cache/file.txt')) {
             $this->assertFalse(false);

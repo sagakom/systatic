@@ -12,19 +12,17 @@ class ConfigTest extends TestCase
         $this->config = new Config();
     }
 
-    /*
-        Test that we can get a configuration value
-    */
-
     public function testCanGetConfigValue()
     {  
         $name = $this->config->get('name');
         $this->assertSame($name, 'Systatic');
     }
 
-    /*
-        Test that we can get a env value
-    */
+    public function testCanGetConfigArray()
+    {
+        $array = $this->config->getArray();
+        $this->assertTrue(is_array($array));
+    }
 
     public function testCanGetEnvValue()
     {

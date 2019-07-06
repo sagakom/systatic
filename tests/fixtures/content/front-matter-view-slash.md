@@ -1,3 +1,0 @@
----
-view: something/another
----

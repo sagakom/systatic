@@ -2,26 +2,44 @@
 
 namespace Damcclean\Systatic\Cache;
 
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Filesystem\Filesystem;
 
 class Cache
 {
     public function __construct()
     {
-        $this->filesystem = new Filesystem();
         $this->config = new Config();
+        $this->filesystem = new Filesystem();
     }
 
-    /*
-        Clear the site cache
-    */
-
-    public function clearCache()
+    public function clearEverything()
     {
-        //$this->filesystem->remove(array('symlink', $this->config->get('locations.storage'), '/cache/*.php'));    // Remove all files from cache
-        //$this->filesystem->mkdir($this->config->get('locations.storage') . '/cache', 0700);  // Re-create cache directory
-        //$this->filesystem->touch($this->config->get('locations.storage') . '/cache/.gitkeep'); // Re-create cache directory gitkeep
+        $this->clearViewCache();
+        $this->clearStoreCache();
+    }
+
+    public function clearViewCache()
+    {
+        $viewCacheFiles = glob(
+            $this->config->get('locations.storage') . '/cache/*.php',
+            GLOB_BRACE
+        );
+
+        foreach($viewCacheFiles as $file) {
+            $this->filesystem->delete($file);
+        }
+    }
+
+    public function clearStoreCache()
+    {
+        $storeFiles = glob(
+            $this->config->get('locations.storage') . '/cache/*.json',
+            GLOB_BRACE
+        );
+
+        foreach($storeFiles as $file) {
+            $this->filesystem->delete($file);
+        }
     }
 }
