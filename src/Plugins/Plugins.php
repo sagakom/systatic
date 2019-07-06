@@ -35,4 +35,25 @@ class Plugins
 
         $this->save($this->store);
     }
+
+    public function commands()
+    {
+        $plugins = $this->fetch();
+        $allCommands = [];
+
+        foreach($plugins as $plugin) {
+            if(array_key_exists('commands', $plugin)) {
+                $pluginCommands = $plugin['commands'];
+
+                $commands = new $pluginCommands();
+                $commands = $commands->console();
+
+                foreach($commands as $command) {
+                    array_push($allCommands, $command);
+                }
+            }
+        }
+
+        return $allCommands;
+    }
 }
