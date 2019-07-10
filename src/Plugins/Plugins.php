@@ -33,9 +33,9 @@ class Plugins
 
 	            array_push($this->store, $p);
 	        }
-
-	        $this->save($this->store);
     	}
+
+    	$this->save($this->store);
     }
 
     public function commands()
