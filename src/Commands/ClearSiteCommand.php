@@ -31,7 +31,17 @@ class ClearSiteCommand extends Command
         $files = array_merge(glob($this->config->get('locations.output') . '/*/*/*/*.html', GLOB_BRACE), $files);
 
         foreach($files as $file) {
-            $this->filesystem->remove($file);
+            if(array_key_exists('whitelist', $this->config->getArray())) {
+                $whitelist = $this->config->getArray()['whitelist'];
+
+                foreach($whitelist as $item) {
+                    if(!$file === $item) {
+                        $this->filesystem->remove($file);
+                    }
+                }
+            } else {
+                $this->filesystem->remove($file);
+            }
         }
     }
 }
