@@ -1,4 +1,4 @@
 [build]
     publish="dist"
     command="composer install | php systatic build"
-    environment = { PHP_VERSION = "7.3" }
+    environment = { PHP_VERSION = "7.2" }
