@@ -26,14 +26,16 @@ class Plugins
 
     public function register()
     {
-        foreach($this->config->getArray()['plugins'] as $plugin) {
-            $p = new $plugin();
-            $p = $p->boot();
+    	if(array_key_exists('plugins', $this->config->getArray())) {
+    		foreach($this->config->getArray()['plugins'] as $plugin) {
+	            $p = new $plugin();
+	            $p = $p->boot();
 
-            array_push($this->store, $p);
-        }
+	            array_push($this->store, $p);
+	        }
 
-        $this->save($this->store);
+	        $this->save($this->store);
+    	}
     }
 
     public function commands()
