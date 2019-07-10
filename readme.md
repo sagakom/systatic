@@ -47,7 +47,7 @@ mkdir dog-food-blog && cd dog-food-blog
 composer require damcclean/systatic
 ```
 
-3. **Initialize Systatic**
+3. **Initialise Systatic**
 
 ```
 php vendor/damcclean/systatic/init init
