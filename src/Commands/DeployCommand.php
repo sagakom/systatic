@@ -4,6 +4,7 @@ namespace Damcclean\Systatic\Commands;
 
 use Illuminate\Console\Command;
 use Damcclean\Systatic\Build\Build;
+use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Filesystem\Filesystem;
 
 class DeployCommand extends Command
@@ -14,8 +15,10 @@ class DeployCommand extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->filesystem = new Filesystem();
+
         $this->build = new Build();
+        $this->config = new Config();
+        $this->filesystem = new Filesystem();
     }
     
     public function handle()
@@ -69,7 +72,17 @@ class DeployCommand extends Command
         }
 
         if($location === "Github Pages") {
-            //
+            if(!file_exists(BASE . '/.git')) {
+                $this->error("We couldn't find a Git repository in your site. Please create one first, then run this command again.");
+                exit();
+            }
+
+            $outputDir = $this->config->get('locations.output');
+
+            shell_exec('git add ' . $outputDir . ' && git commit -m "Systatic Build"');
+            shell_exec('git subtree push --prefix ' . $outputDir . ' origin gh-pages');
+
+            $this->tell('Pushed to the gh-pages branch of your repository.');
         }
 
         if($location === "Amazon S3") {
