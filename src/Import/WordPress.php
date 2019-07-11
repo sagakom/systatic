@@ -3,7 +3,6 @@
 namespace Damcclean\Systatic\Import;
 
 use Damcclean\Systatic\Collections\Collections;
-use Damcclean\Systatic\Build\Build;
 use Damcclean\Systatic\Collections\Entries;
 use Damcclean\Systatic\Config\Config;
 
@@ -11,7 +10,6 @@ class WordPress
 {
     public function __construct()
     {
-        $this->build = new Build();
         $this->config = new Config();
         $this->collections = new Collections();
     }
@@ -20,6 +18,15 @@ class WordPress
     {
         $coreUrl = $siteUrl . '/wp-json';
 
+        $config = $this->config($coreUrl);
+        $posts = $this->posts($coreUrl);
+        $pages = $this->pages($coreUrl);
+
+        return true;
+    }
+
+    public function config($coreUrl)
+    {
         $site = json_decode(@file_get_contents($coreUrl), true);
 
         if(! $site) {
@@ -35,12 +42,7 @@ class WordPress
             $settings['description'] = $site['description'];
         }
 
-        $this->config->updateArray($settings);
-
-        $posts = $this->posts($coreUrl);
-        $pages = $this->pages($coreUrl);
-
-        return true;
+        return $this->config->updateArray($settings);
     }
 
     public function posts($coreUrl)
