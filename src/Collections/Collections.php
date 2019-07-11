@@ -5,6 +5,7 @@ namespace Damcclean\Systatic\Collections;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Compiler\Compiler;
+use Damcclean\Systatic\Filesystem\Filesystem;
 
 class Collections
 {
@@ -14,6 +15,7 @@ class Collections
         $this->config = new Config();
         $this->entries = new Entries();
         $this->compiler = new Compiler();
+        $this->filesytem = new Filesystem();
 
         $this->store = [];
     }
@@ -91,16 +93,15 @@ class Collections
             $collection["{$slug}"]['searchable'] = $searchable;
         }
 
+        if(! file_exists($location)) {
+            $this->filesytem->createDirectory($location);
+        }
+
         return $this->config->updateArray($collection);
     }
 
-    public function update()
+    public function get($slug)
     {
-        //
-    }
-
-    public function delete()
-    {
-        //
+        return $this->fetch()["{$slug}"];
     }
 }
