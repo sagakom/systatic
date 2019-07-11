@@ -44,8 +44,6 @@ class Collections
 
         $this->save($this->store);
 
-        $this->create('Test', '/test/', './content/test');
-
         foreach($this->store as $collection) {
             if(array_key_exists('searchable', $collection)) {
                 if($collection['searchable'] != false) {
