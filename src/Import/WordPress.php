@@ -2,54 +2,97 @@
 
 namespace Damcclean\Systatic\Import;
 
-use Symfony\Component\Yaml\Yaml;
+use Damcclean\Systatic\Collections\Collections;
 use Damcclean\Systatic\Build\Build;
+use Damcclean\Systatic\Collections\Entries;
 use Damcclean\Systatic\Config\Config;
 
 class WordPress
 {
     public function __construct()
     {
-        $this->config = new Config();
         $this->build = new Build();
+        $this->config = new Config();
+        $this->collections = new Collections();
     }
 
-    public function import($baseUrl)
+    public function import($siteUrl)
     {
-        $apiUrl = $baseUrl . '/wp-json/wp/v2';
+        $coreUrl = $siteUrl . '/wp-json/';
 
-        $pages = json_decode(@file_get_contents($apiUrl . '/pages'), true);
-        $posts = json_decode(@file_get_contents($apiUrl . '/posts'), true);
+        $site = json_decode(@file_get_contents($coreUrl), true);
 
-        if(!$pages || !$posts) {
+        if(! $site) {
             return false;
         }
 
-        foreach($pages as $page) {
-            $this->createFile($page);
-        }
+        $settings = [
+            'name' => $site['name'],
+            'description' => $site['description'],
+            'url' => $site['url']
+        ];
 
-        foreach($posts as $post) {
-            $this->createFile($post);
-        }
+        $this->config->updateArray($settings);
 
-        $this->build->build();
+        $this->posts();
+        $this->pages();
 
         return true;
     }
 
-    public function createFile($page)
+    public function posts()
     {
-        // $frontMatter = [
-        //     'title' => $page['title']['rendered'],
-        //     'slug' => $page['slug'],
-        //     'excerpt' => $page['excerpt']['rendered'],
-        //     'date' => $page['date']
-        // ];
+        $posts = json_decode(!file_get_contents($coreUrl . '/wp/v2/posts'));
 
-        // $contents = '---' . Yaml::dump($frontMatter) . '---' . $page['content']['rendered'];
-        // $filename = $this->config->get('locations.content') . '/' . $page['slug'] . '.md';
+        if(! $posts) {
+            return false;
+        }
 
-        // file_put_contents($filename, $contents);
+        $this->collections->create('posts', 'Posts', '/', './content/posts');
+
+        foreach($posts as $post) {
+            $meta = [
+                'title' => $post['title']['rendered'],
+                'date' => $post['date']
+            ];
+
+            if(array_key_exists('template', $page))) {
+                $meta['view'] = $template;
+            }
+
+            $content = $page['content']['rendered'];
+
+            $create = (new Entries())->create($post['slug'], 'posts', $meta, $content);
+        }
+
+        return true;
+    }
+
+    public function pages()
+    {
+        $pages = json_decode(!file_get_contents($coreUrl . '/wp/v2/pages'));
+
+        if(! $pages) {
+            return false;
+        }
+
+        $this->collections->create('pages', 'Pages', '/', './content/pages');
+
+        foreach($pages as $page) {
+            $meta = [
+                'title' => $page['title']['rendered'],
+                'date' => $page['date']
+            ];
+
+            if(array_key_exists('template', $page))) {
+                $meta['view'] = $template;
+            }
+
+            $content = $page['content']['rendered'];
+
+            $create = (new Entries())->create($page['slug'], 'pages', $meta, $content);
+        }
+
+        return true;
     }
 }

@@ -76,10 +76,8 @@ class Collections
         return file_get_contents($this->config->get('locations.storage') . '/collection.json');
     }
 
-    public function create($name, $permalink, $location, $searchable = null)
+    public function create($slug, $name, $permalink, $location, $searchable = null)
     {
-        $slug = strtolower($name);
-
         $collection['collections'] = $this->config->getArray()['collections'];
         $collection['collections']["{$slug}"] = [
             'name' => $name,

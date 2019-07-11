@@ -2,6 +2,8 @@
 
 namespace Damcclean\Systatic\Collections;
 
+use Symfony\Component\Yaml\Yaml;
+
 class Entries
 {
     public function __construct()
@@ -55,5 +57,19 @@ class Entries
         }
 
         return $this->store;
+    }
+
+    public function create($slug, $collectionSlug, $meta, $content)
+    {
+        $collection = (new Collections())->get($collectionSlug);
+
+        $frontMatter = $meta;
+        $yamlFrontMatter = Yaml::dump($frontMatter);
+
+        $contents = '---\n' . $yamlFrontMatter . '\n---' . $content;
+
+        file_put_contents($collection['location'], $contents);
+
+        return true;
     }
 }
