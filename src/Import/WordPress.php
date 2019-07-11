@@ -18,7 +18,7 @@ class WordPress
 
     public function import($siteUrl)
     {
-        $coreUrl = $siteUrl . '/wp-json/';
+        $coreUrl = $siteUrl . '/wp-json';
 
         $site = json_decode(@file_get_contents($coreUrl), true);
 
@@ -28,21 +28,24 @@ class WordPress
 
         $settings = [
             'name' => $site['name'],
-            'description' => $site['description'],
             'url' => $site['url']
         ];
 
+        if($site['description'] != '') {
+            $settings['description'] = $site['description'];
+        }
+
         $this->config->updateArray($settings);
 
-        $this->posts();
-        $this->pages();
+        $posts = $this->posts($coreUrl);
+        $pages = $this->pages($coreUrl);
 
         return true;
     }
 
-    public function posts()
+    public function posts($coreUrl)
     {
-        $posts = json_decode(!file_get_contents($coreUrl . '/wp/v2/posts'));
+        $posts = json_decode(@file_get_contents($coreUrl . '/wp/v2/posts'), true);
 
         if(! $posts) {
             return false;
@@ -56,21 +59,17 @@ class WordPress
                 'date' => $post['date']
             ];
 
-            if(array_key_exists('template', $page))) {
-                $meta['view'] = $template;
-            }
+            $content = $post['content']['rendered'];
 
-            $content = $page['content']['rendered'];
-
-            $create = (new Entries())->create($post['slug'], 'posts', $meta, $content);
+            (new Entries())->create($post['slug'], 'posts', $meta, $content);
         }
 
         return true;
     }
 
-    public function pages()
+    public function pages($coreUrl)
     {
-        $pages = json_decode(!file_get_contents($coreUrl . '/wp/v2/pages'));
+        $pages = json_decode(@file_get_contents($coreUrl . '/wp/v2/pages'), true);
 
         if(! $pages) {
             return false;
@@ -83,10 +82,6 @@ class WordPress
                 'title' => $page['title']['rendered'],
                 'date' => $page['date']
             ];
-
-            if(array_key_exists('template', $page))) {
-                $meta['view'] = $template;
-            }
 
             $content = $page['content']['rendered'];
 

@@ -19,7 +19,7 @@ class WordPressImportCommand extends Command
 
     public function handle()
     {
-        $baseUrl = $this->ask('Enter the base URL of your WordPress site:');
+        $baseUrl = $this->ask('Enter the base URL of your WordPress site');
 
         $import = $this->wordpress->import($baseUrl);
 

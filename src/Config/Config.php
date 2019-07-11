@@ -31,8 +31,7 @@ class Config
 
         $str = '<?php ' . PHP_EOL
             . 'return '
-            . var_export_new($config, true) . ';' . PHP_EOL
-            . '?>';
+            . var_export_new($config, true) . ';' . PHP_EOL;
 
         file_write_contents(CONFIGURATION, $str);
 

@@ -66,9 +66,9 @@ class Entries
         $frontMatter = $meta;
         $yamlFrontMatter = Yaml::dump($frontMatter);
 
-        $contents = '---\n' . $yamlFrontMatter . '\n---' . $content;
+        $contents = '---' . PHP_EOL . $yamlFrontMatter . PHP_EOL . '---' . PHP_EOL . $content;
 
-        file_put_contents($collection['location'], $contents);
+        file_put_contents($collection['location'] . '/' . $slug . '.md', $contents);
 
         return true;
     }

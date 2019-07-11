@@ -78,7 +78,12 @@ class Collections
 
     public function create($slug, $name, $permalink, $location, $searchable = null)
     {
-        $collection['collections'] = $this->config->getArray()['collections'];
+        if(array_key_exists('collections', $this->config->getArray())) {
+            $collection['collections'] = $this->config->getArray()['collections'];
+        } else {
+            $collection['collections'] = [];
+        }
+
         $collection['collections']["{$slug}"] = [
             'name' => $name,
             'permalink' => $permalink,
@@ -98,6 +103,10 @@ class Collections
 
     public function get($slug)
     {
+        if(! file_exists($this->config->get('locations.storage') . '/collection.json')) {
+            return $this->config->getArray()['collections']["{$slug}"];
+        }
+
         return $this->fetch()["{$slug}"];
     }
 }
