@@ -19,8 +19,9 @@ class Jekyll
     public function import($folder)
     {
         $config = $this->parseConfig($folder);
-        $data = $this->data($folder);
+        $data = $this->dataFiles($folder);
         $posts = $this->posts($folder);
+        $contentFolders = $this->contentFolders($folder);
 
         return true;
     }
@@ -36,8 +37,9 @@ class Jekyll
         $configSettings = Yaml::parseFile($configFile);
 
         foreach($configSettings as $key => $value) {
-            if($key == "name") {
+            if($key == "title") {
                 $configSettings['name'] = $configSettings['title'];
+                unset($configSettings['title']);
             }
         }
 
@@ -87,7 +89,7 @@ class Jekyll
         $this->collections->create('posts', 'Posts', '/', './content/posts');
 
         foreach($files as $file) {
-            $this->filesystem->copy($file, './content/posts');
+            $this->filesystem->copy($file, './content/posts/' . basename($file));
         }
 
         return true;
@@ -99,25 +101,27 @@ class Jekyll
 
         $directories = array_merge(
             glob(
-                $folder,
-                GLOB_BRACE
+                $folder . '/*',
+                GLOB_ONLYDIR
             ), $directories);
 
         foreach($directories as $directory) {
-            $baseDirectoryName = basename($directory);
+            if(! strpos($directory, '_')) {
+                $baseDirectoryName = basename($directory);
 
-            $this->collections->create(strtolower($baseDirectoryName), ucfirst($baseDirectoryName), '/', './content/' . strtolower($baseDirectoryName));
+                $this->collections->create(strtolower($baseDirectoryName), ucfirst($baseDirectoryName), '/', './content/' . strtolower($baseDirectoryName));
 
-            $files = [];
+                $files = [];
 
-            $files = array_merge(
-                glob(
-                    $directory . '/*.md',
-                    GLOB_BRACE
-                ), $files);
+                $files = array_merge(
+                    glob(
+                        $directory . '/*.md',
+                        GLOB_BRACE
+                    ), $files);
 
-            foreach($files as $file) {
-                $this->filesystem->copy($file, './content/' . strtolower($baseDirectoryName));
+                foreach($files as $file) {
+                    $this->filesystem->copy($file, './content/' . strtolower($baseDirectoryName) . '/' . basename($file));
+                }
             }
         }
 

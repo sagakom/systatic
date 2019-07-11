@@ -24,7 +24,7 @@ class JekyllImportCommand extends Command
         $import = $this->jekyll->import($folder);
 
         if ($import != true) {
-            $output->error('Failed to import from WordPress');
+            $output->error('Failed to import from Jekyll');
             exit();
         }
 
