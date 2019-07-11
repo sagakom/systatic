@@ -29,7 +29,12 @@ class Config
         $config = include(CONFIGURATION);
         $config = array_merge($config, $data);
 
-        // Update the config file with the updated array
+        $str = '<?php ' . PHP_EOL
+            . 'return '
+            . var_export_new($config, true) . ';' . PHP_EOL
+            . '?>';
+
+        file_write_contents(CONFIGURATION, $str);
 
         return $config;
     }

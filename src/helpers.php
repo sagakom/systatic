@@ -214,3 +214,30 @@ if(!function_exists('carbon')) {
         return $value;
     }
 }
+
+/*
+ * Convert var_export arrays from array() to []
+ * https://stackoverflow.com/questions/24316347/how-to-format-var-export-to-php5-4-array-syntax
+ */
+
+function var_export_new($data, $return=true)
+{
+    $dump = var_export($data, true);
+
+    $dump = preg_replace('#(?:\A|\n)([ ]*)array \(#i', '[', $dump);
+    $dump = preg_replace('#\n([ ]*)\),#', "\n$1],", $dump);
+    $dump = preg_replace('#=> \[\n\s+\],\n#', "=> [],\n", $dump);
+
+    if (gettype($data) == 'object') {
+        $dump = str_replace('__set_state(array(', '__set_state([', $dump);
+        $dump = preg_replace('#\)\)$#', "])", $dump);
+    } else {
+        $dump = preg_replace('#\)$#', "]", $dump);
+    }
+
+    if ($return === true) {
+        return $dump;
+    } else {
+        echo $dump;
+    }
+}

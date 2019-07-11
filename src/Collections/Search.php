@@ -15,15 +15,21 @@ class Search
 
     public function index($items)
     {
-        $client = SearchClient::create(
-            $this->config->get('algolia.app_id'),
-            $this->config->get('algolia.api_key')
-        );
-          
-        $index = $client->initIndex($this->config->get('algolia.index'));
-          
-        $index->saveObjects($items, [
-            'objectIDKey' => 'slug'
-        ]);
+        if($this->config->get('algolia.app_id') != null && $this->config->get('algolia.api_key') != null) {
+            $client = SearchClient::create(
+                $this->config->get('algolia.app_id'),
+                $this->config->get('algolia.api_key')
+            );
+
+            $index = $client->initIndex($this->config->get('algolia.index'));
+
+            $index->saveObjects($items, [
+                'objectIDKey' => 'slug'
+            ]);
+
+            return true;
+        }
+
+        return false;
     }
 }
