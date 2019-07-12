@@ -16,22 +16,6 @@ class Compiler
 
     public function compile($entry)
     {
-        $compilers = [];
-        $compilers['blade'] = '\Damcclean\Systatic\Compiler\BladeCompiler';
-
-        $compiler = 'blade';
-
-        if($this->config->get('compiler')) {
-            $compiler = $this->config->get('compiler');
-        }
-
-        foreach($compilers as $key => $value) {
-            if($key == $compiler) {
-                dd($value);
-
-                $p = new $value();
-                $p->compile();
-            }
-        }
+        $this->blade = new BladeCompiler($entry);
     }
 }
