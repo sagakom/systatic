@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class EntriesTest extends TestCase
 {
-    //use RefreshSite;
+    use RefreshSite;
 
     public function setUp() : void
     {
