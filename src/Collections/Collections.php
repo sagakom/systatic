@@ -126,11 +126,6 @@ class Collections
 
     public function get($slug)
     {
-//        if(! file_exists($this->config->get('locations.storage') . '/collection.json')) {
-//            return $this->config->getArray()['collections']["{$slug}"];
-//        }
-        // Commenting this out fixes page collections
-
         return $this->fetch()["{$slug}"];
     }
 }

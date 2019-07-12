@@ -22,7 +22,7 @@ class CollectionsTest extends TestCase
             'events' => [
                 'name' => 'Events',
                 'permalink' => '/events',
-                'location' => './content/events',
+                'location' => './tests/fixtures/content/events',
                 'items' => []
             ]
         ];
@@ -56,7 +56,7 @@ class CollectionsTest extends TestCase
 
     public function testCanCreateCollection()
     {
-        $create = $this->collections->create('posts', 'Posts', '/posts/', './content/posts');
+        $create = $this->collections->create('posts', 'Posts', '/posts/', './tests/fixtures/content/posts');
 
         $this->assertIsArray($create);
         $this->assertContains('Posts', $create['collections']['posts']);

@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5acde6ad-dc0b-498e-866c-8be33aae570c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/RefreshSite.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/EntriesTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/content/pages/.gitkeep" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cache/Cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache/Cache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Commands/ClearSiteCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Commands/ClearSiteCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/CacheTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/CacheTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Collections/Collections.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Collections/Collections.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Collections/Entries.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Collections/Entries.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/CollectionsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/CollectionsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/config.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,36 +30,22 @@
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/tests/Unit/CollectionsTest.php">
+            <entry file="file://$PROJECT_DIR$/tests/Unit/EntriesTest.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="534">
-                  <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+                <state relative-caret-position="405">
+                  <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
                   <folding>
-                    <element signature="e#25#60#0#PHP" expanded="true" />
+                    <element signature="e#25#72#0#PHP" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tests/Unit/CacheTest.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tests/fixtures/storage/collections.json">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests/fixtures/config.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+                <state relative-caret-position="375">
+                  <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -67,37 +54,22 @@
       </split-first>
       <split-second>
         <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Collections/Entries.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="534">
+                  <caret line="67" column="100" selection-start-line="67" selection-start-column="100" selection-end-line="67" selection-end-column="100" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Collections/Collections.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="279">
-                  <caret line="116" column="55" selection-start-line="116" selection-start-column="55" selection-end-line="116" selection-end-column="55" />
+                <state relative-caret-position="1176">
+                  <caret line="100" selection-start-line="100" selection-end-line="100" />
                   <folding>
                     <element signature="e#50#85#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Cache/Cache.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="514">
-                  <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
-                  <folding>
-                    <element signature="e#44#81#0#PHP" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Commands/ClearSiteCommand.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#47#82#0#PHP" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -134,7 +106,6 @@
         <option value="$PROJECT_DIR$/stubs/site/config.php" />
         <option value="$PROJECT_DIR$/src/Commands/ClearCacheCommand.php" />
         <option value="$PROJECT_DIR$/src/Compiler/Page.php" />
-        <option value="$PROJECT_DIR$/tests/fixtures/config.php" />
         <option value="$PROJECT_DIR$/tests/fixtures/.env" />
         <option value="$PROJECT_DIR$/tests/Unit/ConfigTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/RedirectTest.php" />
@@ -144,15 +115,17 @@
         <option value="$PROJECT_DIR$/src/Build/Build.php" />
         <option value="$PROJECT_DIR$/src/Build/Redirects.php" />
         <option value="$PROJECT_DIR$/src/Commands/DeployCommand.php" />
-        <option value="$PROJECT_DIR$/src/Collections/Entries.php" />
         <option value="$PROJECT_DIR$/src/Collections/Remote.php" />
         <option value="$PROJECT_DIR$/src/Compiler/Compiler.php" />
-        <option value="$PROJECT_DIR$/src/Collections/Collections.php" />
         <option value="$PROJECT_DIR$/src/Commands/ClearSiteCommand.php" />
         <option value="$PROJECT_DIR$/src/RefreshSite.php" />
         <option value="$PROJECT_DIR$/src/Cache/Cache.php" />
         <option value="$PROJECT_DIR$/tests/Unit/CacheTest.php" />
+        <option value="$PROJECT_DIR$/src/Collections/Collections.php" />
+        <option value="$PROJECT_DIR$/tests/fixtures/config.php" />
         <option value="$PROJECT_DIR$/tests/Unit/CollectionsTest.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/EntriesTest.php" />
+        <option value="$PROJECT_DIR$/src/Collections/Entries.php" />
       </list>
     </option>
   </component>
@@ -254,23 +227,11 @@
               <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
               <item name="systatic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Cache" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="systatic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Collections" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
               <item name="systatic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="systatic" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -284,22 +245,15 @@
               <item name="systatic" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="fixtures" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
               <item name="systatic" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="fixtures" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="systatic" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="fixtures" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="cache" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
@@ -317,6 +271,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -351,12 +306,12 @@
       <option name="presentableId" value="Default" />
       <updated>1562848500990</updated>
       <workItem from="1562848503326" duration="13965000" />
-      <workItem from="1562920983172" duration="18258000" />
+      <workItem from="1562920983172" duration="19733000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32223000" />
+    <option name="totallyTimeSpent" value="33698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -387,27 +342,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/algolia/algoliasearch-client-php/src/Support/Helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stubs/site/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BREAKING_CHANGES.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -639,13 +573,6 @@
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collections/Entries.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Collections/Remote.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -701,30 +628,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/fixtures/storage/cache/pretend-view-cache-file.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/storage/collections.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collections/Collections.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="116" column="55" selection-start-line="116" selection-start-column="55" selection-end-line="116" selection-end-column="55" />
-          <folding>
-            <element signature="e#50#85#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,30 +645,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/fixtures/storage/collections.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Commands/ClearSiteCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="180">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding>
             <element signature="e#47#82#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/CacheTest.php">
+    <entry file="file://$PROJECT_DIR$/tests/Unit/Test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/CacheTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" lean-forward="true" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Collections/Collections.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="e#50#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/fixtures/content/pages/about.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/fixtures/content/pages/.gitkeep">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Unit/CollectionsTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+        <state relative-caret-position="369">
+          <caret line="58" column="92" selection-start-line="58" selection-start-column="92" selection-end-line="58" selection-end-column="92" />
           <folding>
             <element signature="e#25#60#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/fixtures/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/EntriesTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+          <folding>
+            <element signature="e#25#72#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Collections/Entries.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="67" column="100" selection-start-line="67" selection-start-column="100" selection-end-line="67" selection-end-column="100" />
         </state>
       </provider>
     </entry>

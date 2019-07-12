@@ -65,8 +65,6 @@ class Entries
 
         $contents = '---' . PHP_EOL . $yamlFrontMatter . PHP_EOL . '---' . PHP_EOL . $content;
 
-        file_put_contents($collection['location'] . '/' . $slug . '.md', $contents);
-
-        return true;
+        return (bool) file_write_contents($collection['location'] . '/' . $slug . '.md', $contents);
     }
 }

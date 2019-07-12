@@ -11,12 +11,12 @@ return [
     'pages' => [
       'name' => 'Pages',
       'permalink' => '/',
-      'location' => './texts/fixtures/content',
+      'location' => './texts/fixtures/content/pages',
     ],
     'posts' => [
       'name' => 'Posts',
       'permalink' => '/posts/',
-      'location' => './content/posts',
+      'location' => './tests/fixtures/content/posts',
     ],
   ],
   'redirects' => [
