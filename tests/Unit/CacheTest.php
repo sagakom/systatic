@@ -31,4 +31,11 @@ class CacheTest extends TestCase
         $this->assertFalse(file_exists('./tests/fixtures/storage/collections.json'));
         $this->assertFalse(file_exists('./tests/fixtures/storage/plugins.json'));
     }
+
+    public function testCanClearOutputDirectory()
+    {
+        (new Filesystem())->createFile('./tests/fixtures/dist/clear-file.html');
+        $clear = $this->cache->clearSiteOutput();
+        $this->assertFileNotExists('./tests/fixtures/dist/clear-file.html');
+    }
 }

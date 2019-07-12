@@ -2,11 +2,14 @@
 
 namespace Tests;
 
+use Damcclean\Systatic\RefreshSite;
 use Tests\TestCase;
 use Damcclean\Systatic\Collections\Collections;
 
 class CollectionsTest extends TestCase
 {
+    use RefreshSite;
+
     public function setUp(): void
     {
         parent::setUp();
@@ -57,5 +60,13 @@ class CollectionsTest extends TestCase
 
         $this->assertIsArray($create);
         $this->assertContains('Posts', $create['collections']['posts']);
+    }
+
+    public function testCanGetACollection()
+    {
+        $get = $this->collections->get('events');
+
+        $this->assertIsArray($get);
+        $this->assertContains('Events', $get);
     }
 }
