@@ -15,31 +15,31 @@ class Cache
 
     public function clearEverything()
     {
-        $this->clearViewCache();
-        $this->clearStoreCache();
+//        $this->clearViewCache();
+//        $this->clearStoreCache();
     }
 
     public function clearViewCache()
     {
-        $viewCacheFiles = glob(
-            $this->config->get('locations.storage') . '/cache/*.php',
-            GLOB_BRACE
-        );
-
-        foreach($viewCacheFiles as $file) {
-            $this->filesystem->delete($file);
-        }
+//        $viewCacheFiles = glob(
+//            $this->config->get('locations.storage') . '/cache/*.php',
+//            GLOB_BRACE
+//        );
+//
+//        foreach($viewCacheFiles as $file) {
+//            $this->filesystem->delete($file);
+//        }
     }
 
     public function clearStoreCache()
     {
-        $storeFiles = glob(
-            $this->config->get('locations.storage') . '/*.json',
-            GLOB_BRACE
-        );
-
-        foreach($storeFiles as $file) {
-            $this->filesystem->delete($file);
-        }
+//        $storeFiles = glob(
+//            $this->config->get('locations.storage') . '/*.json',
+//            GLOB_BRACE
+//        );
+//
+//        foreach($storeFiles as $file) {
+//            $this->filesystem->delete($file);
+//        }
     }
 }

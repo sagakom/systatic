@@ -18,13 +18,8 @@ class Entries
     {
         $this->entries = [];
 
-        if(strpos($collection['location'], 'http') != false) {
-            $entries = json_decode(file_get_contents($collection['location']), true);
-
-            foreach($entries as $entry) {
-                $this->parse($entry, $collection);
-                array_push($this->entries, $entry);
-            }
+        if(array_key_exists('remote', $collection)) {
+            $this->entries = $this->remote->process($collection);
         } else {
             $markdown = [];
 

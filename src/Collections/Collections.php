@@ -40,6 +40,10 @@ class Collections
             $this->store["{$key}"] = [];
             $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
             $this->store["{$key}"]['items'] = $entries;
+
+            if(array_key_exists('remote', $this->store["{$key}"])) {
+                unset($this->store["{$key}"]['remote']);
+            }
         }
 
         $this->save($this->store);
