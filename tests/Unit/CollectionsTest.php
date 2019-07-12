@@ -34,7 +34,7 @@ class CollectionsTest extends TestCase
     {
         $fetch = $this->collections->fetch();
 
-        $this->assertTrue(is_array($fetch));
+        $this->assertIsArray($fetch);
     }
 
     public function testCanFetchCollectionStoreAsJson()
@@ -42,5 +42,20 @@ class CollectionsTest extends TestCase
         $fetch = $this->collections->fetchAsJson();
 
         $this->assertJson($fetch);
+    }
+
+    public function testCanIndexCollections()
+    {
+        $index = $this->collections->index();
+
+        $this->assertIsArray($index);
+    }
+
+    public function testCanCreateCollection()
+    {
+        $create = $this->collections->create('posts', 'Posts', '/posts/', './content/posts');
+
+        $this->assertIsArray($create);
+        $this->assertContains('Posts', $create['collections']['posts']);
     }
 }
