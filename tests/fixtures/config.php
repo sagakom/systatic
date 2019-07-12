@@ -11,7 +11,7 @@ return [
     'pages' => [
       'name' => 'Pages',
       'permalink' => '/',
-      'location' => './texts/fixtures/content/pages',
+      'location' => './tests/fixtures/content/pages',
     ],
     'posts' => [
       'name' => 'Posts',

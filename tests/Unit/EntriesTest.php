@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class EntriesTest extends TestCase
 {
-    use RefreshSite;
+    //use RefreshSite;
 
     public function setUp() : void
     {
@@ -21,13 +21,13 @@ class EntriesTest extends TestCase
 
     public function testCanCreateEntry()
     {
-        $create = $this->entries->create('about', 'pages', [
+        $create = $this->entries->create('about-me', 'pages', [
             'title' => 'About Me'
         ], '<p>This is my place on the internet where I talk about things I like to do at the weekend.</p>');
 
         //dd($create);
 
         $this->assertTrue($create);
-        $this->assertFileExists('./tests/fixtures/content/pages/about.md');
+        $this->assertFileExists('./tests/fixtures/content/pages/about-me.md');
     }
 }
