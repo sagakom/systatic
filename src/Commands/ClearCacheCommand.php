@@ -19,7 +19,6 @@ class ClearCacheCommand extends Command
     public function handle()
     {
         $this->info('Clearing cache...');
-        $this->cache->clearViewCache();
-        $this->cache->clearStoreCache();
+        $this->cache->clearEverything();
     }
 }
