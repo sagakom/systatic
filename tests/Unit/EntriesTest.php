@@ -25,8 +25,6 @@ class EntriesTest extends TestCase
             'title' => 'About Me'
         ], '<p>This is my place on the internet where I talk about things I like to do at the weekend.</p>');
 
-        //dd($create);
-
         $this->assertTrue($create);
         $this->assertFileExists('./tests/fixtures/content/pages/about-me.md');
     }
