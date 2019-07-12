@@ -34,6 +34,7 @@ class CollectionsTest extends TestCase
     {
         $fetch = $this->collections->fetch();
 
+        //dd($fetch);
         $this->assertIsArray($fetch);
     }
 

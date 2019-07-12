@@ -33,7 +33,8 @@
         "illuminate/container": "^5.8",
         "illuminate/events": "^5.8",
         "algolia/algoliasearch-client-php": "^2.2",
-        "nesbot/carbon": "^2.20"
+        "nesbot/carbon": "^2.20",
+        "brick/varexporter": "^0.2.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^8",

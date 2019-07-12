@@ -2,6 +2,7 @@
 
 namespace Damcclean\Systatic\Config;
 
+use Brick\VarExporter\VarExporter;
 use Illuminate\Config\Repository;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -41,8 +42,7 @@ class Config
         $config = array_merge($config, $data);
 
         $str = '<?php ' . PHP_EOL
-            . 'return '
-            . var_export_new($config, true) . ';' . PHP_EOL;
+            . VarExporter::export($config, true) . ';' . PHP_EOL;
 
         file_write_contents(CONFIGURATION, $str);
 

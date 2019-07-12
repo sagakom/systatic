@@ -23,21 +23,21 @@ return [
             'location' => './tests/fixtures/content/posts'
         ],
 
-//        'favourites' => [
-//            'name' => 'Favourites',
-//            'permalink' => '/favourites/',
-//            'remote' => function() {
-//                $news = json_decode(file_get_contents('./tests/fixtures/fake-remote-api.json'), true);
-//
-//                return collect($news)->map(function ($item) {
-//                    return [
-//                        'title' => $item['title'],
-//                        'slug' => $item['slug'],
-//                        'content' => $item['content']
-//                    ];
-//                });
-//            }
-//        ],
+        'favourites' => [
+            'name' => 'Favourites',
+            'permalink' => '/favourites/',
+            'remote' => function() {
+                $news = json_decode(file_get_contents('./tests/fixtures/fake-remote-api.json'), true);
+
+                return collect($news)->map(function ($item) {
+                    return [
+                        'title' => $item['title'],
+                        'slug' => $item['slug'],
+                        'content' => $item['content']
+                    ];
+                });
+            }
+        ],
     ],
 
     'redirects' => [
