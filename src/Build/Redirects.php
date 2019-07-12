@@ -36,7 +36,7 @@ class Redirects
         $target = $redirect['target'];
 
         $contents = '<meta http-equiv="refresh" content="0; URL=\'' . $target . '\'" />';
-        file_put_contents($this->config->get('locations.output') . '/' . $slug . '/index.html', $contents);
+        file_write_contents($this->config->get('locations.output') . '/' . $slug . '/index.html', $contents);
 
         return true;
     }

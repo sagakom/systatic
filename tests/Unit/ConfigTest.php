@@ -19,6 +19,12 @@ class ConfigTest extends TestCase
         $this->assertSame($name, 'Systatic');
     }
 
+    public function testCanGetConfigValueWithEnvFallback()
+    {
+        $env = $this->config->get('env');
+        $this->assertSame($env, 'testing');
+    }
+
     public function testCanGetConfigArray()
     {
         $array = $this->config->getArray();
@@ -27,7 +33,7 @@ class ConfigTest extends TestCase
 
     public function testCanGetEnvValue()
     {
-        $env = $this->config->env('APP_ENV');
+        $env = $this->config->env('ENV');
         $this->assertSame($env, 'testing');
     }
 }

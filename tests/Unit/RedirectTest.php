@@ -18,7 +18,7 @@ class RedirectTest extends TestCase
         $build = $this->redirects->build();
 
         $this->assertSame(true, $build);
-        $this->assertFileExists('./tests/fixtures/dist/google.html');
+        $this->assertFileExists('./tests/fixtures/dist/google/index.html');
     }
 
     public function testCanCompileRedirects()
@@ -29,6 +29,6 @@ class RedirectTest extends TestCase
         ]);
 
         $this->assertSame(true, $build);
-        $this->assertFileExists('./tests/fixtures/dist/bing.html');
+        $this->assertFileExists('./tests/fixtures/dist/bing/index.html');
     }
 }

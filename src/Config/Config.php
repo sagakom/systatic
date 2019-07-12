@@ -15,7 +15,18 @@ class Config
 
     public function get($key)
     {
-        return $this->config->get($key);
+        $config = $this->config->get($key);
+
+        if($config != null) {
+            return $config;
+        }
+
+        if(strpos($key, '.') != false) {
+            $key = str_replace('.', '_', $key);
+        }
+
+        $env = $this->env(strtoupper($key));
+        return $env;
     }
 
     public function getArray()
