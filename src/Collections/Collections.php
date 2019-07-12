@@ -35,7 +35,7 @@ class Collections
                 $collection['searchable'] = false;
             }
 
-            $entries = $this->entries->process($collection, $key);
+            $entries =  $this->entries->process($collection, $key);
 
             $this->store["{$key}"] = [];
             $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
@@ -48,7 +48,7 @@ class Collections
             if(array_key_exists('searchable', $collection)) {
                 if($collection['searchable'] != false) {
                     (new Search)->index($collection['items']);
-                }   
+                }
             }
 
             foreach($collection['items'] as $entry) {
@@ -116,9 +116,10 @@ class Collections
 
     public function get($slug)
     {
-        if(! file_exists($this->config->get('locations.storage') . '/collection.json')) {
-            return $this->config->getArray()['collections']["{$slug}"];
-        }
+//        if(! file_exists($this->config->get('locations.storage') . '/collection.json')) {
+//            return $this->config->getArray()['collections']["{$slug}"];
+//        }
+        // Commenting this out fixes page collections
 
         return $this->fetch()["{$slug}"];
     }

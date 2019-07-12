@@ -11,52 +11,54 @@ class Entries
         $this->remote = new Remote();
         $this->markdown = new Markdown();
 
-        $this->store = [];
+        $this->entries = [];
     }
 
     public function process($collection, $key)
     {
+        $this->entries = [];
+
         if(strpos($collection['location'], 'http') != false) {
             $entries = json_decode(file_get_contents($collection['location']), true);
 
             foreach($entries as $entry) {
                 $this->parse($entry, $collection);
-                array_push($this->store, $entry);
+                array_push($this->entries, $entry);
             }
         } else {
             $markdown = [];
 
             $markdown = array_merge(
                 glob(
-                    $collection['location'] . '/*.md', 
+                    $collection['location'] . '/*.md',
                     GLOB_BRACE
                 ), $markdown);
 
             $markdown = array_merge(
                 glob(
-                    $collection['location'] . '/*/*.md', 
+                    $collection['location'] . '/*/*.md',
                     GLOB_BRACE
                 ), $markdown);
 
             $markdown = array_merge(
                 glob(
-                    $collection['location'] . '/*.markdown', 
+                    $collection['location'] . '/*.markdown',
                     GLOB_BRACE
                 ), $markdown);
-    
+
             $markdown = array_merge(
                 glob(
-                    $collection['location'] . '/*/*.markdown', 
+                    $collection['location'] . '/*/*.markdown',
                     GLOB_BRACE
                 ), $markdown);
 
             foreach($markdown as $file) {
                 $entry = $this->markdown->parse($file, $collection);
-                array_push($this->store, $entry);
+                array_push($this->entries, $entry);
             }
         }
 
-        return $this->store;
+        return $this->entries;
     }
 
     public function create($slug, $collectionSlug, $meta, $content)

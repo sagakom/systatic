@@ -41,10 +41,12 @@ class Page
             'config' => convert_to_object($this->config->getArray()),
         ];
 
-        foreach((new Collections())->index() as $collection) {
-            $items = collect((new Collections())->get($collection['key']));
+        $collections = new Collections();
 
-            $page["{$collection['key']}"] = $items;
+        foreach($collections->index() as $collection) {
+            $items = $collections->get($collection['key'])['items'];
+
+            $page["{$collection['key']}"] = collect($items);
 
             foreach($page["{$collection['key']}"] as $key => $value) {
                 $page["{$collection['key']}"]["{$key}"] = convert_to_object($value);
