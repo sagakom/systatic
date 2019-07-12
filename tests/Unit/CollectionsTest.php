@@ -13,5 +13,20 @@ class CollectionsTest extends TestCase
         $this->collections = new Collections();
     }
 
-    //
+    public function testCollectionCanSave()
+    {
+        $fakeStore = [
+            'events' => [
+                'name' => 'Events',
+                'permalink' => '/events',
+                'location' => './content/events',
+                'items' => []
+            ]
+        ];
+
+        $save = $this->collections->save($fakeStore);
+
+        $this->assertTrue($save);
+        $this->assertFileExists('./tests/fixtures/storage/collections.json');
+    }
 }
