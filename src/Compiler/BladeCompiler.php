@@ -5,7 +5,6 @@ namespace Damcclean\Systatic\Compiler;
 use Jenssegers\Blade\Blade;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Filesystem\Filesystem;
-use Damcclean\Systatic\Compiler\Page;
 
 class BladeCompiler
 {
@@ -23,7 +22,5 @@ class BladeCompiler
         $view = $this->blade->make($data['view'], $page);
 
         file_write_contents($this->config->get('locations.output') . $page['output_filename'], $view);
-        
-        return true;
     }
 }
