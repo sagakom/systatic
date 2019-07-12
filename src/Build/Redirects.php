@@ -11,10 +11,6 @@ class Redirects
         $this->config = new Config();
     }
 
-    /*
-        Find redirects and send them to be compiled
-    */
-
     public function build()
     {
         if(array_key_exists('redirects', $this->config->getArray())) {
@@ -25,10 +21,6 @@ class Redirects
 
         return false;
     }
-
-    /*
-        Compile redirects to HTMl files
-    */
 
     public function compile($redirect)
     {

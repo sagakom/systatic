@@ -26,9 +26,7 @@ class DeployCommand extends Command
         $location = $this->choice('Where would you like to deploy?', [
             'Netlify', 
             'Heroku', 
-            'Github Pages', 
-            'Amazon S3',
-            'SFTP'
+            'Github Pages'
         ], 0);
 
         $this->info('Deploying to ' . $location);
@@ -83,14 +81,6 @@ class DeployCommand extends Command
             shell_exec('git subtree push --prefix ' . $outputDir . ' origin gh-pages');
 
             $this->tell('Pushed to the gh-pages branch of your repository.');
-        }
-
-        if($location === "Amazon S3") {
-            //
-        }
-
-        if($location === "SFTP") {
-            //
         }
     }
 }

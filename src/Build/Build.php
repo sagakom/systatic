@@ -14,10 +14,6 @@ class Build
         $this->redirects = new Redirects();
         $this->collections = new Collections();
     }
-
-    /*
-        Find Markdown and HTMl files to the compiler
-    */
     
     public function build()
     {
