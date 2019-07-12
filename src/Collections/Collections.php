@@ -56,6 +56,13 @@ class Collections
             }
 
             foreach($collection['items'] as $entry) {
+                if(array_key_exists('build', $collection)) {
+                    if(!$collection['build'] != true) {
+                        $this->compiler->compile($entry);
+                        $this->cache->clearViewCache();
+                    }
+                }
+
                 $this->compiler->compile($entry);
                 $this->cache->clearViewCache();
             }
