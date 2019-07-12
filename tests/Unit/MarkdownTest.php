@@ -4,13 +4,10 @@ namespace Tests;
 
 use Damcclean\Systatic\Collections\Markdown;
 use Damcclean\Systatic\Config\Config;
-use Damcclean\Systatic\RefreshSite;
 use Tests\TestCase;
 
 class MarkdownTest extends TestCase
 {
-    use RefreshSite;
-
     public function setUp() : void
     {
         parent::setUp();

@@ -2,15 +2,12 @@
 
 namespace Tests;
 
-use Damcclean\Systatic\RefreshSite;
 use Tests\TestCase;
 use Damcclean\Systatic\Collections\Collections;
 
 class CollectionsTest extends TestCase
 {
-    use RefreshSite;
-
-    public function setUp(): void
+    public function setUp() : void
     {
         parent::setUp();
         $this->collections = new Collections();

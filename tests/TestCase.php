@@ -2,6 +2,8 @@
 
 namespace Tests;
 
+use Damcclean\Systatic\Cache\Cache;
+use Damcclean\Systatic\Filesystem\Filesystem;
 use Damcclean\Systatic\Systatic;
 use PHPUnit\Framework\TestCase as Base;
 
@@ -13,5 +15,15 @@ class TestCase extends Base
     public function setUp() : void
     {
         parent::setUp();
+
+        $cache = new Cache();
+        $cache->clearEverything();
+        $cache->clearSiteOutput();
+
+        $filesystem = new Filesystem();
+        $filesystem->delete('./tests/fixtures/config.php');
+        $filesystem->copy('./tests/fixtures/real-config.php', './tests/fixtures/config.php');
+        $filesystem->createFile('./tests/fixtures/storage/collections.json');
+        $filesystem->createFile('./tests/fixtures/storage/plugins.json');
     }
 }

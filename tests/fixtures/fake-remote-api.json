@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Favourite foods",
+    "slug": "favourite-foods",
+    "content": "<p>I like lots of food, my favourite foods are apples and pasta.</p>"
+  },
+  {
+    "title": "Favourite places",
+    "slug": "favourite-places",
+    "content": "<p>I like lots of places, my favourite places are Glasgow and Canada.</p>"
+  },
+  {
+    "title": "Favourite pizza toppings",
+    "slug": "favourite-pizza-toppings",
+    "content": "<p>I like lots of different pizza toppings, my favourites are cheese, pineapple (fight me) and chicken.</p>"
+  }
+]

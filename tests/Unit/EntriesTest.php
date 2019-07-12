@@ -4,13 +4,10 @@ namespace Tests;
 
 use Damcclean\Systatic\Collections\Collections;
 use Damcclean\Systatic\Collections\Entries;
-use Damcclean\Systatic\RefreshSite;
 use Tests\TestCase;
 
 class EntriesTest extends TestCase
 {
-    use RefreshSite;
-
     public function setUp() : void
     {
         parent::setUp();

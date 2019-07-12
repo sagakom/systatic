@@ -9,7 +9,6 @@ class Remote
     public function __construct()
     {
         $this->config = new Config();
-
         $this->entries = [];
     }
 
