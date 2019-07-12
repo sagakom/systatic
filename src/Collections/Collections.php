@@ -76,6 +76,19 @@ class Collections
         return file_get_contents($this->config->get('locations.storage') . '/collection.json');
     }
 
+    public function index()
+    {
+        $collections = [];
+
+        foreach($this->fetch() as $collection) {
+            unset($collection['items']);
+
+            $collections[] = $collection;
+        }
+
+        return $collections;
+    }
+
     public function create($slug, $name, $permalink, $location, $searchable = null)
     {
         if(array_key_exists('collections', $this->config->getArray())) {
