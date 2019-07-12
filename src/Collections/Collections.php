@@ -83,7 +83,7 @@ class Collections
 
     public function fetchAsJson()
     {
-        return file_get_contents($this->config->get('locations.storage') . '/collection.json');
+        return file_get_contents($this->config->get('locations.storage') . '/collections.json');
     }
 
     public function index()

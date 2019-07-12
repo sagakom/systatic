@@ -13,7 +13,7 @@ class CollectionsTest extends TestCase
         $this->collections = new Collections();
     }
 
-    public function testCollectionCanSave()
+    public function testCanSaveCollectionStore()
     {
         $fakeStore = [
             'events' => [
@@ -28,5 +28,19 @@ class CollectionsTest extends TestCase
 
         $this->assertTrue($save);
         $this->assertFileExists('./tests/fixtures/storage/collections.json');
+    }
+
+    public function testCanFetchCollectionStore()
+    {
+        $fetch = $this->collections->fetch();
+
+        $this->assertTrue(is_array($fetch));
+    }
+
+    public function testCanFetchCollectionStoreAsJson()
+    {
+        $fetch = $this->collections->fetchAsJson();
+
+        $this->assertJson($fetch);
     }
 }
