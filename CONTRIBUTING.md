@@ -8,7 +8,7 @@ There's lots of things you could contribute to:
 
 * Submitting new feature requests
 * Submitting bug reports 🐛
-* [Helping with the documentation](https://github.com/damcclean/systatic.netlify.com) - adding new features, making design changes, fix spelling/grammar mistakes
+* [Helping with the documentation](https://github.com/damcclean/systatic.co) - adding new features, making design changes, fix spelling/grammar mistakes
 * Writing tests
 * Contributing on issues
 * Helping other people (Github Issues, Discord)
@@ -62,6 +62,6 @@ composer install
 
 * Must follow **PSR-2 Coding Standard**
 * If you can, **write tests** to cover the code you've written!
-* **Update [the documentation](https://github.com/damcclean/systatic.netlify.com)** if you change how things work or add any features.
+* **Update [the documentation](https://github.com/damcclean/systatic.co)** if you change how things work or add any features.
 * **Don't make any breaking changes** unless you're contributing to a new version.
 * **One feature per PR** - Please only make one pull request for each of the features/bug fixes you're making

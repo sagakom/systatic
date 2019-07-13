@@ -46,9 +46,9 @@
 	  <div>
 	    <h1>Systatic</h1>
 	    <nav>
-	      <a href="https://systatic.netlify.com/docs">Documentation</a>
+	      <a href="https://systatic.co/docs">Documentation</a>
 	      <a href="https://github.com/damcclean/systatic">Github</a>
-	      <a href="https://discord.gg/sxkrycQ">Discord</a>
+	      <a href="https://discord.gg/zSg3MHv">Discord</a>
 	    </nav>
 	  </div>
 	</body>

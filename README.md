@@ -19,11 +19,11 @@
 </p>
 
 <h3 align="center">
-    <a href="https://systatic.netlify.com">Website</a>
+    <a href="https://systatic.co">Website</a>
     <span> . </span>
-    <a href="https://systatic.netlify.com/docs">Documentation</a>
+    <a href="https://systatic.co/docs">Documentation</a>
     <span> . </span>
-    <a href="https://discord.gg/sxkrycQ">Discord</a>
+    <a href="https://discord.gg/zSg3MHv">Discord</a>
 </h3>
 
 Systatic is a Modern Static Site Generator built in PHP. It's faster and simpler than traditional static site generators.
@@ -32,7 +32,7 @@ Systatic is a Modern Static Site Generator built in PHP. It's faster and simpler
 * **No more servers** Because Systatic generates HTML files, you can host your site anywhere you can put HTML files: Netlify, Github Pages, Amazon S3.
 * **Data from everywhere** You can put your data where ever you want. You could have it in Markdown files, WordPress or even a headless CMS and it will all work and feel the same.
 
-[**Get Started with Systatic!**](https://systatic.netlify.com/getting-started)
+[**Get Started with Systatic!**](https://systatic.co/docs/installation)
 
 ## 🚀 Getting Started
 
@@ -60,11 +60,11 @@ php vendor/damcclean/systatic/init init
 php systatic build
 ```
 
-[**Read more about installing Systatic**](https://systatic.netlify.com/docs/installation/index.html)
+[**Read more about installing Systatic**](https://systatic.co/docs/installation)
 
 ## 🏫 Documentation
 
-You can find the Systatic documentation on [our website](https://systatic.netlify.com/docs).
+You can find the Systatic documentation on [our website](https://systatic.co/docs).
 
 ## 🤲 How to Contribute
 
