@@ -60,9 +60,11 @@ php vendor/damcclean/systatic/init init
 php systatic build
 ```
 
+[**Read more about installing Systatic**](https://systatic.netlify.com/docs/installation/index.html)
+
 ## 🏫 Documentation
 
-You can find most of our documentation on [the website](https://systatic.netlify.com/docs).
+You can find the Systatic documentation on [our website](https://systatic.netlify.com/docs).
 
 ## 🤲 How to Contribute
 

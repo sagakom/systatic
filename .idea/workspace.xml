@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5acde6ad-dc0b-498e-866c-8be33aae570c" name="Default Changelist" comment="" />
+    <list default="true" id="5acde6ad-dc0b-498e-866c-8be33aae570c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +26,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="510">
-                <caret line="34" selection-start-line="34" selection-end-line="34" />
+                <caret line="62" column="71" selection-start-line="62" selection-start-column="71" selection-end-line="62" selection-end-column="71" />
               </first_editor>
               <second_editor />
             </state>
@@ -238,12 +240,12 @@
       <updated>1562848500990</updated>
       <workItem from="1562848503326" duration="13965000" />
       <workItem from="1562920983172" duration="26633000" />
-      <workItem from="1563009810649" duration="5198000" />
+      <workItem from="1563009810649" duration="5287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45796000" />
+    <option name="totallyTimeSpent" value="45885000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -657,7 +659,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="510">
-            <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <caret line="62" column="71" selection-start-line="62" selection-start-column="71" selection-end-line="62" selection-end-column="71" />
           </first_editor>
           <second_editor />
         </state>
