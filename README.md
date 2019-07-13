@@ -32,7 +32,7 @@ Systatic is a Modern Static Site Generator built in PHP. It's faster and simpler
 * **No more servers** Because Systatic generates HTML files, you can host your site anywhere you can put HTML files: Netlify, Github Pages, Amazon S3.
 * **Data from everywhere** You can put your data where ever you want. You could have it in Markdown files, WordPress or even a headless CMS and it will all work and feel the same.
 
-<br / >[**Get Started with Systatic!**](https://systatic.netlify.com/getting-started)
+<br /> [**Get Started with Systatic!**](https://systatic.netlify.com/getting-started)
 
 ## 🚀 Getting Started
 
