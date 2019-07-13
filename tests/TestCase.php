@@ -23,7 +23,7 @@ class TestCase extends Base
         $filesystem = new Filesystem();
         $filesystem->delete('./tests/fixtures/config.php');
         $filesystem->copy('./tests/fixtures/real-config.php', './tests/fixtures/config.php');
-//        $filesystem->createFile('./tests/fixtures/storage/collections.json');
-//        $filesystem->createFile('./tests/fixtures/storage/plugins.json');
+        $filesystem->createFile('./tests/fixtures/storage/collections.json');
+        $filesystem->createFile('./tests/fixtures/storage/plugins.json');
     }
 }
