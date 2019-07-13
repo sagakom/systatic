@@ -14,7 +14,7 @@ class ConfigTest extends TestCase
     }
 
     public function testCanGetConfigValue()
-    {  
+    {
         $name = $this->config->get('name');
         $this->assertSame($name, 'Systatic');
     }

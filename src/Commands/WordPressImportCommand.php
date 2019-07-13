@@ -23,7 +23,7 @@ class WordPressImportCommand extends Command
 
         $import = $this->wordpress->import($baseUrl);
 
-        if($import != true) {
+        if ($import != true) {
             $output->error('Failed to import from WordPress');
             exit();
         }

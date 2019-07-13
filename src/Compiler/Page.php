@@ -17,11 +17,11 @@ class Page
     {
         $filename = '/' . $data['permalink'];
 
-        if(startsWith($data['permalink'], '/')) {
+        if (startsWith($data['permalink'], '/')) {
             $filename = $data['permalink'];
         }
 
-        if(array_key_exists('filetype', $data['meta'])) {
+        if (array_key_exists('filetype', $data['meta'])) {
             str_replace('.html', '.' . $data['meta']['filetype'], $filename);
         }
 
@@ -43,12 +43,12 @@ class Page
 
         $collections = new Collections();
 
-        foreach($collections->index() as $collection) {
+        foreach ($collections->index() as $collection) {
             $items = $collections->get($collection['key'])['items'];
 
             $page["{$collection['key']}"] = collect($items);
 
-            foreach($page["{$collection['key']}"] as $key => $value) {
+            foreach ($page["{$collection['key']}"] as $key => $value) {
                 $page["{$collection['key']}"]["{$key}"] = convert_to_object($value);
             }
         }

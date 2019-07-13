@@ -27,23 +27,23 @@ class Ghost
     {
         $settings = json_decode(@file_get_contents($siteUrl . '/ghost/api/v2/content/settings?key=' . $apiKey), true);
 
-        if(! $settings) {
+        if (! $settings) {
             return false;
         }
 
         $config = $settings['settings'];
 
-        foreach($config as $key => $value)  {
-            if($key == "title") {
+        foreach ($config as $key => $value) {
+            if ($key == "title") {
                 $config['name'] = $config['title'];
                 unset($config['title']);
             }
 
-            if(strpos($key, 'ghost') != false) {
+            if (strpos($key, 'ghost') != false) {
                 unset($config["{$key}"]);
             }
 
-            if($value == null) {
+            if ($value == null) {
                 unset($config["{$key}"]);
             }
         }
@@ -57,23 +57,23 @@ class Ghost
     {
         $posts = json_decode(@file_get_contents($siteUrl . '/ghost/api/v2/content/posts?key=' . $apiKey), true);
 
-        if(! $posts) {
+        if (! $posts) {
             return false;
         }
 
         $this->collections->create('posts', 'Posts', '/', './content/posts');
 
-        foreach($posts['posts'] as $post) {
+        foreach ($posts['posts'] as $post) {
             $meta = [
                 'title' => $post['title'],
                 'date' => $post['published_at']
             ];
 
-            if($post['meta_title'] != null) {
+            if ($post['meta_title'] != null) {
                 $meta['meta_title'] = $post['meta_title'];
             }
 
-            if($post['meta_description'] != null) {
+            if ($post['meta_description'] != null) {
                 $meta['meta_description'] = $post['meta_description'];
             }
 
@@ -89,23 +89,23 @@ class Ghost
     {
         $pages = json_decode(@file_get_contents($siteUrl . '/ghost/api/v2/content/pages?key=' . $apiKey), true);
 
-        if(! $pages) {
+        if (! $pages) {
             return false;
         }
 
         $this->collections->create('pages', 'Pages', '/', './content/pages');
 
-        foreach($pages['pages'] as $page) {
+        foreach ($pages['pages'] as $page) {
             $meta = [
                 'title' => $page['title'],
                 'date' => $page['published_at']
             ];
 
-            if($page['meta_title'] != null) {
+            if ($page['meta_title'] != null) {
                 $meta['meta_title'] = $page['meta_title'];
             }
 
-            if($page['meta_description'] != null) {
+            if ($page['meta_description'] != null) {
                 $meta['meta_description'] = $page['meta_description'];
             }
 

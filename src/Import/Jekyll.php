@@ -30,14 +30,14 @@ class Jekyll
     {
         $configFile = $folder . '/_config.yml';
 
-        if(! file_exists($configFile)) {
+        if (! file_exists($configFile)) {
             return false;
         }
 
         $configSettings = Yaml::parseFile($configFile);
 
-        foreach($configSettings as $key => $value) {
-            if($key == "title") {
+        foreach ($configSettings as $key => $value) {
+            if ($key == "title") {
                 $configSettings['name'] = $configSettings['title'];
                 unset($configSettings['title']);
             }
@@ -50,7 +50,7 @@ class Jekyll
     {
         $dataDirectory = $folder . '/_data';
 
-        if(! file_exists($dataDirectory)) {
+        if (! file_exists($dataDirectory)) {
             return false;
         }
 
@@ -60,9 +60,11 @@ class Jekyll
             glob(
                 $dataDirectory . '/*.yml',
                 GLOB_BRACE
-            ), $files);
+            ),
+            $files
+        );
 
-        foreach($files as $file) {
+        foreach ($files as $file) {
             $array = Yaml::parseFile($file);
             $config = $this->config->updateArray($array);
         }
@@ -74,7 +76,7 @@ class Jekyll
     {
         $postsDirectory = $folder . '/_posts';
 
-        if(! file_exists($postsDirectory)) {
+        if (! file_exists($postsDirectory)) {
             return false;
         }
 
@@ -84,11 +86,13 @@ class Jekyll
             glob(
                 $postsDirectory . '/*.md',
                 GLOB_BRACE
-            ), $files);
+            ),
+            $files
+        );
 
         $this->collections->create('posts', 'Posts', '/', './content/posts');
 
-        foreach($files as $file) {
+        foreach ($files as $file) {
             $this->filesystem->copy($file, './content/posts/' . basename($file));
         }
 
@@ -103,10 +107,12 @@ class Jekyll
             glob(
                 $folder . '/*',
                 GLOB_ONLYDIR
-            ), $directories);
+            ),
+            $directories
+        );
 
-        foreach($directories as $directory) {
-            if(! strpos($directory, '_')) {
+        foreach ($directories as $directory) {
+            if (! strpos($directory, '_')) {
                 $baseDirectoryName = basename($directory);
 
                 $this->collections->create(strtolower($baseDirectoryName), ucfirst($baseDirectoryName), '/', './content/' . strtolower($baseDirectoryName));
@@ -117,9 +123,11 @@ class Jekyll
                     glob(
                         $directory . '/*.md',
                         GLOB_BRACE
-                    ), $files);
+                    ),
+                    $files
+                );
 
-                foreach($files as $file) {
+                foreach ($files as $file) {
                     $this->filesystem->copy($file, './content/' . strtolower($baseDirectoryName) . '/' . basename($file));
                 }
             }

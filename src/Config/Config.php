@@ -18,11 +18,11 @@ class Config
     {
         $config = $this->config->get($key);
 
-        if($config != null) {
+        if ($config != null) {
             return $config;
         }
 
-        if(strpos($key, '.') != false) {
+        if (strpos($key, '.') != false) {
             $key = str_replace('.', '_', $key);
         }
 

@@ -18,7 +18,7 @@ class Remote
 
         $items = $collection['remote']();
 
-        foreach($items as $item) {
+        foreach ($items as $item) {
             $entry = $this->parse($item, $collection);
             array_push($this->entries, $entry);
         }
@@ -35,33 +35,33 @@ class Remote
         $slug = uniqid();
         $title = '';
 
-        if(array_key_exists('title', $entry)) {
+        if (array_key_exists('title', $entry)) {
             $title = $entry['title'];
         }
 
-        if(array_key_exists('last_updated', $entry)) {
+        if (array_key_exists('last_updated', $entry)) {
             $lastUpdated = $entry['last_updated'];
         }
 
-        if(array_key_exists('slug', $entry)) {
+        if (array_key_exists('slug', $entry)) {
             $slug = $entry['slug'];
 
-            if(file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
+            if (file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
                 $view = $entry['slug'];
             }
         }
 
-        if(array_key_exists('view', $entry)) {
-            if(file_exists($this->config->get('locations.views') . '/' . $view . '.blade.php')) {
+        if (array_key_exists('view', $entry)) {
+            if (file_exists($this->config->get('locations.views') . '/' . $view . '.blade.php')) {
                 $view = $entry['view'];
             }
         }
 
-        if(array_key_exists('content', $entry)) {
+        if (array_key_exists('content', $entry)) {
             $content = $entry['content'];
         }
 
-        if(endsWith($collection['permalink'], '/')) {
+        if (endsWith($collection['permalink'], '/')) {
             $permalink = $collection['permalink'] . $slug . '/index.html';
         } else {
             $permalink = $collection['permalink'] . '/' . $slug . '/index.html';

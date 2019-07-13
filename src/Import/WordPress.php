@@ -29,7 +29,7 @@ class WordPress
     {
         $site = json_decode(@file_get_contents($coreUrl), true);
 
-        if(! $site) {
+        if (! $site) {
             return false;
         }
 
@@ -38,7 +38,7 @@ class WordPress
             'url' => $site['url']
         ];
 
-        if($site['description'] != '') {
+        if ($site['description'] != '') {
             $settings['description'] = $site['description'];
         }
 
@@ -49,13 +49,13 @@ class WordPress
     {
         $posts = json_decode(@file_get_contents($coreUrl . '/wp/v2/posts'), true);
 
-        if(! $posts) {
+        if (! $posts) {
             return false;
         }
 
         $this->collections->create('posts', 'Posts', '/', './content/posts');
 
-        foreach($posts as $post) {
+        foreach ($posts as $post) {
             $meta = [
                 'title' => $post['title']['rendered'],
                 'date' => $post['date']
@@ -73,13 +73,13 @@ class WordPress
     {
         $pages = json_decode(@file_get_contents($coreUrl . '/wp/v2/pages'), true);
 
-        if(! $pages) {
+        if (! $pages) {
             return false;
         }
 
         $this->collections->create('pages', 'Pages', '/', './content/pages');
 
-        foreach($pages as $page) {
+        foreach ($pages as $page) {
             $meta = [
                 'title' => $page['title']['rendered'],
                 'date' => $page['date']

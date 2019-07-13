@@ -26,7 +26,7 @@ return [
         'favourites' => [
             'name' => 'Favourites',
             'permalink' => '/favourites/',
-            'remote' => function() {
+            'remote' => function () {
                 $news = json_decode(file_get_contents('./tests/fixtures/fake-remote-api.json'), true);
 
                 return collect($news)->map(function ($item) {

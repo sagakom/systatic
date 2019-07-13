@@ -35,12 +35,12 @@ if (!function_exists('dd')) {
     - Useful for debugging broken code
 */
 
-if(!function_exists('logging')) {
+if (!function_exists('logging')) {
     function logging($message)
     {
         $file = (new Config)->getConfig('locations.storage') . '/systatic.log';
 
-        if(!file_exists($file)) {
+        if (!file_exists($file)) {
             (new Filesystem)->touch($file);
         }
 
@@ -53,8 +53,8 @@ if(!function_exists('logging')) {
     - Get the path of the configuration file
 */
 
-if(!function_exists('config_path')) {
-    function config_path() 
+if (!function_exists('config_path')) {
+    function config_path()
     {
         return CONFIG;
     }
@@ -65,8 +65,8 @@ if(!function_exists('config_path')) {
     - Get value from env file
 */
 
-if(!function_exists('env')) {
-    function env($key) 
+if (!function_exists('env')) {
+    function env($key)
     {
         $config = new Config();
         return $config->env($key);
@@ -79,10 +79,10 @@ if(!function_exists('env')) {
     - Uses the array_key_exists function
 */
 
-if(!function_exists('meta_exists')) {
-    function meta_exists($meta, $key) 
+if (!function_exists('meta_exists')) {
+    function meta_exists($meta, $key)
     {
-        if(array_key_exists($key, $meta)) {
+        if (array_key_exists($key, $meta)) {
             return true;
         }
 
@@ -96,24 +96,24 @@ if(!function_exists('meta_exists')) {
     - Links to a redirect link
 */
 
-if(!function_exists('route')) {
-    function route($slug) 
+if (!function_exists('route')) {
+    function route($slug)
     {
         $config = new Config();
         $collections = new Collections();
 
         $siteUrl = $config->get('url');
 
-        if(array_key_exists('redirects', $config->getArray())) {
-            foreach($config->getArray()['redirects'] as $redirect) {
-                if($redirect['slug'] === $slug) {
+        if (array_key_exists('redirects', $config->getArray())) {
+            foreach ($config->getArray()['redirects'] as $redirect) {
+                if ($redirect['slug'] === $slug) {
                     return $siteUrl . '/' . $slug . '.html';
                 }
             }
         }
 
-        foreach($collections->fetch() as $item) {
-            if($item['slug'] === $slug) {
+        foreach ($collections->fetch() as $item) {
+            if ($item['slug'] === $slug) {
                 return $siteUrl . '/' . $slug . '.html';
             }
         }
@@ -126,23 +126,23 @@ if(!function_exists('route')) {
     String starts with
 */
 
-if(!function_exists('startsWith')) {
-    function startsWith($string, $starting) 
-    { 
-        $len = strlen($starting); 
-        return (substr($string, 0, $len) === $starting); 
-    } 
+if (!function_exists('startsWith')) {
+    function startsWith($string, $starting)
+    {
+        $len = strlen($starting);
+        return (substr($string, 0, $len) === $starting);
+    }
 }
 
 /*
     String ends with
 */
 
-if(!function_exists('endsWith')) {
+if (!function_exists('endsWith')) {
     function endsWith($string, $ending)
     {
-        $strLength = strlen ($string);
-        $endsLength = strlen ($ending);
+        $strLength = strlen($string);
+        $endsLength = strlen($ending);
 
         for ($i = 0; $i < $endsLength; $i++) {
             if ($string [$strLength - $i - 1] !== $ending [$i]) {
@@ -160,14 +160,14 @@ if(!function_exists('endsWith')) {
     - Also writes content to the file
 */
 
-if(!function_exists('file_write_contents')) {
-    function file_write_contents($path, $content) 
+if (!function_exists('file_write_contents')) {
+    function file_write_contents($path, $content)
     {
         $filesystem = new SystaticFilesystem();
 
         $directory = pathinfo($path, PATHINFO_DIRNAME);
 
-        if(!file_exists($directory)) {
+        if (!file_exists($directory)) {
             $filesystem->createDirectory($directory);
         }
 
@@ -180,14 +180,14 @@ if(!function_exists('file_write_contents')) {
     - Works with nested arrays
 */
 
-if(!function_exists('convert_to_object')) {
-    function convert_to_object($array) 
+if (!function_exists('convert_to_object')) {
+    function convert_to_object($array)
     {
         $object = new stdClass;
 
-        foreach($array as $key => $value) {
-            if(strlen($key)) {
-                if(is_array($key)) {
+        foreach ($array as $key => $value) {
+            if (strlen($key)) {
+                if (is_array($key)) {
                     $object->{$key} = convert_to_object($value);
                 } else {
                     $object->{$key} = $value;
@@ -204,10 +204,10 @@ if(!function_exists('convert_to_object')) {
     - Helper for the Carbon dates package
 */
 
-if(!function_exists('carbon')) {
-    function carbon($value) 
+if (!function_exists('carbon')) {
+    function carbon($value)
     {
-        if(!$value instanceof Carbon) {
+        if (!$value instanceof Carbon) {
             $value = (is_numeric($value)) ? Carbon::createFromTimestamp($value) : Carbon::parse($value);
         }
 

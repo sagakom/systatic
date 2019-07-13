@@ -13,8 +13,8 @@ class Redirects
 
     public function build()
     {
-        if(array_key_exists('redirects', $this->config->getArray())) {
-            foreach($this->config->getArray()['redirects'] as $redirect) {
+        if (array_key_exists('redirects', $this->config->getArray())) {
+            foreach ($this->config->getArray()['redirects'] as $redirect) {
                 return $this->compile($redirect);
             }
         }

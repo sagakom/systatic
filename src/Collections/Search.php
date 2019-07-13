@@ -15,7 +15,7 @@ class Search
 
     public function index($items)
     {
-        if($this->config->get('algolia.app_id') != null && $this->config->get('algolia.api_key') != null) {
+        if ($this->config->get('algolia.app_id') != null && $this->config->get('algolia.api_key') != null) {
             $client = SearchClient::create(
                 $this->config->get('algolia.app_id'),
                 $this->config->get('algolia.api_key')

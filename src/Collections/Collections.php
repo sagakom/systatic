@@ -24,14 +24,14 @@ class Collections
     {
         $collections = $this->config->get('collections');
 
-        foreach($collections as $key => $collection) {
+        foreach ($collections as $key => $collection) {
             $collection['key'] = $key;
 
-            if(!array_key_exists('view', $collection)) {
+            if (!array_key_exists('view', $collection)) {
                 $collection['view'] = null;
             }
 
-            if(!array_key_exists('searchable', $collection)) {
+            if (!array_key_exists('searchable', $collection)) {
                 $collection['searchable'] = false;
             }
 
@@ -41,23 +41,23 @@ class Collections
             $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
             $this->store["{$key}"]['items'] = $entries;
 
-            if(array_key_exists('remote', $this->store["{$key}"])) {
+            if (array_key_exists('remote', $this->store["{$key}"])) {
                 unset($this->store["{$key}"]['remote']);
             }
         }
 
         $this->save($this->store);
 
-        foreach($this->store as $collection) {
-            if(array_key_exists('searchable', $collection)) {
-                if($collection['searchable'] != false) {
+        foreach ($this->store as $collection) {
+            if (array_key_exists('searchable', $collection)) {
+                if ($collection['searchable'] != false) {
                     (new Search)->index($collection['items']);
                 }
             }
 
-            foreach($collection['items'] as $entry) {
-                if(array_key_exists('build', $collection)) {
-                    if(!$collection['build'] != true) {
+            foreach ($collection['items'] as $entry) {
+                if (array_key_exists('build', $collection)) {
+                    if (!$collection['build'] != true) {
                         $this->compiler->compile($entry);
                         $this->cache->clearViewCache();
                     }
@@ -90,7 +90,7 @@ class Collections
     {
         $collections = [];
 
-        foreach($this->fetch() as $collection) {
+        foreach ($this->fetch() as $collection) {
             unset($collection['items']);
 
             $collections[] = $collection;
@@ -101,7 +101,7 @@ class Collections
 
     public function create($slug, $name, $permalink, $location, $searchable = null)
     {
-        if(array_key_exists('collections', $this->config->getArray())) {
+        if (array_key_exists('collections', $this->config->getArray())) {
             $collection['collections'] = $this->config->getArray()['collections'];
         } else {
             $collection['collections'] = [];
@@ -113,11 +113,11 @@ class Collections
             'location' => $location
         ];
 
-        if($searchable != null) {
+        if ($searchable != null) {
             $collection["{$slug}"]['searchable'] = $searchable;
         }
 
-        if(! file_exists($location)) {
+        if (! file_exists($location)) {
             $this->filesytem->createDirectory($location);
         }
 

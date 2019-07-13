@@ -23,7 +23,7 @@ class InitCommand extends Command
 
         $this->filesystem->copyDirectory($base . '/vendor/damcclean/systatic/stubs/site', $base);
 
-        if($this->confirm('Do you want to copy the Laravel Valet driver?')) {
+        if ($this->confirm('Do you want to copy the Laravel Valet driver?')) {
             $this->filesystem->copyDirectory($base . '/vendor/damcclean/systatic/stubs/valet', $base);
         }
 

@@ -33,7 +33,7 @@ class Commands
 
         $pluginCommands = $this->plugins->commands();
 
-        foreach($pluginCommands as $command) {
+        foreach ($pluginCommands as $command) {
             $application->add(new $command());
         }
 

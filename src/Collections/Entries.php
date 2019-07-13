@@ -18,7 +18,7 @@ class Entries
     {
         $this->entries = [];
 
-        if(array_key_exists('remote', $collection)) {
+        if (array_key_exists('remote', $collection)) {
             $this->entries = $this->remote->process($collection);
         } else {
             $markdown = [];
@@ -27,27 +27,35 @@ class Entries
                 glob(
                     $collection['location'] . '/*.md',
                     GLOB_BRACE
-                ), $markdown);
+                ),
+                $markdown
+            );
 
             $markdown = array_merge(
                 glob(
                     $collection['location'] . '/*/*.md',
                     GLOB_BRACE
-                ), $markdown);
+                ),
+                $markdown
+            );
 
             $markdown = array_merge(
                 glob(
                     $collection['location'] . '/*.markdown',
                     GLOB_BRACE
-                ), $markdown);
+                ),
+                $markdown
+            );
 
             $markdown = array_merge(
                 glob(
                     $collection['location'] . '/*/*.markdown',
                     GLOB_BRACE
-                ), $markdown);
+                ),
+                $markdown
+            );
 
-            foreach($markdown as $file) {
+            foreach ($markdown as $file) {
                 $entry = $this->markdown->parse($file, $collection);
                 array_push($this->entries, $entry);
             }

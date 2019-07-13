@@ -22,12 +22,12 @@ class ServeCommand extends Command
         $host = 'localhost';
         $port = 9000;
 
-        if(array_key_exists('server', $this->config->getArray())) {
-            if(array_key_exists('host', $this->config->getArray()['server'])) {
+        if (array_key_exists('server', $this->config->getArray())) {
+            if (array_key_exists('host', $this->config->getArray()['server'])) {
                 $host = $this->config->get('server.host');
             }
 
-            if(array_key_exists('port', $this->config->getArray()['server'])) {
+            if (array_key_exists('port', $this->config->getArray()['server'])) {
                 $port = $this->config->get('server.port');
             }
         }
