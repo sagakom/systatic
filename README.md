@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="center">
-    Modern Static Site Generator in PHP
+    A Modern Static Site Generator built in PHP
 </h2>
 
 <p align="center">
@@ -26,7 +26,7 @@
     <a href="https://discord.gg/sxkrycQ">Discord</a>
 </h3>
 
-Systatic is a modern static site generator for developers to build fast sites.
+Systatic is a Modern Static Site Generator built in PHP. It's faster and simpler than traditional static site generators.
 
 * **Use your own stack** Apart from using PHP to generate your site, you can use whatever tech stack you want, Vue, React, whatever. We don't dictate what you need.
 * **No more servers** Because Systatic generates HTML files, you can host your site anywhere you can put HTML files: Netlify, Github Pages, Amazon S3.
