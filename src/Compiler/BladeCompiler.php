@@ -21,6 +21,6 @@ class BladeCompiler
         $page = $this->page->process($data);
         $view = $this->blade->make($data['view'], $page);
 
-        file_write_contents($this->config->get('locations.output') . $page['output_filename'], $view);
+        return (bool) file_write_contents($this->config->get('locations.output') . $page['output_filename'], $view);
     }
 }
