@@ -17,13 +17,13 @@ class TestCase extends Base
         parent::setUp();
 
         $cache = new Cache();
-        $cache->clearEverything();
+        $cache->clearViewCache();
         $cache->clearSiteOutput();
 
         $filesystem = new Filesystem();
         $filesystem->delete('./tests/fixtures/config.php');
         $filesystem->copy('./tests/fixtures/real-config.php', './tests/fixtures/config.php');
-        $filesystem->createFile('./tests/fixtures/storage/collections.json');
-        $filesystem->createFile('./tests/fixtures/storage/plugins.json');
+//        $filesystem->createFile('./tests/fixtures/storage/collections.json');
+//        $filesystem->createFile('./tests/fixtures/storage/plugins.json');
     }
 }
