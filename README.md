@@ -11,7 +11,7 @@
         <img src="https://img.shields.io/packagist/v/damcclean/systatic.svg?style=flat-square" alt="Latest Version on Packagist" />
     </a>
     <a href="https://travis-ci.com/damcclean/Systatic">
-        <img src="https://travis-ci.com/damcclean/Systatic.svg?branch=v2" alt="Build Status" />
+        <img src="https://travis-ci.com/damcclean/Systatic.svg?branch=master" alt="Build Status" />
     </a>
     <a href="https://packagist.org/packages/damcclean/systatic">
         <img src="https://img.shields.io/packagist/dt/damcclean/systatic.svg?style=flat-square" alt="Total Downloads" />
@@ -68,7 +68,7 @@ You can find most of our documentation on [the website](https://systatic.netlify
 
 We'd love for you to help out on Systatic. It's an open source project after all! 😊
 
-Check out our [Contributing Guide](https://github.com/damcclean/Systatic/blob/v2/CONTRIBUTING.md) for ideas on contibuting and steps on how to get Systatic on your machine ready for development.
+Check out our [Contributing Guide](https://github.com/damcclean/Systatic/blob/master/CONTRIBUTING.md) for ideas on contibuting and steps on how to get Systatic on your machine ready for development.
 
 ## 📝 License
 

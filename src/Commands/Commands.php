@@ -18,7 +18,7 @@ class Commands
 
     public function console()
     {
-        $application = new Application($this->container, $this->events, 'v2');
+        $application = new Application($this->container, $this->events, 'Version 2');
         $application->setName('Systatic');
 
         $application->add(new InitCommand());
