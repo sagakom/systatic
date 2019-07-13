@@ -15,13 +15,13 @@ class RemoteCollectionTest extends TestCase
         $this->remote = new Remote();
     }
 
-    public function testCanParseMarkdown()
+    public function testCanProcessRemoteCollection()
     {
-//        $collection = $this->config->getArray()['collections']['favourites'];
-//
-//        $remote = $this->remote->process($collection);
-//
-//        $this->assertIsArray($remote);
-//        $this->assertStringContainsString($remote[0]['title'], 'Favourite foods');
+        $collection = $this->config->getArray()['collections']['favourites'];
+
+        $remote = $this->remote->process($collection);
+
+        $this->assertIsArray($remote);
+        $this->assertStringContainsString($remote[0]['title'], 'Favourite foods');
     }
 }
