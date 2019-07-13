@@ -31,7 +31,8 @@ Systatic is a modern static site generator for developers to build fast sites.
 * **Use your own stack** Apart from using PHP to generate your site, you can use whatever tech stack you want, Vue, React, whatever. We don't dictate what you need.
 * **No more servers** Because Systatic generates HTML files, you can host your site anywhere you can put HTML files: Netlify, Github Pages, Amazon S3.
 * **Data from everywhere** You can put your data where ever you want. You could have it in Markdown files, WordPress or even a headless CMS and it will all work and feel the same.
-[**Get Started with Systatic!**](https://systatic.netlify.com/getting-started)
+
+<br / >[**Get Started with Systatic!**](https://systatic.netlify.com/getting-started)
 
 ## 🚀 Getting Started
 
