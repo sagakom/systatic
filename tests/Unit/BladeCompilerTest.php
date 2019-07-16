@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use Damcclean\Systatic\Collections\Collections;
 use Damcclean\Systatic\Compiler\BladeCompiler;
 use Tests\TestCase;
 
@@ -11,10 +12,13 @@ class BladeCompilerTest extends TestCase
     {
         parent::setUp();
         $this->blade = new BladeCompiler();
+        $this->collections = new Collections();
     }
 
     public function testCanUseBladeCompiler()
     {
+        $this->collections->collect();
+
         $data = [
             'filename' => './tests/fixtures/content/pages/jokes.md',
             'permalink' => '/jokes.html',
