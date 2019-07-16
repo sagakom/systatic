@@ -1,8 +1,29 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-use Damcclean\Systatic\Commands\Commands;
+/*
+    Path to Config
+    - A relative path to where your config file is located.
+*/
 
-$commands = new Commands();
-$commands->console();
+$config = './config.php';
+
+/*
+    Bootstrap the application
+    - Please don't touch anything below this line or things could go horribly wrong
+*/
+
+if(!file_exists($config)) {
+    echo "Please specify your configuration path in your Systatic console file.";
+    exit();
+}
+
+define('BASE', __DIR__);
+define('CONFIGURATION', $config);
+
+require __DIR__ . '/vendor/autoload.php';
+include(__DIR__ . '/vendor/damcclean/systatic/src/helpers.php');
+
+use Damcclean\Systatic\Systatic;
+
+$app = (new Systatic())->boot();

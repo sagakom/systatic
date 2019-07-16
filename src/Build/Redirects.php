@@ -13,21 +13,13 @@ class Redirects
 
     public function build()
     {
-        $configArray = $this->config->getConfigArray();
-        if(array_key_exists('redirects', $configArray)) {
-            foreach($configArray['redirects'] as $slug => $redirect) {
-                $item = [
-                    'slug' => $slug,
-                    'target' => $redirect
-                ];
-    
-                $this->compile($item);
+        if (array_key_exists('redirects', $this->config->getArray())) {
+            foreach ($this->config->getArray()['redirects'] as $redirect) {
+                return $this->compile($redirect);
             }
-    
-            return true;
-        } else {
-            return true;
         }
+
+        return false;
     }
 
     public function compile($redirect)
@@ -36,7 +28,7 @@ class Redirects
         $target = $redirect['target'];
 
         $contents = '<meta http-equiv="refresh" content="0; URL=\'' . $target . '\'" />';
-        file_put_contents($this->config->getConfig('outputDir') . '/' . $slug . '.html', $contents);
+        file_write_contents($this->config->get('locations.output') . '/' . $slug . '/index.html', $contents);
 
         return true;
     }
