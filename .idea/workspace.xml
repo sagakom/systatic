@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5acde6ad-dc0b-498e-866c-8be33aae570c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/stubs/site/storage/systatic.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs/site/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/stubs/site/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs/site/.example.env" beforeDir="false" afterPath="$PROJECT_DIR$/stubs/site/.example.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs/site/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/stubs/site/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs/site/content/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/stubs/site/content/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs/site/content/pages/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/stubs/site/content/pages/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs/site/systatic" beforeDir="false" afterPath="$PROJECT_DIR$/stubs/site/systatic" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stubs/valet/LocalValetDriver.php" beforeDir="false" afterPath="$PROJECT_DIR$/stubs/valet/LocalValetDriver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SECURITY.md" beforeDir="false" afterPath="$PROJECT_DIR$/SECURITY.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,10 +22,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/stubs/site/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        <entry file="file://$PROJECT_DIR$/SECURITY.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -54,7 +50,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Commands/WordPressImportCommand.php" />
         <option value="$PROJECT_DIR$/src/Import/WordPress.php" />
         <option value="$PROJECT_DIR$/src/Import/Jekyll.php" />
         <option value="$PROJECT_DIR$/src/Commands/JekyllImportCommand.php" />
@@ -105,6 +100,7 @@
         <option value="$PROJECT_DIR$/stubs/valet/LocalValetDriver.php" />
         <option value="$PROJECT_DIR$/stubs/site/systatic" />
         <option value="$PROJECT_DIR$/stubs/site/config.php" />
+        <option value="$PROJECT_DIR$/SECURITY.md" />
       </list>
     </option>
   </component>
@@ -204,12 +200,6 @@
               <item name="systatic" type="462c0819:PsiDirectoryNode" />
               <item name="stubs" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="systatic" type="462c0819:PsiDirectoryNode" />
-              <item name="stubs" type="462c0819:PsiDirectoryNode" />
-              <item name="site" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -259,12 +249,12 @@
       <workItem from="1562920983172" duration="26633000" />
       <workItem from="1563009810649" duration="8566000" />
       <workItem from="1563091730176" duration="49000" />
-      <workItem from="1563294247201" duration="993000" />
+      <workItem from="1563294247201" duration="1179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50206000" />
+    <option name="totallyTimeSpent" value="50392000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -325,33 +315,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RefreshSite.php" />
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/storage/cache/pretend-view-cache-file.php" />
-    <entry file="file://$PROJECT_DIR$/src/Commands/ClearSiteCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="e#47#82#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/Test.php" />
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/content/pages/about.md" />
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/content/pages/.gitkeep">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/content/posts/.gitkeep">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/views/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="11" lean-forward="true" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/fixtures/views/contact.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -564,16 +527,6 @@
     <entry file="file://$PROJECT_DIR$/phpunit.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.github/PULL_REQUEST_TEMPLATE.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="60">
-            <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -671,10 +624,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/stubs/site/.example.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stubs/site/.env.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stubs/site/views/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="50" column="58" lean-forward="true" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stubs/site/storage/systatic.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stubs/site/content/index.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/stubs/site/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.github/ISSUE_TEMPLATE/---feature-request.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.github/ISSUE_TEMPLATE/---bug-report.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.github/PULL_REQUEST_TEMPLATE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="60">
+            <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SECURITY.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
