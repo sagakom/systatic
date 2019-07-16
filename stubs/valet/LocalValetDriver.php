@@ -6,7 +6,7 @@ class LocalValetDriver extends BasicValetDriver
     {
         return rtrim('/dist' . $uri, '/');
     }
-    
+
     public function serves($sitePath, $siteName, $uri)
     {
         return is_dir($sitePath . '/dist');
