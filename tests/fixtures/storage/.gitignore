@@ -3,3 +3,5 @@
 *.json
 filesystem-test/*
 !filesystem-test/.gitkeep
+!filesystem-test/source.txt
+!filesystem-test/source/.gitkeep
