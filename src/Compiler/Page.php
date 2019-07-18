@@ -38,7 +38,7 @@ class Page
             'last_updated' => $data['last_updated'],
             'meta' => convert_to_object($data['meta']),
 
-            'config' => convert_to_object($this->config->getArray()),
+            'config' => convert_to_object($this->config->getArray())
         ];
 
         $collections = new Collections();
