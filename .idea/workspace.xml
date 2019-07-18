@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5acde6ad-dc0b-498e-866c-8be33aae570c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers.php" afterDir="false" />
-    </list>
+    <list default="true" id="5acde6ad-dc0b-498e-866c-8be33aae570c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +37,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/helpers.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="601">
               <caret line="245" selection-start-line="245" selection-end-line="245" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.styleci.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -123,11 +130,11 @@
         <option value="$PROJECT_DIR$/stubs/site/systatic" />
         <option value="$PROJECT_DIR$/stubs/site/config.php" />
         <option value="$PROJECT_DIR$/SECURITY.md" />
-        <option value="$PROJECT_DIR$/.styleci.yml" />
         <option value="$PROJECT_DIR$/src/Config/Config.php" />
         <option value="$PROJECT_DIR$/src/Compiler/Page.php" />
         <option value="$PROJECT_DIR$/tests/Unit/PageTest.php" />
         <option value="$PROJECT_DIR$/src/helpers.php" />
+        <option value="$PROJECT_DIR$/.styleci.yml" />
       </list>
     </option>
   </component>
@@ -302,12 +309,12 @@
       <workItem from="1563091730176" duration="49000" />
       <workItem from="1563294247201" duration="1179000" />
       <workItem from="1563309442081" duration="594000" />
-      <workItem from="1563476279543" duration="2265000" />
+      <workItem from="1563476279543" duration="2350000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54500000" />
+    <option name="totallyTimeSpent" value="54585000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -322,7 +329,7 @@
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.2550586" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.2550586" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50070924" side_tool="true" weight="0.25239617" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -335,7 +342,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32871288" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32871288" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -691,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.styleci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Config/Config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -729,6 +729,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="601">
           <caret line="245" selection-start-line="245" selection-end-line="245" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.styleci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
         </state>
       </provider>
     </entry>
