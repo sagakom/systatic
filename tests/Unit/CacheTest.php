@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Tests\TestCase;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Filesystem\Filesystem;
 

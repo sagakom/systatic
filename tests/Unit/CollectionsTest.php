@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Tests\TestCase;
 use Damcclean\Systatic\Collections\Collections;
 
 class CollectionsTest extends TestCase
@@ -20,8 +19,8 @@ class CollectionsTest extends TestCase
                 'name' => 'Events',
                 'permalink' => '/events',
                 'location' => './tests/fixtures/content/events',
-                'items' => []
-            ]
+                'items' => [],
+            ],
         ];
 
         $save = $this->collections->save($fakeStore);

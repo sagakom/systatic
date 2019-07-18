@@ -16,7 +16,7 @@ class ServeCommand extends Command
 
         $this->config = new Config();
     }
-    
+
     public function handle()
     {
         $host = 'localhost';

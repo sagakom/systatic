@@ -3,8 +3,8 @@
 namespace Damcclean\Systatic\Commands;
 
 use Illuminate\Events\Dispatcher;
-use Illuminate\Container\Container;
 use Illuminate\Console\Application;
+use Illuminate\Container\Container;
 use Damcclean\Systatic\Plugins\Plugins;
 
 class Commands

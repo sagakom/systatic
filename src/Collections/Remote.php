@@ -77,7 +77,7 @@ class Remote
             'view' => $view,
             'content' => $content,
             'meta' => $meta,
-            'last_updated' => $lastUpdated
+            'last_updated' => $lastUpdated,
         ];
 
         return $newEntry;

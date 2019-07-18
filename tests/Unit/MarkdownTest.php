@@ -2,9 +2,8 @@
 
 namespace Tests;
 
-use Damcclean\Systatic\Collections\Markdown;
 use Damcclean\Systatic\Config\Config;
-use Tests\TestCase;
+use Damcclean\Systatic\Collections\Markdown;
 
 class MarkdownTest extends TestCase
 {

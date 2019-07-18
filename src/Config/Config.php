@@ -2,8 +2,8 @@
 
 namespace Damcclean\Systatic\Config;
 
-use Brick\VarExporter\VarExporter;
 use Illuminate\Config\Repository;
+use Brick\VarExporter\VarExporter;
 use Symfony\Component\Dotenv\Dotenv;
 
 class Config
@@ -27,18 +27,20 @@ class Config
         }
 
         $env = $this->env(strtoupper($key));
+
         return $env;
     }
 
     public function getArray()
     {
-        $config = include(CONFIGURATION);
+        $config = include CONFIGURATION;
+
         return $config;
     }
 
     public function updateArray($data)
     {
-        $config = include(CONFIGURATION);
+        $config = include CONFIGURATION;
         $config = array_merge($config, $data);
 
         $str = '<?php ' . PHP_EOL
@@ -52,6 +54,7 @@ class Config
     public function env($key)
     {
         $env = $this->env->load(BASE . '/.env');
+
         return $_ENV[$key];
     }
 }

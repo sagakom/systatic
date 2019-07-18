@@ -20,27 +20,27 @@ class DeployCommand extends Command
         $this->config = new Config();
         $this->filesystem = new Filesystem();
     }
-    
+
     public function handle()
     {
         $location = $this->choice('Where would you like to deploy?', [
             'Netlify',
             'Heroku',
-            'Github Pages'
+            'Github Pages',
         ], 0);
 
         $this->info('Deploying to ' . $location);
         $build = $this->build->build();
 
-        if ($location === "Netlify") {
-            if (!file_exists(BASE . '/netlify.toml')) {
+        if ($location === 'Netlify') {
+            if (! file_exists(BASE . '/netlify.toml')) {
                 $this->line('Pushed the Netlify configuration file, it did not already exist.');
                 $this->filesystem->copyDirectory(BASE . '/vendor/damcclean/systatic/stubs/netlify', BASE);
             }
 
             $cliInstalled = shell_exec('netlify');
 
-            if (!$cliInstalled) {
+            if (! $cliInstalled) {
                 $this->error('The Netlify CLI does not seem to be installed. Please install the Netlify CLI and try again.');
                 exit();
             }
@@ -48,20 +48,20 @@ class DeployCommand extends Command
             shell_exec('netlify deploy');
         }
 
-        if ($location === "Heroku") {
-            if (!file_exists(BASE . '/Procfile')) {
+        if ($location === 'Heroku') {
+            if (! file_exists(BASE . '/Procfile')) {
                 $this->line('Pushed the Heroku Procfile, it did not already exist.');
                 $this->filesystem->copy(BASE . '/vendor/damcclean/systatic/stubs/heroku/Procfile', BASE . '/Procfile');
             }
 
-            if (!file_exists(BASE . '/heroku.sh')) {
+            if (! file_exists(BASE . '/heroku.sh')) {
                 $this->line('Pushed the Heroku Deploy script, it did not already exist.');
                 $this->filesystem->copy(BASE . '/vendor/damcclean/systatic/stubs/heroku/heroku.sh', BASE . '/heroku.sh');
             }
 
             $cliInstalled = shell_exec('heroku --version');
 
-            if (!$cliInstalled) {
+            if (! $cliInstalled) {
                 $this->error('The Heroku CLI does not seem to be installed. Please install the Heroku CLI and try again.');
                 exit();
             }
@@ -69,8 +69,8 @@ class DeployCommand extends Command
             shell_exec('heroku create');
         }
 
-        if ($location === "Github Pages") {
-            if (!file_exists(BASE . '/.git')) {
+        if ($location === 'Github Pages') {
+            if (! file_exists(BASE . '/.git')) {
                 $this->error("We couldn't find a Git repository in your site. Please create one first, then run this command again.");
                 exit();
             }

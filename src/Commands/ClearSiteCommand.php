@@ -2,8 +2,8 @@
 
 namespace Damcclean\Systatic\Commands;
 
-use Damcclean\Systatic\Cache\Cache;
 use Illuminate\Console\Command;
+use Damcclean\Systatic\Cache\Cache;
 
 class ClearSiteCommand extends Command
 {

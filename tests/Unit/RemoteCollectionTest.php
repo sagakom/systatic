@@ -2,9 +2,8 @@
 
 namespace Tests;
 
-use Damcclean\Systatic\Collections\Remote;
 use Damcclean\Systatic\Config\Config;
-use Tests\TestCase;
+use Damcclean\Systatic\Collections\Remote;
 
 class RemoteCollectionTest extends TestCase
 {
