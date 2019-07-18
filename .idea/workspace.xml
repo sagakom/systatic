@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5acde6ad-dc0b-498e-866c-8be33aae570c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tests/Unit/PageTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/PageTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,14 +27,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Unit/PageTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+            <state relative-caret-position="454">
+              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding>
                 <element signature="e#25#62#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/helpers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="601">
+              <caret line="245" selection-start-line="245" selection-end-line="245" />
             </state>
           </provider>
         </entry>
@@ -68,7 +77,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Import/Jekyll.php" />
         <option value="$PROJECT_DIR$/src/Commands/JekyllImportCommand.php" />
         <option value="$PROJECT_DIR$/src/Commands/GhostImportCommand.php" />
         <option value="$PROJECT_DIR$/src/Import/Ghost.php" />
@@ -119,6 +127,7 @@
         <option value="$PROJECT_DIR$/src/Config/Config.php" />
         <option value="$PROJECT_DIR$/src/Compiler/Page.php" />
         <option value="$PROJECT_DIR$/tests/Unit/PageTest.php" />
+        <option value="$PROJECT_DIR$/src/helpers.php" />
       </list>
     </option>
   </component>
@@ -194,10 +203,10 @@
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="-1920" />
     <option name="width" value="1920" />
-    <option name="height" value="1019" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -293,12 +302,12 @@
       <workItem from="1563091730176" duration="49000" />
       <workItem from="1563294247201" duration="1179000" />
       <workItem from="1563309442081" duration="594000" />
-      <workItem from="1563476279543" duration="1376000" />
+      <workItem from="1563476279543" duration="2265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53611000" />
+    <option name="totallyTimeSpent" value="54500000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,7 +319,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.2550586" />
@@ -359,16 +368,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/content/pages/contact-me.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Collections/Markdown.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -718,11 +717,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Unit/PageTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+        <state relative-caret-position="454">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding>
             <element signature="e#25#62#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="245" selection-start-line="245" selection-end-line="245" />
         </state>
       </provider>
     </entry>
