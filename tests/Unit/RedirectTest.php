@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Tests\TestCase;
 use Damcclean\Systatic\Build\Redirects;
 
 class RedirectTest extends TestCase
@@ -25,7 +24,7 @@ class RedirectTest extends TestCase
     {
         $build = $this->redirects->compile([
             'slug' => 'bing',
-            'target' => 'https://bing.com'
+            'target' => 'https://bing.com',
         ]);
 
         $this->assertSame(true, $build);

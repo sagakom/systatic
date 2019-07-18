@@ -3,7 +3,6 @@
 namespace Damcclean\Systatic\Compiler;
 
 use Damcclean\Systatic\Config\Config;
-use Tightenco\Collect\Support\Collection;
 use Damcclean\Systatic\Collections\Collections;
 
 class Page
@@ -38,7 +37,7 @@ class Page
             'last_updated' => $data['last_updated'],
             'meta' => convert_to_object($data['meta']),
 
-            'config' => convert_to_object($this->config->getArray())
+            'config' => convert_to_object($this->config->getArray()),
         ];
 
         $collections = new Collections();

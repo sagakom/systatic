@@ -27,15 +27,15 @@ class Collections
         foreach ($collections as $key => $collection) {
             $collection['key'] = $key;
 
-            if (!array_key_exists('view', $collection)) {
+            if (! array_key_exists('view', $collection)) {
                 $collection['view'] = null;
             }
 
-            if (!array_key_exists('searchable', $collection)) {
+            if (! array_key_exists('searchable', $collection)) {
                 $collection['searchable'] = false;
             }
 
-            $entries =  $this->entries->process($collection, $key);
+            $entries = $this->entries->process($collection, $key);
 
             $this->store["{$key}"] = [];
             $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
@@ -57,7 +57,7 @@ class Collections
 
             foreach ($collection['items'] as $entry) {
                 if (array_key_exists('build', $collection)) {
-                    if (!$collection['build'] != true) {
+                    if (! $collection['build'] != true) {
                         $this->compiler->compile($entry);
                         $this->cache->clearViewCache();
                     }
@@ -110,7 +110,7 @@ class Collections
         $collection['collections']["{$slug}"] = [
             'name' => $name,
             'permalink' => $permalink,
-            'location' => $location
+            'location' => $location,
         ];
 
         if ($searchable != null) {

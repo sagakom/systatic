@@ -2,9 +2,9 @@
 
 namespace Damcclean\Systatic\Import;
 
-use Damcclean\Systatic\Collections\Collections;
-use Damcclean\Systatic\Collections\Entries;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Collections\Entries;
+use Damcclean\Systatic\Collections\Collections;
 
 class Ghost
 {
@@ -34,7 +34,7 @@ class Ghost
         $config = $settings['settings'];
 
         foreach ($config as $key => $value) {
-            if ($key == "title") {
+            if ($key == 'title') {
                 $config['name'] = $config['title'];
                 unset($config['title']);
             }
@@ -66,7 +66,7 @@ class Ghost
         foreach ($posts['posts'] as $post) {
             $meta = [
                 'title' => $post['title'],
-                'date' => $post['published_at']
+                'date' => $post['published_at'],
             ];
 
             if ($post['meta_title'] != null) {
@@ -98,7 +98,7 @@ class Ghost
         foreach ($pages['pages'] as $page) {
             $meta = [
                 'title' => $page['title'],
-                'date' => $page['published_at']
+                'date' => $page['published_at'],
             ];
 
             if ($page['meta_title'] != null) {

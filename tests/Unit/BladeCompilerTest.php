@@ -2,9 +2,8 @@
 
 namespace Tests;
 
-use Damcclean\Systatic\Collections\Collections;
 use Damcclean\Systatic\Compiler\BladeCompiler;
-use Tests\TestCase;
+use Damcclean\Systatic\Collections\Collections;
 
 class BladeCompilerTest extends TestCase
 {
@@ -27,9 +26,9 @@ class BladeCompilerTest extends TestCase
             'view' => 'index',
             'content' => '<p>I have a few jokes for you!</p>',
             'meta' => [
-                'title' => 'Listen to my jokes'
+                'title' => 'Listen to my jokes',
             ],
-            'last_updated' => null
+            'last_updated' => null,
         ];
 
         $blade = $this->blade->compile($data);

@@ -2,9 +2,8 @@
 
 namespace Tests;
 
-use Damcclean\Systatic\Collections\Collections;
 use Damcclean\Systatic\Collections\Entries;
-use Tests\TestCase;
+use Damcclean\Systatic\Collections\Collections;
 
 class EntriesTest extends TestCase
 {
@@ -19,7 +18,7 @@ class EntriesTest extends TestCase
     public function testCanCreateEntry()
     {
         $create = $this->entries->create('about-me', 'pages', [
-            'title' => 'About Me'
+            'title' => 'About Me',
         ], '<p>This is my place on the internet where I talk about things I like to do at the weekend.</p>');
 
         $this->assertTrue($create);

@@ -2,9 +2,9 @@
 
 namespace Damcclean\Systatic\Import;
 
-use Damcclean\Systatic\Collections\Collections;
-use Damcclean\Systatic\Collections\Entries;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Collections\Entries;
+use Damcclean\Systatic\Collections\Collections;
 
 class WordPress
 {
@@ -35,7 +35,7 @@ class WordPress
 
         $settings = [
             'name' => $site['name'],
-            'url' => $site['url']
+            'url' => $site['url'],
         ];
 
         if ($site['description'] != '') {
@@ -58,7 +58,7 @@ class WordPress
         foreach ($posts as $post) {
             $meta = [
                 'title' => $post['title']['rendered'],
-                'date' => $post['date']
+                'date' => $post['date'],
             ];
 
             $content = $post['content']['rendered'];
@@ -82,7 +82,7 @@ class WordPress
         foreach ($pages as $page) {
             $meta = [
                 'title' => $page['title']['rendered'],
-                'date' => $page['date']
+                'date' => $page['date'],
             ];
 
             $content = $page['content']['rendered'];

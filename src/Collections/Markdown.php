@@ -2,8 +2,8 @@
 
 namespace Damcclean\Systatic\Collections;
 
-use Damcclean\Systatic\Config\Config;
 use Damcclean\Markdown\MetaParsedown;
+use Damcclean\Systatic\Config\Config;
 
 class Markdown
 {
@@ -43,7 +43,7 @@ class Markdown
         if (array_key_exists('slug', $frontMatter)) {
             $slug = $frontMatter['slug'];
 
-            if (!array_key_exists('title', $frontMatter)) {
+            if (! array_key_exists('title', $frontMatter)) {
                 $title = $slug;
             }
         }
@@ -84,7 +84,7 @@ class Markdown
             'view' => $view,
             'content' => $markdown,
             'meta' => $frontMatter,
-            'last_updated' => $lastUpdated
+            'last_updated' => $lastUpdated,
         ];
 
         return $entry;

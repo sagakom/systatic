@@ -3,9 +3,8 @@
 namespace Tests;
 
 use Damcclean\Systatic\Filesystem\Filesystem;
-use Tests\TestCase;
 
-class FilesystemTestTest extends TestCase
+class FilesystemTest extends TestCase
 {
     public function setUp() : void
     {
