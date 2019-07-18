@@ -24,7 +24,7 @@ class Search
             $index = $client->initIndex($this->config->get('algolia.index'));
 
             $index->saveObjects($items, [
-                'objectIDKey' => 'slug'
+                'objectIDKey' => 'slug',
             ]);
 
             return true;

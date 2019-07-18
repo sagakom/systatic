@@ -3,9 +3,8 @@
 namespace Tests;
 
 use Damcclean\Systatic\Cache\Cache;
-use Damcclean\Systatic\Filesystem\Filesystem;
-use Damcclean\Systatic\Systatic;
 use PHPUnit\Framework\TestCase as Base;
+use Damcclean\Systatic\Filesystem\Filesystem;
 
 define('BASE', './tests/fixtures');
 define('CONFIGURATION', './tests/fixtures/config.php');

@@ -13,10 +13,10 @@ class InitCommand extends Command
     public function __construct()
     {
         parent::__construct();
-        
+
         $this->filesystem = new Filesystem();
     }
-    
+
     public function handle()
     {
         $base = getcwd();

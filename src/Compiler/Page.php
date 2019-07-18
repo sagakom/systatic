@@ -3,7 +3,6 @@
 namespace Damcclean\Systatic\Compiler;
 
 use Damcclean\Systatic\Config\Config;
-use Tightenco\Collect\Support\Collection;
 use Damcclean\Systatic\Collections\Collections;
 
 class Page

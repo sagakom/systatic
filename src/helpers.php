@@ -2,10 +2,10 @@
 
 use Carbon\Carbon;
 use Damcclean\Systatic\Config\Config;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\VarDumper\VarDumper;
-use Damcclean\Systatic\Filesystem\Filesystem as SystaticFilesystem;
+use Symfony\Component\Filesystem\Filesystem;
 use Damcclean\Systatic\Collections\Collections;
+use Damcclean\Systatic\Filesystem\Filesystem as SystaticFilesystem;
 
 /*
     Helpers
@@ -18,7 +18,7 @@ use Damcclean\Systatic\Collections\Collections;
     - Dumps then dies
 */
 
-if (!function_exists('dd')) {
+if (! function_exists('dd')) {
     function dd(...$args)
     {
         foreach ($args as $x) {
@@ -35,12 +35,12 @@ if (!function_exists('dd')) {
     - Useful for debugging broken code
 */
 
-if (!function_exists('logging')) {
+if (! function_exists('logging')) {
     function logging($message)
     {
         $file = (new Config)->getConfig('locations.storage') . '/systatic.log';
 
-        if (!file_exists($file)) {
+        if (! file_exists($file)) {
             (new Filesystem)->touch($file);
         }
 
@@ -53,7 +53,7 @@ if (!function_exists('logging')) {
     - Get the path of the configuration file
 */
 
-if (!function_exists('config_path')) {
+if (! function_exists('config_path')) {
     function config_path()
     {
         return CONFIG;
@@ -65,10 +65,11 @@ if (!function_exists('config_path')) {
     - Get value from env file
 */
 
-if (!function_exists('env')) {
+if (! function_exists('env')) {
     function env($key)
     {
         $config = new Config();
+
         return $config->env($key);
     }
 }
@@ -79,7 +80,7 @@ if (!function_exists('env')) {
     - Uses the array_key_exists function
 */
 
-if (!function_exists('meta_exists')) {
+if (! function_exists('meta_exists')) {
     function meta_exists($meta, $key)
     {
         if (array_key_exists($key, $meta)) {
@@ -96,7 +97,7 @@ if (!function_exists('meta_exists')) {
     - Links to a redirect link
 */
 
-if (!function_exists('route')) {
+if (! function_exists('route')) {
     function route($slug)
     {
         $config = new Config();
@@ -126,11 +127,12 @@ if (!function_exists('route')) {
     String starts with
 */
 
-if (!function_exists('startsWith')) {
+if (! function_exists('startsWith')) {
     function startsWith($string, $starting)
     {
         $len = strlen($starting);
-        return (substr($string, 0, $len) === $starting);
+
+        return substr($string, 0, $len) === $starting;
     }
 }
 
@@ -138,7 +140,7 @@ if (!function_exists('startsWith')) {
     String ends with
 */
 
-if (!function_exists('endsWith')) {
+if (! function_exists('endsWith')) {
     function endsWith($string, $ending)
     {
         $strLength = strlen($string);
@@ -160,14 +162,14 @@ if (!function_exists('endsWith')) {
     - Also writes content to the file
 */
 
-if (!function_exists('file_write_contents')) {
+if (! function_exists('file_write_contents')) {
     function file_write_contents($path, $content)
     {
         $filesystem = new SystaticFilesystem();
 
         $directory = pathinfo($path, PATHINFO_DIRNAME);
 
-        if (!file_exists($directory)) {
+        if (! file_exists($directory)) {
             $filesystem->createDirectory($directory);
         }
 
@@ -180,22 +182,24 @@ if (!function_exists('file_write_contents')) {
     - Works with nested arrays
 */
 
-if (!function_exists('convert_to_object')) {
+if (! function_exists('convert_to_object')) {
     function convert_to_object($array)
     {
-        $object = new stdClass;
+//        $object = new stdClass;
+//
+//        foreach ($array as $key => $value) {
+//            if (strlen($key)) {
+//                if (is_array($key)) {
+//                    $object->{$key} = convert_to_object($value);
+//                } else {
+//                    $object->{$key} = $value;
+//                }
+//            }
+//        }
+//
+//        return $object;
 
-        foreach ($array as $key => $value) {
-            if (strlen($key)) {
-                if (is_array($key)) {
-                    $object->{$key} = convert_to_object($value);
-                } else {
-                    $object->{$key} = $value;
-                }
-            }
-        }
-
-        return $object;
+        return json_decode(json_encode($array, JSON_FORCE_OBJECT));
     }
 }
 
@@ -204,10 +208,10 @@ if (!function_exists('convert_to_object')) {
     - Helper for the Carbon dates package
 */
 
-if (!function_exists('carbon')) {
+if (! function_exists('carbon')) {
     function carbon($value)
     {
-        if (!$value instanceof Carbon) {
+        if (! $value instanceof Carbon) {
             $value = (is_numeric($value)) ? Carbon::createFromTimestamp($value) : Carbon::parse($value);
         }
 
@@ -220,7 +224,7 @@ if (!function_exists('carbon')) {
  * https://stackoverflow.com/questions/24316347/how-to-format-var-export-to-php5-4-array-syntax
  */
 
-function var_export_new($data, $return=true)
+function var_export_new($data, $return = true)
 {
     $dump = var_export($data, true);
 
@@ -230,9 +234,9 @@ function var_export_new($data, $return=true)
 
     if (gettype($data) == 'object') {
         $dump = str_replace('__set_state(array(', '__set_state([', $dump);
-        $dump = preg_replace('#\)\)$#', "])", $dump);
+        $dump = preg_replace('#\)\)$#', '])', $dump);
     } else {
-        $dump = preg_replace('#\)$#', "]", $dump);
+        $dump = preg_replace('#\)$#', ']', $dump);
     }
 
     if ($return === true) {

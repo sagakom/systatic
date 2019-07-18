@@ -7,20 +7,20 @@ return [
     'locations' => [
         'output' => './tests/fixtures/dist',
         'views' => './tests/fixtures/views',
-        'storage' => './tests/fixtures/storage'
+        'storage' => './tests/fixtures/storage',
     ],
 
     'collections' => [
         'pages' => [
             'name' => 'Pages',
             'permalink' => '/',
-            'location' => './tests/fixtures/content/pages'
+            'location' => './tests/fixtures/content/pages',
         ],
 
         'posts' => [
             'name' => 'Posts',
             'permalink' => '/posts/',
-            'location' => './tests/fixtures/content/posts'
+            'location' => './tests/fixtures/content/posts',
         ],
 
         'favourites' => [
@@ -33,17 +33,17 @@ return [
                     return [
                         'title' => $item['title'],
                         'slug' => $item['slug'],
-                        'content' => $item['content']
+                        'content' => $item['content'],
                     ];
                 });
-            }
+            },
         ],
     ],
 
     'redirects' => [
         [
             'slug' => 'google',
-            'target' => 'https://google.com'
-        ]
+            'target' => 'https://google.com',
+        ],
     ],
 ];

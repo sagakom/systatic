@@ -3,7 +3,6 @@
 namespace Tests;
 
 use Damcclean\Systatic\Compiler\Page;
-use Tests\TestCase;
 
 class PageTest extends TestCase
 {
@@ -23,9 +22,9 @@ class PageTest extends TestCase
             'view' => 'index',
             'content' => '<p>This is the homepage of my wonderful website.</p>',
             'meta' => [
-                'title' => 'Homepage'
+                'title' => 'Homepage',
             ],
-            'last_updated' => null
+            'last_updated' => null,
         ];
 
         $page = $this->page->process($data);
@@ -33,5 +32,45 @@ class PageTest extends TestCase
         $this->assertIsArray($page);
         $this->assertSame($page['title'], 'Homepage');
         $this->assertSame($page['view'], 'index');
+    }
+
+    public function testConfigIsObject()
+    {
+        $data = [
+            'filename' => './tests/fixtures/content/pages/index.md',
+            'permalink' => '/index.html',
+            'title' => 'Homepage',
+            'slug' => 'index',
+            'view' => 'index',
+            'content' => '<p>This is the homepage of my wonderful website.</p>',
+            'meta' => [
+                'title' => 'Homepage',
+            ],
+            'last_updated' => null,
+        ];
+
+        $page = $this->page->process($data);
+
+        $this->assertIsObject($page['config']);
+    }
+
+    public function testMetaIsObject()
+    {
+        $data = [
+            'filename' => './tests/fixtures/content/pages/index.md',
+            'permalink' => '/index.html',
+            'title' => 'Homepage',
+            'slug' => 'index',
+            'view' => 'index',
+            'content' => '<p>This is the homepage of my wonderful website.</p>',
+            'meta' => [
+                'title' => 'Homepage',
+            ],
+            'last_updated' => null,
+        ];
+
+        $page = $this->page->process($data);
+
+        $this->assertIsObject($page['meta']);
     }
 }

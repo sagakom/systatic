@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Tests\TestCase;
 use Damcclean\Systatic\Config\Config;
 
 class ConfigTest extends TestCase

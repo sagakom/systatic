@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5acde6ad-dc0b-498e-866c-8be33aae570c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stubs/site/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +20,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.styleci.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        <entry file="file://$PROJECT_DIR$/stubs/site/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="405">
+                <caret line="27" column="81" selection-start-line="27" selection-start-column="81" selection-end-line="27" selection-end-column="81" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -44,8 +48,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Import/Jekyll.php" />
-        <option value="$PROJECT_DIR$/src/Commands/JekyllImportCommand.php" />
         <option value="$PROJECT_DIR$/src/Commands/GhostImportCommand.php" />
         <option value="$PROJECT_DIR$/src/Import/Ghost.php" />
         <option value="$PROJECT_DIR$/readme.md" />
@@ -72,13 +74,10 @@
         <option value="$PROJECT_DIR$/tests/Unit/MarkdownTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/RedirectTest.php" />
         <option value="$PROJECT_DIR$/tests/fixtures/real-config.php" />
-        <option value="$PROJECT_DIR$/src/Config/Config.php" />
         <option value="$PROJECT_DIR$/tests/Unit/CollectionsTest.php" />
         <option value="$PROJECT_DIR$/tests/fixtures/config.php" />
         <option value="$PROJECT_DIR$/tests/TestCase.php" />
         <option value="$PROJECT_DIR$/tests/Unit/RemoteCollectionTest.php" />
-        <option value="$PROJECT_DIR$/src/Compiler/Page.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/PageTest.php" />
         <option value="$PROJECT_DIR$/src/Compiler/BladeCompiler.php" />
         <option value="$PROJECT_DIR$/src/Filesystem/Filesystem.php" />
         <option value="$PROJECT_DIR$/tests/fixtures/storage/filesystem-test/source.txt" />
@@ -94,7 +93,12 @@
         <option value="$PROJECT_DIR$/stubs/site/systatic" />
         <option value="$PROJECT_DIR$/stubs/site/config.php" />
         <option value="$PROJECT_DIR$/SECURITY.md" />
+        <option value="$PROJECT_DIR$/src/Config/Config.php" />
+        <option value="$PROJECT_DIR$/src/Compiler/Page.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/PageTest.php" />
+        <option value="$PROJECT_DIR$/src/helpers.php" />
         <option value="$PROJECT_DIR$/.styleci.yml" />
+        <option value="$PROJECT_DIR$/stubs/site/README.md" />
       </list>
     </option>
   </component>
@@ -170,10 +174,11 @@
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="3" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="1019" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -189,6 +194,17 @@
             <path>
               <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
               <item name="systatic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systatic" type="462c0819:PsiDirectoryNode" />
+              <item name="stubs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="systatic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="systatic" type="462c0819:PsiDirectoryNode" />
+              <item name="stubs" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -241,12 +257,12 @@
       <workItem from="1563091730176" duration="49000" />
       <workItem from="1563294247201" duration="1179000" />
       <workItem from="1563309442081" duration="594000" />
-      <workItem from="1563476279543" duration="348000" />
+      <workItem from="1563476279543" duration="3912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52583000" />
+    <option name="totallyTimeSpent" value="56147000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,7 +277,7 @@
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.2550586" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992908" weight="0.2550586" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50070924" side_tool="true" weight="0.25239617" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -274,7 +290,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32871288" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32871288" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -307,23 +323,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/fixtures/content/pages/contact-me.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Collections/Markdown.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Collections/Entries.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -420,27 +419,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Config/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-          <folding>
-            <element signature="e#45#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/fixtures/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Compiler/Page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -460,16 +442,6 @@
           <caret line="26" column="1" lean-forward="true" selection-end-line="26" selection-end-column="1" />
           <folding>
             <element signature="e#25#67#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/PageTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-end-line="36" selection-end-column="1" />
-          <folding>
-            <element signature="e#25#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -667,10 +639,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Config/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Compiler/Page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/PageTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="e#25#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="247" selection-start-line="247" selection-end-line="247" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.styleci.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stubs/site/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="405">
+            <caret line="27" column="81" selection-start-line="27" selection-start-column="81" selection-end-line="27" selection-end-column="81" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

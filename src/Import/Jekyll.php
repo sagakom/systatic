@@ -2,10 +2,10 @@
 
 namespace Damcclean\Systatic\Import;
 
-use Damcclean\Systatic\Collections\Collections;
+use Symfony\Component\Yaml\Yaml;
 use Damcclean\Systatic\Config\Config;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Yaml\Yaml;
+use Damcclean\Systatic\Collections\Collections;
 
 class Jekyll
 {
@@ -37,7 +37,7 @@ class Jekyll
         $configSettings = Yaml::parseFile($configFile);
 
         foreach ($configSettings as $key => $value) {
-            if ($key == "title") {
+            if ($key == 'title') {
                 $configSettings['name'] = $configSettings['title'];
                 unset($configSettings['title']);
             }

@@ -56,7 +56,7 @@ class Cache
                 $whitelist = $this->config->getArray()['whitelist'];
 
                 foreach ($whitelist as $item) {
-                    if (!$file === $item) {
+                    if (! $file === $item) {
                         $this->filesystem->delete($file);
                     }
                 }

@@ -3,7 +3,6 @@
 namespace Damcclean\Systatic\Filesystem;
 
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 class Filesystem
 {
