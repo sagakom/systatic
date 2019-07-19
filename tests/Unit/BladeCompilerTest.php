@@ -28,7 +28,7 @@ class BladeCompilerTest extends TestCase
             'meta' => [
                 'title' => 'Listen to my jokes',
             ],
-            'last_updated' => null,
+            'last_updated' => null
         ];
 
         $blade = $this->blade->compile($data);

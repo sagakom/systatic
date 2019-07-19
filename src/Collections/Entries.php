@@ -14,7 +14,7 @@ class Entries
         $this->entries = [];
     }
 
-    public function process($collection, $key)
+    public function process($collection)
     {
         $this->entries = [];
 
@@ -74,5 +74,23 @@ class Entries
         $contents = '---' . PHP_EOL . $yamlFrontMatter . PHP_EOL . '---' . PHP_EOL . $content;
 
         return (bool) file_write_contents($collection['location'] . '/' . $slug . '.md', $contents);
+    }
+
+    public function get($slug)
+    {
+        $collections = (new Collections())->fetch();
+
+        foreach($collections as $collection) {
+            foreach($collection['items'] as $entry) {
+                if($entry['slug'] == $slug) {
+                    return [
+                        $entry,
+                        $collection
+                    ];
+                }
+            }
+        }
+
+        return null;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Damcclean\Systatic\Compiler;
 
+use Damcclean\Systatic\Collections\Entries;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Collections\Collections;
 
@@ -24,6 +25,8 @@ class Page
             str_replace('.html', '.' . $data['meta']['filetype'], $filename);
         }
 
+        $collections = new Collections();
+
         $page = [
             'url' => $this->config->get('url') . $data['slug'] . '/index.html',
             'filename' => $data['filename'],
@@ -38,9 +41,8 @@ class Page
             'meta' => convert_to_object($data['meta']),
 
             'config' => convert_to_object($this->config->getArray()),
+            'collection' => (new Entries())->get($data['slug'])
         ];
-
-        $collections = new Collections();
 
         foreach ($collections->index() as $collection) {
             $items = $collections->get($collection['key'])['items'];
