@@ -2,8 +2,8 @@
 
 namespace Damcclean\Systatic\Compiler;
 
-use Damcclean\Systatic\Collections\Entries;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Collections\Entries;
 use Damcclean\Systatic\Collections\Collections;
 
 class Page
@@ -41,7 +41,7 @@ class Page
             'meta' => convert_to_object($data['meta']),
 
             'config' => convert_to_object($this->config->getArray()),
-            'collection' => convert_to_object((new Entries())->get($data['slug']))
+            'collection' => convert_to_object((new Entries())->get($data['slug'])),
         ];
 
         foreach ($collections->index() as $collection) {

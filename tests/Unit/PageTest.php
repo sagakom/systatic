@@ -24,7 +24,7 @@ class PageTest extends TestCase
             'meta' => [
                 'title' => 'Homepage',
             ],
-            'last_updated' => null
+            'last_updated' => null,
         ];
 
         $page = $this->page->process($data);
@@ -46,7 +46,7 @@ class PageTest extends TestCase
             'meta' => [
                 'title' => 'Homepage',
             ],
-            'last_updated' => null
+            'last_updated' => null,
         ];
 
         $page = $this->page->process($data);
@@ -66,7 +66,7 @@ class PageTest extends TestCase
             'meta' => [
                 'title' => 'Homepage',
             ],
-            'last_updated' => null
+            'last_updated' => null,
         ];
 
         $page = $this->page->process($data);

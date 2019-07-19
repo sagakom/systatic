@@ -80,33 +80,30 @@ class Entries
     {
         $collections = (new Collections())->fetch();
 
-        foreach($collections as $collection) {
-            foreach($collection['items'] as $entry) {
-                if($entry['slug'] == $slug) {
+        foreach ($collections as $collection) {
+            foreach ($collection['items'] as $entry) {
+                if ($entry['slug'] == $slug) {
                     return [
                         $entry,
-                        $collection
+                        $collection,
                     ];
                 }
             }
         }
-
-        return null;
     }
 
     public function getCollectionForEntry($slug)
     {
         $collections = (new Collections())->fetch();
 
-        foreach($collections as $collection) {
-            foreach($collections['items'] as $entry) {
-                if($entry['slug'] == $slug) {
+        foreach ($collections as $collection) {
+            foreach ($collections['items'] as $entry) {
+                if ($entry['slug'] == $slug) {
                     unset($collection['items']);
+
                     return $collection;
                 }
             }
         }
-
-        return null;
     }
 }
