@@ -41,7 +41,7 @@ class Page
             'meta' => convert_to_object($data['meta']),
 
             'config' => convert_to_object($this->config->getArray()),
-            'collection' => (new Entries())->get($data['slug'])
+            'collection' => convert_to_object((new Entries())->get($data['slug']))
         ];
 
         foreach ($collections->index() as $collection) {
