@@ -84,7 +84,7 @@ class Markdown
             'view' => $view,
             'content' => $markdown,
             'meta' => $frontMatter,
-            'last_updated' => $lastUpdated,
+            'last_updated' => $lastUpdated
         ];
 
         return $entry;

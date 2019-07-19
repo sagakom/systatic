@@ -67,8 +67,6 @@ class Remote
             $permalink = $collection['permalink'] . '/' . $slug . '/index.html';
         }
 
-        $meta = $entry;
-
         $newEntry = [
             'filename' => $filename,
             'permalink' => $permalink,
@@ -76,8 +74,8 @@ class Remote
             'slug' => $slug,
             'view' => $view,
             'content' => $content,
-            'meta' => $meta,
-            'last_updated' => $lastUpdated,
+            'meta' => $entry,
+            'last_updated' => $lastUpdated
         ];
 
         return $newEntry;

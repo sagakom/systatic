@@ -35,7 +35,7 @@ class Collections
                 $collection['searchable'] = false;
             }
 
-            $entries = $this->entries->process($collection, $key);
+            $entries = $this->entries->process($collection);
 
             $this->store["{$key}"] = [];
             $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
