@@ -12,7 +12,7 @@ require getcwd() . '/vendor/autoload.php';
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 use Illuminate\Console\Application;
-use Damcclean\Systatic\Commands\InitCommand;
+use Damcclean\Systatic\Console\InitCommand;
 
 $container = new Container();
 $events = new Dispatcher($container);

@@ -1,13 +1,22 @@
 <?php
 
-namespace Damcclean\Systatic\Commands;
+namespace Damcclean\Systatic\Console;
 
+use Damcclean\Systatic\Console\Commands\BuildCommand;
+use Damcclean\Systatic\Console\Commands\ClearCacheCommand;
+use Damcclean\Systatic\Console\Commands\ClearSiteCommand;
+use Damcclean\Systatic\Console\Commands\DeployCommand;
+use Damcclean\Systatic\Console\Commands\GhostImportCommand;
+use Damcclean\Systatic\Console\Commands\InitCommand;
+use Damcclean\Systatic\Console\Commands\JekyllImportCommand;
+use Damcclean\Systatic\Console\Commands\ServeCommand;
+use Damcclean\Systatic\Console\Commands\WordPressImportCommand;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Console\Application;
 use Illuminate\Container\Container;
 use Damcclean\Systatic\Plugins\Plugins;
 
-class Commands
+class Kernel
 {
     public function __construct()
     {
@@ -16,7 +25,7 @@ class Commands
         $this->events = new Dispatcher($this->container);
     }
 
-    public function console()
+    public function commands()
     {
         $application = new Application($this->container, $this->events, 'Version 2');
         $application->setName('Systatic');
