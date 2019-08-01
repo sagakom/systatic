@@ -33,7 +33,7 @@ class BladeCompilerTest extends TestCase
 
         $blade = $this->blade->compile($data);
 
-        $this->assertIsBool($blade);
+        $this->assertTrue($blade);
         $this->assertFileExists('./tests/fixtures/dist/jokes.html');
     }
 }
