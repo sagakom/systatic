@@ -3,9 +3,8 @@
 use Carbon\Carbon;
 use Damcclean\Systatic\Config\Config;
 use Symfony\Component\VarDumper\VarDumper;
-use Symfony\Component\Filesystem\Filesystem;
 use Damcclean\Systatic\Collections\Collections;
-use Damcclean\Systatic\Filesystem\Filesystem as SystaticFilesystem;
+use Illuminate\Filesystem\Filesystem;
 
 /*
     Helpers
@@ -40,9 +39,7 @@ if (! function_exists('logging')) {
     {
         $file = (new Config)->getConfig('locations.storage') . '/systatic.log';
 
-        if (! file_exists($file)) {
-            (new Filesystem)->touch($file);
-        }
+        file_write_contents($file, $message);
 
         (new Filesystem)->appendToFile($file, $message);
     }
@@ -165,12 +162,10 @@ if (! function_exists('endsWith')) {
 if (! function_exists('file_write_contents')) {
     function file_write_contents($path, $content)
     {
-        $filesystem = new SystaticFilesystem();
-
         $directory = pathinfo($path, PATHINFO_DIRNAME);
 
         if (! file_exists($directory)) {
-            $filesystem->createDirectory($directory);
+            (new Filesystem())->makeDirectory($directory);
         }
 
         return (bool) file_put_contents($path, $content);

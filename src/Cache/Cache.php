@@ -3,7 +3,7 @@
 namespace Damcclean\Systatic\Cache;
 
 use Damcclean\Systatic\Config\Config;
-use Damcclean\Systatic\Filesystem\Filesystem;
+use Illuminate\Filesystem\Filesystem;
 
 class Cache
 {

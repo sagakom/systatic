@@ -10,11 +10,8 @@ class CollectionsTest extends TestCase
     {
         parent::setUp();
         $this->collections = new Collections();
-    }
 
-    public function testCanSaveCollectionStore()
-    {
-        $fakeStore = [
+        $this->fakeStore = [
             'events' => [
                 'name' => 'Events',
                 'permalink' => '/events',
@@ -22,8 +19,11 @@ class CollectionsTest extends TestCase
                 'items' => [],
             ],
         ];
+    }
 
-        $save = $this->collections->save($fakeStore);
+    public function testCanSaveCollectionStore()
+    {
+        $save = $this->collections->save($this->fakeStore);
 
         $this->assertTrue($save);
         $this->assertFileExists('./tests/fixtures/storage/collections.json');
@@ -32,22 +32,18 @@ class CollectionsTest extends TestCase
     public function testCanFetchCollectionStore()
     {
         $fetch = $this->collections->fetch();
-
-        //dd($fetch);
         $this->assertIsArray($fetch);
     }
 
     public function testCanFetchCollectionStoreAsJson()
     {
         $fetch = $this->collections->fetchAsJson();
-
         $this->assertJson($fetch);
     }
 
     public function testCanIndexCollections()
     {
         $index = $this->collections->index();
-
         $this->assertIsArray($index);
     }
 
@@ -61,8 +57,10 @@ class CollectionsTest extends TestCase
 
     public function testCanGetACollection()
     {
-        $get = $this->collections->get('events');
+        $save = $this->collections->save($this->fakeStore);
+        $this->assertTrue($save);
 
+        $get = $this->collections->get('events');
         $this->assertIsArray($get);
         $this->assertContains('Events', $get);
     }

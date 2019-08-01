@@ -5,7 +5,6 @@ namespace Damcclean\Systatic\Collections;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Compiler\Compiler;
-use Damcclean\Systatic\Filesystem\Filesystem;
 
 class Collections
 {
@@ -15,7 +14,6 @@ class Collections
         $this->config = new Config();
         $this->entries = new Entries();
         $this->compiler = new Compiler();
-        $this->filesytem = new Filesystem();
 
         $this->store = [];
     }

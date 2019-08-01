@@ -3,7 +3,6 @@
 namespace Tests;
 
 use Damcclean\Systatic\Cache\Cache;
-use Damcclean\Systatic\Filesystem\Filesystem;
 
 class CacheTest extends TestCase
 {
@@ -11,11 +10,10 @@ class CacheTest extends TestCase
     {
         parent::setUp();
         $this->cache = new Cache();
-        $this->filesystem = new Filesystem();
 
-        $this->filesystem->dump('./tests/fixtures/storage/cache/pretend-view-cache-file.php', 'wip commits are good');
-        $this->filesystem->dump('./tests/fixtures/storage/collections.json', '{}');
-        $this->filesystem->dump('./tests/fixtures/storage/plugins.json', '{}');
+        file_write_contents('./tests/fixtures/storage/cache/pretend-view-cache-file.php', 'wip commits are good');
+        file_write_contents('./tests/fixtures/storage/collections.json', '{}');
+        file_write_contents('./tests/fixtures/storage/plugins.json', '{}');
     }
 
     public function testCanClearViewCache()
@@ -33,7 +31,7 @@ class CacheTest extends TestCase
 
     public function testCanClearOutputDirectory()
     {
-        (new Filesystem())->createFile('./tests/fixtures/dist/clear-file.html');
+        file_write_contents('./tests/fixtures/dist/clear-file.html', '');
         $clear = $this->cache->clearSiteOutput();
         $this->assertFileNotExists('./tests/fixtures/dist/clear-file.html');
     }
