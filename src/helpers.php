@@ -180,20 +180,6 @@ if (! function_exists('file_write_contents')) {
 if (! function_exists('convert_to_object')) {
     function convert_to_object($array)
     {
-//        $object = new stdClass;
-//
-//        foreach ($array as $key => $value) {
-//            if (strlen($key)) {
-//                if (is_array($key)) {
-//                    $object->{$key} = convert_to_object($value);
-//                } else {
-//                    $object->{$key} = $value;
-//                }
-//            }
-//        }
-//
-//        return $object;
-
         return json_decode(json_encode($array, JSON_FORCE_OBJECT));
     }
 }
