@@ -4,6 +4,7 @@ namespace Damcclean\Systatic\Collections;
 
 use Damcclean\Markdown\MetaParsedown;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Parsers\ParsedownExtra;
 
 class Markdown
 {
@@ -11,6 +12,7 @@ class Markdown
     {
         $this->config = new Config();
         $this->parsedown = new MetaParsedown();
+        $this->parser = new ParsedownExtra();
     }
 
     public function parse($file, $collection)
@@ -33,7 +35,7 @@ class Markdown
         $title = $slug;
         $view = 'index';
 
-        $markdown = $this->parsedown->text($contents);
+        $markdown = $this->parser->parse($contents);
         $frontMatter = $this->parsedown->meta($contents);
 
         if (array_key_exists('title', $frontMatter)) {
