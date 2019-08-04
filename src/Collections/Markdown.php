@@ -2,17 +2,17 @@
 
 namespace Damcclean\Systatic\Collections;
 
-use Damcclean\Markdown\MetaParsedown;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Parsers\ParsedownExtra;
+use Damcclean\Systatic\Parsers\Yaml;
 
 class Markdown
 {
     public function __construct()
     {
         $this->config = new Config();
-        $this->parsedown = new MetaParsedown();
-        $this->parser = new ParsedownExtra();
+        $this->markdown = new ParsedownExtra();
+        $this->yaml = new Yaml();
     }
 
     public function parse($file, $collection)
@@ -35,8 +35,8 @@ class Markdown
         $title = $slug;
         $view = 'index';
 
-        $markdown = $this->parser->parse($contents);
-        $frontMatter = $this->parsedown->meta($contents);
+        $markdown = $this->markdown->parse($contents);
+        $frontMatter = $this->yaml->parse($contents);
 
         if (array_key_exists('title', $frontMatter)) {
             $title = $frontMatter['title'];

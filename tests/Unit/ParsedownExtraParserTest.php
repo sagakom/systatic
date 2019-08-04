@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use Damcclean\Systatic\Build\Redirects;
 use Damcclean\Systatic\Parsers\ParsedownExtra;
 use Tests\TestCase;
 
