@@ -92,5 +92,6 @@ class PageTest extends TestCase
         $page = $this->page->process($data);
 
         $this->assertArrayHasKey('author', $page);
+        $this->assertSame('Joe Bloggs', $page['author']);
     }
 }
