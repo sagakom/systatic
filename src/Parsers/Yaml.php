@@ -8,12 +8,14 @@ class Yaml
 {
     public function parse($contents)
     {
-        preg_match($this->regex, $contents, $matches);
+        $contents = $this->stripContent($contents);
+        return SymfonyYaml::parse($contents);
+    }
 
-        if(isset($matches[2])) {
-            return SymfonyYaml::parse(trim($matches[2]));
-        }
-
-        return [];
+    private function stripContent($content)
+    {
+        $content = substr($content, 0, strpos($content, '---', strpos($content, '---')+1));
+        $content = str_replace('---', '', $content);
+        return $content;
     }
 }
