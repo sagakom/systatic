@@ -32,15 +32,11 @@ class Page
             'filename' => $data['filename'],
             'output_filename' => $filename,
             'permalink' => $data['permalink'],
-
             'title' => $data['title'],
             'slug' => $data['slug'],
             'view' => $data['view'],
             'content' => $data['content'],
             'last_updated' => $data['last_updated'],
-            'meta' => convert_to_object($data['meta']),
-
-            'config' => convert_to_object($this->config->getArray()),
             'collection' => convert_to_object((new Entries())->get($data['slug'])),
         ];
 
