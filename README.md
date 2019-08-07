@@ -16,7 +16,6 @@
     <a href="https://packagist.org/packages/damcclean/systatic">
         <img src="https://img.shields.io/packagist/dt/damcclean/systatic.svg?style=flat-square" alt="Total Downloads" />
     </a>
-    
     <a href="https://www.codetriage.com/damcclean/systatic">
         <img src="https://www.codetriage.com/damcclean/systatic/badges/users.svg" alt="Open Source Helpers" />
     </a>
