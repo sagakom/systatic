@@ -74,6 +74,25 @@ class PageTest extends TestCase
         $this->assertIsObject($page['meta']);
     }
 
+    public function testConfigItemIsPageVariable()
+    {
+        $data = [
+            'filename' => './tests/fixtures/content/pages/index.md',
+            'permalink' => '/index.html',
+            'title' => 'Homepage',
+            'slug' => 'index',
+            'view' => 'index',
+            'content' => '<p>This is the homepage of my wonderful website.</p>',
+            'meta' => [],
+            'last_updated' => null,
+        ];
+
+        $page = $this->page->process($data);
+
+        $this->assertArrayHasKey('name', $page);
+        $this->assertSame('Systatic', $page['name']);
+    }
+
     public function testMetaPropertyIsPageVariable()
     {
         $data = [

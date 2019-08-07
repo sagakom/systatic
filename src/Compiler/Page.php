@@ -54,6 +54,10 @@ class Page
             }
         }
 
+        foreach($this->config->getArray() as $key => $value) {
+            $page["{$key}"] = convert_to_object($value);
+        }
+
         foreach ($data['meta'] as $key => $value) {
             $page["{$key}"] = convert_to_object($value);
         }
