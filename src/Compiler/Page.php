@@ -54,6 +54,10 @@ class Page
             }
         }
 
+        foreach ($data['meta'] as $key => $value) {
+            $page["{$key}"] = convert_to_object($value);
+        }
+
         return $page;
     }
 }

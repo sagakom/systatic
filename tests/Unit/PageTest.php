@@ -73,4 +73,24 @@ class PageTest extends TestCase
 
         $this->assertIsObject($page['meta']);
     }
+
+    public function testMetaPropertyIsPageVariable()
+    {
+        $data = [
+            'filename' => './tests/fixtures/content/pages/index.md',
+            'permalink' => '/index.html',
+            'title' => 'Homepage',
+            'slug' => 'index',
+            'view' => 'index',
+            'content' => '<p>This is the homepage of my wonderful website.</p>',
+            'meta' => [
+                'author' => 'Joe Bloggs',
+            ],
+            'last_updated' => null,
+        ];
+
+        $page = $this->page->process($data);
+
+        $this->assertArrayHasKey('author', $page);
+    }
 }
