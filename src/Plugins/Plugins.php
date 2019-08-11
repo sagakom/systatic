@@ -23,7 +23,7 @@ class Plugins
         return json_decode(file_get_contents($this->config->get('locations.storage') . '/plugins.json'), true);
     }
 
-    public function register()
+    public function find()
     {
         if (array_key_exists('plugins', $this->config->getArray())) {
             foreach ($this->config->getArray()['plugins'] as $plugin) {

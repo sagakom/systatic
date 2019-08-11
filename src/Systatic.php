@@ -11,7 +11,7 @@ class Systatic
     public function boot()
     {
         (new Provider())->register();
-        (new Plugins())->register();
+        (new Plugins())->find();
         (new Kernel())->commands();
     }
 }
