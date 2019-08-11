@@ -39,22 +39,21 @@ class Plugins
 
     public function commands()
     {
-        $plugins = $this->fetch();
-        $allCommands = [];
+        $commands = [];
 
-        foreach ($plugins as $plugin) {
+        foreach ($this->fetch() as $plugin) {
             if (array_key_exists('commands', $plugin)) {
                 $pluginCommands = $plugin['commands'];
 
-                $commands = new $pluginCommands();
-                $commands = $commands->console();
+                $pluginCommands = new $pluginCommands();
+                $pluginCommands = $plugin->console();
 
-                foreach ($commands as $command) {
+                foreach ($pluginCommands as $command) {
                     array_push($allCommands, $command);
                 }
             }
         }
 
-        return $allCommands;
+        return $commands;
     }
 }
