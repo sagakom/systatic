@@ -15,9 +15,7 @@ class Plugins
 
     public function save($store)
     {
-        file_put_contents($this->config->get('locations.storage') . '/plugins.json', json_encode($store));
-
-        return true;
+        return (bool) file_put_contents($this->config->get('locations.storage') . '/plugins.json', json_encode($store));
     }
 
     public function fetch()
