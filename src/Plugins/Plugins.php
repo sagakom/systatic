@@ -9,7 +9,6 @@ class Plugins
     public function __construct()
     {
         $this->config = new Config();
-
         $this->store = [];
     }
 
