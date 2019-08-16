@@ -2,24 +2,17 @@
 
 namespace Damcclean\Systatic\Plugins;
 
+use Damcclean\Systatic\Store;
 use Damcclean\Systatic\Config\Config;
 
-class Plugins
+class Plugins extends Store
 {
+    public $name = 'plugins';
+    protected $pluginData = [];
+
     public function __construct()
     {
         $this->config = new Config();
-        $this->store = [];
-    }
-
-    public function save($store)
-    {
-        return (bool) file_put_contents($this->config->get('locations.storage') . '/plugins.json', json_encode($store));
-    }
-
-    public function fetch()
-    {
-        return json_decode(file_get_contents($this->config->get('locations.storage') . '/plugins.json'), true);
     }
 
     public function find()
@@ -27,32 +20,34 @@ class Plugins
         if (array_key_exists('plugins', $this->config->getArray())) {
             foreach ($this->config->getArray()['plugins'] as $plugin) {
                 $p = new $plugin();
-                $p = $p->boot();
 
-                array_push($this->store, $p);
+                $data = [];
+                $data["{$plugin}"] = [
+                    'name' => null,
+                    'provider' => $plugin
+                ];
+
+                array_push($this->pluginData, $data);
+
+                $p->boot();
             }
         }
 
-        $this->save($this->store);
+        $this->store($this->pluginData);
     }
 
-    public function commands()
+    public function setupConsole($c)
     {
-        $commands = [];
+        $all = [];
+        $plugin = new $c();
+        $commands = $plugin->commands();
 
-        foreach ($this->fetch() as $plugin) {
-            if (array_key_exists('commands', $plugin)) {
-                $pluginCommands = $plugin['commands'];
-
-                $pluginCommands = new $pluginCommands();
-                $pluginCommands = $plugin->console();
-
-                foreach ($pluginCommands as $command) {
-                    array_push($allCommands, $command);
-                }
-            }
+        foreach ($commands as $command) {
+            array_push($all, $command);
         }
 
-        return $commands;
+        array_push($this->storeData["test"], $all);
+
+        return (new Console())->save($this->storeData);
     }
 }

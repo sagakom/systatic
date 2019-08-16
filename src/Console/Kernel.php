@@ -40,11 +40,13 @@ class Kernel
         $application->add(new DeployCommand());
         $application->add(new ServeCommand());
 
-        $pluginCommands = $this->plugins->commands();
 
-        foreach ($pluginCommands as $command) {
-            $application->add(new $command());
-        }
+
+        //$pluginCommands = $this->plugins->commands();
+
+//        foreach ($pluginCommands as $command) {
+//            $application->add(new $command());
+//        }
 
         $application->run();
     }

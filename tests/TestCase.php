@@ -26,5 +26,6 @@ class TestCase extends Base
         $filesystem->copy('./tests/fixtures/real-config.php', './tests/fixtures/config.php');
         file_write_contents('./tests/fixtures/storage/collections.json', '{}');
         file_write_contents('./tests/fixtures/storage/plugins.json', '{}');
+        file_write_contents('./tests/fixtures/storage/console.json', '{}');
     }
 }
