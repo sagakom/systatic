@@ -3,6 +3,7 @@
 namespace Damcclean\Systatic\Collections;
 
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Plugins\Compiler;
 
 class Remote
 {
@@ -11,6 +12,7 @@ class Remote
     public function __construct()
     {
         $this->config = new Config();
+        $this->compiler = new Compiler();
     }
 
     public function process(array $collection)
@@ -45,14 +47,18 @@ class Remote
         if (array_key_exists('slug', $entry)) {
             $slug = $entry['slug'];
 
-            if (file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
-                $view = $entry['slug'];
+            foreach($this->compiler->getExtensions() as $extension) {
+                if (file_exists($this->config->get('locations.views') . '/' . $slug . $extension)) {
+                    $view = $entry['slug'];
+                }
             }
         }
 
         if (array_key_exists('view', $entry)) {
-            if (file_exists($this->config->get('locations.views') . '/' . $view . '.blade.php')) {
-                $view = $entry['view'];
+            foreach($this->compiler->getExtensions() as $extension) {
+                if (file_exists($this->config->get('locations.views') . '/' . $view . $extension)) {
+                    $view = $entry['view'];
+                }
             }
         }
 
