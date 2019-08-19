@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use Damcclean\Systatic\Plugins\BaseProvider;
+use Illuminate\Filesystem\Filesystem;
 use Tests\TestCase;
 
 class BasePluginProviderTest extends TestCase
@@ -33,5 +34,17 @@ class BasePluginProviderTest extends TestCase
 
         $this->assertIsArray($compiler);
         $this->assertFileExists('./tests/fixtures/storage/compiler.json');
+    }
+
+    /** @test */
+    public function can_publish_views()
+    {
+        (new Filesystem())->delete('./tests/fixtures/views/published.blade.php');
+
+        $views = $this->base->publishViews([
+            './tests/fixtures/publish-test.blade.php' => 'published.blade.php'
+        ]);
+
+        $this->assertFileExists('./tests/fixtures/views/published.blade.php');
     }
 }
