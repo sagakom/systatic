@@ -6,6 +6,7 @@ use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Compiler\Compiler;
 use Damcclean\Systatic\Store;
+use Illuminate\Filesystem\Filesystem;
 
 class Collections extends Store
 {
@@ -105,13 +106,13 @@ class Collections extends Store
         }
 
         if (! file_exists($location)) {
-            $this->filesytem->createDirectory($location);
+            (new Filesystem())->makeDirectory($location);
         }
 
         return $this->config->updateArray($collection);
     }
 
-    public function show($slug)
+    public function show(string $slug)
     {
         return $this->get()["{$slug}"];
     }

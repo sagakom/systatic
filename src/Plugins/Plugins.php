@@ -31,7 +31,7 @@ class Plugins extends Store
         $this->store($this->pluginData);
     }
 
-    public function setupConsole($consoleClass)
+    public function setupConsole(string $consoleClass)
     {
         $commands = new $consoleClass();
 

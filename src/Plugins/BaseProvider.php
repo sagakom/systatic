@@ -14,7 +14,7 @@ class BaseProvider
         // WIP
     }
 
-    public function registerConsole($consoleClass)
+    public function registerConsole(string $consoleClass)
     {
         $this->plugins->setupConsole($consoleClass);
     }

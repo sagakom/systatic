@@ -15,7 +15,7 @@ class Markdown
         $this->yaml = new Yaml();
     }
 
-    public function parse($file, $collection)
+    public function parse(string $file, array $collection)
     {
         $filename = $file;
         $contents = file_get_contents($file);

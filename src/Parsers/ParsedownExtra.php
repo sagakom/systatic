@@ -11,7 +11,7 @@ class ParsedownExtra
         $this->parser = new Parser();
     }
 
-    public function parse($contents)
+    public function parse(string $contents)
     {
         return $this->parser->text($contents);
     }

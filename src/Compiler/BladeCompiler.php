@@ -14,7 +14,7 @@ class BladeCompiler
         $this->blade = new Blade($this->config->get('locations.views'), $this->config->get('locations.storage') . '/cache');
     }
 
-    public function compile($data)
+    public function compile(array $data)
     {
         $page = $this->page->process($data);
         $view = $this->blade->make($data['view'], $page);

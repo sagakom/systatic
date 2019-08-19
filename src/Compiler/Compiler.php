@@ -12,7 +12,7 @@ class Compiler
         $this->blade = new BladeCompiler();
     }
 
-    public function compile($entry)
+    public function compile(array $entry)
     {
         $compile = new BladeCompiler();
         $compile->compile($entry);

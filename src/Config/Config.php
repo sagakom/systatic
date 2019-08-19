@@ -14,7 +14,7 @@ class Config
         $this->config = new Repository(require CONFIGURATION);
     }
 
-    public function get($key)
+    public function get(string $key)
     {
         $config = $this->config->get($key);
 
@@ -38,7 +38,7 @@ class Config
         return $config;
     }
 
-    public function updateArray($data)
+    public function updateArray(array $data)
     {
         $config = include CONFIGURATION;
         $config = array_merge($config, $data);
@@ -51,7 +51,7 @@ class Config
         return $config;
     }
 
-    public function env($key)
+    public function env(string $key)
     {
         $env = $this->env->load(BASE . '/.env');
 

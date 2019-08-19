@@ -13,7 +13,7 @@ class Page
         $this->config = new Config();
     }
 
-    public function process($data)
+    public function process(array $data)
     {
         $filename = '/' . $data['permalink'];
 

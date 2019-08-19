@@ -13,7 +13,7 @@ class Search
         $this->collections = new Collections();
     }
 
-    public function index($items)
+    public function index(array $items)
     {
         if ($this->config->get('algolia.app_id') != null && $this->config->get('algolia.api_key') != null) {
             $client = SearchClient::create(
