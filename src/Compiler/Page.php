@@ -13,7 +13,7 @@ class Page
         $this->config = new Config();
     }
 
-    public function process($data)
+    public function process(array $data)
     {
         $filename = '/' . $data['permalink'];
 
@@ -32,26 +32,30 @@ class Page
             'filename' => $data['filename'],
             'output_filename' => $filename,
             'permalink' => $data['permalink'],
-
             'title' => $data['title'],
             'slug' => $data['slug'],
             'view' => $data['view'],
             'content' => $data['content'],
             'last_updated' => $data['last_updated'],
-            'meta' => convert_to_object($data['meta']),
-
-            'config' => convert_to_object($this->config->getArray()),
-            'collection' => convert_to_object((new Entries())->get($data['slug'])),
+            'collection' => convert_to_object((new Entries())->show($data['slug'])),
         ];
 
         foreach ($collections->index() as $collection) {
-            $items = $collections->get($collection['key'])['items'];
+            $items = $collections->show($collection['key'])['items'];
 
             $page["{$collection['key']}"] = collect($items);
 
             foreach ($page["{$collection['key']}"] as $key => $value) {
                 $page["{$collection['key']}"]["{$key}"] = convert_to_object($value);
             }
+        }
+
+        foreach ($this->config->getArray() as $key => $value) {
+            $page["{$key}"] = convert_to_object($value);
+        }
+
+        foreach ($data['meta'] as $key => $value) {
+            $page["{$key}"] = convert_to_object($value);
         }
 
         return $page;

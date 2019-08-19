@@ -1,9 +1,9 @@
 <?php
 
-namespace Damcclean\Systatic\Commands;
+namespace Damcclean\Systatic\Console\Commands;
 
 use Illuminate\Console\Command;
-use Damcclean\Systatic\Filesystem\Filesystem;
+use Illuminate\Filesystem\Filesystem;
 
 class InitCommand extends Command
 {

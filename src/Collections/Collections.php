@@ -2,22 +2,25 @@
 
 namespace Damcclean\Systatic\Collections;
 
+use Damcclean\Systatic\Store;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
+use Illuminate\Filesystem\Filesystem;
 use Damcclean\Systatic\Compiler\Compiler;
-use Damcclean\Systatic\Filesystem\Filesystem;
 
-class Collections
+class Collections extends Store
 {
+    public $name = 'collections';
+    protected $collectionData = [];
+
     public function __construct()
     {
+        parent::__construct();
+
         $this->cache = new Cache();
         $this->config = new Config();
         $this->entries = new Entries();
         $this->compiler = new Compiler();
-        $this->filesytem = new Filesystem();
-
-        $this->store = [];
     }
 
     public function collect()
@@ -37,18 +40,18 @@ class Collections
 
             $entries = $this->entries->process($collection);
 
-            $this->store["{$key}"] = [];
-            $this->store["{$key}"] = array_merge($this->store["{$key}"], $collection);
-            $this->store["{$key}"]['items'] = $entries;
+            $this->collectionData["{$key}"] = [];
+            $this->collectionData["{$key}"] = array_merge($this->collectionData["{$key}"], $collection);
+            $this->collectionData["{$key}"]['items'] = $entries;
 
-            if (array_key_exists('remote', $this->store["{$key}"])) {
-                unset($this->store["{$key}"]['remote']);
+            if (array_key_exists('remote', $this->collectionData["{$key}"])) {
+                unset($this->collectionData["{$key}"]['remote']);
             }
         }
 
-        $this->save($this->store);
+        $this->store($this->collectionData);
 
-        foreach ($this->store as $collection) {
+        foreach ($this->collectionData as $collection) {
             if (array_key_exists('searchable', $collection)) {
                 if ($collection['searchable'] != false) {
                     (new Search)->index($collection['items']);
@@ -71,26 +74,11 @@ class Collections
         return true;
     }
 
-    public function save($store)
-    {
-        return (bool) file_put_contents($this->config->get('locations.storage') . '/collections.json', json_encode($store));
-    }
-
-    public function fetch()
-    {
-        return json_decode(file_get_contents($this->config->get('locations.storage') . '/collections.json'), true);
-    }
-
-    public function fetchAsJson()
-    {
-        return file_get_contents($this->config->get('locations.storage') . '/collections.json');
-    }
-
     public function index()
     {
         $collections = [];
 
-        foreach ($this->fetch() as $collection) {
+        foreach ($this->get() as $collection) {
             unset($collection['items']);
 
             $collections[] = $collection;
@@ -99,7 +87,7 @@ class Collections
         return $collections;
     }
 
-    public function create($slug, $name, $permalink, $location, $searchable = null)
+    public function create(string $slug, string $name, string $permalink, string $location, bool $searchable = null)
     {
         if (array_key_exists('collections', $this->config->getArray())) {
             $collection['collections'] = $this->config->getArray()['collections'];
@@ -118,14 +106,14 @@ class Collections
         }
 
         if (! file_exists($location)) {
-            $this->filesytem->createDirectory($location);
+            (new Filesystem())->makeDirectory($location);
         }
 
         return $this->config->updateArray($collection);
     }
 
-    public function get($slug)
+    public function show(string $slug)
     {
-        return $this->fetch()["{$slug}"];
+        return $this->get()["{$slug}"];
     }
 }

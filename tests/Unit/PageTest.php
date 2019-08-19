@@ -34,7 +34,7 @@ class PageTest extends TestCase
         $this->assertSame($page['view'], 'index');
     }
 
-    public function testConfigIsObject()
+    public function testConfigItemIsPageVariable()
     {
         $data = [
             'filename' => './tests/fixtures/content/pages/index.md',
@@ -43,18 +43,17 @@ class PageTest extends TestCase
             'slug' => 'index',
             'view' => 'index',
             'content' => '<p>This is the homepage of my wonderful website.</p>',
-            'meta' => [
-                'title' => 'Homepage',
-            ],
+            'meta' => [],
             'last_updated' => null,
         ];
 
         $page = $this->page->process($data);
 
-        $this->assertIsObject($page['config']);
+        $this->assertArrayHasKey('name', $page);
+        $this->assertSame('Systatic', $page['name']);
     }
 
-    public function testMetaIsObject()
+    public function testMetaPropertyIsPageVariable()
     {
         $data = [
             'filename' => './tests/fixtures/content/pages/index.md',
@@ -64,13 +63,14 @@ class PageTest extends TestCase
             'view' => 'index',
             'content' => '<p>This is the homepage of my wonderful website.</p>',
             'meta' => [
-                'title' => 'Homepage',
+                'author' => 'Joe Bloggs',
             ],
             'last_updated' => null,
         ];
 
         $page = $this->page->process($data);
 
-        $this->assertIsObject($page['meta']);
+        $this->assertArrayHasKey('author', $page);
+        $this->assertSame('Joe Bloggs', $page['author']);
     }
 }

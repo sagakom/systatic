@@ -10,6 +10,7 @@ class RemoteCollectionTest extends TestCase
     public function setUp() : void
     {
         parent::setUp();
+
         $this->config = new Config();
         $this->remote = new Remote();
     }

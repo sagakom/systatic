@@ -14,7 +14,7 @@ class WordPress
         $this->collections = new Collections();
     }
 
-    public function import($siteUrl)
+    public function import(string $siteUrl)
     {
         $coreUrl = $siteUrl . '/wp-json';
 
@@ -25,7 +25,7 @@ class WordPress
         return true;
     }
 
-    public function config($coreUrl)
+    public function config(string $coreUrl)
     {
         $site = json_decode(@file_get_contents($coreUrl), true);
 
@@ -45,7 +45,7 @@ class WordPress
         return $this->config->updateArray($settings);
     }
 
-    public function posts($coreUrl)
+    public function posts(string $coreUrl)
     {
         $posts = json_decode(@file_get_contents($coreUrl . '/wp/v2/posts'), true);
 
@@ -69,7 +69,7 @@ class WordPress
         return true;
     }
 
-    public function pages($coreUrl)
+    public function pages(string $coreUrl)
     {
         $pages = json_decode(@file_get_contents($coreUrl . '/wp/v2/pages'), true);
 

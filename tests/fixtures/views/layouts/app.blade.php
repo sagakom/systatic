@@ -26,7 +26,7 @@
 	<body class="text-black bg-white text-gray-800 font-normal leading-loose">
 	  <header class="w-full bg-gray-200 p-2 px-6 flex flex-col md:flex-row justify-center items-center mb-12">
 	  		<a class="mx-4 font-bold" href="/">
-	  			{{ $config->name }}
+	  			{{ $name }}
 		  	</a>
 		  	@foreach($pages as $page)
 		  		<a class="mx-2" href="{{ $page->permalink }}">

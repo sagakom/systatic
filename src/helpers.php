@@ -2,10 +2,9 @@
 
 use Carbon\Carbon;
 use Damcclean\Systatic\Config\Config;
+use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\VarDumper\VarDumper;
-use Symfony\Component\Filesystem\Filesystem;
 use Damcclean\Systatic\Collections\Collections;
-use Damcclean\Systatic\Filesystem\Filesystem as SystaticFilesystem;
 
 /*
     Helpers
@@ -40,9 +39,7 @@ if (! function_exists('logging')) {
     {
         $file = (new Config)->getConfig('locations.storage') . '/systatic.log';
 
-        if (! file_exists($file)) {
-            (new Filesystem)->touch($file);
-        }
+        file_write_contents($file, $message);
 
         (new Filesystem)->appendToFile($file, $message);
     }
@@ -113,7 +110,7 @@ if (! function_exists('route')) {
             }
         }
 
-        foreach ($collections->fetch() as $item) {
+        foreach ($collections->get() as $item) {
             if ($item['slug'] === $slug) {
                 return $siteUrl . '/' . $slug . '.html';
             }
@@ -165,12 +162,11 @@ if (! function_exists('endsWith')) {
 if (! function_exists('file_write_contents')) {
     function file_write_contents($path, $content)
     {
-        $filesystem = new SystaticFilesystem();
-
+        $filesystem = new Filesystem();
         $directory = pathinfo($path, PATHINFO_DIRNAME);
 
         if (! file_exists($directory)) {
-            $filesystem->createDirectory($directory);
+            $filesystem->makeDirectory($directory, 0755, true, true);
         }
 
         return (bool) file_put_contents($path, $content);
@@ -185,20 +181,6 @@ if (! function_exists('file_write_contents')) {
 if (! function_exists('convert_to_object')) {
     function convert_to_object($array)
     {
-//        $object = new stdClass;
-//
-//        foreach ($array as $key => $value) {
-//            if (strlen($key)) {
-//                if (is_array($key)) {
-//                    $object->{$key} = convert_to_object($value);
-//                } else {
-//                    $object->{$key} = $value;
-//                }
-//            }
-//        }
-//
-//        return $object;
-
         return json_decode(json_encode($array, JSON_FORCE_OBJECT));
     }
 }

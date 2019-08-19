@@ -2,61 +2,62 @@
 
 namespace Damcclean\Systatic\Plugins;
 
-use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Store;
 
-class Plugins
+class Plugins extends Store
 {
+    public $name = 'plugins';
+    protected $pluginData = [];
+
     public function __construct()
     {
-        $this->config = new Config();
+        parent::__construct();
 
-        $this->store = [];
+        $this->consoleStore = new Console();
+        $this->compilerStore = new Compiler();
     }
 
-    public function save($store)
-    {
-        file_put_contents($this->config->get('locations.storage') . '/plugins.json', json_encode($store));
-
-        return true;
-    }
-
-    public function fetch()
-    {
-        return json_decode(file_get_contents($this->config->get('locations.storage') . '/plugins.json'), true);
-    }
-
-    public function register()
+    public function find()
     {
         if (array_key_exists('plugins', $this->config->getArray())) {
             foreach ($this->config->getArray()['plugins'] as $plugin) {
                 $p = new $plugin();
-                $p = $p->boot();
 
-                array_push($this->store, $p);
+                array_push($this->pluginData, $plugin);
+
+                $p->boot();
             }
         }
 
-        $this->save($this->store);
+        $this->store($this->pluginData);
     }
 
-    public function commands()
+    public function setupConsole(string $consoleClass)
     {
-        $plugins = $this->fetch();
-        $allCommands = [];
+        $commands = new $consoleClass();
 
-        foreach ($plugins as $plugin) {
-            if (array_key_exists('commands', $plugin)) {
-                $pluginCommands = $plugin['commands'];
+        return $this->consoleStore->add(
+            array_merge(
+                $this->consoleStore->get(),
+                $commands()
+            )
+        );
+    }
 
-                $commands = new $pluginCommands();
-                $commands = $commands->console();
+    public function setupCompiler(string $compilerClass)
+    {
+        $compiler = new $compilerClass();
 
-                foreach ($commands as $command) {
-                    array_push($allCommands, $command);
-                }
-            }
-        }
+        $data = [
+            'class' => $compilerClass,
+            'extensions' => $compiler->extensions,
+        ];
 
-        return $allCommands;
+        return $this->compilerStore->add(
+            array_merge(
+                $this->compilerStore->get(),
+                $data
+            )
+        );
     }
 }

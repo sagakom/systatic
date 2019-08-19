@@ -1,0 +1,24 @@
+<?php
+
+namespace Tests\Unit;
+
+use Tests\TestCase;
+use Damcclean\Systatic\Parsers\ParsedownExtra;
+
+class ParsedownExtraParserTest extends TestCase
+{
+    public function setUp() : void
+    {
+        parent::setUp();
+        $this->parser = new ParsedownExtra();
+    }
+
+    public function testCanParseMarkdownContents()
+    {
+        $markdown = '# This is my **heading**';
+
+        $parser = $this->parser->parse($markdown);
+
+        $this->assertSame('<h1>This is my <strong>heading</strong></h1>', $parser);
+    }
+}

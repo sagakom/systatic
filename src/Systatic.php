@@ -2,14 +2,16 @@
 
 namespace Damcclean\Systatic;
 
+use NunoMaduro\Collision\Provider;
+use Damcclean\Systatic\Console\Kernel;
 use Damcclean\Systatic\Plugins\Plugins;
-use Damcclean\Systatic\Commands\Commands;
 
 class Systatic
 {
     public function boot()
     {
-        (new Plugins())->register();
-        (new Commands())->console();
+        (new Provider())->register();
+        (new Plugins())->find();
+        (new Kernel())->commands();
     }
 }

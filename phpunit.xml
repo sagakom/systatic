@@ -13,4 +13,7 @@
             <directory>./tests/Unit</directory>
         </testsuite>
     </testsuites>
+    <listeners>
+        <listener class="NunoMaduro\Collision\Adapters\Phpunit\Listener" />
+    </listeners>
 </phpunit>

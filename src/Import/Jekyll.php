@@ -16,7 +16,7 @@ class Jekyll
         $this->collections = new Collections();
     }
 
-    public function import($folder)
+    public function import(string $folder)
     {
         $config = $this->parseConfig($folder);
         $data = $this->dataFiles($folder);
@@ -26,7 +26,7 @@ class Jekyll
         return true;
     }
 
-    public function parseConfig($folder)
+    public function parseConfig(string $folder)
     {
         $configFile = $folder . '/_config.yml';
 
@@ -46,7 +46,7 @@ class Jekyll
         return $this->config->updateArray($configSettings);
     }
 
-    public function dataFiles($folder)
+    public function dataFiles(string $folder)
     {
         $dataDirectory = $folder . '/_data';
 
@@ -72,7 +72,7 @@ class Jekyll
         return true;
     }
 
-    public function posts($folder)
+    public function posts(string $folder)
     {
         $postsDirectory = $folder . '/_posts';
 
@@ -99,7 +99,7 @@ class Jekyll
         return true;
     }
 
-    public function contentFolders($folder)
+    public function contentFolders(string $folder)
     {
         $directories = [];
 

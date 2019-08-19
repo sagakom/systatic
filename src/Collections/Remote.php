@@ -6,16 +6,15 @@ use Damcclean\Systatic\Config\Config;
 
 class Remote
 {
+    protected $entries = [];
+
     public function __construct()
     {
         $this->config = new Config();
-        $this->entries = [];
     }
 
-    public function process($collection)
+    public function process(array $collection)
     {
-        $this->entries = [];
-
         $items = $collection['remote']();
 
         foreach ($items as $item) {
@@ -26,7 +25,7 @@ class Remote
         return $this->entries;
     }
 
-    public function parse($entry, $collection)
+    public function parse(array $entry, array $collection)
     {
         $filename = $entry['slug'];
         $lastUpdated = null;

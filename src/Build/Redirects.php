@@ -22,7 +22,7 @@ class Redirects
         return false;
     }
 
-    public function compile($redirect)
+    public function compile(array $redirect)
     {
         $slug = $redirect['slug'];
         $target = $redirect['target'];

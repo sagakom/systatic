@@ -14,7 +14,7 @@ class Ghost
         $this->collections = new Collections();
     }
 
-    public function import($apiKey, $siteUrl)
+    public function import(string $apiKey, string $siteUrl)
     {
         $settings = $this->settings($apiKey, $siteUrl);
         $posts = $this->posts($apiKey, $siteUrl);
@@ -23,7 +23,7 @@ class Ghost
         return true;
     }
 
-    public function settings($apiKey, $siteUrl)
+    public function settings(string $apiKey, string $siteUrl)
     {
         $settings = json_decode(@file_get_contents($siteUrl . '/ghost/api/v2/content/settings?key=' . $apiKey), true);
 
@@ -53,7 +53,7 @@ class Ghost
         return true;
     }
 
-    public function posts($apiKey, $siteUrl)
+    public function posts(string $apiKey, string $siteUrl)
     {
         $posts = json_decode(@file_get_contents($siteUrl . '/ghost/api/v2/content/posts?key=' . $apiKey), true);
 
@@ -85,7 +85,7 @@ class Ghost
         return true;
     }
 
-    public function pages($apiKey, $siteUrl)
+    public function pages(string $apiKey, string $siteUrl)
     {
         $pages = json_decode(@file_get_contents($siteUrl . '/ghost/api/v2/content/pages?key=' . $apiKey), true);
 

@@ -14,7 +14,7 @@ class Entries
         $this->entries = [];
     }
 
-    public function process($collection)
+    public function process(array $collection)
     {
         $this->entries = [];
 
@@ -64,9 +64,9 @@ class Entries
         return $this->entries;
     }
 
-    public function create($slug, $collectionSlug, $meta, $content)
+    public function create(string $slug, string $collectionSlug, array $meta, string $content)
     {
-        $collection = (new Collections())->get($collectionSlug);
+        $collection = (new Collections())->show($collectionSlug);
 
         $frontMatter = $meta;
         $yamlFrontMatter = Yaml::dump($frontMatter);
@@ -76,9 +76,9 @@ class Entries
         return (bool) file_write_contents($collection['location'] . '/' . $slug . '.md', $contents);
     }
 
-    public function get($slug)
+    public function show(string $slug)
     {
-        $collections = (new Collections())->fetch();
+        $collections = (new Collections())->get();
 
         foreach ($collections as $collection) {
             foreach ($collection['items'] as $entry) {
@@ -92,9 +92,9 @@ class Entries
         }
     }
 
-    public function getCollectionForEntry($slug)
+    public function getCollectionForEntry(string $slug)
     {
-        $collections = (new Collections())->fetch();
+        $collections = (new Collections())->get();
 
         foreach ($collections as $collection) {
             foreach ($collections['items'] as $entry) {
