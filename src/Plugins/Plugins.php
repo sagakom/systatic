@@ -35,8 +35,6 @@ class Plugins extends Store
     {
         $commands = new $consoleClass();
 
-        dd($this->consoleStore->get());
-
         return $this->consoleStore->add(
             array_merge(
                 $this->consoleStore->get(),

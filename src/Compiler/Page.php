@@ -41,7 +41,7 @@ class Page
         ];
 
         foreach ($collections->index() as $collection) {
-            $items = $collections->get($collection['key'])['items'];
+            $items = $collections->show($collection['key'])['items'];
 
             $page["{$collection['key']}"] = collect($items);
 

@@ -113,6 +113,6 @@ class Collections extends Store
 
     public function show($slug)
     {
-        return $this->fetch()["{$slug}"];
+        return $this->get()["{$slug}"];
     }
 }
