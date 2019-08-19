@@ -3,8 +3,8 @@
 namespace Damcclean\Systatic;
 
 use NunoMaduro\Collision\Provider;
-use Damcclean\Systatic\Plugins\Plugins;
 use Damcclean\Systatic\Console\Kernel;
+use Damcclean\Systatic\Plugins\Plugins;
 
 class Systatic
 {

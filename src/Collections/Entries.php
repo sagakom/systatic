@@ -100,6 +100,7 @@ class Entries
             foreach ($collections['items'] as $entry) {
                 if ($entry['slug'] == $slug) {
                     unset($collection['items']);
+
                     return $collection;
                 }
             }

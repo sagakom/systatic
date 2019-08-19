@@ -50,7 +50,7 @@ class Page
             }
         }
 
-        foreach($this->config->getArray() as $key => $value) {
+        foreach ($this->config->getArray() as $key => $value) {
             $page["{$key}"] = convert_to_object($value);
         }
 

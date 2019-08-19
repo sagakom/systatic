@@ -2,9 +2,9 @@
 
 namespace Damcclean\Systatic\Collections;
 
+use Damcclean\Systatic\Parsers\Yaml;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Parsers\ParsedownExtra;
-use Damcclean\Systatic\Parsers\Yaml;
 
 class Markdown
 {

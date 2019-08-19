@@ -3,8 +3,8 @@
 namespace Tests;
 
 use Damcclean\Systatic\Cache\Cache;
-use PHPUnit\Framework\TestCase as Base;
 use Illuminate\Filesystem\Filesystem;
+use PHPUnit\Framework\TestCase as Base;
 
 define('BASE', './tests/fixtures');
 define('CONFIGURATION', './tests/fixtures/config.php');

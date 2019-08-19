@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Damcclean\Systatic\Parsers\ParsedownExtra;
 use Tests\TestCase;
+use Damcclean\Systatic\Parsers\ParsedownExtra;
 
 class ParsedownExtraParserTest extends TestCase
 {

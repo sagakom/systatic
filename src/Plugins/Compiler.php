@@ -11,6 +11,7 @@ class Compiler extends Store
     public function add(array $data)
     {
         $this->store($data);
+
         return $this->get();
     }
 }

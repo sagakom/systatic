@@ -5,7 +5,7 @@ namespace Tests\fixtures\plugins;
 class PluginCompiler
 {
     public $extensions = [
-        '.html'
+        '.html',
     ];
 
     public function compile()

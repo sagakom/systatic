@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Damcclean\Systatic\Plugins\BaseProvider;
-use Illuminate\Filesystem\Filesystem;
 use Tests\TestCase;
+use Illuminate\Filesystem\Filesystem;
+use Damcclean\Systatic\Plugins\BaseProvider;
 
 class BasePluginProviderTest extends TestCase
 {
@@ -42,7 +42,7 @@ class BasePluginProviderTest extends TestCase
         (new Filesystem())->delete('./tests/fixtures/views/published.blade.php');
 
         $views = $this->base->publishViews([
-            './tests/fixtures/publish-test.blade.php' => 'published.blade.php'
+            './tests/fixtures/publish-test.blade.php' => 'published.blade.php',
         ]);
 
         $this->assertFileExists('./tests/fixtures/views/published.blade.php');

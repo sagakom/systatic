@@ -25,7 +25,7 @@ class BaseProvider
 
     public function publishViews(array $views)
     {
-        foreach($views as $path => $target) {
+        foreach ($views as $path => $target) {
             (new Filesystem())->copy($path, $this->config->get('locations.views').'/'.$target);
         }
     }

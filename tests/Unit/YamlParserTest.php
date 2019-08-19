@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Damcclean\Systatic\Parsers\Yaml;
 use Tests\TestCase;
+use Damcclean\Systatic\Parsers\Yaml;
 
 class YamlParserTest extends TestCase
 {

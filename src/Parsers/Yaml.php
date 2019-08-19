@@ -14,7 +14,7 @@ class Yaml
 
     private function stripContent(string $content)
     {
-        $content = substr($content, 0, strpos($content, '---', strpos($content, '---')+1));
+        $content = substr($content, 0, strpos($content, '---', strpos($content, '---') + 1));
         $content = str_replace('---', '', $content);
         return $content;
     }

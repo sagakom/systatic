@@ -17,7 +17,7 @@ class Compiler
         $compilers = $this->compilerStore->get();
 
         foreach ($compilers as $compiler) {
-            foreach($compiler['extensions'] as $extension) {
+            foreach ($compiler['extensions'] as $extension) {
                 if (file_exists($this->config->get('locations.views').'/'.$entry['view'].$extension)) {
                     return $compiler['class']()->compile($entry);
                 }

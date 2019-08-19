@@ -50,7 +50,7 @@ class Plugins extends Store
 
         $data = [
             'class' => $compilerClass,
-            'extensions' => $compiler->extensions
+            'extensions' => $compiler->extensions,
         ];
 
         return $this->compilerStore->add(

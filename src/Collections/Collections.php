@@ -2,11 +2,11 @@
 
 namespace Damcclean\Systatic\Collections;
 
+use Damcclean\Systatic\Store;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Config\Config;
-use Damcclean\Systatic\Compiler\Compiler;
-use Damcclean\Systatic\Store;
 use Illuminate\Filesystem\Filesystem;
+use Damcclean\Systatic\Compiler\Compiler;
 
 class Collections extends Store
 {
