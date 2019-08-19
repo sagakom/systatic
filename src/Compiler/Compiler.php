@@ -18,10 +18,6 @@ class Compiler
 
         foreach ($compilers as $compiler) {
             foreach($compiler['extensions'] as $extension) {
-                if (file_exists($entry['view']).$extension) {
-                    return $compiler['class']()->compile($entry);
-                }
-
                 if (file_exists($this->config->get('locations.views').'/'.$entry['view'].$extension)) {
                     return $compiler['class']()->compile($entry);
                 }
