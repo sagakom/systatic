@@ -27,5 +27,6 @@ class TestCase extends Base
         file_write_contents('./tests/fixtures/storage/collections.json', '{}');
         file_write_contents('./tests/fixtures/storage/plugins.json', '{}');
         file_write_contents('./tests/fixtures/storage/console.json', '{}');
+        file_write_contents('./tests/fixtures/storage/compiler.json', '{}');
     }
 }

@@ -14,6 +14,7 @@ class Plugins extends Store
         parent::__construct();
 
         $this->consoleStore = new Console();
+        $this->compilerStore = new Compiler();
     }
 
     public function find()
@@ -39,6 +40,23 @@ class Plugins extends Store
             array_merge(
                 $this->consoleStore->get(),
                 $commands()
+            )
+        );
+    }
+
+    public function setupCompiler(string $compilerClass)
+    {
+        $compiler = new $compilerClass();
+
+        $data = [
+            'class' => $compilerClass,
+            'extensions' => $compiler->extensions
+        ];
+
+        return $this->compilerStore->add(
+            array_merge(
+                $this->compilerStore->get(),
+                $data
             )
         );
     }

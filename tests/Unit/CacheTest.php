@@ -16,6 +16,7 @@ class CacheTest extends TestCase
         file_write_contents('./tests/fixtures/storage/collections.json', '{}');
         file_write_contents('./tests/fixtures/storage/plugins.json', '{}');
         file_write_contents('./tests/fixtures/storage/console.json', '{}');
+        file_write_contents('./tests/fixtures/storage/compiler.json', '{}');
     }
 
     public function testCanClearViewCache()
@@ -32,6 +33,7 @@ class CacheTest extends TestCase
         $this->assertFalse(file_exists('./tests/fixtures/storage/collections.json'));
         $this->assertFalse(file_exists('./tests/fixtures/storage/plugins.json'));
         $this->assertFalse(file_exists('./tests/fixtures/storage/console.json'));
+        $this->assertFalse(file_exists('./tests/fixtures/storage/compiler.json'));
     }
 
     public function testCanClearOutputDirectory()
