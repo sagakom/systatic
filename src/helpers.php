@@ -110,7 +110,7 @@ if (! function_exists('route')) {
             }
         }
 
-        foreach ($collections->fetch() as $item) {
+        foreach ($collections->get() as $item) {
             if ($item['slug'] === $slug) {
                 return $siteUrl . '/' . $slug . '.html';
             }

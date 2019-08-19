@@ -3,7 +3,6 @@
 namespace Damcclean\Systatic\Plugins;
 
 use Damcclean\Systatic\Store;
-use Damcclean\Systatic\Config\Config;
 
 class Plugins extends Store
 {
@@ -12,7 +11,9 @@ class Plugins extends Store
 
     public function __construct()
     {
-        $this->config = new Config();
+        parent::__construct();
+
+        $this->consoleStore = new Console();
     }
 
     public function find()
@@ -21,13 +22,7 @@ class Plugins extends Store
             foreach ($this->config->getArray()['plugins'] as $plugin) {
                 $p = new $plugin();
 
-                $data = [];
-                $data["{$plugin}"] = [
-                    'name' => null,
-                    'provider' => $plugin
-                ];
-
-                array_push($this->pluginData, $data);
+                array_push($this->pluginData, $plugin);
 
                 $p->boot();
             }
@@ -36,18 +31,17 @@ class Plugins extends Store
         $this->store($this->pluginData);
     }
 
-    public function setupConsole($c)
+    public function setupConsole($consoleClass)
     {
-        $all = [];
-        $plugin = new $c();
-        $commands = $plugin->commands();
+        $commands = new $consoleClass();
 
-        foreach ($commands as $command) {
-            array_push($all, $command);
-        }
+        dd($this->consoleStore->get());
 
-        array_push($this->storeData["test"], $all);
-
-        return (new Console())->save($this->storeData);
+        return $this->consoleStore->add(
+            array_merge(
+                $this->consoleStore->get(),
+                $commands()
+            )
+        );
     }
 }

@@ -11,16 +11,16 @@ class BaseProvider
 
     public function boot()
     {
-        //
+        // WIP
     }
 
-    public function registerConsole($c)
+    public function registerConsole($consoleClass)
     {
-        $this->plugins->setupConsole($c);
+        $this->plugins->setupConsole($consoleClass);
     }
 
     public function registerCompiler($c)
     {
-
+        // WIP
     }
 }

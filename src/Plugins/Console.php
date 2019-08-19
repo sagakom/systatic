@@ -8,7 +8,7 @@ class Console extends Store
 {
     public $name = 'console';
 
-    public function save(array $data)
+    public function add(array $data)
     {
         $this->store($data);
         return $this->get();

@@ -23,7 +23,7 @@ class CollectionsTest extends TestCase
 
     public function testCanSaveCollectionStore()
     {
-        $save = $this->collections->save($this->fakeStore);
+        $save = $this->collections->store($this->fakeStore);
 
         $this->assertTrue($save);
         $this->assertFileExists('./tests/fixtures/storage/collections.json');
@@ -31,14 +31,8 @@ class CollectionsTest extends TestCase
 
     public function testCanFetchCollectionStore()
     {
-        $fetch = $this->collections->fetch();
+        $fetch = $this->collections->get();
         $this->assertIsArray($fetch);
-    }
-
-    public function testCanFetchCollectionStoreAsJson()
-    {
-        $fetch = $this->collections->fetchAsJson();
-        $this->assertJson($fetch);
     }
 
     public function testCanIndexCollections()
@@ -57,10 +51,10 @@ class CollectionsTest extends TestCase
 
     public function testCanGetACollection()
     {
-        $save = $this->collections->save($this->fakeStore);
+        $save = $this->collections->store($this->fakeStore);
         $this->assertTrue($save);
 
-        $get = $this->collections->get('events');
+        $get = $this->collections->show('events');
         $this->assertIsArray($get);
         $this->assertContains('Events', $get);
     }

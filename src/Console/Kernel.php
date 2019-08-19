@@ -11,16 +11,15 @@ use Damcclean\Systatic\Console\Commands\InitCommand;
 use Damcclean\Systatic\Console\Commands\JekyllImportCommand;
 use Damcclean\Systatic\Console\Commands\ServeCommand;
 use Damcclean\Systatic\Console\Commands\WordPressImportCommand;
+use Damcclean\Systatic\Plugins\Console;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Console\Application;
 use Illuminate\Container\Container;
-use Damcclean\Systatic\Plugins\Plugins;
 
 class Kernel
 {
     public function __construct()
     {
-        $this->plugins = new Plugins();
         $this->container = new Container();
         $this->events = new Dispatcher($this->container);
     }
@@ -40,13 +39,11 @@ class Kernel
         $application->add(new DeployCommand());
         $application->add(new ServeCommand());
 
+        $commands = (new Console())->get();
 
-
-        //$pluginCommands = $this->plugins->commands();
-
-//        foreach ($pluginCommands as $command) {
-//            $application->add(new $command());
-//        }
+        foreach ($commands as $command) {
+            $application->add(new $command());
+        }
 
         $application->run();
     }

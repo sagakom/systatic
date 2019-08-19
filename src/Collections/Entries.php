@@ -66,7 +66,7 @@ class Entries
 
     public function create($slug, $collectionSlug, $meta, $content)
     {
-        $collection = (new Collections())->get($collectionSlug);
+        $collection = (new Collections())->show($collectionSlug);
 
         $frontMatter = $meta;
         $yamlFrontMatter = Yaml::dump($frontMatter);
@@ -76,9 +76,9 @@ class Entries
         return (bool) file_write_contents($collection['location'] . '/' . $slug . '.md', $contents);
     }
 
-    public function get($slug)
+    public function show($slug)
     {
-        $collections = (new Collections())->fetch();
+        $collections = (new Collections())->get();
 
         foreach ($collections as $collection) {
             foreach ($collection['items'] as $entry) {
@@ -94,7 +94,7 @@ class Entries
 
     public function getCollectionForEntry($slug)
     {
-        $collections = (new Collections())->fetch();
+        $collections = (new Collections())->get();
 
         foreach ($collections as $collection) {
             foreach ($collections['items'] as $entry) {

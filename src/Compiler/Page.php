@@ -37,7 +37,7 @@ class Page
             'view' => $data['view'],
             'content' => $data['content'],
             'last_updated' => $data['last_updated'],
-            'collection' => convert_to_object((new Entries())->get($data['slug'])),
+            'collection' => convert_to_object((new Entries())->show($data['slug'])),
         ];
 
         foreach ($collections->index() as $collection) {
