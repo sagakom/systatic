@@ -10,6 +10,7 @@ class BladeCompilerTest extends TestCase
     public function setUp() : void
     {
         parent::setUp();
+
         $this->blade = new BladeCompiler();
         $this->collections = new Collections();
     }

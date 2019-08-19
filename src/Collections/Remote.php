@@ -15,8 +15,6 @@ class Remote
 
     public function process(array $collection)
     {
-        $this->entries = [];
-
         $items = $collection['remote']();
 
         foreach ($items as $item) {

@@ -162,10 +162,11 @@ if (! function_exists('endsWith')) {
 if (! function_exists('file_write_contents')) {
     function file_write_contents($path, $content)
     {
+        $filesystem = new Filesystem();
         $directory = pathinfo($path, PATHINFO_DIRNAME);
 
         if (! file_exists($directory)) {
-            (new Filesystem())->makeDirectory($directory);
+            $filesystem->makeDirectory($directory, 0755, true, true);
         }
 
         return (bool) file_put_contents($path, $content);
