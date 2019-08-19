@@ -64,7 +64,7 @@ class Entries
         return $this->entries;
     }
 
-    public function create(strig $slug, string $collectionSlug, array $meta, string $content)
+    public function create(string $slug, string $collectionSlug, array $meta, string $content)
     {
         $collection = (new Collections())->show($collectionSlug);
 
