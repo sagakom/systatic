@@ -11,11 +11,11 @@ class BaseProvider
 
     public function registerConsole(string $consoleClass)
     {
-        $this->plugins->setupConsole($consoleClass);
+        return $this->plugins->setupConsole($consoleClass);
     }
 
     public function registerCompiler(string $compilerClass)
     {
-        $this->plugins->setupCompiler($compilerClass);
+        return $this->plugins->setupCompiler($compilerClass);
     }
 }
