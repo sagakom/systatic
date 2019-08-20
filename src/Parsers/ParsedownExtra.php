@@ -19,9 +19,6 @@ class ParsedownExtra
 
     public function stripYaml(string $contents)
     {
-        $contents = preg_replace('/---/', '=====', $contents, 1);   // Replace first --- with --
-        $contents = substr(strstr($contents, '---'), strlen('---'));   // Remove everything before ---
-
-        return $contents;
+         return preg_replace('/^(---(?s)(.*?)---)/i', '', $contents);
     }
 }
