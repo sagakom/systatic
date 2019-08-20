@@ -12,10 +12,10 @@ class Yaml
         return SymfonyYaml::parse($contents);
     }
 
-    private function stripContent(string $content)
+    private function stripContent(string $contents)
     {
-        $content = substr($content, 0, strpos($content, '---', strpos($content, '---') + 1));
-        $content = str_replace('---', '', $content);
-        return $content;
+        $contents = substr($contents, 0, strpos($contents, '---', strpos($contents, '---') + 1));
+        $contents = str_replace('---', '', $contents);
+        return $contents;
     }
 }

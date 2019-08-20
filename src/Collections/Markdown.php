@@ -4,6 +4,7 @@ namespace Damcclean\Systatic\Collections;
 
 use Damcclean\Systatic\Parsers\Yaml;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Plugins\Compiler;
 use Damcclean\Systatic\Parsers\ParsedownExtra;
 
 class Markdown
@@ -13,6 +14,7 @@ class Markdown
         $this->config = new Config();
         $this->markdown = new ParsedownExtra();
         $this->yaml = new Yaml();
+        $this->compiler = new Compiler();
     }
 
     public function parse(string $file, array $collection)
@@ -51,18 +53,24 @@ class Markdown
         }
 
         if (array_key_exists('view', $frontMatter)) {
-            if (file_exists($this->config->get('locations.views') . '/' . $frontMatter['view'] . '.blade.php')) {
-                $view = $frontMatter['view'];
-            } elseif (file_exists($this->config->get('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . '.blade.php')) {
-                $view = str_replace('.', '/', $frontMatter['view']);
+            foreach($this->compiler->getExtensions() as $extension) {
+                if (file_exists($this->config->get('locations.views') . '/' . $frontMatter['view'] . $extension)) {
+                    $view = $frontMatter['view'];
+                } elseif(file_exists($this->config->get('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . $extension)) {
+                    $view = str_replace('.', '/', $frontMatter['view']);
+                }
             }
         } elseif (array_key_exists('view', $collection)) {
-            if (file_exists($this->config->get('locations.views') . '/' . $collection['view'] . '.blade.php')) {
-                $view = $collection['view'];
+            foreach($this->compiler->getExtensions() as $extension) {
+                if (file_exists($this->config->get('locations.views') . '/' . $collection['view'] . $extension)) {
+                    $view = $collection['view'];
+                }
             }
         } elseif ($slug !== 'index') {
-            if (file_exists($this->config->get('locations.views') . '/' . $slug . '.blade.php')) {
-                $view = $slug;
+            foreach($this->compiler->getExtensions() as $extension) {
+                if (file_exists($this->config->get('locations.views') . '/' . $slug . $extension)) {
+                    $view = $slug;
+                }
             }
         }
 

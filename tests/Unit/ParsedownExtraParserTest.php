@@ -21,4 +21,13 @@ class ParsedownExtraParserTest extends TestCase
 
         $this->assertSame('<h1>This is my <strong>heading</strong></h1>', $parser);
     }
+
+    public function testCanParseMarkdownContentsWithFrontMatter()
+    {
+        $markdown = file_get_contents('./tests/fixtures/yaml-test.md');
+
+        $parser = $this->parser->parse($markdown);
+
+        $this->assertSame('<p>Keep these dates in your diary!</p>', $parser);
+    }
 }
