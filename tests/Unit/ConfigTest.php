@@ -12,31 +12,32 @@ class ConfigTest extends TestCase
         $this->config = new Config();
     }
 
-    public function testCanGetConfigValue()
+    /** @test */
+    public function can_get_config_value()
     {
         $name = $this->config->get('name');
         $this->assertSame($name, 'Systatic');
     }
 
-    public function testCanGetConfigValueWithEnvFallback()
+    public function can_get_config_value_with_env_fallback()
     {
         $env = $this->config->get('BAR');
         $this->assertSame($env, 'foo');
     }
 
-    public function testCanGetConfigArray()
+    public function can_get_config_array()
     {
         $array = $this->config->getArray();
         $this->assertIsArray($array);
     }
 
-    public function testCanGetEnvValueFromFile()
+    public function can_get_env_value_from_file()
     {
         $env = $this->config->env('BAR');
         $this->assertSame($env, 'foo');
     }
 
-    public function testCanGetEnvValueFromSystem()
+    public function can_get_env_value_from_system()
     {
         $env = $this->config->env('FOO');
         $this->assertSame($env, 'bar');
