@@ -20,19 +20,25 @@ class ConfigTest extends TestCase
 
     public function testCanGetConfigValueWithEnvFallback()
     {
-        $env = $this->config->get('env');
-        $this->assertSame($env, 'testing');
+        $env = $this->config->get('BAR');
+        $this->assertSame($env, 'foo');
     }
 
     public function testCanGetConfigArray()
     {
         $array = $this->config->getArray();
-        $this->assertTrue(is_array($array));
+        $this->assertIsArray($array);
     }
 
-    public function testCanGetEnvValue()
+    public function testCanGetEnvValueFromFile()
     {
-        $env = $this->config->env('ENV');
-        $this->assertSame($env, 'testing');
+        $env = $this->config->env('BAR');
+        $this->assertSame($env, 'foo');
+    }
+
+    public function testCanGetEnvValueFromSystem()
+    {
+        $env = $this->config->env('FOO');
+        $this->assertSame($env, 'bar');
     }
 }

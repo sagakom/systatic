@@ -16,4 +16,7 @@
     <listeners>
         <listener class="NunoMaduro\Collision\Adapters\Phpunit\Listener" />
     </listeners>
+    <php>
+        <env name="FOO" value="bar"/>
+    </php>
 </phpunit>
