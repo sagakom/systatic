@@ -9,7 +9,7 @@
 
 You can read [our documentation](https://systatic.co) and make changes to it [on Github](https://github.com/damcclean/systatic.co).
 
-## Help
+## ℹ️ Help
 
 If you have a question, [create an issue](https://github.com/damcclean/Systatic/issues/new?template=question.md) or join our [Discord server](https://discord.gg/zSg3MHv).
 
