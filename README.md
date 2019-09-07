@@ -1,79 +1,21 @@
-<h1 align="center">
-    Systatic
-</h1>
+# Systatic
+> Static Site Generator built on components from the Laravel framework
 
-<h2 align="center">
-    A Modern Static Site Generator built in PHP
-</h2>
+* Collections - You can fetch your data from Markdown files or you can get them from remote locations (like a headless CMS).
+* Serverless (quite literally) - Put your site in Git, create a site on Netlify and you're done, essentially.
+* No Frontend Stack - We don't predefine your front-end, we leave that up to you. You'll only going to rip it out anyway.
 
-<p align="center">
-    <a href="https://packagist.org/packages/damcclean/systatic">
-        <img src="https://img.shields.io/packagist/v/damcclean/systatic.svg?style=flat-square" alt="Latest Version on Packagist" />
-    </a>
-    <a href="https://travis-ci.com/damcclean/Systatic">
-        <img src="https://travis-ci.com/damcclean/Systatic.svg?branch=master" alt="Build Status" />
-    </a>
-    <a href="https://packagist.org/packages/damcclean/systatic">
-        <img src="https://img.shields.io/packagist/dt/damcclean/systatic.svg?style=flat-square" alt="Total Downloads" />
-    </a>
-    <a href="https://www.codetriage.com/damcclean/systatic">
-        <img src="https://www.codetriage.com/damcclean/systatic/badges/users.svg" alt="Open Source Helpers" />
-    </a>
-</p>
+## 📄 Documentation
 
-<h3 align="center">
-    <a href="https://systatic.co">Website</a>
-    <span> . </span>
-    <a href="https://systatic.co/docs">Documentation</a>
-    <span> . </span>
-    <a href="https://discord.gg/zSg3MHv">Discord</a>
-</h3>
+You can read [our documentation](https://systatic.co) and make changes to it [on Github](https://github.com/damcclean/systatic.co).
 
-Systatic is a Modern Static Site Generator built in PHP. It's faster and simpler than traditional static site generators.
+## Help
 
-* **Use your own stack** Apart from using PHP to generate your site, you can use whatever tech stack you want, Vue, React, whatever. We don't dictate what you need.
-* **No more servers** Because Systatic generates HTML files, you can host your site anywhere you can put HTML files: Netlify, Github Pages, Amazon S3.
-* **Data from everywhere** You can put your data where ever you want. You could have it in Markdown files, WordPress or even a headless CMS and it will all work and feel the same.
+If you have a question, [create an issue](https://github.com/damcclean/Systatic/issues/new?template=question.md) or join our [Discord server](https://discord.gg/zSg3MHv).
 
-[**Get Started with Systatic!**](https://systatic.co/docs/installation)
+## 🤲 Contributing
 
-## 🚀 Getting Started
-
-1. **Create a new directory**
-
-```
-mkdir dog-food-blog && cd dog-food-blog
-```
-
-2. **Install Systatic**
-
-```
-composer require damcclean/systatic
-```
-
-3. **Initialise Systatic**
-
-```
-php vendor/damcclean/systatic/init init
-```
-
-4. **Build your site**
-
-```
-php systatic build
-```
-
-[**Read more about installing Systatic**](https://systatic.co/docs/installation)
-
-## 🏫 Documentation
-
-You can find the Systatic documentation on [our website](https://systatic.co/docs).
-
-## 🤲 How to Contribute
-
-We'd love for you to help out on Systatic. It's an open source project after all! 😊
-
-Check out our [Contributing Guide](https://github.com/damcclean/Systatic/blob/master/CONTRIBUTING.md) for ideas on contibuting and steps on how to get Systatic on your machine ready for development.
+Systatic is open to contributions, big or small. Check out our [contributors guide](https://github.com/damcclean/Systatic/blob/master/CONTRIBUTING.md) before making any contributions.
 
 ## 📝 License
 
