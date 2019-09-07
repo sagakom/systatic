@@ -83,10 +83,7 @@ class Entries
         foreach ($collections as $collection) {
             foreach ($collection['items'] as $entry) {
                 if ($entry['slug'] == $slug) {
-                    return [
-                        $entry,
-                        $collection,
-                    ];
+                    return $entry;
                 }
             }
         }
