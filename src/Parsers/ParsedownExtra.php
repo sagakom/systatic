@@ -14,11 +14,12 @@ class ParsedownExtra
     public function parse(string $contents)
     {
         $contents = $this->stripYaml($contents);
+
         return $this->parser->text($contents);
     }
 
     public function stripYaml(string $contents)
     {
-         return preg_replace('/^(---(?s)(.*?)---)/i', '', $contents);
+        return preg_replace('/^(---(?s)(.*?)---)/i', '', $contents);
     }
 }

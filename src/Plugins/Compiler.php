@@ -17,18 +17,18 @@ class Compiler extends Store
 
     public function getExtensions()
     {
-    	$extensions = [
-    		'.blade.php'
-    	];
-    	
-    	$compilers = $this->get();
+        $extensions = [
+            '.blade.php',
+        ];
 
-    	foreach($compilers as $compiler) {
-    		foreach($compiler['extensions'] as $extension) {
-    			$extensions[] = $extension;
-    		}
-    	}
+        $compilers = $this->get();
 
-    	return $extensions;
+        foreach ($compilers as $compiler) {
+            foreach ($compiler['extensions'] as $extension) {
+                $extensions[] = $extension;
+            }
+        }
+
+        return $extensions;
     }
 }
