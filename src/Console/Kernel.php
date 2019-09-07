@@ -6,14 +6,14 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Console\Application;
 use Illuminate\Container\Container;
 use Damcclean\Systatic\Plugins\Console;
-use Damcclean\Systatic\Console\Commands\BuildCommand;
-use Damcclean\Systatic\Console\Commands\ClearCacheCommand;
-use Damcclean\Systatic\Console\Commands\ClearSiteCommand;
-use Damcclean\Systatic\Console\Commands\DeployCommand;
-use Damcclean\Systatic\Console\Commands\GhostImportCommand;
 use Damcclean\Systatic\Console\Commands\InitCommand;
-use Damcclean\Systatic\Console\Commands\JekyllImportCommand;
+use Damcclean\Systatic\Console\Commands\BuildCommand;
 use Damcclean\Systatic\Console\Commands\ServeCommand;
+use Damcclean\Systatic\Console\Commands\DeployCommand;
+use Damcclean\Systatic\Console\Commands\ClearSiteCommand;
+use Damcclean\Systatic\Console\Commands\ClearCacheCommand;
+use Damcclean\Systatic\Console\Commands\GhostImportCommand;
+use Damcclean\Systatic\Console\Commands\JekyllImportCommand;
 use Damcclean\Systatic\Console\Commands\WordPressImportCommand;
 
 class Kernel

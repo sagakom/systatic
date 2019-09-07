@@ -9,6 +9,7 @@ class Yaml
     public function parse(string $contents)
     {
         $contents = $this->stripContent($contents);
+
         return SymfonyYaml::parse($contents);
     }
 
@@ -16,6 +17,7 @@ class Yaml
     {
         $contents = substr($contents, 0, strpos($contents, '---', strpos($contents, '---') + 1));
         $contents = str_replace('---', '', $contents);
+
         return $contents;
     }
 }
