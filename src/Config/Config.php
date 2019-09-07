@@ -2,15 +2,14 @@
 
 namespace Damcclean\Systatic\Config;
 
+use Dotenv\Dotenv;
 use Illuminate\Config\Repository;
 use Brick\VarExporter\VarExporter;
-use Symfony\Component\Dotenv\Dotenv;
 
 class Config
 {
     public function __construct()
     {
-        $this->env = new Dotenv();
         $this->config = new Repository(require CONFIGURATION);
     }
 
@@ -26,16 +25,12 @@ class Config
             $key = str_replace('.', '_', $key);
         }
 
-        $env = $this->env(strtoupper($key));
-
-        return $env;
+        return $this->env(strtoupper($key));
     }
 
     public function getArray()
     {
-        $config = include CONFIGURATION;
-
-        return $config;
+        return include CONFIGURATION;
     }
 
     public function updateArray(array $data)
@@ -43,18 +38,16 @@ class Config
         $config = include CONFIGURATION;
         $config = array_merge($config, $data);
 
-        $str = '<?php ' . PHP_EOL
-            . VarExporter::export($config, true) . ';' . PHP_EOL;
-
-        file_write_contents(CONFIGURATION, $str);
+        file_write_contents(CONFIGURATION, '<?php '.PHP_EOL.VarExporter::export($config, true).';'.PHP_EOL);
 
         return $config;
     }
 
     public function env(string $key)
     {
-        $env = $this->env->load(BASE . '/.env');
+        $dotenv = Dotenv::create(BASE);
+        $dotenv->load();
 
-        return $_ENV[$key];
+        return getenv($key);
     }
 }
