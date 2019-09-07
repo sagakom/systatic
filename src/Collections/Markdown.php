@@ -53,21 +53,21 @@ class Markdown
         }
 
         if (array_key_exists('view', $frontMatter)) {
-            foreach($this->compiler->getExtensions() as $extension) {
+            foreach ($this->compiler->getExtensions() as $extension) {
                 if (file_exists($this->config->get('locations.views') . '/' . $frontMatter['view'] . $extension)) {
                     $view = $frontMatter['view'];
-                } elseif(file_exists($this->config->get('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . $extension)) {
+                } elseif (file_exists($this->config->get('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . $extension)) {
                     $view = str_replace('.', '/', $frontMatter['view']);
                 }
             }
         } elseif (array_key_exists('view', $collection)) {
-            foreach($this->compiler->getExtensions() as $extension) {
+            foreach ($this->compiler->getExtensions() as $extension) {
                 if (file_exists($this->config->get('locations.views') . '/' . $collection['view'] . $extension)) {
                     $view = $collection['view'];
                 }
             }
         } elseif ($slug !== 'index') {
-            foreach($this->compiler->getExtensions() as $extension) {
+            foreach ($this->compiler->getExtensions() as $extension) {
                 if (file_exists($this->config->get('locations.views') . '/' . $slug . $extension)) {
                     $view = $slug;
                 }

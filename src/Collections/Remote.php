@@ -47,7 +47,7 @@ class Remote
         if (array_key_exists('slug', $entry)) {
             $slug = $entry['slug'];
 
-            foreach($this->compiler->getExtensions() as $extension) {
+            foreach ($this->compiler->getExtensions() as $extension) {
                 if (file_exists($this->config->get('locations.views') . '/' . $slug . $extension)) {
                     $view = $entry['slug'];
                 }
@@ -55,7 +55,7 @@ class Remote
         }
 
         if (array_key_exists('view', $entry)) {
-            foreach($this->compiler->getExtensions() as $extension) {
+            foreach ($this->compiler->getExtensions() as $extension) {
                 if (file_exists($this->config->get('locations.views') . '/' . $view . $extension)) {
                     $view = $entry['view'];
                 }
