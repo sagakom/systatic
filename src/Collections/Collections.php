@@ -70,15 +70,10 @@ class Collections extends Store
 
     public function index()
     {
-        $collections = [];
-
-        foreach ($this->get() as $collection) {
+        return collect($this->get())->map(function ($collection) {
             unset($collection['items']);
-
-            $collections[] = $collection;
-        }
-
-        return $collections;
+            return $collection;
+        })->all();
     }
 
     public function create(string $slug, string $name, string $permalink, string $location, bool $searchable = null)
