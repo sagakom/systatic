@@ -39,7 +39,7 @@ class Cache
         );
 
         foreach ($storeFiles as $file) {
-            //$this->filesystem->delete($file);
+            $this->filesystem->delete($file);
         }
     }
 

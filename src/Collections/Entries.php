@@ -9,7 +9,6 @@ class Entries
     public function __construct()
     {
         $this->remote = new Remote();
-        $this->markdown = new Markdown();
 
         $this->entries = [];
     }
@@ -19,48 +18,14 @@ class Entries
         $this->entries = [];
 
         if (array_key_exists('remote', $collection)) {
-            $this->entries = $this->remote->process($collection);
-        } else {
-            $markdown = [];
-
-            $markdown = array_merge(
-                glob(
-                    $collection['location'] . '/*.md',
-                    GLOB_BRACE
-                ),
-                $markdown
-            );
-
-            $markdown = array_merge(
-                glob(
-                    $collection['location'] . '/*/*.md',
-                    GLOB_BRACE
-                ),
-                $markdown
-            );
-
-            $markdown = array_merge(
-                glob(
-                    $collection['location'] . '/*.markdown',
-                    GLOB_BRACE
-                ),
-                $markdown
-            );
-
-            $markdown = array_merge(
-                glob(
-                    $collection['location'] . '/*/*.markdown',
-                    GLOB_BRACE
-                ),
-                $markdown
-            );
-
-            foreach ($markdown as $file) {
-                $entry = $this->markdown->parse($file, $collection);
-                array_push($this->entries, $entry);
-            }
+            return $this->remote->process($collection);
         }
 
+        $files = collect(find_files($collection['location'], '.md'))->map(function ($file) use ($collection) {
+            return (new Markdown())->parse($file, $collection);
+        });
+
+        $this->entries = $files;
         return $this->entries;
     }
 

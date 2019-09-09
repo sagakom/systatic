@@ -4,19 +4,19 @@ use Damcclean\Systatic\Config\Config;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\VarDumper\VarDumper;
 
-function dd(...$args)
-{
-    foreach ($args as $x) {
-        (new VarDumper())->dump($x);
-    }
+//function dd(...$args)
+//{
+//    foreach ($args as $x) {
+//        (new VarDumper())->dump($x);
+//    }
+//
+//    die();
+//}
 
-    die();
-}
-
-function env($key)
-{
-    return (new Config())->env($key);
-}
+//function env($key)
+//{
+//    return (new Config())->env($key);
+//}
 
 function startsWith($string, $starting)
 {
@@ -75,4 +75,27 @@ function storage_path()
 function config_path()
 {
     return CONFIG;
+}
+
+function find_files(string $location, string $extension = null)
+{
+    $files = [];
+
+    $files = array_merge(
+        glob(
+            $location.'/*'.$extension,
+            GLOB_BRACE
+        ),
+        $files
+    );
+
+    $files = array_merge(
+        glob(
+            $location.'/*/*'.$extension,
+            GLOB_BRACE
+        ),
+        $files
+    );
+
+    return $files;
 }

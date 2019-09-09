@@ -17,10 +17,10 @@ class Collections extends Store
     {
         parent::__construct();
 
-        $this->cache = new Cache();
         $this->config = new Config();
         $this->entries = new Entries();
-        $this->compiler = new Compiler();
+
+        $this->collectionData = [];
     }
 
     public function collect()
@@ -51,25 +51,22 @@ class Collections extends Store
 
         $this->store($this->collectionData);
 
-        foreach ($this->collectionData as $collection) {
-            if (array_key_exists('searchable', $collection)) {
-                if ($collection['searchable'] != false) {
-                    (new Search)->index($collection['items']);
-                }
+        collect($this->collectionData)->where('searchable', true)->each(function ($collection) {
+            return (new Search())->index($collection['items']);
+        });
+
+        collect($this->collectionData)->reject(function ($collection) {
+            if (array_key_exists('build', $collection)) {
+                return $collection['build'] === false;
             }
 
-            foreach ($collection['items'] as $entry) {
-                if (array_key_exists('build', $collection)) {
-                    if (! $collection['build'] == false) {
-                        $this->compiler->compile($entry);
-                        $this->cache->clearViewCache();
-                    }
-                } else {
-                    $this->compiler->compile($entry);
-                    $this->cache->clearViewCache();
-                }
-            }
-        }
+            return false;
+        })->each(function ($collection) {
+            collect($collection['items'])->each(function ($entry) {
+                (new Compiler())->compile($entry);
+                (new Cache())->clearViewCache();
+            });
+        });
 
         return true;
     }
