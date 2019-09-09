@@ -17,14 +17,9 @@ class Remote
 
     public function process(array $collection)
     {
-        $items = $collection['remote']();
-
-        foreach ($items as $item) {
-            $entry = $this->parse($item, $collection);
-            array_push($this->entries, $entry);
-        }
-
-        return $this->entries;
+        return collect($collection['remote']())->map(function ($item) use ($collection) {
+            return $this->parse($item, $collection);
+        })->all();
     }
 
     public function parse(array $entry, array $collection)
