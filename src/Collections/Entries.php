@@ -43,15 +43,11 @@ class Entries
 
     public function show(string $slug)
     {
-        $collections = (new Collections())->get();
-
-        foreach ($collections as $collection) {
-            foreach ($collection['items'] as $entry) {
-                if ($entry['slug'] == $slug) {
-                    return $entry;
-                }
-            }
-        }
+        return collect((new Collections())->get())->each(function ($collection) use ($slug) {
+            collect($collection['items'])->where('slug', $slug)->first(function ($entry) {
+               return $entry;
+            });
+        });
     }
 
     public function getCollectionForEntry(string $slug)
