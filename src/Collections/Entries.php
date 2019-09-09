@@ -52,16 +52,11 @@ class Entries
 
     public function getCollectionForEntry(string $slug)
     {
-        $collections = (new Collections())->get();
-
-        foreach ($collections as $collection) {
-            foreach ($collections['items'] as $entry) {
-                if ($entry['slug'] == $slug) {
-                    unset($collection['items']);
-
-                    return $collection;
-                }
-            }
-        }
+        return collect((new Collections())->get())->each(function ($collection) use ($slug) {
+            collect($collection['items'])->where('slug', $slug)->first(function ($entry) use ($collection) {
+                unset($collection['items']);
+                return $collection;
+            });
+        });
     }
 }
