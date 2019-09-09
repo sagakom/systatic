@@ -227,3 +227,18 @@ function var_export_new($data, $return = true)
         echo $dump;
     }
 }
+
+function output_path()
+{
+    return (new Damcclean\Systatic\Config\Config())->get('locations.output');
+}
+
+function views_path()
+{
+    return (new Damcclean\Systatic\Config\Config())->get('locations.views');
+}
+
+function storage_path()
+{
+    return (new Damcclean\Systatic\Config\Config())->get('locations.storage');
+}
