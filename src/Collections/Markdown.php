@@ -2,6 +2,8 @@
 
 namespace Damcclean\Systatic\Collections;
 
+use Damcclean\Systatic\Deciders\Permalink;
+use Damcclean\Systatic\Deciders\View;
 use Damcclean\Systatic\Parsers\Yaml;
 use Damcclean\Systatic\Config\Config;
 use Damcclean\Systatic\Plugins\Compiler;
@@ -17,85 +19,30 @@ class Markdown
         $this->compiler = new Compiler();
     }
 
-    public function parse(string $file, array $collection)
+    public function parse(string $filename, array $collection)
     {
-        $filename = $file;
-        $contents = file_get_contents($file);
-
-        $lastUpdated = filemtime($file);
-
-        if ($lastUpdated === false) {
-            $lastUpdated = null;
-        }
-
-        if (strpos($filename, '.md')) {
-            $slug = basename($filename, '.md');
-        } elseif (strpos($filename, '.markdown')) {
-            $slug = basename($filename, '.markdown');
-        }
-
-        $title = $slug;
-        $view = 'index';
-
+        $contents = file_get_contents($filename);
         $markdown = $this->markdown->parse($contents);
         $frontMatter = $this->yaml->parse($contents);
 
+        $entry['slug'] = basename($filename, '.md');
+        $entry['title'] = $entry['slug'];
+
         if (array_key_exists('title', $frontMatter)) {
-            $title = $frontMatter['title'];
+            $entry['title'] = $frontMatter['title'];
         }
 
         if (array_key_exists('slug', $frontMatter)) {
-            $slug = $frontMatter['slug'];
-
-            if (! array_key_exists('title', $frontMatter)) {
-                $title = $slug;
-            }
+            $entry['slug'] = $frontMatter['slug'];
         }
 
-        if (array_key_exists('view', $frontMatter)) {
-            foreach ($this->compiler->getExtensions() as $extension) {
-                if (file_exists($this->config->get('locations.views') . '/' . $frontMatter['view'] . $extension)) {
-                    $view = $frontMatter['view'];
-                } elseif (file_exists($this->config->get('locations.views') . '/' . str_replace('.', '/', $frontMatter['view']) . $extension)) {
-                    $view = str_replace('.', '/', $frontMatter['view']);
-                }
-            }
-        } elseif (array_key_exists('view', $collection)) {
-            foreach ($this->compiler->getExtensions() as $extension) {
-                if (file_exists($this->config->get('locations.views') . '/' . $collection['view'] . $extension)) {
-                    $view = $collection['view'];
-                }
-            }
-        } elseif ($slug !== 'index') {
-            foreach ($this->compiler->getExtensions() as $extension) {
-                if (file_exists($this->config->get('locations.views') . '/' . $slug . $extension)) {
-                    $view = $slug;
-                }
-            }
-        }
+        $entry['view'] = (new View())->decide($collection, $entry);
+        $entry['permalink'] = (new Permalink())->decide($collection, $entry);
 
-        if (endsWith($collection['permalink'], '/') != false) {
-            $permalink = $collection['permalink'] . $slug;
-        } else {
-            $permalink = $collection['permalink'] . '/' . $slug;
-        }
-
-        if ($slug != 'index') {
-            $permalink = $permalink . '/index.html';
-        } else {
-            $permalink = $permalink . '.html';
-        }
-
-        $entry = [
-            'filename' => $filename,
-            'permalink' => $permalink,
-            'title' => $title,
-            'slug' => $slug,
-            'view' => $view,
-            'content' => $markdown,
-            'meta' => $frontMatter,
-            'last_updated' => $lastUpdated,
-        ];
+        $entry['filename'] = $filename;
+        $entry['content'] = $markdown;
+        $entry['meta'] = $frontMatter;
+        $entry['last_updated'] = filemtime($filename);
 
         return $entry;
     }

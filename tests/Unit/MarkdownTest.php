@@ -10,6 +10,7 @@ class MarkdownTest extends TestCase
     public function setUp() : void
     {
         parent::setUp();
+
         $this->config = new Config();
         $this->markdown = new Markdown();
     }
@@ -18,7 +19,7 @@ class MarkdownTest extends TestCase
     {
         $file = './tests/fixtures/content/pages/contact-me.md';
         $collection = $this->config->getArray()['collections']['pages'];
-        $collection['key'] = 'pages';
+        $collection['id'] = 'pages';
 
         $markdown = $this->markdown->parse($file, $collection);
 

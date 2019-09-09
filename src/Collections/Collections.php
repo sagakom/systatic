@@ -25,7 +25,7 @@ class Collections extends Store
         $data = [];
 
         collect($this->config->get('collections'))->each(function ($collection, $key) use (&$data) {
-            $collection['key'] = $key;
+            $collection['id'] = $key;
 
             if (! array_key_exists('view', $collection)) {
                 $collection['view'] = null;

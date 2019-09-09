@@ -41,12 +41,12 @@ class Page
         ];
 
         foreach ($collections->index() as $collection) {
-            $items = $collections->show($collection['key'])['items'];
+            $items = $collections->show($collection['id'])['items'];
 
-            $page["{$collection['key']}"] = collect($items);
+            $page["{$collection['id']}"] = collect($items);
 
-            foreach ($page["{$collection['key']}"] as $key => $value) {
-                $page["{$collection['key']}"]["{$key}"] = convert_to_object($value);
+            foreach ($page["{$collection['id']}"] as $key => $value) {
+                $page["{$collection['id']}"]["{$key}"] = convert_to_object($value);
             }
         }
 

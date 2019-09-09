@@ -2,7 +2,11 @@
 
 namespace Damcclean\Systatic\Collections;
 
+use Carbon\Carbon;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Deciders\LastUpdated;
+use Damcclean\Systatic\Deciders\Permalink;
+use Damcclean\Systatic\Deciders\View;
 use Damcclean\Systatic\Plugins\Compiler;
 
 class Remote
@@ -24,60 +28,24 @@ class Remote
 
     public function parse(array $entry, array $collection)
     {
-        $filename = $entry['slug'];
-        $lastUpdated = null;
-        $view = 'index';
-        $content = '';
-        $slug = uniqid();
-        $title = '';
+        $view = (new View())->decide($collection, $entry);
+        $permalink = (new Permalink())->decide($collection, $entry);
 
-        if (array_key_exists('title', $entry)) {
-            $title = $entry['title'];
-        }
+        $lastUpdated = Carbon::now();
 
         if (array_key_exists('last_updated', $entry)) {
             $lastUpdated = $entry['last_updated'];
         }
 
-        if (array_key_exists('slug', $entry)) {
-            $slug = $entry['slug'];
-
-            foreach ($this->compiler->getExtensions() as $extension) {
-                if (file_exists($this->config->get('locations.views') . '/' . $slug . $extension)) {
-                    $view = $entry['slug'];
-                }
-            }
-        }
-
-        if (array_key_exists('view', $entry)) {
-            foreach ($this->compiler->getExtensions() as $extension) {
-                if (file_exists($this->config->get('locations.views') . '/' . $view . $extension)) {
-                    $view = $entry['view'];
-                }
-            }
-        }
-
-        if (array_key_exists('content', $entry)) {
-            $content = $entry['content'];
-        }
-
-        if (endsWith($collection['permalink'], '/')) {
-            $permalink = $collection['permalink'] . $slug . '/index.html';
-        } else {
-            $permalink = $collection['permalink'] . '/' . $slug . '/index.html';
-        }
-
-        $newEntry = [
-            'filename' => $filename,
+        return [
+            'filename' => $entry['slug'],
             'permalink' => $permalink,
-            'title' => $title,
-            'slug' => $slug,
+            'title' => $entry['title'],
+            'slug' => $entry['slug'],
             'view' => $view,
-            'content' => $content,
+            'content' => $entry['content'],
             'meta' => $entry,
             'last_updated' => $lastUpdated,
         ];
-
-        return $newEntry;
     }
 }
