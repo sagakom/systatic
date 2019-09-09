@@ -1,6 +1,6 @@
 <?php
 
-namespace Damcclean\Systatic\Build;
+namespace Damcclean\Systatic;
 
 use Damcclean\Systatic\Config\Config;
 

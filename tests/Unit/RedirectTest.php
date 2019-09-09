@@ -2,13 +2,14 @@
 
 namespace Tests;
 
-use Damcclean\Systatic\Build\Redirects;
+use Damcclean\Systatic\Redirects;
 
 class RedirectTest extends TestCase
 {
     public function setUp() : void
     {
         parent::setUp();
+
         $this->redirects = new Redirects();
     }
 
