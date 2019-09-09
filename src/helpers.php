@@ -1,10 +1,8 @@
 <?php
 
-use Carbon\Carbon;
 use Damcclean\Systatic\Config\Config;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\VarDumper\VarDumper;
-use Damcclean\Systatic\Collections\Collections;
 
 function dd(...$args)
 {
@@ -61,17 +59,17 @@ function convert_to_object($array)
 
 function output_path()
 {
-    return (new Damcclean\Systatic\Config\Config())->get('locations.output');
+    return (new Config())->get('locations.output');
 }
 
 function views_path()
 {
-    return (new Damcclean\Systatic\Config\Config())->get('locations.views');
+    return (new onfig())->get('locations.views');
 }
 
 function storage_path()
 {
-    return (new Damcclean\Systatic\Config\Config())->get('locations.storage');
+    return (new Config())->get('locations.storage');
 }
 
 function config_path()
