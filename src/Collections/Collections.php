@@ -18,16 +18,13 @@ class Collections extends Store
         parent::__construct();
 
         $this->config = new Config();
-        $this->entries = new Entries();
-
-        $this->collectionData = [];
     }
 
     public function collect()
     {
-        $collections = $this->config->get('collections');
+        $data = [];
 
-        foreach ($collections as $key => $collection) {
+        collect($this->config->get('collections'))->each(function ($collection, $key) use (&$data) {
             $collection['key'] = $key;
 
             if (! array_key_exists('view', $collection)) {
@@ -35,21 +32,21 @@ class Collections extends Store
             }
 
             if (! array_key_exists('searchable', $collection)) {
-                $collection['searchable'] = false;
+                $collection['searchable'] = null;
             }
 
-            $entries = $this->entries->process($collection);
+            $entries = (new Entries())->process($collection);
 
-            $this->collectionData["{$key}"] = [];
-            $this->collectionData["{$key}"] = array_merge($this->collectionData["{$key}"], $collection);
-            $this->collectionData["{$key}"]['items'] = $entries;
-
-            if (array_key_exists('remote', $this->collectionData["{$key}"])) {
-                unset($this->collectionData["{$key}"]['remote']);
+            if (array_key_exists('remote', $collection)) {
+                unset($collection['remote']);
             }
-        }
 
-        $this->store($this->collectionData);
+            $data["{$key}"] = [];
+            $data["{$key}"] = array_merge($data["{$key}"], $collection);
+            $data["{$key}"]['items'] = $entries;
+        });
+
+        $this->store($data);
 
         collect($this->collectionData)->where('searchable', true)->each(function ($collection) {
             return (new Search())->index($collection['items']);
