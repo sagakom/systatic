@@ -22,7 +22,7 @@
     },
     "require": {
         "php": "^7.2",
-        "algolia/algoliasearch-client-php": "^2.3",
+        "algolia/algoliasearch-client-php": "^2.4",
         "brick/varexporter": "^0.2.1",
         "erusev/parsedown-extra": "^0.7.1",
         "illuminate/config": "^5.8",
