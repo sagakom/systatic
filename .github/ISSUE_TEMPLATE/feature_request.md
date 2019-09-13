@@ -1,7 +1,7 @@
 ---
 name: "✨ Feature Request"
 about: Request a Systatic feature
-title: '\U0001F680 '
+title: '✨ '
 labels: enhancement
 ---
 

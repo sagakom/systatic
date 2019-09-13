@@ -1,7 +1,7 @@
 ---
 name: "🐛 Bug Report"
 about: Found a bug in Systatic? Report it here!
-title: '\U0001F41B '
+title: '🐛 '
 labels: bug
 ---
 
