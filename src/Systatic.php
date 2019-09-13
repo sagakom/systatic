@@ -6,7 +6,7 @@ use NunoMaduro\Collision\Provider;
 use Damcclean\Systatic\Console\Kernel;
 use Damcclean\Systatic\Plugins\Plugins;
 
-define('SYSTATIC_VERSION', '1.2.4');
+define('SYSTATIC_VERSION', '2.1.4');
 
 class Systatic
 {
