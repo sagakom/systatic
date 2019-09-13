@@ -48,11 +48,11 @@ class Collections extends Store
 
         $this->store($data);
 
-        collect($this->collectionData)->where('searchable', true)->each(function ($collection) {
+        collect($this->get())->where('searchable', true)->each(function ($collection) {
             return (new Search())->index($collection['items']);
         });
 
-        collect($this->collectionData)->reject(function ($collection) {
+        collect($this->get())->reject(function ($collection) {
             if (array_key_exists('build', $collection)) {
                 return $collection['build'] === false;
             }
