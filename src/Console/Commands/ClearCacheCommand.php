@@ -8,7 +8,7 @@ use Damcclean\Systatic\Cache\Cache;
 class ClearCacheCommand extends Command
 {
     protected $signature = 'clear:cache';
-    protected $description = 'Clear site cache';
+    protected $description = 'Clear store and view cache files.';
 
     public function __construct()
     {

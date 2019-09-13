@@ -8,7 +8,7 @@ use Illuminate\Filesystem\Filesystem;
 class InitCommand extends Command
 {
     protected $signature = 'init';
-    protected $description = 'Initialize Systatic';
+    protected $description = 'Create basic directory structure for Systatic.';
 
     public function __construct()
     {

@@ -11,7 +11,7 @@ use Damcclean\Systatic\Config\Config;
 class BuildCommand extends Command
 {
     protected $signature = 'build';
-    protected $description = 'Build your site to your output directory.';
+    protected $description = 'Compiles to output directory.';
 
     public function __construct()
     {

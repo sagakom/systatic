@@ -8,7 +8,7 @@ use Damcclean\Systatic\Import\Ghost;
 class GhostImportCommand extends Command
 {
     protected $signature = 'import:ghost';
-    protected $description = 'Import from Ghost';
+    protected $description = 'Import content to Systatic from Ghost.';
 
     public function __construct()
     {

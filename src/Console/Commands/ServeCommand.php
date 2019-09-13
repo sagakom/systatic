@@ -8,7 +8,7 @@ use Damcclean\Systatic\Config\Config;
 class ServeCommand extends Command
 {
     protected $signature = 'serve';
-    protected $description = 'Serve Systatic';
+    protected $description = 'Start a local web server to view your site in the browser.';
 
     public function __construct()
     {

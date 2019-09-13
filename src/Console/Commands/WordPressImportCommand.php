@@ -8,7 +8,7 @@ use Damcclean\Systatic\Import\WordPress;
 class WordPressImportCommand extends Command
 {
     protected $signature = 'import:wordpress';
-    protected $description = 'Import from WordPress';
+    protected $description = 'Import content to Systatic from WordPress.';
 
     public function __construct()
     {

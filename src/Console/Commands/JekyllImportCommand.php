@@ -8,7 +8,7 @@ use Damcclean\Systatic\Import\Jekyll;
 class JekyllImportCommand extends Command
 {
     protected $signature = 'import:jekyll';
-    protected $description = 'Import from Jekyll';
+    protected $description = 'Import content to Systatic from Jekyll.';
 
     public function __construct()
     {

@@ -9,7 +9,7 @@ use Illuminate\Filesystem\Filesystem;
 class DeployCommand extends Command
 {
     protected $signature = 'deploy';
-    protected $description = 'Deploy Systatic';
+    protected $description = 'Deploy Systatic to Netlify, Heroku or Github Pages.';
 
     public function __construct()
     {

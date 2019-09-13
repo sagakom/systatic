@@ -8,7 +8,7 @@ use Damcclean\Systatic\Cache\Cache;
 class ClearSiteCommand extends Command
 {
     protected $signature = 'clear:site';
-    protected $description = 'Clear HTML output files.';
+    protected $description = 'Clear compiled HTML files from your output directory.';
 
     public function __construct()
     {
