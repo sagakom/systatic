@@ -2,7 +2,7 @@
 
 namespace Damcclean\Systatic\Console\Commands;
 
-use Damcclean\Systatic\Build\Redirects;
+use Damcclean\Systatic\Redirects;
 use Damcclean\Systatic\Cache\Cache;
 use Damcclean\Systatic\Collections\Collections;
 use Illuminate\Console\Command;
