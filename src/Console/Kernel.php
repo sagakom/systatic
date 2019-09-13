@@ -26,7 +26,7 @@ class Kernel
 
     public function commands()
     {
-        $application = new Application($this->container, $this->events, 'Version 2');
+        $application = new Application($this->container, $this->events, 'Version '.SYSTATIC_VERSION);
         $application->setName('Systatic');
 
         $application->add(new InitCommand());
