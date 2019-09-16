@@ -1,6 +1,8 @@
 # Systatic
 > Static Site Generator built on components from the Laravel framework
 
+**Systatic is no longer in active development. Only bug fixes and security fixes will be released from now on.**
+
 * Collections - You can fetch your data from Markdown files or you can get them from remote locations (like a headless CMS).
 * Serverless (quite literally) - Put your site in Git, create a site on Netlify and you're done, essentially.
 * No Frontend Stack - We don't predefine your front-end, we leave that up to you. You'll only going to rip it out anyway.
