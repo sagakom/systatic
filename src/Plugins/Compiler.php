@@ -18,7 +18,7 @@ class Compiler extends Store
     public function getExtensions()
     {
         $extensions = [
-            '.blade.php'
+            '.blade.php',
         ];
 
         $compilers = $this->get();

@@ -4,10 +4,9 @@ namespace Damcclean\Systatic\Collections;
 
 use Carbon\Carbon;
 use Damcclean\Systatic\Config\Config;
-use Damcclean\Systatic\Deciders\LastUpdated;
-use Damcclean\Systatic\Deciders\Permalink;
 use Damcclean\Systatic\Deciders\View;
 use Damcclean\Systatic\Plugins\Compiler;
+use Damcclean\Systatic\Deciders\Permalink;
 
 class Remote
 {

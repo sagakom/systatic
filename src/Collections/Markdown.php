@@ -2,11 +2,11 @@
 
 namespace Damcclean\Systatic\Collections;
 
-use Damcclean\Systatic\Deciders\Permalink;
-use Damcclean\Systatic\Deciders\View;
 use Damcclean\Systatic\Parsers\Yaml;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Deciders\View;
 use Damcclean\Systatic\Plugins\Compiler;
+use Damcclean\Systatic\Deciders\Permalink;
 use Damcclean\Systatic\Parsers\ParsedownExtra;
 
 class Markdown
