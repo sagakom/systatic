@@ -26,6 +26,7 @@ class Entries
         });
 
         $this->entries = $files;
+
         return $this->entries;
     }
 
@@ -45,7 +46,7 @@ class Entries
     {
         return collect((new Collections())->get())->each(function ($collection) use ($slug) {
             collect($collection['items'])->where('slug', $slug)->first(function ($entry) {
-               return $entry;
+                return $entry;
             });
         });
     }
@@ -55,6 +56,7 @@ class Entries
         return collect((new Collections())->get())->each(function ($collection) use ($slug) {
             collect($collection['items'])->where('slug', $slug)->first(function ($entry) use ($collection) {
                 unset($collection['items']);
+
                 return $collection;
             });
         });

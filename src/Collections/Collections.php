@@ -72,6 +72,7 @@ class Collections extends Store
     {
         return collect($this->get())->map(function ($collection) {
             unset($collection['items']);
+
             return $collection;
         })->all();
     }

@@ -25,7 +25,6 @@ function startsWith($string, $starting)
     return substr($string, 0, $len) === $starting;
 }
 
-
 function endsWith($string, $ending)
 {
     $strLength = strlen($string);

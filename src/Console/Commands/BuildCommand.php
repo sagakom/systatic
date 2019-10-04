@@ -2,11 +2,11 @@
 
 namespace Damcclean\Systatic\Console\Commands;
 
+use Illuminate\Console\Command;
 use Damcclean\Systatic\Redirects;
 use Damcclean\Systatic\Cache\Cache;
-use Damcclean\Systatic\Collections\Collections;
-use Illuminate\Console\Command;
 use Damcclean\Systatic\Config\Config;
+use Damcclean\Systatic\Collections\Collections;
 
 class BuildCommand extends Command
 {
