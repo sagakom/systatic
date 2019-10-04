@@ -31,7 +31,7 @@
         "illuminate/events": "^5.8",
         "illuminate/filesystem": "^5.8",
         "jenssegers/blade": "^1.2",
-        "nesbot/carbon": "^2.24",
+        "nesbot/carbon": "^2.25",
         "nunomaduro/collision": "^3.0",
         "symfony/dotenv": "^4.3",
         "symfony/yaml": "^4.3",
