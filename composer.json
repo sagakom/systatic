@@ -35,7 +35,7 @@
         "nunomaduro/collision": "^3.0",
         "symfony/dotenv": "^4.3",
         "symfony/yaml": "^4.3",
-        "tightenco/collect": "^6.3",
+        "tightenco/collect": "^6.4",
         "vlucas/phpdotenv": "^3.6"
     },
     "require-dev": {
